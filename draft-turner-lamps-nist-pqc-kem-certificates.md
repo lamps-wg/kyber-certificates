@@ -1,13 +1,18 @@
 ---
-title: "Algorithm Identifiers for NIST's PQC KEM Algorithms for Use in the Internet X.509 Public Key Infrastructure"
-abbrev: "PQC KEM for Certificates"
+title: Algorithm Identifiers for NIST's PQC Algorithms for Use in the Internet X.509 Public Key Infrastructure
+abbrev: PQC KEM for Certificates
 docname: draft-turner-lamps-nist-pqc-kem-certificates
 category: std
 
 ipr: trust200902
 area: SEC
 workgroup: None
-keyword: Internet-Draft
+keyword:
+  group: "Limited Additional Mechanisms for PKIX and SMIME (lamps)"
+  type: "Working Group"
+  mail: "spasm@ietf.org"
+  arch: "https://mailarchive.ietf.org/arch/browse/spasm/"
+  github: " seanturner/draft-turner-lamps-nist-pqc-kem-certificates"
 
 stand_alone: yes
 smart_quotes: no
@@ -26,7 +31,7 @@ informative:
     target: https://csrc.nist.gov/projects/post-quantum-cryptography
     title: Post-Quantum Cryptography Project
     author:
-      - name: National Insititue of Standards and Technology
+      - org: National Insititue of Standards and Technology
     date: 2016-12-20
 
 
@@ -43,7 +48,7 @@ encoding for public key and private key is also provided.
 # Introduction
 
 The US NIST PQC competition has selected the Candidate 1 and Candidate 2
-algorithms as winners of their PQC competition {{?PQCComp}}. These
+algorithms as winners of their PQC competition {{PQCComp}}. These
 algorithms are KEM algorithms. NIST has also defined object identifiers
 for these algorithms (TODO insert reference).
 
@@ -114,10 +119,12 @@ TODO insert object identifiers
 In the X.509 certificate, the subjectPublicKeyInfo field has the
 SubjectPublicKeyInfo type, which has the following ASN.1 syntax:
 
-    SubjectPublicKeyInfo  ::=  SEQUENCE  {
-        algorithm         AlgorithmIdentifier,
-        subjectPublicKey  BIT STRING
-    }
+~~~
+  SubjectPublicKeyInfo  ::=  SEQUENCE  {
+      algorithm         AlgorithmIdentifier,
+      subjectPublicKey  BIT STRING
+  }
+~~~
 
 <aside markdown="block">
 NOTE: The above syntax is from {{RFC5280}} and matches the version used
@@ -137,10 +144,11 @@ The fields in SubjectPublicKeyInfo have the following meanings:
 The following is an example of a TBD public key encoded using the
 textual encoding defined in {{?RFC7468}}.
 
------BEGIN PUBLIC KEY-----
-TODO insert example public key
------END PUBLIC KEY-----
-
+~~~
+  -----BEGIN PUBLIC KEY-----
+  TODO insert example public key
+  -----END PUBLIC KEY-------
+~~~
 
 # Key Usage Bits
 
@@ -151,13 +159,16 @@ If the keyUsage extension is present in a certificate that indicates
 Candidate 1 or Candidate 2 in SubjectPublicKeyInfo, then the following
 MUST be present:
 
-  keyAgreement;
+~~~
+  keyEncipherment;
+~~~
 
-one of the following MAY also be present:
+all of the following MUST be present:
 
-   encipherOnly; or
-   decipherOnly.
-
+~~~
+  encipherOnly; or
+  decipherOnly.
+~~~
 
 # Private Key Format
 
@@ -166,22 +177,24 @@ key in a structure that both identifies what algorithm the private key
 is for and allows for the public key and additional attributes about the
 key to be included as well. For illustration, the ASN.1 structure
 OneAsymmetricKey is replicated below. The algorithm-specific details of
-how a private key is encoded are left for the
-document describing the algorithm itself.
+how a private key is encoded are left for the document describing the
+algorithm itself.
 
-    OneAsymmetricKey ::= SEQUENCE {
-        version                  Version,
-        privateKeyAlgorithm      PrivateKeyAlgorithmIdentifier,
-        privateKey               PrivateKey,
-        attributes           [0] IMPLICIT Attributes OPTIONAL,
-        ...,
-        [[2: publicKey       [1] IMPLICIT PublicKey OPTIONAL ]],
-        ...
-    }
+~~~
+  OneAsymmetricKey ::= SEQUENCE {
+      version                  Version,
+      privateKeyAlgorithm      PrivateKeyAlgorithmIdentifier,
+      privateKey               PrivateKey,
+      attributes           [0] IMPLICIT Attributes OPTIONAL,
+      ...,
+      [[2: publicKey       [1] IMPLICIT PublicKey OPTIONAL ]],
+      ...
+  }
 
-    PrivateKey ::= OCTET STRING
+  PrivateKey ::= OCTET STRING
 
-    PublicKey ::= BIT STRING
+  PublicKey ::= BIT STRING
+~~~
 
 <aside markdown="block">
 NOTE: The above syntax is from {{RFC5958}} and matches the version used
@@ -196,22 +209,28 @@ OneAsymmetricKey object, the private key is wrapped in a
 PqckemPrivateKey object and wrapped by the OCTET STRING of the
 "privateKey" field.
 
-    PqckemPrivateKey ::= OCTET STRING
+~~~
+  PqckemPrivateKey ::= OCTET STRING
+~~~
 
 The following is an example of a TBD private key encoded using the
 textual encoding defined in {{RFC7468}}.
 
-    -----BEGIN PRIVATE KEY-----
-    TODO iser example private key
-    -----END PRIVATE KEY-----
+~~~
+  -----BEGIN PRIVATE KEY-----
+  TODO iser example private key
+  -----END PRIVATE KEY-------
+~~~
 
 The following example, in addition to encoding the TBD private key,
 has an attribute included as well as the public key. As with the
 prior example, the textual encoding defined in {{RFC7468}} is used.
 
-    -----BEGIN PRIVATE KEY-----
-    TODO insert example private key with attribute
-    -----END PRIVATE KEY------
+~~~
+  -----BEGIN PRIVATE KEY-----
+  TODO insert example private key with attribute
+  -----END PRIVATE KEY-------
+~~~
 
 <aside markdown="block">
 NOTE: There exist some private key import functions that have not
@@ -220,7 +239,7 @@ implemented the new ASN.1 structure OneAsymmetricKey that is defined in
 structure that contains the public key field.  This means a balancing
 act needs to be done between being able to do a consistency check on the
 key pair and widest ability to import the key.
-
+</aside>
 
 # ASN.1 Module
 
