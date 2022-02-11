@@ -108,7 +108,12 @@ that subsystem and not propagated to the Internet.
 
 TODO insert object-identifiers
 
-
+The identifiers defined in this section can be used as the
+AlgorithmIdentifier in the signatureAlgorithm field in the
+sequence Certificate and the signature field in the sequence
+TBSCertificate in X.509 {{RFC5280}}. The parameters of these
+signature algorithms are absent. 
+   
 
 # Subject Public Key Fields
 
