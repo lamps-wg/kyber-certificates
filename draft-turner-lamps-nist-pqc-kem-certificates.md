@@ -53,9 +53,13 @@ algorithms are KEM algorithms. NIST has also defined object identifiers
 for these algorithms (TODO insert reference).
 
 This document specifies the use of the Candidate TBD1 
-algorithms in X.509 public key certifiates, see {{!RFC5280}}. It also
-specifies private key encoding. An ASN.1 module is included for
-reference purposes.
+algorithms in X.509 public key certifiates, see {{!RFC5280}}. 
+More specifically. it defines additional content for the
+signatureAlgorithm, signatureValue, signature, and
+subjectPublicKeyInfo fields within Internet X.509 certificates
+{{RFC3279}} and CRLs {{RFC5280}}. 
+It also specifies private key encoding. 
+An ASN.1 module is included for reference purposes.
 
 
 # Conventions and Definitions
