@@ -27,7 +27,7 @@ author:
 normative:
 
 informative:
-  PQCComp:
+  PQCProj:
     target: https://csrc.nist.gov/projects/post-quantum-cryptography
     title: Post-Quantum Cryptography Project
     author:
@@ -47,8 +47,8 @@ encoding for public key and private key is also provided.
 
 # Introduction
 
-The US NIST PQC competition has selected the Candidate TBD1 
-algorithms as winners of their PQC competition {{PQCComp}}. These
+The US NIST PQC Project has selected the Candidate TBD1 
+algorithms as winners of their PQC Project {{PQCProj}}. These
 algorithms are KEM algorithms. NIST has also defined object identifiers
 for these algorithms (TODO insert reference).
 
