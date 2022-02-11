@@ -61,6 +61,14 @@ subjectPublicKeyInfo fields within Internet X.509 certificates
 It also specifies private key encoding. 
 An ASN.1 module is included for reference purposes.
 
+These certificates could be used as Issuers in CMS where the public key 
+is used to encapsulate a shared secret used to derive a symmetric key 
+used to encrypt content in CMS 
+\[EDNOTE: Add reference draft-perret-prat-lamps-cms-pq-kem\]. 
+To be used in TLS, these certificates could only be used as end-entity 
+identity certificates and would require significant updates to the
+protocol 
+\[EDNOTE: Add reference draft-celi-wiggers-tls-authkem\]. 
 
 # Conventions and Definitions
 
@@ -111,12 +119,6 @@ that subsystem and not propagated to the Internet.
 # Candidate TBD1 {#candidate-1}
 
 TODO insert object-identifiers
-
-The identifiers defined in this section can be used as the
-AlgorithmIdentifier in the signatureAlgorithm field in the
-sequence Certificate and the signature field in the sequence
-TBSCertificate in X.509 {{RFC5280}}. The parameters of these
-signature algorithms are absent. 
    
 
 # Subject Public Key Fields
