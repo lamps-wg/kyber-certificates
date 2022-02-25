@@ -23,6 +23,12 @@ author:
     name: Sean Turner
     organization: sn3rd
     email: sean@sn3rd.com
+    
+-
+    ins: P. Kampanakis
+    name: Panos Kampanakis
+    org: AWS
+    email: kpanos@amazon.com
 
 normative:
 
