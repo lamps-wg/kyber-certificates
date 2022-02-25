@@ -26,7 +26,11 @@ author:
 
 normative:
 
+  RFC5280: 
+
+
 informative:
+  
   PQCProj:
     target: https://csrc.nist.gov/projects/post-quantum-cryptography
     title: Post-Quantum Cryptography Project
@@ -53,18 +57,16 @@ algorithms are KEM algorithms. NIST has also defined object identifiers
 for these algorithms (TODO insert reference).
 
 This document specifies the use of the Candidate TBD1 
-algorithms in X.509 public key certifiates, see {{!RFC5280}}. 
+algorithms in X.509 public key certifiates, see [RFC5280]. 
 It also specifies private key encoding. 
 An ASN.1 module is included for reference purposes.
 
 These certificates could be used as Issuers in CMS where the public key 
 is used to encapsulate a shared secret used to derive a symmetric key 
-used to encrypt content in CMS 
-\[EDNOTE: Add reference draft-perret-prat-lamps-cms-pq-kem\]. 
+used to encrypt content in CMS {{?I-D.perret-prat-lamps-cms-pq-kem}}.
 To be used in TLS, these certificates could only be used as end-entity 
 identity certificates and would require significant updates to the
-protocol 
-\[EDNOTE: Add reference draft-celi-wiggers-tls-authkem\]. 
+protocol {{?I-D.celi-wiggers-tls-authkem}}.
 
 # Conventions and Definitions
 
@@ -73,7 +75,7 @@ protocol
 
 # Algorithm Identifiers
 
-Certificates conforming to {{RFC5280}} can convey a public key for any
+Certificates conforming to [RFC5280] can convey a public key for any
 public key algorithm. The certificate indicates the algorithm through
 an algorithm identifier. An algorithm identifier consists of an object
 identifier and optional parameters.
@@ -87,7 +89,7 @@ is defined as follows:
    }
 
 <aside markdown="block">
-NOTE: The above syntax is from {{RFC5280}} and matches the version used
+NOTE: The above syntax is from [RFC5280] and matches the version used
 therein, i.e., the 1988 ASN.1 syntax. See {{!RFC5912}} for ASN.1
 copmatible with the 2015 ASN.1 syntax.
 </aside>
@@ -112,7 +114,7 @@ where this is not possible, the problem needs to be restricted to
 that subsystem and not propagated to the Internet.
 
 
-# Candidate TBD1 {#candidate-1}
+# Candidate TBD1 {#candidate-TBD1}
 
 TODO insert object-identifiers
    
@@ -130,7 +132,7 @@ SubjectPublicKeyInfo type, which has the following ASN.1 syntax:
 ~~~
 
 <aside markdown="block">
-NOTE: The above syntax is from {{RFC5280}} and matches the version used
+NOTE: The above syntax is from [RFC5280] and matches the version used
 therein, i.e., the 1988 ASN.1 syntax. See {{!RFC5912}} for ASN.1
 copmatible with the 2015 ASN.1 syntax.
 </aside>
@@ -156,7 +158,7 @@ textual encoding defined in {{?RFC7468}}.
 # Key Usage Bits
 
 The intended application for the key is indicated in the keyUsage
-certificate extension; see {{Section 4.2.1.3 of RFC5280}}.
+certificate extension; see [RFC5280, section 4.2.1.3].
 
 If the keyUsage extension is present in a certificate that indicates
 Candidate TBD1 in SubjectPublicKeyInfo, then the following
