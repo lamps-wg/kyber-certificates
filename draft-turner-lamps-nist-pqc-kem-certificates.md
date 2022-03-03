@@ -30,7 +30,7 @@ author:
     org: AWS
     email: kpanos@amazon.com
 
- -
+-
     ins: J. Massimo
     name: Jake Massimo
     organization: AWS
