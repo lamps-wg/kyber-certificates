@@ -59,7 +59,7 @@ and Technology's Post Quantum Cryptography Key Encapsulation Mechanism)
 algorithms. The algorithms covered are Candidate TBD1. The
 encoding for public key and private key is also provided.
 
-/[EDNOTE:
+\[EDNOTE:
 This draft is not expected to be finalized before the NIST PQC Project
 has standardized PQ algorithms. After NIST has standardized its first
 algorithms, this document will replace TBD, with the appropriate
