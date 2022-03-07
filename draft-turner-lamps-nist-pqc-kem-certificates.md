@@ -3,7 +3,8 @@ title: Algorithm Identifiers for NIST's PQC Algorithms for Use in the Internet X
 abbrev: PQC KEM for Certificates
 category: std
 
-docname: draft-turner-lamps-nist-pqc-kem-certificates
+docname: draft-turner-lamps-nist-pqc-kem-certificates-latest
+
 ipr: trust200902
 keyword: Internet-Draft
 area: SEC
