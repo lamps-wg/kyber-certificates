@@ -280,7 +280,7 @@ TODO ASN.1 Module
 
 # Security Considerations
 
-This document updates {{?RFC3279}}. The Security Considerations section of that document therefore applies to this specification as well.
+The Security Considerations section of {{RFC5280}} applies to this specification as well.
 
 \[EDNOTE: Discuss side-channels for Dilithium.\]
 
