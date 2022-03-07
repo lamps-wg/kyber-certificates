@@ -55,6 +55,18 @@ and Technology's Post Quantum Cryptography Key Encapsulation Mechanism)
 algorithms. The algorithms covered are Candidate TBD1. The
 encoding for public key and private key is also provided.
 
+<aside markdown="block">
+This draft is not expected to be finalized before the NIST PQC Project
+has standardized PQ algorithms. After NIST has standardized its first
+algorithms, this document will replace TBD, with the appropriate
+algorithms and parameters before proceeding to ratification. The
+algorithm Dilithium has been added as an example in this draft, to
+provide a more detailed illustration of the content - it by no means
+indicates its inclusion in the final version. This specification will
+use object identifiers for the new algorithms that are assigned by NIST,
+and will use placeholders until these are released.
+</aside>
+
 --- middle
 
 # Introduction
