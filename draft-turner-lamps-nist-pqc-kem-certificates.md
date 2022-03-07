@@ -35,6 +35,11 @@ author:
     name: Jake Massimo
     organization: AWS
     email: jakemas@amazon.com
+-
+    ins: B. Westerbaan
+    name: Bas Westerbaan
+    organization: Cloudflare
+    email: bas@westerbaan.name
 
 normative:
 
