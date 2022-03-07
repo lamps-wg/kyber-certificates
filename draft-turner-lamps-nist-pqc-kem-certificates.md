@@ -5,7 +5,7 @@ category: std
 
 docname: draft-turner-lamps-nist-pqc-kem-certificates
 ipr: trust200902
-keywork: Internet-Draft
+keyword: Internet-Draft
 area: SEC
 workgroup: None
 venue:
