@@ -195,13 +195,6 @@ MUST be present:
   keyEncipherment;
 ~~~
 
-all of the following MUST be present:
-
-~~~
-  encipherOnly; or
-  decipherOnly.
-~~~
-
 # Private Key Format
 
 "Asymmetric Key Packages" {{!RFC5958}} describes how to encode a private
