@@ -64,7 +64,7 @@ This draft is not expected to be finalized before the NIST PQC Project
 has standardized PQ algorithms. After NIST has standardized its first
 algorithms, this document will replace TBD, with the appropriate
 algorithms and parameters before proceeding to ratification. The
-algorithm Dilithium has been added as an example in this draft, to
+algorithm Candidate TBD1 has been added as an example in this draft, to
 provide a more detailed illustration of the content - it by no means
 indicates its inclusion in the final version. This specification will
 use object identifiers for the new algorithms that are assigned by NIST,
@@ -275,7 +275,7 @@ TODO ASN.1 Module
 
 The Security Considerations section of {{RFC5280}} applies to this specification as well.
 
-\[EDNOTE: Discuss side-channels for Dilithium.\]
+\[EDNOTE: Discuss side-channels for Candidate TBD1.\]
 
 
 # IANA Considerations
