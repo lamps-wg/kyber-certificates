@@ -59,7 +59,7 @@ and Technology's Post Quantum Cryptography Key Encapsulation Mechanism)
 algorithms. The algorithms covered are Candidate TBD1. The
 encoding for public key and private key is also provided.
 
-<aside markdown="block">
+/[EDNOTE:
 This draft is not expected to be finalized before the NIST PQC Project
 has standardized PQ algorithms. After NIST has standardized its first
 algorithms, this document will replace TBD, with the appropriate
@@ -68,8 +68,7 @@ algorithm Dilithium has been added as an example in this draft, to
 provide a more detailed illustration of the content - it by no means
 indicates its inclusion in the final version. This specification will
 use object identifiers for the new algorithms that are assigned by NIST,
-and will use placeholders until these are released.
-</aside>
+and will use placeholders until these are released.]
 
 --- middle
 
@@ -109,10 +108,12 @@ identifier and optional parameters.
 The AlgorithmIdentifier type, which is included herein for convenience,
 is defined as follows:
 
+~~~
    AlgorithmIdentifier  ::=  SEQUENCE  {
        algorithm   OBJECT IDENTIFIER,
        parameters  ANY DEFINED BY algorithm OPTIONAL
    }
+~~~
 
 <aside markdown="block">
 NOTE: The above syntax is from {{RFC5280}} and matches the version used
