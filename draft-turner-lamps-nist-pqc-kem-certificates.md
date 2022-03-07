@@ -48,7 +48,7 @@ informative:
     target: https://csrc.nist.gov/projects/post-quantum-cryptography
     title: Post-Quantum Cryptography Project
     author:
-      - org: National Insititue of Standards and Technology
+      - org: National Institute of Standards and Technology
     date: 2016-12-20
 
 
