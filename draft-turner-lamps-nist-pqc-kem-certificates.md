@@ -14,7 +14,7 @@ venue:
   type: "Working Group"
   mail: "spasm@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/spasm/"
-  github: " seanturner/draft-turner-lamps-nist-pqc-kem-certificates"
+  github: seanturner/draft-turner-lamps-nist-pqc-kem-certificates
 
 stand_alone: yes
 smart_quotes: no
