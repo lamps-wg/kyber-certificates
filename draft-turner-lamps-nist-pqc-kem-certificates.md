@@ -1,13 +1,14 @@
 ---
 title: Algorithm Identifiers for NIST's PQC Algorithms for Use in the Internet X.509 Public Key Infrastructure
 abbrev: PQC KEM for Certificates
-docname: draft-turner-lamps-nist-pqc-kem-certificates
 category: std
 
+docname: draft-turner-lamps-nist-pqc-kem-certificates
 ipr: trust200902
+keywork: Internet-Draft
 area: SEC
 workgroup: None
-keyword:
+venue:
   group: "Limited Additional Mechanisms for PKIX and SMIME (lamps)"
   type: "Working Group"
   mail: "spasm@ietf.org"
@@ -23,19 +24,17 @@ author:
     name: Sean Turner
     organization: sn3rd
     email: sean@sn3rd.com
-    
--
+ -
     ins: P. Kampanakis
     name: Panos Kampanakis
     org: AWS
     email: kpanos@amazon.com
-
--
+ -
     ins: J. Massimo
     name: Jake Massimo
     organization: AWS
     email: jakemas@amazon.com
--
+ -
     ins: B. Westerbaan
     name: Bas Westerbaan
     organization: Cloudflare
@@ -141,7 +140,7 @@ where this is not possible, the problem needs to be restricted to
 that subsystem and not propagated to the Internet.
 
 
-# Candidate TBD1 {#candidate-1}
+# Candidate TBD1 {#candidate-TBD1}
 
 TODO insert object-identifiers
    
