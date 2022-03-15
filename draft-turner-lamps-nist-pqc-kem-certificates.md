@@ -75,24 +75,24 @@ and will use placeholders until these are released.]
 
 # Introduction
 
-The US NIST PQC Project has selected the Candidate TBD1 
+The US NIST PQC Project has selected the Candidate TBD1
 algorithms as winners of their PQC Project {{PQCProj}}. These
 algorithms are KEM algorithms. NIST has also defined object identifiers
 for these algorithms (TODO insert reference).
 
-This document specifies the use of the Candidate TBD1 
-algorithms in X.509 public key certifiates, see {{!RFC5280}}. 
-It also specifies private key encoding. 
+This document specifies the use of the Candidate TBD1
+algorithms in X.509 public key certifiates, see {{!RFC5280}}.
+It also specifies private key encoding.
 An ASN.1 module is included for reference purposes.
 
-These certificates could be used as Issuers in CMS where the public key 
-is used to encapsulate a shared secret used to derive a symmetric key 
-used to encrypt content in CMS 
-\[EDNOTE: Add reference draft-perret-prat-lamps-cms-pq-kem\]. 
-To be used in TLS, these certificates could only be used as end-entity 
+These certificates could be used as Issuers in CMS where the public key
+is used to encapsulate a shared secret used to derive a symmetric key
+used to encrypt content in CMS
+\[EDNOTE: Add reference draft-perret-prat-lamps-cms-pq-kem\].
+To be used in TLS, these certificates could only be used as end-entity
 identity certificates and would require significant updates to the
-protocol 
-\[EDNOTE: Add reference draft-celi-wiggers-tls-authkem\]. 
+protocol
+\[EDNOTE: Add reference draft-celi-wiggers-tls-authkem\].
 
 # Conventions and Definitions
 
@@ -145,7 +145,7 @@ that subsystem and not propagated to the Internet.
 # Candidate TBD1 {#candidate-TBD1}
 
 TODO insert object-identifiers
-   
+
 
 # Subject Public Key Fields
 
