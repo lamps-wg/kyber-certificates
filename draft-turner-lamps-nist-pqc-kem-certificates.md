@@ -1,9 +1,9 @@
 ---
-title: Algorithm Identifiers for NIST's PQC Algorithms for Use in the Internet X.509 Public Key Infrastructure
-abbrev: PQC KEM for Certificates
+title: Algorithm Identifiers for NIST's PQC KEM Kyber Algorithm for Use in the Internet X.509 Public Key Infrastructure
+abbrev: PQC Kyber for Certificates
 category: std
 
-docname: draft-turner-lamps-nist-pqc-kem-certificates-latest
+docname: draft-ietf-lamps-nist-pqc-kem-kyber-certificates-latest
 
 ipr: trust200902
 keyword: Internet-Draft
@@ -14,7 +14,7 @@ venue:
   type: "Working Group"
   mail: "spasm@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/spasm/"
-  github: seanturner/draft-turner-lamps-nist-pqc-kem-certificates
+  github: lamps-wg/pqc-kyber-certificates
 
 stand_alone: yes
 smart_quotes: no
