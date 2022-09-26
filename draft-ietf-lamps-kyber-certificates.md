@@ -3,7 +3,7 @@ title: Internet X.509 Public Key Infrastructure - Algorithm Identifiers for Kybe
 abbrev: PQC Kyber in Certificates
 category: std
 
-docname: draft-ietf-lamps-kyber-certificates-00
+docname: draft-ietf-lamps-kyber-certificates-latest
 
 ipr: trust200902
 keyword: Internet-Draft
