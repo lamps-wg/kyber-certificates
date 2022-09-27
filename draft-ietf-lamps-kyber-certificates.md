@@ -8,17 +8,16 @@ docname: draft-ietf-lamps-kyber-certificates-latest
 ipr: trust200902
 keyword: Internet-Draft
 area: SEC
-workgroup: None
+workgroup: LAMPS
 venue:
   group: "Limited Additional Mechanisms for PKIX and SMIME (lamps)"
   type: "Working Group"
   mail: "spasm@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/spasm/"
-  github: seanturner/draft-ietf-lamps-kyber-certificates
+  github: "lamps-wg/kyber-certificates"
+  latest: "https://lamps-wg.github.io/kyber-certificates/#go.draft-ietf-lamps-kyber-certificates.html"
 
-stand_alone: yes
-smart_quotes: no
-pi: [toc, sortrefs, symrefs]
+v: 3
 
 author:
  -
