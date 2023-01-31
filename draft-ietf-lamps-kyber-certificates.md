@@ -53,21 +53,15 @@ informative:
 
 --- abstract
 
-This document specifies algorithm identifiers and ASN.1 encoding format
-for the United States National Institute of Standards and Technology's
-Post Quantum Cryptography Key Encapsulation Mechanism algorithms.
-The algorithms covered are Kyber TBD1. The encoding for public key
-and private key is also provided.
+Kyber is key-encapsulation mechanism (KEM). This document specifies
+algorithm identifiers and ASN.1 encoding format for Kyber in public
+key certificates. The encoding for public and private keys are also
+provided.
 
 \[EDNOTE:
-This draft is not expected to be finalized before the NIST PQC Project
-has standardized PQ algorithms. After NIST has standardized its first
-algorithms, this document will replace TBD, with the appropriate
-algorithms and parameters before proceeding to ratification. The
-algorithm Kyber TBD1 has been added as an example in this draft, to
-provide a more detailed illustration of the content - it by no means
-indicates its inclusion in the final version. This specification will
-use object identifiers for the new algorithms that are assigned by NIST,
+This document is not expected to be finalized before the NIST PQC
+Project has standardized PQ algorithms. This specification will use
+object identifiers for the new algorithms that are assigned by NIST,
 and will use placeholders until these are released.]
 
 --- middle
