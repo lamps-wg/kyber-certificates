@@ -47,7 +47,7 @@ normative:
     date: Feburary 2021
     author:
       org: ITU-T
-      seriesinfo:
+    seriesinfo:
         ISO/IEC: 8824-1:2021
   X.690:
     target: https://www.itu.int/rec/T-REC-X.690
