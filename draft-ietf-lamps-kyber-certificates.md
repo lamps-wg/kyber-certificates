@@ -49,7 +49,7 @@ normative:
       org: ITU-T
     seriesinfo:
         ISO/IEC: 8824-1:2021
-  X.690:
+  X690:
     target: https://www.itu.int/rec/T-REC-X.690
     title: "Information technology - Abstract Syntax Notation One (ASN.1): ASN.1 encoding rules: Specification of Basic Encoding Rules (BER), Canonical Encoding Rules (CER) and Distinguished Encoding Rules (DER)"
     date: Feburary 2021
