@@ -41,6 +41,22 @@ author:
     email: bas@westerbaan.name
 
 normative:
+  X.680:
+    target: https://www.itu.int/rec/T-REC-X.680
+    title: "Information technology - Abstract Syntax Notation One (ASN.1): Specification of basic notation"
+    date: Feburary 2021
+    author:
+      org: ITU-T
+      seriesinfo:
+        ISO/IEC: 8824-1:2021
+  X.690:
+    target: https://www.itu.int/rec/T-REC-X.690
+    title: "Information technology - Abstract Syntax Notation One (ASN.1): ASN.1 encoding rules: Specification of Basic Encoding Rules (BER), Canonical Encoding Rules (CER) and Distinguished Encoding Rules (DER)"
+    date: Feburary 2021
+    author:
+      org: ITU-T
+      seriesinfo:
+        ISO/IEC: 8825-1:2021
 
 informative:
   PQCProj:
@@ -49,7 +65,6 @@ informative:
     author:
       - org: National Institute of Standards and Technology
     date: 2016-12-20
-
 
 --- abstract
 
@@ -74,24 +89,24 @@ and will use placeholders until these are released.]
 
 # Introduction
 
-The US NIST PQC Project has selected the Kyber algorithm
-as winner of their PQC Project {{PQCProj}}. This
-algorithm is a Key Encapsulation Mechanism(KEM). NIST has also defined object identifiers
-for these algorithms (TODO insert reference).
+Kyber is a key-encapasulation mechanism (KEM). In 2022, the US NIST PQC
+Project {{PQCProj}} selected Kyber as the public-key encryption and
+key-establishment winning algorithm. NIST has also defined object
+identifiers for the Kyber algorithms; see (TODO insert reference).
 
-This document specifies the use of the Kyber algorithm
-in X.509 public key certifiates, see {{!RFC5280}}.
-It also specifies private key encoding.
-An ASN.1 module is included for reference purposes.
+This document specifies the use of the Kyber algorithm at three security
+levels, Kyber512, Kyber768, and Kyber1024, in X.509 public key
+certifiates; see {{!RFC5280}}. Public and private key encodings are also
+specified. An ASN.1 module {{X680}} is included for reference purposes.
+Note that as per {{RFC5280}}, certificates use the Distinguished
+Encoding Rules; see {{X690}}.
 
-These certificates could be used as Issuers in CMS where the public key
-is used to encapsulate a shared secret used to derive a symmetric key
-used to encrypt content in CMS
-\[EDNOTE: Add reference draft-perret-prat-lamps-cms-pq-kem\].
-To be used in TLS, these certificates could only be used as end-entity
-identity certificates and would require significant updates to the
-protocol
-\[EDNOTE: Add reference draft-celi-wiggers-tls-authkem\].
+Kyber certificates are used in protocols where the public key is used to
+encapsulate a shared secret used to derive a symmetric key used to
+encrypt a payload; see {{?I-D.ietf-lamps-kyber}}. To be used in
+TLS, Kyber certificates could only be used as end-entity identity
+certificates and would require significant updates to the protocol; see
+{{?I-D.celi-wiggers-tls-authkem}}.
 
 # Conventions and Definitions
 
