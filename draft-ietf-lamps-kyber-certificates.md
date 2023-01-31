@@ -41,7 +41,7 @@ author:
     email: bas@westerbaan.name
 
 normative:
-  X.680:
+  X680:
     target: https://www.itu.int/rec/T-REC-X.680
     title: "Information technology - Abstract Syntax Notation One (ASN.1): Specification of basic notation"
     date: Feburary 2021
