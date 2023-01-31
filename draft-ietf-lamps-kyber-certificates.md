@@ -55,7 +55,7 @@ normative:
     date: Feburary 2021
     author:
       org: ITU-T
-      seriesinfo:
+    seriesinfo:
         ISO/IEC: 8825-1:2021
 
 informative:
