@@ -196,7 +196,7 @@ textual encoding defined in {{?RFC7468}}.
 # Key Usage Bits
 
 The intended application for the key is indicated in the keyUsage
-certificate extension; see {{See Section 4.2.1.3 of RFC5280}}.
+certificate extension; see {{Section 4.2.1.3 of RFC5280}}.
 
 If the keyUsage extension is present in a certificate that indicates
 Kyber TBD1 in SubjectPublicKeyInfo, then the following
