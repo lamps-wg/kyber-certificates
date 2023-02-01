@@ -53,7 +53,7 @@ informative:
 
 --- abstract
 
-Kyber is key-encapsulation mechanism (KEM). This document specifies
+Kyber is a key-encapsulation mechanism (KEM). This document specifies
 algorithm identifiers and ASN.1 encoding format for Kyber in public
 key certificates. The encoding for public and private keys are also
 provided.
