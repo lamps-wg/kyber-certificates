@@ -152,19 +152,18 @@ In the X.509 certificate, the subjectPublicKeyInfo field has the
 SubjectPublicKeyInfo type, which has the following ASN.1 syntax:
 
 ~~~
-  SubjectPublicKeyInfo  ::=  SEQUENCE  {
-      algorithm         AlgorithmIdentifier,
-      subjectPublicKey  BIT STRING
+  SubjectPublicKeyInfo {PUBLIC-KEY: IOSet} ::= SEQUENCE {
+      algorithm        AlgorithmIdentifier {PUBLIC-KEY, {IOSet}},
+      subjectPublicKey BIT STRING
   }
 ~~~
 
 <aside markdown="block">
-NOTE: The above syntax is from {{RFC5280}} and matches the version used
-therein, i.e., the 1988 ASN.1 syntax. See {{!RFC5912}} for ASN.1
-copmatible with the 2015 ASN.1 syntax.
+NOTE: The above syntax is from {{RFC5912}} and is compatible with the
+2021 ASN.1 syntax {{X680}}.
 </aside>
 
-The fields in SubjectPublicKeyInfo have the following meanings:
+The fields in SubjectPublicKeyInfo have the following meaning:
 
 * algorithm is the algorithm identifier and parameters for the
   public key (see above).
@@ -173,8 +172,8 @@ The fields in SubjectPublicKeyInfo have the following meanings:
   algorithms defined in this document always encode the public key
   as TODO pick format e.g., exact multiple of 8 bits?.
 
-The following is an example of a Kyber TBD1 public key encoded using the
-textual encoding defined in {{?RFC7468}}.
+The following is an example of a Kyber-512 public key encoded using the
+textual encoding defined in {{?RFC7468}}:
 
 ~~~
   -----BEGIN PUBLIC KEY-----
