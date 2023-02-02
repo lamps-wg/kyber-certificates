@@ -151,7 +151,7 @@ public key MUST be absent.
 When any of the Kyber AlgorithmIdentifier appears in the
 SubjectPublicKeyInfo field of an X.509 certificate, the key usage
 certificate extension MUST only contain keyEncipherment
-{{Section 4.2.1.3 of RFC 5280}}.
+{{Section 4.2.1.3 of RFC5280}}.
 
 ~~~
   pk-kyber-512 PUBLIC-KEY ::= {
