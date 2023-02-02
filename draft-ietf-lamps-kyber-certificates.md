@@ -4,11 +4,19 @@ abbrev: PQC Kyber in Certificates
 category: std
 
 docname: draft-ietf-lamps-kyber-certificates-latest
-
-ipr: trust200902
-keyword: Internet-Draft
+submissiontype: IETF
+number:
+date:
+consensus: true
+v: 3
 area: SEC
 workgroup: LAMPS
+keyword:
+  Kyber
+  KEM
+  Certificate
+  X.509
+  PKIX
 venue:
   group: "Limited Additional Mechanisms for PKIX and SMIME (lamps)"
   type: "Working Group"
@@ -16,8 +24,6 @@ venue:
   arch: "https://mailarchive.ietf.org/arch/browse/spasm/"
   github: "lamps-wg/kyber-certificates"
   latest: "https://lamps-wg.github.io/kyber-certificates/#go.draft-ietf-lamps-kyber-certificates.html"
-
-v: 3
 
 author:
  -
