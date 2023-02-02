@@ -207,13 +207,22 @@ algorithm itself.
 
 ~~~
   OneAsymmetricKey ::= SEQUENCE {
-      version                  Version,
-      privateKeyAlgorithm      PrivateKeyAlgorithmIdentifier,
-      privateKey               PrivateKey,
-      attributes           [0] IMPLICIT Attributes OPTIONAL,
-      ...,
-      [[2: publicKey       [1] IMPLICIT PublicKey OPTIONAL ]],
-      ...
+    version                  Version,
+    privateKeyAlgorithm      SEQUENCE {
+    algorithm                PUBLIC-KEY.&id({PublicKeySet}),
+    parameters               PUBLIC-KEY.&Params({PublicKeySet}
+                               {@privateKeyAlgorithm.algorithm})
+                                  OPTIONAL}
+    privateKey               OCTET STRING (CONTAINING
+                               PUBLIC-KEY.&PrivateKey({PublicKeySet}
+                                 {@privateKeyAlgorithm.algorithm})),
+    attributes           [0] Attributes OPTIONAL,
+    ...,
+    [[2: publicKey       [1] BIT STRING (CONTAINING
+                               PUBLIC-KEY.&Params({PublicKeySet}
+                                 {@privateKeyAlgorithm.algorithm})
+                                 OPTIONAL,
+    ...
   }
 
   PrivateKey ::= OCTET STRING
@@ -222,9 +231,8 @@ algorithm itself.
 ~~~
 
 <aside markdown="block">
-NOTE: The above syntax is from {{RFC5958}} and matches the version used
-therein, i.e., the 2002 ASN.1 syntax. The syntax used therein is
-compatible with the 2015 ASN.1 syntax.
+NOTE: The above syntax is from {{RFC5958}} and is compatible with the
+2021 ASN.1 syntax {{X680}}.
 </aside>
 
 For the keys defined in this document, the private key is always an
@@ -238,8 +246,8 @@ PqckemPrivateKey object and wrapped by the OCTET STRING of the
   PqckemPrivateKey ::= OCTET STRING
 ~~~
 
-The following is an example of a Kyber TBD private key encoded using the
-textual encoding defined in {{RFC7468}}.
+The following is an example of a Kyber-512 private key encoded using the
+textual encoding defined in {{RFC7468}}:
 
 ~~~
   -----BEGIN PRIVATE KEY-----
@@ -247,9 +255,9 @@ textual encoding defined in {{RFC7468}}.
   -----END PRIVATE KEY-------
 ~~~
 
-The following example, in addition to encoding the Kyber TBD private key,
+The following example, in addition to encoding the Kyber-512 private key,
 has an attribute included as well as the public key. As with the
-prior example, the textual encoding defined in {{RFC7468}} is used.
+prior example, the textual encoding defined in {{RFC7468}} is used:
 
 ~~~
   -----BEGIN PRIVATE KEY-----
