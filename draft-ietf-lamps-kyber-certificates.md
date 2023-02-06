@@ -98,7 +98,7 @@ protocol
 {::boilerplate bcp14-tagged}
 
 
-# Algorithm Identifiers {{Alg-IDs}}
+# Algorithm Identifiers {Alg-IDs}
 
 Certificates conforming to {{RFC5280}} can convey a public key for any
 public key algorithm. The certificate indicates the algorithm through
