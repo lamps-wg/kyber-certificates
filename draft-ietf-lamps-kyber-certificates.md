@@ -59,6 +59,12 @@ normative:
         ISO/IEC: 8825-1:2021
 
 informative:
+  PQCProj:
+    target: https://csrc.nist.gov/projects/post-quantum-cryptography
+    title: Post-Quantum Cryptography Project
+    author:
+      - org: National Institute of Standards and Technology
+    date: 2016-12-20
 
 --- abstract
 
