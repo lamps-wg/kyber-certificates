@@ -116,7 +116,7 @@ certificates and would require significant updates to the protocol; see
 {::boilerplate bcp14-tagged}
 
 
-# Algorithm Identifiers
+# Algorithm Identifiers {#Alg-IDs}
 
 Certificates conforming to {{RFC5280}} can convey a public key for any
 public key algorithm. The certificate indicates the algorithm through
@@ -127,36 +127,38 @@ The AlgorithmIdentifier type, which is included herein for convenience,
 is defined as follows:
 
 ~~~
-   AlgorithmIdentifier  ::=  SEQUENCE  {
-       algorithm   OBJECT IDENTIFIER,
-       parameters  ANY DEFINED BY algorithm OPTIONAL
-   }
+  AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
+    SEQUENCE {
+      algorithm   ALGORITHM-TYPE.&id({AlgorithmSet}),
+      parameters  ALGORITHM-TYPE.
+                    &Params({AlgorithmSet}{@algorithm}) OPTIONAL
+    }
 ~~~
 
 <aside markdown="block">
-NOTE: The above syntax is from {{RFC5280}} and matches the version used
-therein, i.e., the 1988 ASN.1 syntax. See {{!RFC5912}} for ASN.1
-copmatible with the 2015 ASN.1 syntax.
+NOTE: The above syntax is from {{!RFC5912}} and is compatible with the
+2021 ASN.1 syntax {{X680}}.
 </aside>
 
 The fields in AlgorithmIdentifier have the following meanings:
 
 * algorithm identifies the cryptographic algorithm with an object
-  identifier. XXX such OIDs are defined in Sections {{Kyber-TBD1}}.
+  identifier.
 
 * parameters, which are optional, are the associated parameters for
   the algorithm identifier in the algorithm field.
 
-In this document, TODO (specify number) new OIDs for identifying the
-different algorithm and parameter pairs. For all of the object
-identifiers, the parameters MUST be absent.
+{{Kyber-TBD1}} includes object identifiers for Kyber-512, Kyber-768, and
+Kyber-1024. For all of these OIDs, the parameters MUST be absent.
 
-It is possible to find systems that require the parameters to be
+<aside markdown="block">
+NOTE: It is possible to find systems that require the parameters to be
 present. This can be due to either a defect in the original 1997
 syntax or a programming error where developers never got input where
 this was not true. The optimal solution is to fix these systems;
 where this is not possible, the problem needs to be restricted to
 that subsystem and not propagated to the Internet.
+</aside>
 
 
 # Candidate TBD1 {#Kyber-TBD1}
