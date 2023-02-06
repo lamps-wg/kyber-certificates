@@ -89,10 +89,11 @@ and will use placeholders until these are released.]
 
 # Introduction
 
-Kyber is a key-encapasulation mechanism (KEM). This document specifies
-the use of the Kyber algorithm at three security levels, Kyber512,
-Kyber768, and Kyber1024, in X.509 public key certifiates; see
-{{!RFC5280}}. Public and private key encodings are alsospecified.
+Kyber is a key-encapsulation mechanism (KEM) standardized by the US NIST
+PQC Project {{PQCProj}}. This document specifies the use of the Kyber
+algorithm at three security levels, Kyber512, Kyber768, and Kyber1024,
+in X.509 public key certificates; see {{!RFC5280}}. Public and private
+key encodings are also specified.
 
 ## ASN.1 and Kyber Identifiers
 
