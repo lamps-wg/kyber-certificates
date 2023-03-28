@@ -194,7 +194,7 @@ certificate extension MUST only contain keyEncipherment
     PARAMS ARE absent
     CERT-KEY-USAGE
       { keyEncipherment }
-    PRIVATE-KEY Kyber-PrivateKey }
+    }
 ~~~
 
 
