@@ -161,9 +161,54 @@ that subsystem and not propagated to the Internet.
 </aside>
 
 
-# Candidate TBD1 {#Kyber-TBD1}
+# Kyber Public Key Identifiers {#Kyber-TBD1}
 
-TODO insert object-identifiers for Kyber-768, Kyber-1024 etc.
+The AlgorithmIdentifier for a Kyber public key MUST use one of the
+id-alg-kyber object identifiers listed below, based on the security
+level. The parameters field of the AlgorithmIdentifier for the Kyber
+public key MUST be absent.
+
+When any of the Kyber AlgorithmIdentifier appears in the
+SubjectPublicKeyInfo field of an X.509 certificate, the key usage
+certificate extension MUST only contain keyEncipherment
+{{Section 4.2.1.3 of RFC5280}}.
+
+~~~
+  pk-kyber-512 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-kyber-512
+    -- KEY no ASN.1 wrapping --
+    PARAMS ARE absent
+    CERT-KEY-USAGE
+      { keyEncipherment }
+    --- PRIVATE-KEY no ASN.1 wrapping --
+    }
+
+  pk-kyber-768 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-kyber-768
+    -- KEY no ASN.1 wrapping --
+    PARAMS ARE absent
+    CERT-KEY-USAGE
+      { keyEncipherment }
+    --- PRIVATE-KEY no ASN.1 wrapping --
+    }
+
+  pk-kyber-1024 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-kyber-1024
+    -- KEY no ASN.1 wrapping --
+    PARAMS ARE absent
+    CERT-KEY-USAGE
+      { keyEncipherment }
+    --- PRIVATE-KEY no ASN.1 wrapping --
+    }
+~~~
+
+
+
+<aside markdown="block">
+NOTE: As noted in {{Alg-IDs}}, the values for these object identifers
+will be assigned by NIST.  Once assigned, they will be added to a future
+revision of this document.
+</aside>
 
 
 # Subject Public Key Fields
@@ -201,18 +246,6 @@ textual encoding defined in {{?RFC7468}}:
   -----END PUBLIC KEY-------
 ~~~
 
-# Key Usage Bits
-
-The intended application for the key is indicated in the keyUsage
-certificate extension; see {{Section 4.2.1.3 of RFC5280}}.
-
-If the keyUsage extension is present in a certificate that indicates
-Kyber TBD1 in SubjectPublicKeyInfo, then the following
-MUST be present:
-
-~~~
-  keyEncipherment;
-~~~
 
 # Private Key Format
 
