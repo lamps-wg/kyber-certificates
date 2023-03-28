@@ -178,7 +178,7 @@ certificate extension MUST only contain keyEncipherment
     PARAMS ARE absent
     CERT-KEY-USAGE
       { keyEncipherment }
-    PRIVATE-KEY Kyber-PrivateKey }
+    }
 
   pk-kyber-768 PUBLIC-KEY ::= {
     IDENTIFIER id-alg-kyber-768
