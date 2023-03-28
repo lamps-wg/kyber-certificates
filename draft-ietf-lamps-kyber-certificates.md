@@ -205,7 +205,7 @@ certificate extension MUST only contain keyEncipherment
 
 
 <aside markdown="block">
-NOTE: As noted in {{Alg-IDs}}, the values for these object identifers
+NOTE: As noted in Section 3, the values for these object identifers
 will be assigned by NIST.  Once assigned, they will be added to a future
 revision of this document.
 </aside>
