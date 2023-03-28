@@ -174,7 +174,7 @@ certificate extension MUST only contain keyEncipherment
 ~~~
   pk-kyber-512 PUBLIC-KEY ::= {
     IDENTIFIER id-alg-kyber-512
-    KEY Kyber-PublicKey
+    -- KEY no ASN.1 wrapping --
     PARAMS ARE absent
     CERT-KEY-USAGE
       { keyEncipherment }
@@ -182,7 +182,7 @@ certificate extension MUST only contain keyEncipherment
 
   pk-kyber-768 PUBLIC-KEY ::= {
     IDENTIFIER id-alg-kyber-768
-    KEY Kyber-PublicKey
+    -- KEY no ASN.1 wrapping --
     PARAMS ARE absent
     CERT-KEY-USAGE
       { keyEncipherment }
@@ -190,14 +190,13 @@ certificate extension MUST only contain keyEncipherment
 
   pk-kyber-1024 PUBLIC-KEY ::= {
     IDENTIFIER id-alg-kyber-1024
-    KEY Kyber-PublicKey
+    -- KEY no ASN.1 wrapping --
     PARAMS ARE absent
     CERT-KEY-USAGE
       { keyEncipherment }
     PRIVATE-KEY Kyber-PrivateKey }
 ~~~
 
-Kyber-PublicKey ::= OCTET STRING
 
 Kyber-PrivateKey ::= OCTET STRING
 
