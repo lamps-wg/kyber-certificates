@@ -196,6 +196,7 @@ certificate extension MUST only contain keyEncipherment
     PARAMS ARE absent
     CERT-KEY-USAGE
       { keyEncipherment }
+    --- PRIVATE-KEY no ASN.1 wrapping --
     }
 ~~~
 
