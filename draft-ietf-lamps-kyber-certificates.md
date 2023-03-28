@@ -198,7 +198,6 @@ certificate extension MUST only contain keyEncipherment
 ~~~
 
 
-Kyber-PrivateKey ::= OCTET STRING
 
 <aside markdown="block">
 NOTE: As noted in {{Alg-IDs}}, the values for these object identifers
