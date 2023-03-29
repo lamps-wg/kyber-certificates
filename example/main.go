@@ -41,17 +41,12 @@ func main() {
 		},
 	}
 
-	aps, err := asn1.Marshal(psk)
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	ask := oneAsymmetricKey{
 		Version: 0,
 		Algorithm: pkix.AlgorithmIdentifier{
 			Algorithm: asn1.ObjectIdentifier{1, 3, 6, 1, 4, 1, 44363, 45, 1234, 1}, // TODO
 		},
-		PrivateKey: aps,
+		PrivateKey: psk,
 	}
 
 	papk, err := asn1.Marshal(apk)
