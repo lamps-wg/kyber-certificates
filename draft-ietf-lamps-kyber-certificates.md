@@ -79,12 +79,11 @@ algorithm identifiers and ASN.1 encoding format for Kyber in public
 key certificates. The encoding for public and private keys are also
 provided.
 
-<aside markdown="block">
-: This document is not expected to be finalized before the NIST PQC
-  Project has standardized PQ algorithms. This specification will use
-  object identifiers for the new algorithms that are assigned by NIST,
-  and will use placeholders until these are released.
-</aside>
+\ [EDNOTE:
+This document is not expected to be finalized before the NIST PQC
+Project has standardized PQ algorithms. This specification will use
+object identifiers for the new algorithms that are assigned by NIST,
+and will use placeholders until these are released.
 
 --- middle
 
