@@ -4,48 +4,43 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>Algorithm Identifiers for NIST's PQC Algorithms for Use in the Internet X.509 Public Key Infrastructure</title>
+<title>Internet X.509 Public Key Infrastructure - Algorithm Identifiers for Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)</title>
 <meta content="Sean Turner" name="author">
 <meta content="Panos Kampanakis" name="author">
 <meta content="Jake Massimo" name="author">
 <meta content="Bas Westerbaan" name="author">
 <meta content="
-       This document specifies algorithm identifiers and ASN.1 encoding format
-for the US NIST's PQC KEM (United States National Institute of Standards
-and Technology's Post Quantum Cryptography Key Encapsulation Mechanism)
-algorithms. The algorithms covered are Candidate TBD1. The
-encoding for public key and private key is also provided. 
-       [EDNOTE:
-This draft is not expected to be finalized before the NIST PQC Project
-has standardized PQ algorithms. After NIST has standardized its first
-algorithms, this document will replace TBD, with the appropriate
-algorithms and parameters before proceeding to ratification. The
-algorithm Candidate TBD1 has been added as an example in this draft, to
-provide a more detailed illustration of the content - it by no means
-indicates its inclusion in the final version. This specification will
-use object identifiers for the new algorithms that are assigned by NIST,
-and will use placeholders until these are released.] 
+       Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), also
+known as Kyber, is a key-encapsulation mechanism (KEM). This
+document specifies algorithm identifiers and ASN.1 encoding
+format for ML-KEM in public key certificates. The encoding for
+public and private keys are also provided. 
+       \ [EDNOTE:
+This document is not expected to be finalized before the NIST PQC
+Project has standardized PQ algorithms. This specification will use
+object identifiers for the new algorithms that are assigned by NIST,
+and will use placeholders until these are released. 
     " name="description">
-<meta content="xml2rfc 3.18.2" name="generator">
-<meta content="Internet-Draft" name="keyword">
-<meta content="draft-turner-lamps-nist-pqc-kem-certificates-latest" name="ietf.draft">
+<meta content="xml2rfc 3.19.0" name="generator">
+<meta content="Kyber KEM Certificate X.509 PKIX" name="keyword">
+<meta content="draft-ietf-lamps-kyber-certificates-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.18.2
+  xml2rfc 3.19.0
     Python 3.11.6
-    ConfigArgParse 1.5.3
+    ConfigArgParse 1.7
     google-i18n-address 3.1.0
     intervaltree 3.1.0
     Jinja2 3.1.2
     lxml 4.9.3
-    platformdirs 3.11.0
+    platformdirs 4.1.0
     pycountry 22.3.5
-    PyYAML 6.0
+    PyYAML 6.0.1
     requests 2.31.0
-    setuptools 67.7.2
+    setuptools 68.2.2
     six 1.16.0
-    wcwidth 0.2.8
+    wcwidth 0.2.12
 -->
-<link href="draft-turner-lamps-nist-pqc-kem-certificates.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-ietf-lamps-kyber-certificates.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">@font-face {
   font-family: 'Lora';
@@ -1041,12 +1036,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
-<td class="center">PQC KEM for Certificates</td>
-<td class="right">October 2023</td>
+<td class="center">ML-KEM in Certificates</td>
+<td class="right">December 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Turner, et al.</td>
-<td class="center">Expires 25 April 2024</td>
+<td class="center">Expires 22 June 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1054,17 +1049,17 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div id="internal-metadata" class="document-information">
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
-<dd class="workgroup">None</dd>
+<dd class="workgroup">LAMPS</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-turner-lamps-nist-pqc-kem-certificates-latest</dd>
+<dd class="internet-draft">draft-ietf-lamps-kyber-certificates-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-10-23" class="published">23 October 2023</time>
+<time datetime="2023-12-20" class="published">20 December 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-04-25">25 April 2024</time></dd>
+<dd class="expires"><time datetime="2024-06-22">22 June 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1086,24 +1081,19 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
 </dl>
 </div>
-<h1 id="title">Algorithm Identifiers for NIST's PQC Algorithms for Use in the Internet X.509 Public Key Infrastructure</h1>
+<h1 id="title">Internet X.509 Public Key Infrastructure - Algorithm Identifiers for Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document specifies algorithm identifiers and ASN.1 encoding format
-for the US NIST's PQC KEM (United States National Institute of Standards
-and Technology's Post Quantum Cryptography Key Encapsulation Mechanism)
-algorithms. The algorithms covered are Candidate TBD1. The
-encoding for public key and private key is also provided.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
-<p id="section-abstract-2">[EDNOTE:
-This draft is not expected to be finalized before the NIST PQC Project
-has standardized PQ algorithms. After NIST has standardized its first
-algorithms, this document will replace TBD, with the appropriate
-algorithms and parameters before proceeding to ratification. The
-algorithm Candidate TBD1 has been added as an example in this draft, to
-provide a more detailed illustration of the content - it by no means
-indicates its inclusion in the final version. This specification will
-use object identifiers for the new algorithms that are assigned by NIST,
-and will use placeholders until these are released.]<a href="#section-abstract-2" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), also
+known as Kyber, is a key-encapsulation mechanism (KEM). This
+document specifies algorithm identifiers and ASN.1 encoding
+format for ML-KEM in public key certificates. The encoding for
+public and private keys are also provided.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-2">\ [EDNOTE:
+This document is not expected to be finalized before the NIST PQC
+Project has standardized PQ algorithms. This specification will use
+object identifiers for the new algorithms that are assigned by NIST,
+and will use placeholders until these are released.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1111,14 +1101,15 @@ and will use placeholders until these are released.]<a href="#section-abstract-2
       </h2>
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">
-        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-turner-lamps-nist-pqc-kem-certificates/">https://datatracker.ietf.org/doc/draft-turner-lamps-nist-pqc-kem-certificates/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+        The latest revision of this draft can be found at <span><a href="https://lamps-wg.github.io/kyber-certificates/#go.draft-ietf-lamps-kyber-certificates.html">https://lamps-wg.github.io/kyber-certificates/#go.draft-ietf-lamps-kyber-certificates.html</a></span>.
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-ietf-lamps-kyber-certificates/">https://datatracker.ietf.org/doc/draft-ietf-lamps-kyber-certificates/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">
         Discussion of this document takes place on the
         Limited Additional Mechanisms for PKIX and SMIME (lamps) Working Group mailing list (<span><a href="mailto:spasm@ietf.org">mailto:spasm@ietf.org</a></span>),
         which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/spasm/">https://mailarchive.ietf.org/arch/browse/spasm/</a></span>.
         Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/spasm/">https://www.ietf.org/mailman/listinfo/spasm/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <p id="section-note.1-4">Source for this draft and an issue tracker can be found at
-        <span><a href="https://github.com/seanturner/draft-turner-lamps-nist-pqc-kem-certificates">https://github.com/seanturner/draft-turner-lamps-nist-pqc-kem-certificates</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
+        <span><a href="https://github.com/lamps-wg/kyber-certificates">https://github.com/lamps-wg/kyber-certificates</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1139,7 +1130,7 @@ and will use placeholders until these are released.]<a href="#section-abstract-2
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 25 April 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 22 June 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1170,50 +1161,55 @@ and will use placeholders until these are released.]<a href="#section-abstract-2
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-asn1-and-ml-kem-identifiers" class="internal xref">ASN.1 and ML-KEM Identifiers</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.2">
+                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-applicability-statement" class="internal xref">Applicability Statement</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
+            <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-algorithm-identifiers" class="internal xref">Algorithm Identifiers</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-algorithm-identifiers" class="internal xref">Algorithm Identifiers</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-candidate-tbd1" class="internal xref">Candidate TBD1</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-ml-kem-public-key-identifie" class="internal xref">ML-KEM Public Key Identifiers</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-subject-public-key-fields" class="internal xref">Subject Public Key Fields</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-key-usage-bits" class="internal xref">Key Usage Bits</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-private-key-format" class="internal xref">Private Key Format</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-private-key-format" class="internal xref">Private Key Format</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-asn1-module" class="internal xref">ASN.1 Module</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-asn1-module" class="internal xref">ASN.1 Module</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-references" class="internal xref">References</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-references" class="internal xref">References</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.1">
-                <p id="section-toc.1-1.11.2.1.1"><a href="#section-11.1" class="auto internal xref">11.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
+                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="auto internal xref">10.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.2">
-                <p id="section-toc.1-1.11.2.2.1"><a href="#section-11.2" class="auto internal xref">11.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2">
+                <p id="section-toc.1-1.10.2.2.1"><a href="#section-10.2" class="auto internal xref">10.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
+            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1224,22 +1220,36 @@ and will use placeholders until these are released.]<a href="#section-abstract-2
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">The US NIST PQC Project has selected the Candidate TBD1
-algorithms as winners of their PQC Project <span>[<a href="#PQCProj" class="cite xref">PQCProj</a>]</span>. These
-algorithms are KEM algorithms. NIST has also defined object identifiers
-for these algorithms (TODO insert reference).<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">This document specifies the use of the Candidate TBD1
-algorithms in X.509 public key certifiates, see <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.
-It also specifies private key encoding.
-An ASN.1 module is included for reference purposes.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">These certificates could be used as Issuers in CMS where the public key
-is used to encapsulate a shared secret used to derive a symmetric key
-used to encrypt content in CMS
-[EDNOTE: Add reference draft-perret-prat-lamps-cms-pq-kem].
-To be used in TLS, these certificates could only be used as end-entity
-identity certificates and would require significant updates to the
-protocol
-[EDNOTE: Add reference draft-celi-wiggers-tls-authkem].<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-1">Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), also
+known as Kyber, is a key-encapsulation mechanism (KEM) standardized
+by the US NIST PQC Project <span>[<a href="#DRAFTFIPS203" class="cite xref">DRAFTFIPS203</a>]</span>. This document specifies the
+use of the ML-KEM algorithm at three security levels: ML-KEM-512,
+ML-KEM-768, and ML-KEM-1024, in X.509 public key certificates; see
+<span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>. Public and private key encodings are also specified.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<div id="asn1-and-ml-kem-identifiers">
+<section id="section-1.1">
+        <h3 id="name-asn1-and-ml-kem-identifiers">
+<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-asn1-and-ml-kem-identifiers" class="section-name selfRef">ASN.1 and ML-KEM Identifiers</a>
+        </h3>
+<p id="section-1.1-1">An ASN.1 module <span>[<a href="#X680" class="cite xref">X680</a>]</span> is included for reference purposes. Note that
+as per <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>, certificates use the Distinguished Encoding Rules;
+see <span>[<a href="#X690" class="cite xref">X690</a>]</span>. Also note that NIST defined the object identifiers for
+the ML-KEM algorithms in an ASN.1 modulle; see (TODO insert reference).<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="applicability-statement">
+<section id="section-1.2">
+        <h3 id="name-applicability-statement">
+<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-applicability-statement" class="section-name selfRef">Applicability Statement</a>
+        </h3>
+<p id="section-1.2-1">ML-KEM certificates are used in protocols where the public key is used to
+generate and encapsulate a shared secret used to derive a symmetric key used to
+encrypt a payload; see <span>[<a href="#I-D.ietf-lamps-kyber" class="cite xref">I-D.ietf-lamps-kyber</a>]</span>. To be used in
+TLS, ML-KEM certificates could only be used as end-entity identity
+certificates and would require significant updates to the protocol; see
+<span>[<a href="#I-D.celi-wiggers-tls-authkem" class="cite xref">I-D.celi-wiggers-tls-authkem</a>]</span>.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1266,45 +1276,89 @@ identifier and optional parameters.<a href="#section-3-1" class="pilcrow">¶</a>
 is defined as follows:<a href="#section-3-2" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-3-3">
 <pre>
-   AlgorithmIdentifier  ::=  SEQUENCE  {
-       algorithm   OBJECT IDENTIFIER,
-       parameters  ANY DEFINED BY algorithm OPTIONAL
-   }
+  AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
+    SEQUENCE {
+      algorithm   ALGORITHM-TYPE.&amp;id({AlgorithmSet}),
+      parameters  ALGORITHM-TYPE.
+                    &amp;Params({AlgorithmSet}{@algorithm}) OPTIONAL
+    }
 </pre><a href="#section-3-3" class="pilcrow">¶</a>
 </div>
 <aside id="section-3-4">
-        <p id="section-3-4.1">NOTE: The above syntax is from <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> and matches the version used
-therein, i.e., the 1988 ASN.1 syntax. See <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> for ASN.1
-copmatible with the 2015 ASN.1 syntax.<a href="#section-3-4.1" class="pilcrow">¶</a></p>
+        <p id="section-3-4.1">: The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the
+  2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.<a href="#section-3-4.1" class="pilcrow">¶</a></p>
 </aside>
 <p id="section-3-5">The fields in AlgorithmIdentifier have the following meanings:<a href="#section-3-5" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3-6.1">
           <p id="section-3-6.1.1">algorithm identifies the cryptographic algorithm with an object
-identifier. XXX such OIDs are defined in Sections <a href="#candidate-TBD1" class="auto internal xref">Section 4</a>.<a href="#section-3-6.1.1" class="pilcrow">¶</a></p>
+identifier.<a href="#section-3-6.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-6.2">
           <p id="section-3-6.2.1">parameters, which are optional, are the associated parameters for
 the algorithm identifier in the algorithm field.<a href="#section-3-6.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-3-7">In this document, TODO (specify number) new OIDs for identifying the
-different algorithm and parameter pairs. For all of the object
-identifiers, the parameters <span class="bcp14">MUST</span> be absent.<a href="#section-3-7" class="pilcrow">¶</a></p>
-<p id="section-3-8">It is possible to find systems that require the parameters to be
-present. This can be due to either a defect in the original 1997
-syntax or a programming error where developers never got input where
-this was not true. The optimal solution is to fix these systems;
-where this is not possible, the problem needs to be restricted to
-that subsystem and not propagated to the Internet.<a href="#section-3-8" class="pilcrow">¶</a></p>
+<p id="section-3-7"><a href="#ML-KEM-TBD1" class="auto internal xref">Section 4</a> includes object identifiers for ML-KEM-512, ML-KEM-768, and
+ML-KEM-1024. For all of these OIDs, the parameters <span class="bcp14">MUST</span> be absent.<a href="#section-3-7" class="pilcrow">¶</a></p>
+<aside id="section-3-8">
+        <p id="section-3-8.1">: It is possible to find systems that require the parameters to be
+  present. This can be due to either a defect in the original 1997
+  syntax or a programming error where developers never got input where
+  this was not true. The optimal solution is to fix these systems;
+  where this is not possible, the problem needs to be restricted to
+  that subsystem and not propagated to the Internet.<a href="#section-3-8.1" class="pilcrow">¶</a></p>
+</aside>
 </section>
 </div>
-<div id="candidate-TBD1">
+<div id="ML-KEM-TBD1">
 <section id="section-4">
-      <h2 id="name-candidate-tbd1">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-candidate-tbd1" class="section-name selfRef">Candidate TBD1</a>
+      <h2 id="name-ml-kem-public-key-identifie">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-ml-kem-public-key-identifie" class="section-name selfRef">ML-KEM Public Key Identifiers</a>
       </h2>
-<p id="section-4-1">TODO insert object-identifiers<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">The AlgorithmIdentifier for a ML-KEM public key <span class="bcp14">MUST</span> use one of the
+id-alg-ml-kem object identifiers listed below, based on the security
+level. The parameters field of the AlgorithmIdentifier for the ML-KEM
+public key <span class="bcp14">MUST</span> be absent.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-2">When any of the ML-KEM AlgorithmIdentifier appears in the
+SubjectPublicKeyInfo field of an X.509 certificate, the key usage
+certificate extension <span class="bcp14">MUST</span> only contain keyEncipherment
+<span><a href="https://rfc-editor.org/rfc/rfc5280#section-4.2.1.3" class="relref">Section 4.2.1.3</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.<a href="#section-4-2" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4-3">
+<pre>
+  pk-ml-kem-512 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-ml-kem-512
+    -- KEY no ASN.1 wrapping --
+    PARAMS ARE absent
+    CERT-KEY-USAGE
+      { keyEncipherment }
+    --- PRIVATE-KEY no ASN.1 wrapping --
+    }
+
+  pk-ml-kem-768 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-ml-kem-768
+    -- KEY no ASN.1 wrapping --
+    PARAMS ARE absent
+    CERT-KEY-USAGE
+      { keyEncipherment }
+    --- PRIVATE-KEY no ASN.1 wrapping --
+    }
+
+  pk-ml-kem-1024 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-ml-kem-1024
+    -- KEY no ASN.1 wrapping --
+    PARAMS ARE absent
+    CERT-KEY-USAGE
+      { keyEncipherment }
+    --- PRIVATE-KEY no ASN.1 wrapping --
+    }
+</pre><a href="#section-4-3" class="pilcrow">¶</a>
+</div>
+<aside id="section-4-4">
+        <p id="section-4-4.1">: As noted in Section 3, the values for these object identifers
+  will be assigned by NIST.  Once assigned, they will be added to a future
+  revision of this document.<a href="#section-4-4.1" class="pilcrow">¶</a></p>
+</aside>
 </section>
 </div>
 <div id="subject-public-key-fields">
@@ -1316,18 +1370,17 @@ that subsystem and not propagated to the Internet.<a href="#section-3-8" class="
 SubjectPublicKeyInfo type, which has the following ASN.1 syntax:<a href="#section-5-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5-2">
 <pre>
-  SubjectPublicKeyInfo  ::=  SEQUENCE  {
-      algorithm         AlgorithmIdentifier,
-      subjectPublicKey  BIT STRING
+  SubjectPublicKeyInfo {PUBLIC-KEY: IOSet} ::= SEQUENCE {
+      algorithm        AlgorithmIdentifier {PUBLIC-KEY, {IOSet}},
+      subjectPublicKey BIT STRING
   }
 </pre><a href="#section-5-2" class="pilcrow">¶</a>
 </div>
 <aside id="section-5-3">
-        <p id="section-5-3.1">NOTE: The above syntax is from <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> and matches the version used
-therein, i.e., the 1988 ASN.1 syntax. See <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> for ASN.1
-copmatible with the 2015 ASN.1 syntax.<a href="#section-5-3.1" class="pilcrow">¶</a></p>
+        <p id="section-5-3.1">: The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the
+  2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.<a href="#section-5-3.1" class="pilcrow">¶</a></p>
 </aside>
-<p id="section-5-4">The fields in SubjectPublicKeyInfo have the following meanings:<a href="#section-5-4" class="pilcrow">¶</a></p>
+<p id="section-5-4">The fields in SubjectPublicKeyInfo have the following meaning:<a href="#section-5-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5-5.1">
           <p id="section-5-5.1.1">algorithm is the algorithm identifier and parameters for the
@@ -1339,8 +1392,8 @@ algorithms defined in this document always encode the public key
 as TODO pick format e.g., exact multiple of 8 bits?.<a href="#section-5-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-5-6">The following is an example of a TBD public key encoded using the
-textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-5-6" class="pilcrow">¶</a></p>
+<p id="section-5-6">The following is an example of a ML-KEM-512 public key encoded using the
+textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>:<a href="#section-5-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5-7">
 <pre>
   -----BEGIN PUBLIC KEY-----
@@ -1350,130 +1403,121 @@ textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468<
 </div>
 </section>
 </div>
-<div id="key-usage-bits">
-<section id="section-6">
-      <h2 id="name-key-usage-bits">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-key-usage-bits" class="section-name selfRef">Key Usage Bits</a>
-      </h2>
-<p id="section-6-1">The intended application for the key is indicated in the keyUsage
-certificate extension; see <span><a href="https://rfc-editor.org/rfc/rfc5280#section-4.2.1.3" class="relref">Section 4.2.1.3</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.<a href="#section-6-1" class="pilcrow">¶</a></p>
-<p id="section-6-2">If the keyUsage extension is present in a certificate that indicates
-Candidate TBD1 in SubjectPublicKeyInfo, then the following
-<span class="bcp14">MUST</span> be present:<a href="#section-6-2" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-6-3">
-<pre>
-  keyEncipherment;
-</pre><a href="#section-6-3" class="pilcrow">¶</a>
-</div>
-</section>
-</div>
 <div id="private-key-format">
-<section id="section-7">
+<section id="section-6">
       <h2 id="name-private-key-format">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-private-key-format" class="section-name selfRef">Private Key Format</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-private-key-format" class="section-name selfRef">Private Key Format</a>
       </h2>
-<p id="section-7-1">"Asymmetric Key Packages" <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> describes how to encode a private
+<p id="section-6-1">"Asymmetric Key Packages" <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> describes how to encode a private
 key in a structure that both identifies what algorithm the private key
 is for and allows for the public key and additional attributes about the
 key to be included as well. For illustration, the ASN.1 structure
 OneAsymmetricKey is replicated below. The algorithm-specific details of
 how a private key is encoded are left for the document describing the
-algorithm itself.<a href="#section-7-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-7-2">
+algorithm itself.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-6-2">
 <pre>
   OneAsymmetricKey ::= SEQUENCE {
-      version                  Version,
-      privateKeyAlgorithm      PrivateKeyAlgorithmIdentifier,
-      privateKey               PrivateKey,
-      attributes           [0] IMPLICIT Attributes OPTIONAL,
-      ...,
-      [[2: publicKey       [1] IMPLICIT PublicKey OPTIONAL ]],
-      ...
+    version                  Version,
+    privateKeyAlgorithm      SEQUENCE {
+    algorithm                PUBLIC-KEY.&amp;id({PublicKeySet}),
+    parameters               PUBLIC-KEY.&amp;Params({PublicKeySet}
+                               {@privateKeyAlgorithm.algorithm})
+                                  OPTIONAL}
+    privateKey               OCTET STRING (CONTAINING
+                               PUBLIC-KEY.&amp;PrivateKey({PublicKeySet}
+                                 {@privateKeyAlgorithm.algorithm})),
+    attributes           [0] Attributes OPTIONAL,
+    ...,
+    [[2: publicKey       [1] BIT STRING (CONTAINING
+                               PUBLIC-KEY.&amp;Params({PublicKeySet}
+                                 {@privateKeyAlgorithm.algorithm})
+                                 OPTIONAL,
+    ...
   }
 
   PrivateKey ::= OCTET STRING
 
   PublicKey ::= BIT STRING
-</pre><a href="#section-7-2" class="pilcrow">¶</a>
+</pre><a href="#section-6-2" class="pilcrow">¶</a>
 </div>
-<aside id="section-7-3">
-        <p id="section-7-3.1">NOTE: The above syntax is from <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> and matches the version used
-therein, i.e., the 2002 ASN.1 syntax. The syntax used therein is
-compatible with the 2015 ASN.1 syntax.<a href="#section-7-3.1" class="pilcrow">¶</a></p>
+<aside id="section-6-3">
+        <p id="section-6-3.1">: The above syntax is from <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> and is compatible with the
+  2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.<a href="#section-6-3.1" class="pilcrow">¶</a></p>
 </aside>
-<p id="section-7-4">For the keys defined in this document, the private key is always an
+<p id="section-6-4">For the keys defined in this document, the private key is always an
 opaque byte sequence. The ASN.1 type PqckemPrivateKey is defined in
 this document to hold the byte sequence. Thus, when encoding a
 OneAsymmetricKey object, the private key is wrapped in a
 PqckemPrivateKey object and wrapped by the OCTET STRING of the
-"privateKey" field.<a href="#section-7-4" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-7-5">
+"privateKey" field.<a href="#section-6-4" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-6-5">
 <pre>
   PqckemPrivateKey ::= OCTET STRING
-</pre><a href="#section-7-5" class="pilcrow">¶</a>
+</pre><a href="#section-6-5" class="pilcrow">¶</a>
 </div>
-<p id="section-7-6">The following is an example of a TBD private key encoded using the
-textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-7-6" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-7-7">
+<p id="section-6-6">The following is an example of a ML-KEM-512 private key encoded using the
+textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>:<a href="#section-6-6" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-6-7">
 <pre>
   -----BEGIN PRIVATE KEY-----
   TODO iser example private key
   -----END PRIVATE KEY-------
-</pre><a href="#section-7-7" class="pilcrow">¶</a>
+</pre><a href="#section-6-7" class="pilcrow">¶</a>
 </div>
-<p id="section-7-8">The following example, in addition to encoding the TBD private key,
+<p id="section-6-8">The following example, in addition to encoding the ML-KEM-512 private key,
 has an attribute included as well as the public key. As with the
-prior example, the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span> is used.<a href="#section-7-8" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-7-9">
+prior example, the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span> is used:<a href="#section-6-8" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-6-9">
 <pre>
   -----BEGIN PRIVATE KEY-----
   TODO insert example private key with attribute
   -----END PRIVATE KEY-------
-</pre><a href="#section-7-9" class="pilcrow">¶</a>
+</pre><a href="#section-6-9" class="pilcrow">¶</a>
 </div>
-<aside id="section-7-10">
-        <p id="section-7-10.1">NOTE: There exist some private key import functions that have not
-implemented the new ASN.1 structure OneAsymmetricKey that is defined in
-<span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span>. This means that they will not accept a private key
-structure that contains the public key field.  This means a balancing
-act needs to be done between being able to do a consistency check on the
-key pair and widest ability to import the key.<a href="#section-7-10.1" class="pilcrow">¶</a></p>
+<aside id="section-6-10">
+        <p id="section-6-10.1">: There exist some private key import functions that have not
+  implemented the new ASN.1 structure OneAsymmetricKey that is defined in
+  <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span>. This means that they will not accept a private key
+  structure that contains the public key field.  This means a balancing
+  act needs to be done between being able to do a consistency check on the
+  key pair and widest ability to import the key.<a href="#section-6-10.1" class="pilcrow">¶</a></p>
 </aside>
 </section>
 </div>
 <div id="asn1-module">
-<section id="section-8">
+<section id="section-7">
       <h2 id="name-asn1-module">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-asn1-module" class="section-name selfRef">ASN.1 Module</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-asn1-module" class="section-name selfRef">ASN.1 Module</a>
       </h2>
-<p id="section-8-1">TODO ASN.1 Module<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">TODO ASN.1 Module<a href="#section-7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
-<section id="section-9">
+<section id="section-8">
       <h2 id="name-security-considerations">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-9-1">The Security Considerations section of <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> applies to this specification as well.<a href="#section-9-1" class="pilcrow">¶</a></p>
-<p id="section-9-2">[EDNOTE: Discuss side-channels for Candidate TBD1.]<a href="#section-9-2" class="pilcrow">¶</a></p>
+<p id="section-8-1">The Security Considerations section of <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> applies to this specification as well.<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-8-2">[EDNOTE: Discuss side-channels for ML-KEM TBD1.]<a href="#section-8-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-10">
+<section id="section-9">
       <h2 id="name-iana-considerations">
-<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-10-1">This document will have some IANA actions.<a href="#section-10-1" class="pilcrow">¶</a></p>
+<p id="section-9-1">This document will have some IANA actions.<a href="#section-9-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<section id="section-11">
+<section id="section-10">
       <h2 id="name-references">
-<a href="#section-11" class="section-number selfRef">11. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-11.1">
+<section id="section-10.1">
         <h3 id="name-normative-references">
-<a href="#section-11.1" class="section-number selfRef">11.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-10.1" class="section-number selfRef">10.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
@@ -1493,21 +1537,37 @@ key pair and widest ability to import the key.<a href="#section-7-10.1" class="p
 <span class="refAuthor">Turner, S.</span>, <span class="refTitle">"Asymmetric Key Packages"</span>, <span class="seriesInfo">RFC 5958</span>, <span class="seriesInfo">DOI 10.17487/RFC5958</span>, <time datetime="2010-08" class="refDate">August 2010</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5958">https://www.rfc-editor.org/rfc/rfc5958</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="X680">[X680]</dt>
+        <dd>
+<span class="refAuthor">ITU-T</span>, <span class="refTitle">"Information technology - Abstract Syntax Notation One (ASN.1): Specification of basic notation"</span>, <span class="seriesInfo">ISO/IEC 8824-1:2021</span>, <time datetime="2021-02" class="refDate">February 2021</time>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-X.680">https://www.itu.int/rec/T-REC-X.680</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="X690">[X690]</dt>
+      <dd>
+<span class="refAuthor">ITU-T</span>, <span class="refTitle">"Information technology - Abstract Syntax Notation One (ASN.1): ASN.1 encoding rules: Specification of Basic Encoding Rules (BER), Canonical Encoding Rules (CER) and Distinguished Encoding Rules (DER)"</span>, <span class="seriesInfo">ISO/IEC 8825-1:2021</span>, <time datetime="2021-02" class="refDate">February 2021</time>, <span>&lt;<a href="https://www.itu.int/rec/T-REC-X.690">https://www.itu.int/rec/T-REC-X.690</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-11.2">
+<section id="section-10.2">
         <h3 id="name-informative-references">
-<a href="#section-11.2" class="section-number selfRef">11.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
-<dt id="PQCProj">[PQCProj]</dt>
+<dt id="DRAFTFIPS203">[DRAFTFIPS203]</dt>
         <dd>
-<span class="refAuthor">National Institute of Standards and Technology</span>, <span class="refTitle">"Post-Quantum Cryptography Project"</span>, <time datetime="2016-12-20" class="refDate">20 December 2016</time>, <span>&lt;<a href="https://csrc.nist.gov/projects/post-quantum-cryptography">https://csrc.nist.gov/projects/post-quantum-cryptography</a>&gt;</span>. </dd>
+<span class="refAuthor">National Institute of Standards and Technology (NIST)</span>, <span class="refTitle">"DRAFT Module-Lattice-based Key-Encapsulation Mechanism Standard"</span>, <span class="seriesInfo">FIPS PUB 203</span>, <time datetime="2023-08" class="refDate">August 2023</time>, <span>&lt;<a href="https://csrc.nist.gov/projects/post-quantum-cryptography">https://csrc.nist.gov/projects/post-quantum-cryptography</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.celi-wiggers-tls-authkem">[I-D.celi-wiggers-tls-authkem]</dt>
+        <dd>
+<span class="refAuthor">Wiggers, T.</span>, <span class="refAuthor">Celi, S.</span>, <span class="refAuthor">Schwabe, P.</span>, <span class="refAuthor">Stebila, D.</span>, and <span class="refAuthor">N. Sullivan</span>, <span class="refTitle">"KEM-based Authentication for TLS 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-celi-wiggers-tls-authkem-02</span>, <time datetime="2023-08-18" class="refDate">18 August 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-celi-wiggers-tls-authkem-02">https://datatracker.ietf.org/doc/html/draft-celi-wiggers-tls-authkem-02</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-lamps-kyber">[I-D.ietf-lamps-kyber]</dt>
+        <dd>
+<span class="refAuthor">Prat, J.</span> and <span class="refAuthor">M. Ounsworth</span>, <span class="refTitle">"Use of KYBER in the Cryptographic Message Syntax (CMS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-kyber-00</span>, <time datetime="2022-11-10" class="refDate">10 November 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-kyber-00">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-kyber-00</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7468">[RFC7468]</dt>
       <dd>
