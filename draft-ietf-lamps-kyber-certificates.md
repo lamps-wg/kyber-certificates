@@ -100,7 +100,7 @@ key encodings are also specified.
 An ASN.1 module {{X680}} is included for reference purposes. Note that
 as per {{RFC5280}}, certificates use the Distinguished Encoding Rules;
 see {{X690}}. Also note that NIST defined the object identifiers for
-the Kyber algorithms in an ASN.1 modulle; see (TODO insert reference).
+the Kyber algorithms in an ASN.1 module; see (TODO insert reference).
 
 ## Applicability Statement
 
@@ -168,7 +168,7 @@ id-alg-kyber object identifiers listed below, based on the security
 level. The parameters field of the AlgorithmIdentifier for the Kyber
 public key MUST be absent.
 
-When any of the Kyber AlgorithmIdentifier appears in the
+When any of the Kyber algorithm object identifiers appear in the
 SubjectPublicKeyInfo field of an X.509 certificate, the key usage
 certificate extension MUST only contain keyEncipherment
 {{Section 4.2.1.3 of RFC5280}}.
