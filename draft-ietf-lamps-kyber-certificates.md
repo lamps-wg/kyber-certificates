@@ -49,20 +49,27 @@ author:
 normative:
   X680:
     target: https://www.itu.int/rec/T-REC-X.680
-    title: "Information technology - Abstract Syntax Notation One (ASN.1): Specification of basic notation"
-    date: Feburary 2021
+    title: >
+      Information technology - Abstract Syntax Notation One (ASN.1):
+      Specification of basic notation
+    date: 2021-02
     author:
-      org: ITU-T
+    -  org: ITU-T
     seriesinfo:
-        ISO/IEC: 8824-1:2021
+      ITU-T Recommendation: X.680
+      ISO/IEC: 8824-1:2021
   X690:
     target: https://www.itu.int/rec/T-REC-X.690
-    title: "Information technology - Abstract Syntax Notation One (ASN.1): ASN.1 encoding rules: Specification of Basic Encoding Rules (BER), Canonical Encoding Rules (CER) and Distinguished Encoding Rules (DER)"
-    date: Feburary 2021
+    title: >
+      Information technology - Abstract Syntax Notation One (ASN.1):
+      ASN.1 encoding rules: Specification of Basic Encoding Rules (BER),
+      Canonical Encoding Rules (CER) and Distinguished Encoding Rules (DER)
+    date: 2021-02
     author:
-      org: ITU-T
+    -  org: ITU-T
     seriesinfo:
-        ISO/IEC: 8825-1:2021
+      ITU-T Recommendation: X.690
+      ISO/IEC: 8825-1:2021
 
 informative:
   PQCProj:
