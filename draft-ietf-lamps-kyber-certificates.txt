@@ -355,15 +355,16 @@ Table of Contents
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
    [X680]     ITU-T, "Information technology - Abstract Syntax Notation
-              One (ASN.1): Specification of basic notation", ISO/
-              IEC 8824-1:2021, February 2021,
+              One (ASN.1): Specification of basic notation", ITU-T
+              Recommendation X.680, ISO/IEC 8824-1:2021, February 2021,
               <https://www.itu.int/rec/T-REC-X.680>.
 
    [X690]     ITU-T, "Information technology - Abstract Syntax Notation
               One (ASN.1): ASN.1 encoding rules: Specification of Basic
               Encoding Rules (BER), Canonical Encoding Rules (CER) and
-              Distinguished Encoding Rules (DER)", ISO/IEC 8825-1:2021,
-              February 2021, <https://www.itu.int/rec/T-REC-X.690>.
+              Distinguished Encoding Rules (DER)", ITU-T
+              Recommendation X.690, ISO/IEC 8825-1:2021, February 2021,
+              <https://www.itu.int/rec/T-REC-X.690>.
 
 10.2.  Informative References
 
