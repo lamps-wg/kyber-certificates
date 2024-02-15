@@ -13,13 +13,14 @@ Expires: 18 August 2024                                       J. Massimo
 
 
   Internet X.509 Public Key Infrastructure - Algorithm Identifiers for
-                                 Kyber
+       Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)
                draft-ietf-lamps-kyber-certificates-latest
 
 Abstract
 
-   Kyber is a key-encapsulation mechanism (KEM).  This document
-   specifies algorithm identifiers and ASN.1 encoding format for Kyber
+   Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), also known
+   as Kyber, is a key-encapsulation mechanism (KEM).  This document
+   specifies algorithm identifiers and ASN.1 encoding format for ML-KEM
    in public key certificates.  The encoding for public and private keys
    are also provided.
 
@@ -81,11 +82,11 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
-     1.1.  ASN.1 and Kyber Identifiers
+     1.1.  ASN.1 and ML-KEM Identifiers
      1.2.  Applicability Statement
    2.  Conventions and Definitions
    3.  Algorithm Identifiers
-   4.  Kyber Public Key Identifiers
+   4.  ML-KEM Public Key Identifiers
    5.  Subject Public Key Fields
    6.  Private Key Format
    7.  ASN.1 Module
@@ -99,26 +100,27 @@ Table of Contents
 
 1.  Introduction
 
-   Kyber is a key-encapsulation mechanism (KEM) standardized by the US
-   NIST PQC Project [PQCProj].  This document specifies the use of the
-   Kyber algorithm at three security levels: Kyber512, Kyber768, and
-   Kyber1024, in X.509 public key certificates; see [RFC5280].  Public
-   and private key encodings are also specified.
+   Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), also known
+   as Kyber, is a key-encapsulation mechanism (KEM) standardized by the
+   US NIST PQC Project [DRAFTFIPS203].  This document specifies the use
+   of the ML-KEM algorithm at three security levels: ML-KEM-512, ML-KEM-
+   768, and ML-KEM-1024, in X.509 public key certificates; see
+   [RFC5280].  Public and private key encodings are also specified.
 
-1.1.  ASN.1 and Kyber Identifiers
+1.1.  ASN.1 and ML-KEM Identifiers
 
    An ASN.1 module [X680] is included for reference purposes.  Note that
    as per [RFC5280], certificates use the Distinguished Encoding Rules;
    see [X690].  Also note that NIST defined the object identifiers for
-   the Kyber algorithms in an ASN.1 modulle; see (TODO insert
+   the ML-KEM algorithms in an ASN.1 modulle; see (TODO insert
    reference).
 
 1.2.  Applicability Statement
 
-   Kyber certificates are used in protocols where the public key is used
-   to generate and encapsulate a shared secret used to derive a
+   ML-KEM certificates are used in protocols where the public key is
+   used to generate and encapsulate a shared secret used to derive a
    symmetric key used to encrypt a payload; see [I-D.ietf-lamps-kyber].
-   To be used in TLS, Kyber certificates could only be used as end-
+   To be used in TLS, ML-KEM certificates could only be used as end-
    entity identity certificates and would require significant updates to
    the protocol; see [I-D.celi-wiggers-tls-authkem].
 
@@ -158,8 +160,8 @@ Table of Contents
    *  parameters, which are optional, are the associated parameters for
       the algorithm identifier in the algorithm field.
 
-   Section 4 includes object identifiers for Kyber-512, Kyber-768, and
-   Kyber-1024.  For all of these OIDs, the parameters MUST be absent.
+   Section 4 includes object identifiers for ML-KEM-512, ML-KEM-768, and
+   ML-KEM-1024.  For all of these OIDs, the parameters MUST be absent.
 
       |  NOTE: It is possible to find systems that require the
       |  parameters to be present.  This can be due to either a defect
@@ -169,20 +171,20 @@ Table of Contents
       |  possible, the problem needs to be restricted to that subsystem
       |  and not propagated to the Internet.
 
-4.  Kyber Public Key Identifiers
+4.  ML-KEM Public Key Identifiers
 
-   The AlgorithmIdentifier for a Kyber public key MUST use one of the
-   id-alg-kyber object identifiers listed below, based on the security
-   level.  The parameters field of the AlgorithmIdentifier for the Kyber
-   public key MUST be absent.
+   The AlgorithmIdentifier for a ML-KEM public key MUST use one of the
+   id-alg-ml-kem object identifiers listed below, based on the security
+   level.  The parameters field of the AlgorithmIdentifier for the ML-
+   KEM public key MUST be absent.
 
-   When any of the Kyber AlgorithmIdentifier appears in the
+   When any of the ML-KEM AlgorithmIdentifier appears in the
    SubjectPublicKeyInfo field of an X.509 certificate, the key usage
    certificate extension MUST only contain keyEncipherment
    Section 4.2.1.3 of [RFC5280].
 
-     pk-kyber-512 PUBLIC-KEY ::= {
-       IDENTIFIER id-alg-kyber-512
+     pk-ml-kem-512 PUBLIC-KEY ::= {
+       IDENTIFIER id-alg-ml-kem-512
        -- KEY no ASN.1 wrapping --
        PARAMS ARE absent
        CERT-KEY-USAGE
@@ -190,8 +192,8 @@ Table of Contents
        --- PRIVATE-KEY no ASN.1 wrapping --
        }
 
-     pk-kyber-768 PUBLIC-KEY ::= {
-       IDENTIFIER id-alg-kyber-768
+     pk-ml-kem-768 PUBLIC-KEY ::= {
+       IDENTIFIER id-alg-ml-kem-768
        -- KEY no ASN.1 wrapping --
        PARAMS ARE absent
        CERT-KEY-USAGE
@@ -199,8 +201,8 @@ Table of Contents
        --- PRIVATE-KEY no ASN.1 wrapping --
        }
 
-     pk-kyber-1024 PUBLIC-KEY ::= {
-       IDENTIFIER id-alg-kyber-1024
+     pk-ml-kem-1024 PUBLIC-KEY ::= {
+       IDENTIFIER id-alg-ml-kem-1024
        -- KEY no ASN.1 wrapping --
        PARAMS ARE absent
        CERT-KEY-USAGE
@@ -234,7 +236,7 @@ Table of Contents
       algorithms defined in this document always encode the public key
       as TODO pick format e.g., exact multiple of 8 bits?.
 
-   The following is an example of a Kyber-512 public key encoded using
+   The following is an example of a ML-KEM-512 public key encoded using
    the textual encoding defined in [RFC7468]:
 
      -----BEGIN PUBLIC KEY-----
@@ -286,14 +288,14 @@ Table of Contents
 
      PqckemPrivateKey ::= OCTET STRING
 
-   The following is an example of a Kyber-512 private key encoded using
+   The following is an example of a ML-KEM-512 private key encoded using
    the textual encoding defined in [RFC7468]:
 
      -----BEGIN PRIVATE KEY-----
      TODO iser example private key
      -----END PRIVATE KEY-------
 
-   The following example, in addition to encoding the Kyber-512 private
+   The following example, in addition to encoding the ML-KEM-512 private
    key, has an attribute included as well as the public key.  As with
    the prior example, the textual encoding defined in [RFC7468] is used:
 
@@ -365,6 +367,13 @@ Table of Contents
 
 10.2.  Informative References
 
+   [DRAFTFIPS203]
+              National Institute of Standards and Technology (NIST),
+              "DRAFT Module-Lattice-based Key-Encapsulation Mechanism
+              Standard", FIPS PUB 203, August 2023,
+              <https://csrc.nist.gov/projects/post-quantum-
+              cryptography>.
+
    [I-D.celi-wiggers-tls-authkem]
               Wiggers, T., Celi, S., Schwabe, P., Stebila, D., and N.
               Sullivan, "KEM-based Authentication for TLS 1.3", Work in
@@ -379,11 +388,6 @@ Table of Contents
               Internet-Draft, draft-ietf-lamps-kyber-00, 10 November
               2022, <https://datatracker.ietf.org/doc/html/draft-ietf-
               lamps-kyber-00>.
-
-   [PQCProj]  National Institute of Standards and Technology, "Post-
-              Quantum Cryptography Project", 20 December 2016,
-              <https://csrc.nist.gov/projects/post-quantum-
-              cryptography>.
 
    [RFC7468]  Josefsson, S. and S. Leonard, "Textual Encodings of PKIX,
               PKCS, and CMS Structures", RFC 7468, DOI 10.17487/RFC7468,
