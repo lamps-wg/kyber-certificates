@@ -79,11 +79,11 @@ algorithm identifiers and ASN.1 encoding format for Kyber in public
 key certificates. The encoding for public and private keys are also
 provided.
 
-\ [EDNOTE:
+\[EDNOTE:
 This document is not expected to be finalized before the NIST PQC
 Project has standardized PQ algorithms. This specification will use
 object identifiers for the new algorithms that are assigned by NIST,
-and will use placeholders until these are released.
+and will use placeholders until these are released.]
 
 --- middle
 
@@ -136,7 +136,7 @@ is defined as follows:
 ~~~
 
 <aside markdown="block">
-: The above syntax is from {{!RFC5912}} and is compatible with the
+  NOTE: The above syntax is from {{!RFC5912}} and is compatible with the
   2021 ASN.1 syntax {{X680}}.
 </aside>
 
@@ -152,7 +152,7 @@ The fields in AlgorithmIdentifier have the following meanings:
 Kyber-1024. For all of these OIDs, the parameters MUST be absent.
 
 <aside markdown="block">
-: It is possible to find systems that require the parameters to be
+  NOTE: It is possible to find systems that require the parameters to be
   present. This can be due to either a defect in the original 1997
   syntax or a programming error where developers never got input where
   this was not true. The optimal solution is to fix these systems;
@@ -205,7 +205,7 @@ certificate extension MUST only contain keyEncipherment
 
 
 <aside markdown="block">
-: As noted in Section 3, the values for these object identifers
+  NOTE: As noted in Section 3, the values for these object identifers
   will be assigned by NIST.  Once assigned, they will be added to a future
   revision of this document.
 </aside>
@@ -224,7 +224,7 @@ SubjectPublicKeyInfo type, which has the following ASN.1 syntax:
 ~~~
 
 <aside markdown="block">
-: The above syntax is from {{RFC5912}} and is compatible with the
+  NOTE: The above syntax is from {{RFC5912}} and is compatible with the
   2021 ASN.1 syntax {{X680}}.
 </aside>
 
@@ -283,7 +283,7 @@ algorithm itself.
 ~~~
 
 <aside markdown="block">
-: The above syntax is from {{RFC5958}} and is compatible with the
+  NOTE: The above syntax is from {{RFC5958}} and is compatible with the
   2021 ASN.1 syntax {{X680}}.
 </aside>
 
@@ -318,7 +318,7 @@ prior example, the textual encoding defined in {{RFC7468}} is used:
 ~~~
 
 <aside markdown="block">
-: There exist some private key import functions that have not
+  NOTE: There exist some private key import functions that have not
   implemented the new ASN.1 structure OneAsymmetricKey that is defined in
   {{RFC5958}}. This means that they will not accept a private key
   structure that contains the public key field.  This means a balancing
@@ -335,8 +335,9 @@ TODO ASN.1 Module
 
 The Security Considerations section of {{RFC5280}} applies to this specification as well.
 
-\[EDNOTE: Discuss side-channels for Kyber TBD1.\]
-
+<aside markdown="block">
+  To Do: Discuss side-channels for Kyber TBD1.
+</aside>
 
 # IANA Considerations
 
