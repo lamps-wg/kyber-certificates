@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 18 August 2024                                       J. Massimo
+Expires: 5 September 2024                                     J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                        15 February 2024
+                                                            4 March 2024
 
 
   Internet X.509 Public Key Infrastructure - Algorithm Identifiers for
@@ -63,7 +63,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 August 2024.
+   This Internet-Draft will expire on 5 September 2024.
 
 Copyright Notice
 
@@ -99,6 +99,9 @@ Table of Contents
    Authors' Addresses
 
 1.  Introduction
+
+      |  WARNING: This I-D includes examples.  These examples were
+      |  generated prior to NIST finalizing [DRAFTFIPS203].
 
    Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), also known
    as Kyber, is a key-encapsulation mechanism (KEM) standardized by the
@@ -239,6 +242,9 @@ Table of Contents
    The following is an example of a ML-KEM-512 public key encoded using
    the textual encoding defined in [RFC7468]:
 
+      |  WARNING: This example was generated prior to NIST finalizing
+      |  [DRAFTFIPS203].
+
      -----BEGIN PUBLIC KEY-----
      TODO insert example public key
      -----END PUBLIC KEY-------
@@ -291,6 +297,9 @@ Table of Contents
    The following is an example of a ML-KEM-512 private key encoded using
    the textual encoding defined in [RFC7468]:
 
+      |  WARNING: This example was generated prior to NIST finalizing
+      |  [DRAFTFIPS203].
+
      -----BEGIN PRIVATE KEY-----
      TODO iser example private key
      -----END PRIVATE KEY-------
@@ -298,6 +307,9 @@ Table of Contents
    The following example, in addition to encoding the ML-KEM-512 private
    key, has an attribute included as well as the public key.  As with
    the prior example, the textual encoding defined in [RFC7468] is used:
+
+      |  WARNING: This example was generated prior to NIST finalizing
+      |  [DRAFTFIPS203].
 
      -----BEGIN PRIVATE KEY-----
      TODO insert example private key with attribute
