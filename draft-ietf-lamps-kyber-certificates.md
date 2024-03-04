@@ -103,6 +103,11 @@ and will use placeholders until these are released.]
 
 # Introduction
 
+<aside markdown="block">
+  WARNING: This I-D includes examples. These examples were generated
+  prior to NIST finalizing [DRAFTFIPS203].
+</aside>
+
 Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), also
 known as Kyber, is a key-encapsulation mechanism (KEM) standardized
 by the US NIST PQC Project {{DRAFTFIPS203}}. This document specifies the
@@ -255,6 +260,11 @@ The fields in SubjectPublicKeyInfo have the following meaning:
 The following is an example of a ML-KEM-512 public key encoded using the
 textual encoding defined in {{?RFC7468}}:
 
+<aside markdown="block">
+  WARNING: This example was generated prior to NIST
+  finalizing [DRAFTFIPS203].
+</aside>
+
 ~~~
   -----BEGIN PUBLIC KEY-----
   TODO insert example public key
@@ -316,6 +326,11 @@ PqckemPrivateKey object and wrapped by the OCTET STRING of the
 The following is an example of a ML-KEM-512 private key encoded using the
 textual encoding defined in {{RFC7468}}:
 
+<aside markdown="block">
+  WARNING: This example was generated prior to NIST
+  finalizing [DRAFTFIPS203].
+</aside>
+
 ~~~
   -----BEGIN PRIVATE KEY-----
   TODO iser example private key
@@ -325,6 +340,11 @@ textual encoding defined in {{RFC7468}}:
 The following example, in addition to encoding the ML-KEM-512 private key,
 has an attribute included as well as the public key. As with the
 prior example, the textual encoding defined in {{RFC7468}} is used:
+
+<aside markdown="block">
+  WARNING: This example was generated prior to NIST
+  finalizing [DRAFTFIPS203].
+</aside>
 
 ~~~
   -----BEGIN PRIVATE KEY-----
