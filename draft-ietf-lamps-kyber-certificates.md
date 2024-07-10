@@ -14,6 +14,7 @@ v: 3
 area: SEC
 workgroup: LAMPS
 keyword:
+  ML-KEM
   Kyber
   KEM
   Certificate
@@ -72,8 +73,6 @@ normative:
     seriesinfo:
       ITU-T Recommendation: X.690
       ISO/IEC: 8825-1:2021
-
-informative:
   DRAFTFIPS203:
     target: https://csrc.nist.gov/projects/post-quantum-cryptography
     title: >
@@ -85,13 +84,22 @@ informative:
     seriesinfo:
       "FIPS PUB": "203"
 
+informative:
+  NIST-PQC:
+    target: https://csrc.nist.gov/projects/post-quantum-cryptography
+    title: >
+      Post-Quantum Cryptography Project
+    author:
+    - org: National Institute of Standards and Technology (NIST)
+    date: 2016-12-20
+
 --- abstract
 
-Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), also
-known as Kyber, is a key-encapsulation mechanism (KEM). This
-document specifies algorithm identifiers and ASN.1 encoding
-format for ML-KEM in public key certificates. The encoding for
-public and private keys are also provided.
+Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) is a
+quantum-resistant key-encapsulation mechanism (KEM). This document
+specifies algorithm identifiers and ASN.1 encoding format for ML-KEM in
+public key certificates. The encoding for public and private keys are
+also provided.
 
 \[EDNOTE:
 This document is not expected to be finalized before the NIST PQC
@@ -108,19 +116,25 @@ and will use placeholders until these are released.]
   prior to NIST finalizing [DRAFTFIPS203].
 </aside>
 
-Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), also
-known as Kyber, is a key-encapsulation mechanism (KEM) standardized
-by the US NIST PQC Project {{DRAFTFIPS203}}. This document specifies the
-use of the ML-KEM algorithm at three security levels: ML-KEM-512,
-ML-KEM-768, and ML-KEM-1024, in X.509 public key certificates; see
-{{!RFC5280}}. Public and private key encodings are also specified.
+Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), previously
+known as known as Kyber, is a quantum-resistant key-encapsulation
+mechanism (KEM) standardized by the US NIST PQC Project {{NIST-PQC}}
+in {{DRAFTFIPS203}}. This document specifies the use of ML-KEM in Public
+Key Infrastructure X.509 (PKIX) certificates {{!RFC5280}} at three
+security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using object
+identifiers assigned by NIST.
 
-## ASN.1 and ML-KEM Identifiers
+This specification includes conventions for the subjectPublicKeyInfo
+field within Internet X.509 certificates {{RFC5280}}, like {{?RFC3279}}
+did for classic cryptography and {{?RFC5480}} did for elliptic curve
+cryptography. The private key format is also specified.
+
+## ASN.1 Module and ML-KEM Identifiers
 
 An ASN.1 module {{X680}} is included for reference purposes. Note that
 as per {{RFC5280}}, certificates use the Distinguished Encoding Rules;
 see {{X690}}. Also note that NIST defined the object identifiers for
-the ML-KEM algorithms in an ASN.1 modulle; see (TODO insert reference).
+the ML-KEM algorithms in an ASN.1 module; see (TODO insert reference).
 
 ## Applicability Statement
 
@@ -136,7 +150,7 @@ certificates and would require significant updates to the protocol; see
 {::boilerplate bcp14-tagged}
 
 
-# Algorithm Identifiers
+# Identifiers
 
 Certificates conforming to {{RFC5280}} can convey a public key for any
 public key algorithm. The certificate indicates the algorithm through
@@ -157,7 +171,7 @@ is defined as follows:
 
 <aside markdown="block">
   NOTE: The above syntax is from {{!RFC5912}} and is compatible with the
-  2021 ASN.1 syntax {{X680}}.
+  2021 ASN.1 syntax {{X680}}. See {{RFC5280}} for the 1988 ASN.1 syntax.
 </aside>
 
 The fields in AlgorithmIdentifier have the following meanings:
@@ -167,21 +181,6 @@ The fields in AlgorithmIdentifier have the following meanings:
 
 * parameters, which are optional, are the associated parameters for
   the algorithm identifier in the algorithm field.
-
-{{ML-KEM-TBD1}} includes object identifiers for ML-KEM-512, ML-KEM-768, and
-ML-KEM-1024. For all of these OIDs, the parameters MUST be absent.
-
-<aside markdown="block">
-  NOTE: It is possible to find systems that require the parameters to be
-  present. This can be due to either a defect in the original 1997
-  syntax or a programming error where developers never got input where
-  this was not true. The optimal solution is to fix these systems;
-  where this is not possible, the problem needs to be restricted to
-  that subsystem and not propagated to the Internet.
-</aside>
-
-
-# ML-KEM Public Key Identifiers {#ML-KEM-TBD1}
 
 The AlgorithmIdentifier for a ML-KEM public key MUST use one of the
 id-alg-ml-kem object identifiers listed below, based on the security
@@ -198,8 +197,7 @@ certificate extension MUST only contain keyEncipherment
     IDENTIFIER id-alg-ml-kem-512
     -- KEY no ASN.1 wrapping --
     PARAMS ARE absent
-    CERT-KEY-USAGE
-      { keyEncipherment }
+    CERT-KEY-USAGE { keyEncipherment }
     --- PRIVATE-KEY no ASN.1 wrapping --
     }
 
@@ -207,8 +205,7 @@ certificate extension MUST only contain keyEncipherment
     IDENTIFIER id-alg-ml-kem-768
     -- KEY no ASN.1 wrapping --
     PARAMS ARE absent
-    CERT-KEY-USAGE
-      { keyEncipherment }
+    CERT-KEY-USAGE { keyEncipherment }
     --- PRIVATE-KEY no ASN.1 wrapping --
     }
 
@@ -216,8 +213,7 @@ certificate extension MUST only contain keyEncipherment
     IDENTIFIER id-alg-ml-kem-1024
     -- KEY no ASN.1 wrapping --
     PARAMS ARE absent
-    CERT-KEY-USAGE
-      { keyEncipherment }
+    CERT-KEY-USAGE { keyEncipherment }
     --- PRIVATE-KEY no ASN.1 wrapping --
     }
 ~~~
@@ -245,7 +241,7 @@ SubjectPublicKeyInfo type, which has the following ASN.1 syntax:
 
 <aside markdown="block">
   NOTE: The above syntax is from {{RFC5912}} and is compatible with the
-  2021 ASN.1 syntax {{X680}}.
+  2021 ASN.1 syntax {{X680}}. See {{RFC5280}} for the 1988 ASN.1 syntax.
 </aside>
 
 The fields in SubjectPublicKeyInfo have the following meaning:
