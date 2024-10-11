@@ -1,3 +1,4 @@
+DEPS_FILES := X509-ML-KEM-2024.asn
 LIBDIR := lib
 include $(LIBDIR)/main.mk
 
