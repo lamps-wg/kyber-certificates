@@ -183,7 +183,7 @@ The fields in AlgorithmIdentifier have the following meanings:
   the algorithm identifier in the algorithm field.
 
 The AlgorithmIdentifier for a ML-KEM public key MUST use one of the
-id-alg-ml-kem object identifiers listed below, based on the security
+id-alg-ml-kem-* object identifiers listed below, based on the security
 level. The parameters field of the AlgorithmIdentifier for the ML-KEM
 public key MUST be absent.
 
@@ -193,6 +193,17 @@ certificate extension MUST only contain keyEncipherment
 {{Section 4.2.1.3 of RFC5280}}.
 
 ~~~
+  nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-ccitt(2)
+    country(16) us(840) organization(1) gov(101) csor(3)
+    nistAlgorithm(4) }
+  kems OBJECT IDENTIFIER ::= { nistAlgorithms 4 }
+
+  id-alg-ml-kem-512 OBJECT IDENTIFIER ::= { kems 1 }
+
+  id-alg-ml-kem-768 OBJECT IDENTIFIER ::= { kems 2 }
+
+  id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
+
   pk-ml-kem-512 PUBLIC-KEY ::= {
     IDENTIFIER id-alg-ml-kem-512
     -- KEY no ASN.1 wrapping --
@@ -357,10 +368,70 @@ prior example, the textual encoding defined in {{RFC7468}} is used:
   key pair and widest ability to import the key.
 </aside>
 
-# ASN.1 Module
+# ASN.1 Module {#asn1}
 
-TODO ASN.1 Module
+~~~
+  X509-ML-KEM-2024
+  { iso(1) identified-organization(3) dod(6)
+    internet(1) security(5) mechanisms(5) pkix(7) id-mod(0)
+    id-mod-x509-ml-kem-2024(TBD2) }
 
+  DEFINITIONS IMPLICIT TAGS ::= BEGIN
+
+  EXPORTS ALL;
+
+  IMPORTS
+    KEM-ALGORITHM
+      FROM KEMAlgorithmInformation-2023  -- [RFC 9629]
+        { iso(1) identified-organization(3) dod(6) internet(1)
+          security(5) mechanisms(5) pkix(7) id-mod(0)
+          id-mod-kemAlgorithmInformation-2023(109) };
+
+  --
+  -- ML-KEM Identifiers
+  --
+
+  nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-ccitt(2)
+    country(16) us(840) organization(1) gov(101) csor(3)
+    nistAlgorithm(4) }
+  kems OBJECT IDENTIFIER ::= { nistAlgorithms 4 }
+
+  id-alg-ml-kem-512 OBJECT IDENTIFIER ::= { kems 1 }
+
+  id-alg-ml-kem-768 OBJECT IDENTIFIER ::= { kems 2 }
+
+  id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
+
+  --
+  -- ML-KEM Public Keys
+  --
+
+  pk-ml-kem-512 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-ml-kem-512
+    -- KEY no ASN.1 wrapping --
+    PARAMS ARE absent
+    CERT-KEY-USAGE { keyEncipherment }
+    --- PRIVATE-KEY no ASN.1 wrapping --
+    }
+
+  pk-ml-kem-768 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-ml-kem-768
+    -- KEY no ASN.1 wrapping --
+    PARAMS ARE absent
+    CERT-KEY-USAGE { keyEncipherment }
+    --- PRIVATE-KEY no ASN.1 wrapping --
+    }
+
+  pk-ml-kem-1024 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-ml-kem-1024
+    -- KEY no ASN.1 wrapping --
+    PARAMS ARE absent
+    CERT-KEY-USAGE { keyEncipherment }
+    --- PRIVATE-KEY no ASN.1 wrapping --
+    }
+
+  END
+~~~
 
 # Security Considerations
 
@@ -372,8 +443,11 @@ The Security Considerations section of {{RFC5280}} applies to this specification
 
 # IANA Considerations
 
-This document will have some IANA actions.
-
+For the ASN.1 Module in {{asn1}}, IANA is requested to assign an
+object identifier (OID) for the module identifier (TBD2) with a
+Description of "id-mod-x509-ml-kem-2024".  The OID for the module
+should be allocated in the "SMI Security for PKIX Module Identifier"
+registry (1.3.6.1.5.5.7.0).
 
 --- back
 
