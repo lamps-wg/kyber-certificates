@@ -216,9 +216,21 @@ certificate extension MUST only contain keyEncipherment
     CERT-KEY-USAGE { keyEncipherment }
     --- PRIVATE-KEY no ASN.1 wrapping --
     }
+
+    ML-KEM-PublicKey ::= OCTET STRING
+
+    ML-KEM-PrivateKey ::= OCTET STRING
 ~~~
 
+No additional encoding of the ML-KEM public key value is applied in
+the SubjectPublicKeyInfo field of an X.509 certificate {{RFC5280}}.
+However, whenever the ML-KEM public key value appears outside of a
+certificate, it MAY be encoded as an OCTET STRING.
 
+No additional encoding of the ML-KEM private key value is applied in
+the PrivateKeyInfo field of an Asymmetric Key Package {{RFC5958}}.
+However, whenever the ML-KEM private key value appears outside of a
+Asymmetric Key Package, it MAY be encoded as an OCTET STRING.
 
 <aside markdown="block">
   NOTE: As noted in Section 3, the values for these object identifers
@@ -297,10 +309,6 @@ algorithm itself.
                                  OPTIONAL,
     ...
   }
-
-  PrivateKey ::= OCTET STRING
-
-  PublicKey ::= BIT STRING
 ~~~
 
 <aside markdown="block">
@@ -308,16 +316,12 @@ algorithm itself.
   2021 ASN.1 syntax {{X680}}.
 </aside>
 
-For the keys defined in this document, the private key is always an
-opaque byte sequence. The ASN.1 type PqckemPrivateKey is defined in
-this document to hold the byte sequence. Thus, when encoding a
-OneAsymmetricKey object, the private key is wrapped in a
-PqckemPrivateKey object and wrapped by the OCTET STRING of the
-"privateKey" field.
+When used in a OneAsymmetricKey type, the privateKey OCTET STRING contains
+the raw octet string encoding of the private key.
 
-~~~
-  PqckemPrivateKey ::= OCTET STRING
-~~~
+When an ML-KEM public key is included in a OneAsymmetricKey type, it is
+encoded in the same manner as in a SubjectPublicKeyInfo type. That is, the
+publicKey BIT STRING contains the raw octet string encoding of the public key.
 
 The following is an example of a ML-KEM-512 private key encoded using the
 textual encoding defined in {{RFC7468}}:
