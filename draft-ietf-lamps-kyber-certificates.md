@@ -101,20 +101,9 @@ specifies algorithm identifiers and ASN.1 encoding format for ML-KEM in
 public key certificates. The encoding for public and private keys are
 also provided.
 
-\[EDNOTE:
-This document is not expected to be finalized before the NIST PQC
-Project has standardized PQ algorithms. This specification will use
-object identifiers for the new algorithms that are assigned by NIST,
-and will use placeholders until these are released.]
-
 --- middle
 
 # Introduction
-
-<aside markdown="block">
-  WARNING: This I-D includes examples. These examples were generated
-  prior to NIST finalizing [DRAFTFIPS203].
-</aside>
 
 Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), previously
 known as known as Kyber, is a quantum-resistant key-encapsulation
@@ -253,20 +242,8 @@ The fields in SubjectPublicKeyInfo have the following meaning:
   algorithms defined in this document always encode the public key
   as TODO pick format e.g., exact multiple of 8 bits?.
 
-The following is an example of a ML-KEM-512 public key encoded using the
-textual encoding defined in {{?RFC7468}}:
-
-<aside markdown="block">
-  WARNING: This example was generated prior to NIST
-  finalizing [DRAFTFIPS203].
-</aside>
-
-~~~
-  -----BEGIN PUBLIC KEY-----
-  TODO insert example public key
-  -----END PUBLIC KEY-------
-~~~
-
+{example-public} contains an example of an id-alg-ml-kem-768 public key
+encoded using the textual encoding defined in {{?RFC7468}}.
 
 # Private Key Format
 
@@ -319,35 +296,6 @@ PqckemPrivateKey object and wrapped by the OCTET STRING of the
   PqckemPrivateKey ::= OCTET STRING
 ~~~
 
-The following is an example of a ML-KEM-512 private key encoded using the
-textual encoding defined in {{RFC7468}}:
-
-<aside markdown="block">
-  WARNING: This example was generated prior to NIST
-  finalizing [DRAFTFIPS203].
-</aside>
-
-~~~
-  -----BEGIN PRIVATE KEY-----
-  TODO iser example private key
-  -----END PRIVATE KEY-------
-~~~
-
-The following example, in addition to encoding the ML-KEM-512 private key,
-has an attribute included as well as the public key. As with the
-prior example, the textual encoding defined in {{RFC7468}} is used:
-
-<aside markdown="block">
-  WARNING: This example was generated prior to NIST
-  finalizing [DRAFTFIPS203].
-</aside>
-
-~~~
-  -----BEGIN PRIVATE KEY-----
-  TODO insert example private key with attribute
-  -----END PRIVATE KEY-------
-~~~
-
 <aside markdown="block">
   NOTE: There exist some private key import functions that have not
   implemented the new ASN.1 structure OneAsymmetricKey that is defined in
@@ -356,6 +304,9 @@ prior example, the textual encoding defined in {{RFC7468}} is used:
   act needs to be done between being able to do a consistency check on the
   key pair and widest ability to import the key.
 </aside>
+
+{example-private} contains an example of an id-alg-ml-kem-768 private key
+encoded using the textual encoding defined in {{?RFC7468}}.
 
 # ASN.1 Module
 
@@ -376,6 +327,51 @@ This document will have some IANA actions.
 
 
 --- back
+
+# Examples {#examples}
+
+This appendix contains examples of ML-KEN public keys, private keys and certificates.
+
+## Example Public Key {#example-public}
+
+The following is an example of a ML-KEM-512 public key:
+
+~~~
+  -----BEGIN PUBLIC KEY-----
+  TODO insert example public key
+  -----END PUBLIC KEY-------
+~~~
+
+## Example Private Key {#example-private}
+
+The following is an example of a ML-KEM-512 private key:
+
+~~~
+  -----BEGIN PRIVATE KEY-----
+  TODO insert example private key
+  -----END PRIVATE KEY-------
+~~~
+
+The following example, in addition to encoding the ML-KEM-512 private key,
+has an attribute included as well as the public key:
+
+~~~
+  -----BEGIN PRIVATE KEY-----
+  TODO insert example private key with attribute
+  -----END PRIVATE KEY-------
+~~~
+
+## Example Certificate {#example-certificate}
+
+~~~
+  TODO insert ASN.1 Pretty Print
+~~~
+
+~~~
+  -----BEGIN CERTIFICATE-----
+  TODO Certificate
+  -----END CERTIFICATE-------
+~~~
 
 # Acknowledgments
 {:numbered="false"}
