@@ -60,14 +60,14 @@ func main() {
 	}
 
 	if err = pem.Encode(os.Stdout, &pem.Block{
-		Type:  "KYBER768 PRIVATE KEY",
+		Type:  "ML-KEM-768 PRIVATE KEY",
 		Bytes: pask,
 	}); err != nil {
 		log.Fatal(err)
 	}
 
 	if err = pem.Encode(os.Stdout, &pem.Block{
-		Type:  "KYBER768 PUBLIC KEY",
+		Type:  "PUBLIC KEY",
 		Bytes: papk,
 	}); err != nil {
 		log.Fatal(err)
