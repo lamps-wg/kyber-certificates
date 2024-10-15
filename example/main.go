@@ -24,7 +24,7 @@ type oneAsymmetricKey struct {
 }
 
 func main() {
-	scheme := schemes.ByName("Kyber768")
+	scheme := schemes.ByName("ML-KEM-768")
 	seed := make([]byte, scheme.SeedSize())
 	pk, sk := scheme.DeriveKeyPair(seed)
 
