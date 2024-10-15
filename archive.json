@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-13T01:18:12.516407+00:00",
+  "timestamp": "2024-10-15T01:14:25.949355+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -2415,13 +2415,13 @@
       "labels": [],
       "body": "",
       "createdAt": "2024-10-11T11:36:27Z",
-      "updatedAt": "2024-10-11T12:31:42Z",
+      "updatedAt": "2024-10-14T15:27:40Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "8ffff847f67f85f58c56261ac810c9625ff546c4",
       "headRepository": "danvangeest/kyber-certificates",
       "headRefName": "dvg/ASN1_module",
-      "headRefOid": "c0df1ac909afb61b65a7c48a5baee04b2aa30f93",
+      "headRefOid": "9afeb86b9820832bdefb18ff6f0e418de413a073",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -2435,7 +2435,88 @@
           "updatedAt": "2024-10-11T12:31:36Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6NFReD",
+          "commit": {
+            "abbreviatedOid": "fceaad6"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-14T15:13:28Z",
+          "updatedAt": "2024-10-14T15:13:28Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "```suggestion\r\n\r\n  kems OBJECT IDENTIFIER ::= { nistAlgorithms 4 }\r\n```",
+              "createdAt": "2024-10-14T15:13:28Z",
+              "updatedAt": "2024-10-14T15:13:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6NFRrr",
+          "commit": {
+            "abbreviatedOid": "fceaad6"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-14T15:13:49Z",
+          "updatedAt": "2024-10-14T15:13:49Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "```suggestion\r\n\r\nkems OBJECT IDENTIFIER ::= { nistAlgorithms 4 }\r\n```",
+              "createdAt": "2024-10-14T15:13:49Z",
+              "updatedAt": "2024-10-14T15:13:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6NFR3_",
+          "commit": {
+            "abbreviatedOid": "fceaad6"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-14T15:14:11Z",
+          "updatedAt": "2024-10-14T15:14:11Z",
+          "comments": [
+            {
+              "originalPosition": 38,
+              "body": "```suggestion\r\n--\r\n\r\n  --\r\n  -- Public Key (pk-) Algorithms\r\n  --\r\n  \r\n  PublicKeys PUBLIC-KEY ::= {\r\n    -- This expands PublicKeys from RFC 5912\r\n    pk-ml-kem-512 |\r\n    pk-ml-kem-768 |\r\n    pk-ml-kem-1024,\r\n    ...\r\n  }\r\n\r\n--\r\n```\r\n\r\nThere is also the PublicKeys structure from RFC 5912 (page 24).",
+              "createdAt": "2024-10-14T15:14:11Z",
+              "updatedAt": "2024-10-14T15:14:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6NFZl8",
+          "commit": {
+            "abbreviatedOid": "fceaad6"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-14T15:27:40Z",
+          "updatedAt": "2024-10-14T15:27:40Z",
+          "comments": [
+            {
+              "originalPosition": 38,
+              "body": "Should this be PublicKeyAlgorithms instead of PublicKeys?  PublicKeyAlgorithms seems to be a set of PublicKeys:\r\n\r\n  PublicKeyAlgorithms PUBLIC-KEY ::= {\r\n      PKIXAlgs-2009.PublicKeys, ...,\r\n      PKIX1-PSS-OAEP-Algorithms-2009.PublicKeys}\r\n\r\nand is what's actually referenced in SubjectPublicKeyInfo and CertificationRequest:\r\n\r\n  SubjectPublicKeyInfo  ::=  SEQUENCE  {\r\n      algorithm            AlgorithmIdentifier{PUBLIC-KEY,\r\n                               {PublicKeyAlgorithms}},\r\n      subjectPublicKey     BIT STRING  }\r\n",
+              "createdAt": "2024-10-14T15:27:40Z",
+              "updatedAt": "2024-10-14T15:27:40Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
