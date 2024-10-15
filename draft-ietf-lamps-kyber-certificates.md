@@ -73,16 +73,6 @@ normative:
     seriesinfo:
       ITU-T Recommendation: X.690
       ISO/IEC: 8825-1:2021
-  FIPS203:
-    target: https://csrc.nist.gov/projects/post-quantum-cryptography
-    title: >
-      DRAFT Module-Lattice-based Key-Encapsulation
-      Mechanism Standard
-    author:
-    - org: National Institute of Standards and Technology (NIST)
-    date: 2023-08
-    seriesinfo:
-      "FIPS PUB": "203"
 
 informative:
   NIST-PQC:
