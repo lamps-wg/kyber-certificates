@@ -27,6 +27,7 @@ IMPORTS
 nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-ccitt(2)
   country(16) us(840) organization(1) gov(101) csor(3)
   nistAlgorithm(4) }
+
 kems OBJECT IDENTIFIER ::= { nistAlgorithms 4 }
 
 id-alg-ml-kem-512 OBJECT IDENTIFIER ::= { kems 1 }
@@ -34,6 +35,32 @@ id-alg-ml-kem-512 OBJECT IDENTIFIER ::= { kems 1 }
 id-alg-ml-kem-768 OBJECT IDENTIFIER ::= { kems 2 }
 
 id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
+
+--
+
+  --
+  -- Public Key Algorithms
+  --
+  -- To use the following with the PKIX1Explicit-2009 [RFC5912], replace the PublicKeyAlgorithms
+  -- therein with the following:
+  --
+  -- PublicKeyAlgorithms PUBLIC-KEY ::= {
+  --   PKIXAlgs-2009.PublicKeys,
+  --   ...,
+  --   PKIX1-PSS-OAEP-Algorithms-2009.PublicKeys,
+  --   X509-ML-KEM-2024.PublicKeys }
+
+  --
+  -- Public Key (pk-) Algorithms
+  --
+  
+  PublicKeys PUBLIC-KEY ::= {
+    -- This expands PublicKeys from RFC 5912
+    pk-ml-kem-512 |
+    pk-ml-kem-768 |
+    pk-ml-kem-1024,
+    ...
+  }
 
 --
 -- ML-KEM Public Keys
