@@ -107,7 +107,7 @@ and will use placeholders until these are released.]
 </aside>
 
 The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) standardized
-in {{FIPS203}} is a quantum-resistant key-encapsulation mechanism (KEM)
+in {{!FIPS203=DOI.10.6028/NIST.FIPS.203}} is a quantum-resistant key-encapsulation mechanism (KEM)
 standardized by the US National Institute of Standards and Technology (NIST)
 PQC Project {{NIST-PQC}}. Prior to standardization, the mechanism was known
 as Kyber. ML-KEM and Kyber are not compatible. This document specifies the
