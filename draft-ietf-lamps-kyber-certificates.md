@@ -73,16 +73,6 @@ normative:
     seriesinfo:
       ITU-T Recommendation: X.690
       ISO/IEC: 8825-1:2021
-  DRAFTFIPS203:
-    target: https://csrc.nist.gov/projects/post-quantum-cryptography
-    title: >
-      DRAFT Module-Lattice-based Key-Encapsulation
-      Mechanism Standard
-    author:
-    - org: National Institute of Standards and Technology (NIST)
-    date: 2023-08
-    seriesinfo:
-      "FIPS PUB": "203"
 
 informative:
   NIST-PQC:
@@ -105,12 +95,13 @@ also provided.
 
 # Introduction
 
-Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), previously
-known as known as Kyber, is a quantum-resistant key-encapsulation
-mechanism (KEM) standardized by the US NIST PQC Project {{NIST-PQC}}
-in {{DRAFTFIPS203}}. This document specifies the use of ML-KEM in Public
-Key Infrastructure X.509 (PKIX) certificates {{!RFC5280}} at three
-security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using object
+The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) standardized
+in {{!FIPS203=DOI.10.6028/NIST.FIPS.203}} is a quantum-resistant key-encapsulation mechanism (KEM)
+standardized by the US National Institute of Standards and Technology (NIST)
+PQC Project {{NIST-PQC}}. Prior to standardization, the mechanism was known
+as Kyber. ML-KEM and Kyber are not compatible. This document specifies the
+use of ML-KEM in Public Key Infrastructure X.509 (PKIX) certificates {{!RFC5280}}
+at three security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using object
 identifiers assigned by NIST.
 
 This specification includes conventions for the subjectPublicKeyInfo
