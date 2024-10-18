@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 18 April 2025                                        J. Massimo
+Expires: 21 April 2025                                        J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                         15 October 2024
+                                                         18 October 2024
 
 
   Internet X.509 Public Key Infrastructure - Algorithm Identifiers for
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 April 2025.
+   This Internet-Draft will expire on 21 April 2025.
 
 Copyright Notice
 
@@ -226,8 +226,8 @@ Table of Contents
       algorithms defined in this document always encode the public key
       as TODO pick format e.g., exact multiple of 8 bits?.
 
-   {example-public} contains an example of an id-alg-ml-kem-768 public
-   key encoded using the textual encoding defined in [RFC7468].
+   Appendix A.1 contains an example of an id-alg-ml-kem-768 public key
+   encoded using the textual encoding defined in [RFC7468].
 
 5.  Private Key Format
 
@@ -353,8 +353,9 @@ Table of Contents
               Wiggers, T., Celi, S., Schwabe, P., Stebila, D., and N.
               Sullivan, "KEM-based Authentication for TLS 1.3", Work in
               Progress, Internet-Draft, draft-celi-wiggers-tls-authkem-
-              03, 15 April 2024, <https://datatracker.ietf.org/doc/html/
-              draft-celi-wiggers-tls-authkem-03>.
+              04, 17 October 2024,
+              <https://datatracker.ietf.org/doc/html/draft-celi-wiggers-
+              tls-authkem-04>.
 
    [I-D.ietf-lamps-kyber]
               Prat, J. and M. Ounsworth, "Use of KYBER in the
