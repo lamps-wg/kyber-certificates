@@ -15,11 +15,6 @@ quantum-resistant key-encapsulation mechanism (KEM). This document
 specifies algorithm identifiers and ASN.1 encoding format for ML-KEM in
 public key certificates. The encoding for public and private keys are
 also provided. 
-       [EDNOTE:
-This document is not expected to be finalized before the NIST PQC
-Project has standardized PQ algorithms. This specification will use
-object identifiers for the new algorithms that are assigned by NIST,
-and will use placeholders until these are released.] 
     " name="description">
 <meta content="xml2rfc 3.23.2" name="generator">
 <meta content="ML-KEM Kyber KEM Certificate X.509 PKIX" name="keyword">
@@ -1040,7 +1035,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Turner, et al.</td>
-<td class="center">Expires 19 April 2025</td>
+<td class="center">Expires 21 April 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1053,12 +1048,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-lamps-kyber-certificates-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-10-16" class="published">16 October 2024</time>
+<time datetime="2024-10-18" class="published">18 October 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-04-19">19 April 2025</time></dd>
+<dd class="expires"><time datetime="2025-04-21">21 April 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1088,11 +1083,6 @@ quantum-resistant key-encapsulation mechanism (KEM). This document
 specifies algorithm identifiers and ASN.1 encoding format for ML-KEM in
 public key certificates. The encoding for public and private keys are
 also provided.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
-<p id="section-abstract-2">[EDNOTE:
-This document is not expected to be finalized before the NIST PQC
-Project has standardized PQ algorithms. This specification will use
-object identifiers for the new algorithms that are assigned by NIST,
-and will use placeholders until these are released.]<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1129,7 +1119,7 @@ and will use placeholders until these are released.]<a href="#section-abstract-2
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 19 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 21 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1202,10 +1192,24 @@ and will use placeholders until these are released.]<a href="#section-abstract-2
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-examples" class="internal xref">Examples</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
+                <p id="section-toc.1-1.10.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-example-public-key" class="internal xref">Example Public Key</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2">
+                <p id="section-toc.1-1.10.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-example-private-key" class="internal xref">Example Private Key</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.3">
+                <p id="section-toc.1-1.10.2.3.1"><a href="#appendix-A.3" class="auto internal xref">A.3</a>.  <a href="#name-example-certificate" class="internal xref">Example Certificate</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.11.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
+            <p id="section-toc.1-1.12.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1216,22 +1220,18 @@ and will use placeholders until these are released.]<a href="#section-abstract-2
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<aside id="section-1-1">
-        <p id="section-1-1.1">WARNING: This I-D includes examples. These examples were generated
-  prior to NIST finalizing [DRAFTFIPS203].<a href="#section-1-1.1" class="pilcrow">¶</a></p>
-</aside>
-<p id="section-1-2">The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) standardized
+<p id="section-1-1">The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) standardized
 in <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> is a quantum-resistant key-encapsulation mechanism (KEM)
 standardized by the US National Institute of Standards and Technology (NIST)
 PQC Project <span>[<a href="#NIST-PQC" class="cite xref">NIST-PQC</a>]</span>. Prior to standardization, the mechanism was known
 as Kyber. ML-KEM and Kyber are not compatible. This document specifies the
 use of ML-KEM in Public Key Infrastructure X.509 (PKIX) certificates <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>
 at three security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using object
-identifiers assigned by NIST.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">This specification includes conventions for the subjectPublicKeyInfo
+identifiers assigned by NIST.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">This specification includes conventions for the subjectPublicKeyInfo
 field within Internet X.509 certificates <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>, like <span>[<a href="#RFC3279" class="cite xref">RFC3279</a>]</span>
 did for classic cryptography and <span>[<a href="#RFC5480" class="cite xref">RFC5480</a>]</span> did for elliptic curve
-cryptography. The private key format is also specified.<a href="#section-1-3" class="pilcrow">¶</a></p>
+cryptography. The private key format is also specified.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <div id="asn1-module-and-ml-kem-identifiers">
 <section id="section-1.1">
         <h3 id="name-asn1-module-and-ml-kem-iden">
@@ -1378,19 +1378,8 @@ algorithms defined in this document always encode the public key
 as TODO pick format e.g., exact multiple of 8 bits?.<a href="#section-4-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-4-6">The following is an example of a ML-KEM-512 public key encoded using the
-textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>:<a href="#section-4-6" class="pilcrow">¶</a></p>
-<aside id="section-4-7">
-        <p id="section-4-7.1">WARNING: This example was generated prior to NIST
-  finalizing [DRAFTFIPS203].<a href="#section-4-7.1" class="pilcrow">¶</a></p>
-</aside>
-<div class="alignLeft art-text artwork" id="section-4-8">
-<pre>
-  -----BEGIN PUBLIC KEY-----
-  TODO insert example public key
-  -----END PUBLIC KEY-------
-</pre><a href="#section-4-8" class="pilcrow">¶</a>
-</div>
+<p id="section-4-6"><a href="#example-public" class="auto internal xref">Appendix A.1</a> contains an example of an id-alg-ml-kem-768 public key
+encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-4-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="private-key-format">
@@ -1446,41 +1435,16 @@ PqckemPrivateKey object and wrapped by the OCTET STRING of the
   PqckemPrivateKey ::= OCTET STRING
 </pre><a href="#section-5-5" class="pilcrow">¶</a>
 </div>
-<p id="section-5-6">The following is an example of a ML-KEM-512 private key encoded using the
-textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>:<a href="#section-5-6" class="pilcrow">¶</a></p>
-<aside id="section-5-7">
-        <p id="section-5-7.1">WARNING: This example was generated prior to NIST
-  finalizing [DRAFTFIPS203].<a href="#section-5-7.1" class="pilcrow">¶</a></p>
-</aside>
-<div class="alignLeft art-text artwork" id="section-5-8">
-<pre>
-  -----BEGIN PRIVATE KEY-----
-  TODO iser example private key
-  -----END PRIVATE KEY-------
-</pre><a href="#section-5-8" class="pilcrow">¶</a>
-</div>
-<p id="section-5-9">The following example, in addition to encoding the ML-KEM-512 private key,
-has an attribute included as well as the public key. As with the
-prior example, the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span> is used:<a href="#section-5-9" class="pilcrow">¶</a></p>
-<aside id="section-5-10">
-        <p id="section-5-10.1">WARNING: This example was generated prior to NIST
-  finalizing [DRAFTFIPS203].<a href="#section-5-10.1" class="pilcrow">¶</a></p>
-</aside>
-<div class="alignLeft art-text artwork" id="section-5-11">
-<pre>
-  -----BEGIN PRIVATE KEY-----
-  TODO insert example private key with attribute
-  -----END PRIVATE KEY-------
-</pre><a href="#section-5-11" class="pilcrow">¶</a>
-</div>
-<aside id="section-5-12">
-        <p id="section-5-12.1">NOTE: There exist some private key import functions that have not
+<aside id="section-5-6">
+        <p id="section-5-6.1">NOTE: There exist some private key import functions that have not
   implemented the new ASN.1 structure OneAsymmetricKey that is defined in
   <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span>. This means that they will not accept a private key
   structure that contains the public key field.  This means a balancing
   act needs to be done between being able to do a consistency check on the
-  key pair and widest ability to import the key.<a href="#section-5-12.1" class="pilcrow">¶</a></p>
+  key pair and widest ability to import the key.<a href="#section-5-6.1" class="pilcrow">¶</a></p>
 </aside>
+<p id="section-5-7"><a href="#example-private" class="auto internal xref">Appendix A.2</a> contains an example of an id-alg-ml-kem-768 private key
+encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-5-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="asn1-module">
@@ -1564,7 +1528,7 @@ prior example, the textual encoding defined in <span>[<a href="#RFC7468" class="
 <dl class="references">
 <dt id="I-D.celi-wiggers-tls-authkem">[I-D.celi-wiggers-tls-authkem]</dt>
         <dd>
-<span class="refAuthor">Wiggers, T.</span>, <span class="refAuthor">Celi, S.</span>, <span class="refAuthor">Schwabe, P.</span>, <span class="refAuthor">Stebila, D.</span>, and <span class="refAuthor">N. Sullivan</span>, <span class="refTitle">"KEM-based Authentication for TLS 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-celi-wiggers-tls-authkem-03</span>, <time datetime="2024-04-15" class="refDate">15 April 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-celi-wiggers-tls-authkem-03">https://datatracker.ietf.org/doc/html/draft-celi-wiggers-tls-authkem-03</a>&gt;</span>. </dd>
+<span class="refAuthor">Wiggers, T.</span>, <span class="refAuthor">Celi, S.</span>, <span class="refAuthor">Schwabe, P.</span>, <span class="refAuthor">Stebila, D.</span>, and <span class="refAuthor">N. Sullivan</span>, <span class="refTitle">"KEM-based Authentication for TLS 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-celi-wiggers-tls-authkem-04</span>, <time datetime="2024-10-17" class="refDate">17 October 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-celi-wiggers-tls-authkem-04">https://datatracker.ietf.org/doc/html/draft-celi-wiggers-tls-authkem-04</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-lamps-kyber">[I-D.ietf-lamps-kyber]</dt>
         <dd>
@@ -1591,16 +1555,82 @@ prior example, the textual encoding defined in <span>[<a href="#RFC7468" class="
 </div>
 </section>
 </div>
-<div id="acknowledgments">
+<div id="examples">
 <section id="appendix-A">
+      <h2 id="name-examples">
+<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-examples" class="section-name selfRef">Examples</a>
+      </h2>
+<p id="appendix-A-1">This appendix contains examples of ML-KEM public keys, private keys and certificates.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<div id="example-public">
+<section id="appendix-A.1">
+        <h3 id="name-example-public-key">
+<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-example-public-key" class="section-name selfRef">Example Public Key</a>
+        </h3>
+<p id="appendix-A.1-1">The following is an example of a ML-KEM-768 public key:<a href="#appendix-A.1-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.1-2">
+<pre>
+  -----BEGIN PUBLIC KEY-----
+  TODO insert example public key
+  -----END PUBLIC KEY-------
+</pre><a href="#appendix-A.1-2" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<div id="example-private">
+<section id="appendix-A.2">
+        <h3 id="name-example-private-key">
+<a href="#appendix-A.2" class="section-number selfRef">A.2. </a><a href="#name-example-private-key" class="section-name selfRef">Example Private Key</a>
+        </h3>
+<p id="appendix-A.2-1">The following is an example of a ML-KEM-768 private key:<a href="#appendix-A.2-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.2-2">
+<pre>
+  -----BEGIN PRIVATE KEY-----
+  TODO insert example private key
+  -----END PRIVATE KEY-------
+</pre><a href="#appendix-A.2-2" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.2-3">The following example, in addition to encoding the ML-KEM-768 private key,
+has an attribute included as well as the public key:<a href="#appendix-A.2-3" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.2-4">
+<pre>
+  -----BEGIN PRIVATE KEY-----
+  TODO insert example private key with attribute
+  -----END PRIVATE KEY-------
+</pre><a href="#appendix-A.2-4" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<div id="example-certificate">
+<section id="appendix-A.3">
+        <h3 id="name-example-certificate">
+<a href="#appendix-A.3" class="section-number selfRef">A.3. </a><a href="#name-example-certificate" class="section-name selfRef">Example Certificate</a>
+        </h3>
+<div class="alignLeft art-text artwork" id="appendix-A.3-1">
+<pre>
+  TODO insert ASN.1 Pretty Print
+</pre><a href="#appendix-A.3-1" class="pilcrow">¶</a>
+</div>
+<div class="alignLeft art-text artwork" id="appendix-A.3-2">
+<pre>
+  -----BEGIN CERTIFICATE-----
+  TODO Certificate
+  -----END CERTIFICATE-------
+</pre><a href="#appendix-A.3-2" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="acknowledgments">
+<section id="appendix-B">
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-A-1">TODO acknowledge.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-B-1">TODO acknowledge.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="appendix-B">
+<section id="appendix-C">
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
