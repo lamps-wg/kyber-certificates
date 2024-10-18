@@ -125,10 +125,11 @@ Table of Contents
 
    ML-KEM certificates are used in protocols where the public key is
    used to generate and encapsulate a shared secret used to derive a
-   symmetric key used to encrypt a payload; see [I-D.ietf-lamps-kyber].
-   To be used in TLS, ML-KEM certificates could only be used as end-
-   entity identity certificates and would require significant updates to
-   the protocol; see [I-D.celi-wiggers-tls-authkem].
+   symmetric key used to encrypt a payload; see
+   [I-D.ietf-lamps-cms-kyber].  To be used in TLS, ML-KEM certificates
+   could only be used as end-entity identity certificates and would
+   require significant updates to the protocol; see
+   [I-D.celi-wiggers-tls-authkem].
 
 2.  Conventions and Definitions
 
@@ -357,12 +358,12 @@ Table of Contents
               <https://datatracker.ietf.org/doc/html/draft-celi-wiggers-
               tls-authkem-04>.
 
-   [I-D.ietf-lamps-kyber]
-              Prat, J. and M. Ounsworth, "Use of KYBER in the
-              Cryptographic Message Syntax (CMS)", Work in Progress,
-              Internet-Draft, draft-ietf-lamps-kyber-00, 10 November
-              2022, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              lamps-kyber-00>.
+   [I-D.ietf-lamps-cms-kyber]
+              Prat, J., Ounsworth, M., and D. Van Geest, "Use of ML-KEM
+              in the Cryptographic Message Syntax (CMS)", Work in
+              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-05,
+              15 October 2024, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-lamps-cms-kyber-05>.
 
    [NIST-PQC] National Institute of Standards and Technology (NIST),
               "Post-Quantum Cryptography Project", 20 December 2016,
