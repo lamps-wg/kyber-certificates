@@ -344,7 +344,7 @@ The following is an example of a ML-KEM-768 public key:
 
 ## Example Private Key {#example-private}
 
-The following is an example of a ML-KEM-512 private key:
+The following is an example of a ML-KEM-768 private key:
 
 ~~~
   -----BEGIN PRIVATE KEY-----
