@@ -330,7 +330,7 @@ This document will have some IANA actions.
 
 # Examples {#examples}
 
-This appendix contains examples of ML-KEN public keys, private keys and certificates.
+This appendix contains examples of ML-KEM public keys, private keys and certificates.
 
 ## Example Public Key {#example-public}
 
