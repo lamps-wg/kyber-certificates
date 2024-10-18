@@ -24,7 +24,7 @@ type oneAsymmetricKey struct {
 }
 
 func main() {
-	scheme := schemes.ByName("Kyber768")
+	scheme := schemes.ByName("ML-KEM-768")
 	seed := make([]byte, scheme.SeedSize())
 	pk, sk := scheme.DeriveKeyPair(seed)
 
@@ -60,14 +60,14 @@ func main() {
 	}
 
 	if err = pem.Encode(os.Stdout, &pem.Block{
-		Type:  "KYBER768 PRIVATE KEY",
+		Type:  "ML-KEM-768 PRIVATE KEY",
 		Bytes: pask,
 	}); err != nil {
 		log.Fatal(err)
 	}
 
 	if err = pem.Encode(os.Stdout, &pem.Block{
-		Type:  "KYBER768 PUBLIC KEY",
+		Type:  "PUBLIC KEY",
 		Bytes: papk,
 	}); err != nil {
 		log.Fatal(err)
