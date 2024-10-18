@@ -391,7 +391,7 @@ Appendix A.  Examples
 
 A.1.  Example Public Key
 
-   The following is an example of a ML-KEM-512 public key:
+   The following is an example of a ML-KEM-768 public key:
 
      -----BEGIN PUBLIC KEY-----
      TODO insert example public key
