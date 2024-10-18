@@ -120,7 +120,7 @@ the ML-KEM algorithms in an ASN.1 module; see (TODO insert reference).
 
 ML-KEM certificates are used in protocols where the public key is used to
 generate and encapsulate a shared secret used to derive a symmetric key used to
-encrypt a payload; see {{?I-D.ietf-lamps-kyber}}. To be used in
+encrypt a payload; see {{?I-D.ietf-lamps-cms-kyber}}. To be used in
 TLS, ML-KEM certificates could only be used as end-entity identity
 certificates and would require significant updates to the protocol; see
 {{?I-D.celi-wiggers-tls-authkem}}.
