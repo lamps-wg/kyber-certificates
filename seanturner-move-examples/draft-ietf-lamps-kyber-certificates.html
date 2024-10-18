@@ -1220,12 +1220,13 @@ also provided.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), previously
-known as known as Kyber, is a quantum-resistant key-encapsulation
-mechanism (KEM) standardized by the US NIST PQC Project <span>[<a href="#NIST-PQC" class="cite xref">NIST-PQC</a>]</span>
-in <span>[<a href="#DRAFTFIPS203" class="cite xref">DRAFTFIPS203</a>]</span>. This document specifies the use of ML-KEM in Public
-Key Infrastructure X.509 (PKIX) certificates <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> at three
-security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using object
+<p id="section-1-1">The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) standardized
+in <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> is a quantum-resistant key-encapsulation mechanism (KEM)
+standardized by the US National Institute of Standards and Technology (NIST)
+PQC Project <span>[<a href="#NIST-PQC" class="cite xref">NIST-PQC</a>]</span>. Prior to standardization, the mechanism was known
+as Kyber. ML-KEM and Kyber are not compatible. This document specifies the
+use of ML-KEM in Public Key Infrastructure X.509 (PKIX) certificates <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>
+at three security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using object
 identifiers assigned by NIST.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">This specification includes conventions for the subjectPublicKeyInfo
 field within Internet X.509 certificates <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>, like <span>[<a href="#RFC3279" class="cite xref">RFC3279</a>]</span>
@@ -1484,9 +1485,9 @@ encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="c
 <a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
-<dt id="DRAFTFIPS203">[DRAFTFIPS203]</dt>
+<dt id="FIPS203">[FIPS203]</dt>
         <dd>
-<span class="refAuthor">National Institute of Standards and Technology (NIST)</span>, <span class="refTitle">"DRAFT Module-Lattice-based Key-Encapsulation Mechanism Standard"</span>, <span class="seriesInfo">FIPS PUB 203</span>, <time datetime="2023-08" class="refDate">August 2023</time>, <span>&lt;<a href="https://csrc.nist.gov/projects/post-quantum-cryptography">https://csrc.nist.gov/projects/post-quantum-cryptography</a>&gt;</span>. </dd>
+<span class="refTitle">"Module-Lattice-Based Key-Encapsulation Mechanism Standard"</span>, <span class="refContent">National Institute of Standards and Technology</span>, <span class="seriesInfo">DOI 10.6028/nist.fips.203</span>, <time datetime="2024-08" class="refDate">August 2024</time>, <span>&lt;<a href="https://doi.org/10.6028/nist.fips.203">https://doi.org/10.6028/nist.fips.203</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
