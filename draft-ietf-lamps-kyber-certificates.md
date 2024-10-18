@@ -334,7 +334,7 @@ This appendix contains examples of ML-KEM public keys, private keys and certific
 
 ## Example Public Key {#example-public}
 
-The following is an example of a ML-KEM-512 public key:
+The following is an example of a ML-KEM-768 public key:
 
 ~~~
   -----BEGIN PUBLIC KEY-----
