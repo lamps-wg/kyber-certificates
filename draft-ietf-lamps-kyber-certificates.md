@@ -242,7 +242,7 @@ The fields in SubjectPublicKeyInfo have the following meaning:
   algorithms defined in this document always encode the public key
   as TODO pick format e.g., exact multiple of 8 bits?.
 
-{example-public} contains an example of an id-alg-ml-kem-768 public key
+{{example-public}} contains an example of an id-alg-ml-kem-768 public key
 encoded using the textual encoding defined in {{?RFC7468}}.
 
 # Private Key Format
