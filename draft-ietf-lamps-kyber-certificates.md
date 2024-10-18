@@ -305,7 +305,7 @@ PqckemPrivateKey object and wrapped by the OCTET STRING of the
   key pair and widest ability to import the key.
 </aside>
 
-{example-private} contains an example of an id-alg-ml-kem-768 private key
+{{example-private}} contains an example of an id-alg-ml-kem-768 private key
 encoded using the textual encoding defined in {{?RFC7468}}.
 
 # ASN.1 Module
