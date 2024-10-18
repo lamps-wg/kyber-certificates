@@ -282,8 +282,8 @@ Table of Contents
       |  to do a consistency check on the key pair and widest ability to
       |  import the key.
 
-   {example-private} contains an example of an id-alg-ml-kem-768 private
-   key encoded using the textual encoding defined in [RFC7468].
+   Appendix A.2 contains an example of an id-alg-ml-kem-768 private key
+   encoded using the textual encoding defined in [RFC7468].
 
 6.  ASN.1 Module
 
