@@ -386,7 +386,7 @@ Table of Contents
 
 Appendix A.  Examples
 
-   This appendix contains examples of ML-KEN public keys, private keys
+   This appendix contains examples of ML-KEM public keys, private keys
    and certificates.
 
 A.1.  Example Public Key
