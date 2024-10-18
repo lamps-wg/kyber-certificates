@@ -352,7 +352,7 @@ The following is an example of a ML-KEM-768 private key:
   -----END PRIVATE KEY-------
 ~~~
 
-The following example, in addition to encoding the ML-KEM-512 private key,
+The following example, in addition to encoding the ML-KEM-768 private key,
 has an attribute included as well as the public key:
 
 ~~~
