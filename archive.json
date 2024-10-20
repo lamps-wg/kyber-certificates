@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-17T01:13:39.529805+00:00",
+  "timestamp": "2024-10-20T01:19:37.588594+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -2564,24 +2564,26 @@
       "id": "PR_kwDOGV9y2s5-sugr",
       "title": "Move examples",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/48",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Moved the examples to an Appendix.",
       "createdAt": "2024-10-15T15:58:12Z",
-      "updatedAt": "2024-10-16T08:56:51Z",
+      "updatedAt": "2024-10-18T01:50:07Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
-      "baseRefOid": "8ffff847f67f85f58c56261ac810c9625ff546c4",
+      "baseRefOid": "9b3b175b267bf893af0f0d09572915a76c57f267",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "seanturner-move-examples",
-      "headRefOid": "e8f43ce7b0b02a9d8c3e18f9abc8a24cb8d80002",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "b4d14f362e298675e26465f69982f8d5c049e5df",
+      "closedAt": "2024-10-18T01:50:07Z",
+      "mergedAt": "2024-10-18T01:50:07Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "05a1475950c9720cefe74995da1af3ecef0317b5"
+      },
       "comments": [
         {
           "author": "bwesterb",
@@ -2646,6 +2648,126 @@
               "body": "Appendix says it's ML-KEM-512, here says 768.  Which one?  No actual examples to verify this against :)",
               "createdAt": "2024-10-16T08:56:25Z",
               "updatedAt": "2024-10-16T08:56:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6Nqkra",
+          "commit": {
+            "abbreviatedOid": "f677315"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-18T01:46:50Z",
+          "updatedAt": "2024-10-18T01:46:50Z",
+          "comments": [
+            {
+              "originalPosition": 101,
+              "body": "```suggestion\r\nThe following is an example of a ML-KEM-768 public key:\r\n```",
+              "createdAt": "2024-10-18T01:46:50Z",
+              "updatedAt": "2024-10-18T01:46:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6Nqkwr",
+          "commit": {
+            "abbreviatedOid": "0001279"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-18T01:47:17Z",
+          "updatedAt": "2024-10-18T01:47:18Z",
+          "comments": [
+            {
+              "originalPosition": 111,
+              "body": "```suggestion\r\nThe following is an example of a ML-KEM-768 private key:\r\n```",
+              "createdAt": "2024-10-18T01:47:17Z",
+              "updatedAt": "2024-10-18T01:47:18Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6NqkzO",
+          "commit": {
+            "abbreviatedOid": "0001279"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-18T01:47:32Z",
+          "updatedAt": "2024-10-18T01:47:32Z",
+          "comments": [
+            {
+              "originalPosition": 111,
+              "body": "```suggestion\r\nThe following is an example of a ML-KEM-768 private key:\r\n```",
+              "createdAt": "2024-10-18T01:47:32Z",
+              "updatedAt": "2024-10-18T01:47:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6Nqk4V",
+          "commit": {
+            "abbreviatedOid": "95776d9"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-18T01:47:57Z",
+          "updatedAt": "2024-10-18T01:47:57Z",
+          "comments": [
+            {
+              "originalPosition": 119,
+              "body": "```suggestion\r\nThe following example, in addition to encoding the ML-KEM-768 private key,\r\n```",
+              "createdAt": "2024-10-18T01:47:57Z",
+              "updatedAt": "2024-10-18T01:47:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6Nqk__",
+          "commit": {
+            "abbreviatedOid": "e8f43ce"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-18T01:48:33Z",
+          "updatedAt": "2024-10-18T01:48:33Z",
+          "comments": [
+            {
+              "originalPosition": 40,
+              "body": "Yep should be 768!",
+              "createdAt": "2024-10-18T01:48:33Z",
+              "updatedAt": "2024-10-18T01:48:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6NqlCH",
+          "commit": {
+            "abbreviatedOid": "e8f43ce"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-18T01:48:44Z",
+          "updatedAt": "2024-10-18T01:48:44Z",
+          "comments": [
+            {
+              "originalPosition": 85,
+              "body": "Yep 768!",
+              "createdAt": "2024-10-18T01:48:44Z",
+              "updatedAt": "2024-10-18T01:48:44Z"
             }
           ]
         }
@@ -2779,7 +2901,7 @@
       "labels": [],
       "body": "Dropped ToDo.",
       "createdAt": "2024-10-15T16:42:43Z",
-      "updatedAt": "2024-10-15T18:12:51Z",
+      "updatedAt": "2024-10-18T08:52:49Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "8ffff847f67f85f58c56261ac810c9625ff546c4",
@@ -2797,6 +2919,20 @@
           "body": "Addresses #30.",
           "createdAt": "2024-10-15T18:12:49Z",
           "updatedAt": "2024-10-15T18:12:49Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@bwesterb should we say something about what the public is? I.e., do we need to say it's seed?",
+          "createdAt": "2024-10-18T01:51:21Z",
+          "updatedAt": "2024-10-18T01:51:21Z"
+        },
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "It's the private (not public) key that needs to be a seed.",
+          "createdAt": "2024-10-18T08:52:48Z",
+          "updatedAt": "2024-10-18T08:52:48Z"
         }
       ],
       "reviews": [
@@ -2827,7 +2963,7 @@
       "labels": [],
       "body": "Tweaking the key encoding text to match text from other LAMP I-Ds.",
       "createdAt": "2024-10-15T18:30:13Z",
-      "updatedAt": "2024-10-16T10:40:28Z",
+      "updatedAt": "2024-10-18T01:52:20Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "8ffff847f67f85f58c56261ac810c9625ff546c4",
@@ -2845,6 +2981,13 @@
           "body": "Given [WG consensus](https://mailarchive.ietf.org/arch/msg/spasm/KPg3lbPeNms2H5PNDBt0iJByuE0/) to use seed as private key, we should change the text here to say the private key is the seed. I can write some text if you'd like.",
           "createdAt": "2024-10-16T10:40:27Z",
           "updatedAt": "2024-10-16T10:40:27Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@bwesterb please suggest some text. Also, take a look at #51 to make sure it lands in the right place.",
+          "createdAt": "2024-10-18T01:52:19Z",
+          "updatedAt": "2024-10-18T01:52:19Z"
         }
       ],
       "reviews": [
@@ -2868,24 +3011,26 @@
       "id": "PR_kwDOGV9y2s5-ykIa",
       "title": "Update reference to draft-ietf-lamps-cms-kyber",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/53",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "thomwiggers",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-10-16T08:27:07Z",
-      "updatedAt": "2024-10-16T08:27:07Z",
+      "updatedAt": "2024-10-18T01:54:19Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "914c4f584fed21198ec1cfe8c3021b940376b649",
       "headRepository": "thomwiggers/kyber-certificates",
       "headRefName": "update-cms-ref",
       "headRefOid": "62334af96384de5d197aabbd6b2f2bbc753984f6",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-10-18T01:54:18Z",
+      "mergedAt": "2024-10-18T01:54:18Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "5a5b17bbf6079604f7b0fc97d72d8ef2534cf2a2"
+      },
       "comments": [],
       "reviews": []
     },
