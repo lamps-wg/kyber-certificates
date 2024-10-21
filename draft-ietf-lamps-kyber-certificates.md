@@ -1,7 +1,7 @@
 ---
 title: >
   Internet X.509 Public Key Infrastructure - Algorithm Identifiers
-  for Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)
+  for the Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)
 abbrev: ML-KEM in Certificates
 category: std
 
@@ -85,11 +85,11 @@ informative:
 
 --- abstract
 
-Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) is a
+The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) is a
 quantum-resistant key-encapsulation mechanism (KEM). This document
-specifies algorithm identifiers and ASN.1 encoding format for ML-KEM in
-public key certificates. The encoding for public and private keys are
-also provided.
+describes the conventions for using the ML-KEM in X.509 Public Key
+Infrastructure. The conventions for the subject public keys and
+private keys are also described.
 
 --- middle
 
@@ -102,12 +102,7 @@ PQC Project {{NIST-PQC}}. Prior to standardization, the mechanism was known
 as Kyber. ML-KEM and Kyber are not compatible. This document specifies the
 use of ML-KEM in Public Key Infrastructure X.509 (PKIX) certificates {{!RFC5280}}
 at three security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using object
-identifiers assigned by NIST.
-
-This specification includes conventions for the subjectPublicKeyInfo
-field within Internet X.509 certificates {{RFC5280}}, like {{?RFC3279}}
-did for classic cryptography and {{?RFC5480}} did for elliptic curve
-cryptography. The private key format is also specified.
+identifiers assigned by NIST. The private key format is also specified.
 
 ## Applicability Statement
 
@@ -122,12 +117,7 @@ certificates and would require significant updates to the protocol; see
 
 {::boilerplate bcp14-tagged}
 
-# Identifiers
-
-Certificates conforming to {{RFC5280}} can convey a public key for any
-public key algorithm. The certificate indicates the algorithm through
-an algorithm identifier. An algorithm identifier consists of an object
-identifier and optional parameters.
+# Algorithm Identifiers
 
 The AlgorithmIdentifier type, which is included herein for convenience,
 is defined as follows:
@@ -200,7 +190,21 @@ certificate extension MUST only contain keyEncipherment
     CERT-KEY-USAGE { keyEncipherment }
     --- PRIVATE-KEY no ASN.1 wrapping --
     }
+
+    ML-KEM-PublicKey ::= OCTET STRING
+
+    ML-KEM-PrivateKey ::= OCTET STRING
 ~~~
+
+No additional encoding of the ML-KEM public key value is applied in
+the SubjectPublicKeyInfo field of an X.509 certificate {{RFC5280}}.
+However, whenever the ML-KEM public key value appears outside of a
+certificate, it MAY be encoded as an OCTET STRING.
+
+No additional encoding of the ML-KEM private key value is applied in
+the PrivateKeyInfo field of an Asymmetric Key Package {{RFC5958}}.
+However, whenever the ML-KEM private key value appears outside of a
+Asymmetric Key Package, it MAY be encoded as an OCTET STRING.
 
 # Subject Public Key Fields
 
@@ -224,9 +228,7 @@ The fields in SubjectPublicKeyInfo have the following meaning:
 * algorithm is the algorithm identifier and parameters for the
   public key (see above).
 
-* subjectPublicKey contains the byte stream of the public key.  The
-  algorithms defined in this document always encode the public key
-  as TODO pick format e.g., exact multiple of 8 bits?.
+* subjectPublicKey contains the byte stream of the public key.
 
 {{example-public}} contains an example of an id-alg-ml-kem-768 public key
 encoded using the textual encoding defined in {{?RFC7468}}.
@@ -260,10 +262,6 @@ algorithm itself.
                                  OPTIONAL,
     ...
   }
-
-  PrivateKey ::= OCTET STRING
-
-  PublicKey ::= BIT STRING
 ~~~
 
 <aside markdown="block">
@@ -271,16 +269,12 @@ algorithm itself.
   2021 ASN.1 syntax {{X680}}.
 </aside>
 
-For the keys defined in this document, the private key is always an
-opaque byte sequence. The ASN.1 type PqckemPrivateKey is defined in
-this document to hold the byte sequence. Thus, when encoding a
-OneAsymmetricKey object, the private key is wrapped in a
-PqckemPrivateKey object and wrapped by the OCTET STRING of the
-"privateKey" field.
+When used in a OneAsymmetricKey type, the privateKey OCTET STRING contains
+the raw octet string encoding of the private key.
 
-~~~
-  PqckemPrivateKey ::= OCTET STRING
-~~~
+When an ML-KEM public key is included in a OneAsymmetricKey type, it is
+encoded in the same manner as in a SubjectPublicKeyInfo type. That is, the
+publicKey BIT STRING contains the raw octet string encoding of the public key.
 
 <aside markdown="block">
   NOTE: There exist some private key import functions that have not
