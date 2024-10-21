@@ -33,10 +33,9 @@ func example(name string) {
 	for i := 0; i < len(seed); i++ {
 		seed[i] = byte(i)
 	}
-	pk, sk := scheme.DeriveKeyPair(seed)
+	pk, _ := scheme.DeriveKeyPair(seed)
 
 	ppk, _ := pk.MarshalBinary()
-	psk, _ := sk.MarshalBinary()
 
 	var oid int
 
@@ -66,7 +65,7 @@ func example(name string) {
 	ask := oneAsymmetricKey{
 		Version:    0,
 		Algorithm:  alg,
-		PrivateKey: psk,
+		PrivateKey: seed,
 	}
 
 	papk, err := asn1.Marshal(apk)
