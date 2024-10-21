@@ -92,7 +92,7 @@ func example(name string) {
 	defer fpk.Close()
 
 	if err = pem.Encode(fsk, &pem.Block{
-		Type:  "ML-KEM-768 PRIVATE KEY",
+		Type:  "PRIVATE KEY",
 		Bytes: pask,
 	}); err != nil {
 		log.Fatal(err)
