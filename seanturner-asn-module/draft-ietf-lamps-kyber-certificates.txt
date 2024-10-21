@@ -436,8 +436,6 @@ Appendix A.  ASN.1 Module
 
    id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
 
-   --
-
      --
      -- Public Key Algorithms
      --
