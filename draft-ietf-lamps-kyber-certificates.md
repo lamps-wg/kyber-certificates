@@ -299,11 +299,6 @@ PqckemPrivateKey object and wrapped by the OCTET STRING of the
 {{example-private}} contains an example of an id-alg-ml-kem-768 private key
 encoded using the textual encoding defined in {{?RFC7468}}.
 
-# ASN.1 Module
-
-TODO ASN.1 Module
-
-
 # Security Considerations
 
 The Security Considerations section of {{RFC5280}} applies to this specification as well.
@@ -318,6 +313,15 @@ This document will have some IANA actions.
 
 
 --- back
+
+
+# ASN.1 Module
+
+~~~
+<CODE BEGINS>
+{::include X509-ML-KEM-2024.asn}
+<CODE ENDS>
+~~~
 
 # Examples {#examples}
 
