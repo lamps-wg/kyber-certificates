@@ -33,7 +33,7 @@ func main() {
 
 	apk := subjectPublicKeyInfo{
 		Algorithm: pkix.AlgorithmIdentifier{
-			Algorithm: asn1.ObjectIdentifier{1, 3, 6, 1, 4, 1, 44363, 45, 1234, 1}, // TODO
+			Algorithm: asn1.ObjectIdentifier{2, 16, 840, 1, 101, 3, 4, 4, 3},
 		},
 		PublicKey: asn1.BitString{
 			BitLength: len(ppk) * 8,
@@ -44,7 +44,7 @@ func main() {
 	ask := oneAsymmetricKey{
 		Version: 0,
 		Algorithm: pkix.AlgorithmIdentifier{
-			Algorithm: asn1.ObjectIdentifier{1, 3, 6, 1, 4, 1, 44363, 45, 1234, 1}, // TODO
+			Algorithm: asn1.ObjectIdentifier{2, 16, 840, 1, 101, 3, 4, 4, 3},
 		},
 		PrivateKey: psk,
 	}
