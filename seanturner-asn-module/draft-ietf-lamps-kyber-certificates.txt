@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 24 March 2025                                        J. Massimo
+Expires: 24 April 2025                                        J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                       20 September 2024
+                                                         21 October 2024
 
 
   Internet X.509 Public Key Infrastructure - Algorithm Identifiers for
@@ -23,11 +23,6 @@ Abstract
    specifies algorithm identifiers and ASN.1 encoding format for ML-KEM
    in public key certificates.  The encoding for public and private keys
    are also provided.
-
-   [EDNOTE: This document is not expected to be finalized before the
-   NIST PQC Project has standardized PQ algorithms.  This specification
-   will use object identifiers for the new algorithms that are assigned
-   by NIST, and will use placeholders until these are released.]
 
 About This Document
 
@@ -63,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 March 2025.
+   This Internet-Draft will expire on 24 April 2025.
 
 Copyright Notice
 
@@ -94,20 +89,23 @@ Table of Contents
    9.  References
      9.1.  Normative References
      9.2.  Informative References
+   Appendix A.  Examples
+     A.1.  Example Public Key
+     A.2.  Example Private Key
+     A.3.  Example Certificate
    Acknowledgments
    Authors' Addresses
 
 1.  Introduction
 
-      |  WARNING: This I-D includes examples.  These examples were
-      |  generated prior to NIST finalizing [DRAFTFIPS203].
-
-   Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), previously
-   known as known as Kyber, is a quantum-resistant key-encapsulation
-   mechanism (KEM) standardized by the US NIST PQC Project [NIST-PQC] in
-   [DRAFTFIPS203].  This document specifies the use of ML-KEM in Public
-   Key Infrastructure X.509 (PKIX) certificates [RFC5280] at three
-   security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using
+   The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)
+   standardized in [FIPS203] is a quantum-resistant key-encapsulation
+   mechanism (KEM) standardized by the US National Institute of
+   Standards and Technology (NIST) PQC Project [NIST-PQC].  Prior to
+   standardization, the mechanism was known as Kyber.  ML-KEM and Kyber
+   are not compatible.  This document specifies the use of ML-KEM in
+   Public Key Infrastructure X.509 (PKIX) certificates [RFC5280] at
+   three security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using
    object identifiers assigned by NIST.
 
    This specification includes conventions for the subjectPublicKeyInfo
@@ -127,10 +125,11 @@ Table of Contents
 
    ML-KEM certificates are used in protocols where the public key is
    used to generate and encapsulate a shared secret used to derive a
-   symmetric key used to encrypt a payload; see [I-D.ietf-lamps-kyber].
-   To be used in TLS, ML-KEM certificates could only be used as end-
-   entity identity certificates and would require significant updates to
-   the protocol; see [I-D.celi-wiggers-tls-authkem].
+   symmetric key used to encrypt a payload; see
+   [I-D.ietf-lamps-cms-kyber].  To be used in TLS, ML-KEM certificates
+   could only be used as end-entity identity certificates and would
+   require significant updates to the protocol; see
+   [I-D.celi-wiggers-tls-authkem].
 
 2.  Conventions and Definitions
 
@@ -230,15 +229,8 @@ Table of Contents
       algorithms defined in this document always encode the public key
       as TODO pick format e.g., exact multiple of 8 bits?.
 
-   The following is an example of a ML-KEM-512 public key encoded using
-   the textual encoding defined in [RFC7468]:
-
-      |  WARNING: This example was generated prior to NIST finalizing
-      |  [DRAFTFIPS203].
-
-     -----BEGIN PUBLIC KEY-----
-     TODO insert example public key
-     -----END PUBLIC KEY-------
+   Appendix A.1 contains an example of an id-alg-ml-kem-768 public key
+   encoded using the textual encoding defined in [RFC7468].
 
 5.  Private Key Format
 
@@ -285,27 +277,6 @@ Table of Contents
 
      PqckemPrivateKey ::= OCTET STRING
 
-   The following is an example of a ML-KEM-512 private key encoded using
-   the textual encoding defined in [RFC7468]:
-
-      |  WARNING: This example was generated prior to NIST finalizing
-      |  [DRAFTFIPS203].
-
-     -----BEGIN PRIVATE KEY-----
-     TODO iser example private key
-     -----END PRIVATE KEY-------
-
-   The following example, in addition to encoding the ML-KEM-512 private
-   key, has an attribute included as well as the public key.  As with
-   the prior example, the textual encoding defined in [RFC7468] is used:
-
-      |  WARNING: This example was generated prior to NIST finalizing
-      |  [DRAFTFIPS203].
-
-     -----BEGIN PRIVATE KEY-----
-     TODO insert example private key with attribute
-     -----END PRIVATE KEY-------
-
       |  NOTE: There exist some private key import functions that have
       |  not implemented the new ASN.1 structure OneAsymmetricKey that
       |  is defined in [RFC5958].  This means that they will not accept
@@ -313,6 +284,9 @@ Table of Contents
       |  This means a balancing act needs to be done between being able
       |  to do a consistency check on the key pair and widest ability to
       |  import the key.
+
+   Appendix A.2 contains an example of an id-alg-ml-kem-768 private key
+   encoded using the textual encoding defined in [RFC7468].
 
 6.  ASN.1 Module
 
@@ -333,12 +307,10 @@ Table of Contents
 
 9.1.  Normative References
 
-   [DRAFTFIPS203]
-              National Institute of Standards and Technology (NIST),
-              "DRAFT Module-Lattice-based Key-Encapsulation Mechanism
-              Standard", FIPS PUB 203, August 2023,
-              <https://csrc.nist.gov/projects/post-quantum-
-              cryptography>.
+   [FIPS203]  "Module-Lattice-Based Key-Encapsulation Mechanism
+              Standard", National Institute of Standards and Technology,
+              DOI 10.6028/nist.fips.203, August 2024,
+              <https://doi.org/10.6028/nist.fips.203>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -382,15 +354,16 @@ Table of Contents
               Wiggers, T., Celi, S., Schwabe, P., Stebila, D., and N.
               Sullivan, "KEM-based Authentication for TLS 1.3", Work in
               Progress, Internet-Draft, draft-celi-wiggers-tls-authkem-
-              03, 15 April 2024, <https://datatracker.ietf.org/doc/html/
-              draft-celi-wiggers-tls-authkem-03>.
+              04, 17 October 2024,
+              <https://datatracker.ietf.org/doc/html/draft-celi-wiggers-
+              tls-authkem-04>.
 
-   [I-D.ietf-lamps-kyber]
-              Prat, J. and M. Ounsworth, "Use of KYBER in the
-              Cryptographic Message Syntax (CMS)", Work in Progress,
-              Internet-Draft, draft-ietf-lamps-kyber-00, 10 November
-              2022, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              lamps-kyber-00>.
+   [I-D.ietf-lamps-cms-kyber]
+              Prat, J., Ounsworth, M., and D. Van Geest, "Use of ML-KEM
+              in the Cryptographic Message Syntax (CMS)", Work in
+              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-05,
+              15 October 2024, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-lamps-cms-kyber-05>.
 
    [NIST-PQC] National Institute of Standards and Technology (NIST),
               "Post-Quantum Cryptography Project", 20 December 2016,
@@ -411,6 +384,42 @@ Table of Contents
    [RFC7468]  Josefsson, S. and S. Leonard, "Textual Encodings of PKIX,
               PKCS, and CMS Structures", RFC 7468, DOI 10.17487/RFC7468,
               April 2015, <https://www.rfc-editor.org/rfc/rfc7468>.
+
+Appendix A.  Examples
+
+   This appendix contains examples of ML-KEM public keys, private keys
+   and certificates.
+
+A.1.  Example Public Key
+
+   The following is an example of a ML-KEM-768 public key:
+
+     -----BEGIN PUBLIC KEY-----
+     TODO insert example public key
+     -----END PUBLIC KEY-------
+
+A.2.  Example Private Key
+
+   The following is an example of a ML-KEM-768 private key:
+
+     -----BEGIN PRIVATE KEY-----
+     TODO insert example private key
+     -----END PRIVATE KEY-------
+
+   The following example, in addition to encoding the ML-KEM-768 private
+   key, has an attribute included as well as the public key:
+
+     -----BEGIN PRIVATE KEY-----
+     TODO insert example private key with attribute
+     -----END PRIVATE KEY-------
+
+A.3.  Example Certificate
+
+     TODO insert ASN.1 Pretty Print
+
+     -----BEGIN CERTIFICATE-----
+     TODO Certificate
+     -----END CERTIFICATE-------
 
 Acknowledgments
 
