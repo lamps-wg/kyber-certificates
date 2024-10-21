@@ -77,8 +77,7 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
-     1.1.  ASN.1 Module and ML-KEM Identifiers
-     1.2.  Applicability Statement
+     1.1.  Applicability Statement
    2.  Conventions and Definitions
    3.  Identifiers
    4.  Subject Public Key Fields
@@ -113,15 +112,7 @@ Table of Contents
    did for classic cryptography and [RFC5480] did for elliptic curve
    cryptography.  The private key format is also specified.
 
-1.1.  ASN.1 Module and ML-KEM Identifiers
-
-   An ASN.1 module [X680] is included for reference purposes.  Note that
-   as per [RFC5280], certificates use the Distinguished Encoding Rules;
-   see [X690].  Also note that NIST defined the object identifiers for
-   the ML-KEM algorithms in an ASN.1 module; see (TODO insert
-   reference).
-
-1.2.  Applicability Statement
+1.1.  Applicability Statement
 
    ML-KEM certificates are used in protocols where the public key is
    used to generate and encapsulate a shared secret used to derive a
@@ -178,6 +169,18 @@ Table of Contents
    certificate extension MUST only contain keyEncipherment
    Section 4.2.1.3 of [RFC5280].
 
+     nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-ccitt(2)
+       country(16) us(840) organization(1) gov(101) csor(3)
+       nistAlgorithm(4) }
+
+     kems OBJECT IDENTIFIER ::= { nistAlgorithms 4 }
+
+     id-alg-ml-kem-512 OBJECT IDENTIFIER ::= { kems 1 }
+
+     id-alg-ml-kem-768 OBJECT IDENTIFIER ::= { kems 2 }
+
+     id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
+
      pk-ml-kem-512 PUBLIC-KEY ::= {
        IDENTIFIER id-alg-ml-kem-512
        -- KEY no ASN.1 wrapping --
@@ -201,10 +204,6 @@ Table of Contents
        CERT-KEY-USAGE { keyEncipherment }
        --- PRIVATE-KEY no ASN.1 wrapping --
        }
-
-      |  NOTE: As noted in Section 3, the values for these object
-      |  identifers will be assigned by NIST.  Once assigned, they will
-      |  be added to a future revision of this document.
 
 4.  Subject Public Key Fields
 
@@ -297,7 +296,11 @@ Table of Contents
 
 7.  IANA Considerations
 
-   This document will have some IANA actions.
+   For the ASN.1 Module in Appendix A, IANA is requested to assign an
+   object identifier (OID) for the module identifier (TBD2) with a
+   Description of "id-mod-x509-ml-kem-2024".  The OID for the module
+   should be allocated in the "SMI Security for PKIX Module Identifier"
+   registry (1.3.6.1.5.5.7.0).
 
 8.  References
 
@@ -331,6 +334,12 @@ Table of Contents
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC9629]  Housley, R., Gray, J., and T. Okubo, "Using Key
+              Encapsulation Mechanism (KEM) Algorithms in the
+              Cryptographic Message Syntax (CMS)", RFC 9629,
+              DOI 10.17487/RFC9629, August 2024,
+              <https://www.rfc-editor.org/rfc/rfc9629>.
 
    [X680]     ITU-T, "Information technology - Abstract Syntax Notation
               One (ASN.1): Specification of basic notation", ITU-T
@@ -382,6 +391,11 @@ Table of Contents
               April 2015, <https://www.rfc-editor.org/rfc/rfc7468>.
 
 Appendix A.  ASN.1 Module
+
+   This appendix includes the ASN.1 module [X680] for the ML-KEM.  Note
+   that as per [RFC5280], certificates use the Distinguished Encoding
+   Rules; see [X690].  This module imports objects from [RFC5912] and
+   [RFC9629].
 
    <CODE BEGINS>
    X509-ML-KEM-2024

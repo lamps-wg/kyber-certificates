@@ -1152,15 +1152,12 @@ also provided.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
-                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-asn1-module-and-ml-kem-iden" class="internal xref">ASN.1 Module and ML-KEM Identifiers</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.2">
-                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-applicability-statement" class="internal xref">Applicability Statement</a></p>
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-applicability-statement" class="internal xref">Applicability Statement</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-identifiers" class="internal xref">Identifiers</a></p>
@@ -1232,28 +1229,17 @@ identifiers assigned by NIST.<a href="#section-1-1" class="pilcrow">¶</a></p>
 field within Internet X.509 certificates <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>, like <span>[<a href="#RFC3279" class="cite xref">RFC3279</a>]</span>
 did for classic cryptography and <span>[<a href="#RFC5480" class="cite xref">RFC5480</a>]</span> did for elliptic curve
 cryptography. The private key format is also specified.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<div id="asn1-module-and-ml-kem-identifiers">
-<section id="section-1.1">
-        <h3 id="name-asn1-module-and-ml-kem-iden">
-<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-asn1-module-and-ml-kem-iden" class="section-name selfRef">ASN.1 Module and ML-KEM Identifiers</a>
-        </h3>
-<p id="section-1.1-1">An ASN.1 module <span>[<a href="#X680" class="cite xref">X680</a>]</span> is included for reference purposes. Note that
-as per <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>, certificates use the Distinguished Encoding Rules;
-see <span>[<a href="#X690" class="cite xref">X690</a>]</span>. Also note that NIST defined the object identifiers for
-the ML-KEM algorithms in an ASN.1 module; see (TODO insert reference).<a href="#section-1.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
 <div id="applicability-statement">
-<section id="section-1.2">
+<section id="section-1.1">
         <h3 id="name-applicability-statement">
-<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-applicability-statement" class="section-name selfRef">Applicability Statement</a>
+<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-applicability-statement" class="section-name selfRef">Applicability Statement</a>
         </h3>
-<p id="section-1.2-1">ML-KEM certificates are used in protocols where the public key is used to
+<p id="section-1.1-1">ML-KEM certificates are used in protocols where the public key is used to
 generate and encapsulate a shared secret used to derive a symmetric key used to
 encrypt a payload; see <span>[<a href="#I-D.ietf-lamps-cms-kyber" class="cite xref">I-D.ietf-lamps-cms-kyber</a>]</span>. To be used in
 TLS, ML-KEM certificates could only be used as end-entity identity
 certificates and would require significant updates to the protocol; see
-<span>[<a href="#I-D.celi-wiggers-tls-authkem" class="cite xref">I-D.celi-wiggers-tls-authkem</a>]</span>.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+<span>[<a href="#I-D.celi-wiggers-tls-authkem" class="cite xref">I-D.celi-wiggers-tls-authkem</a>]</span>.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1315,6 +1301,18 @@ certificate extension <span class="bcp14">MUST</span> only contain keyEncipherme
 <span><a href="https://rfc-editor.org/rfc/rfc5280#section-4.2.1.3" class="relref">Section 4.2.1.3</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.<a href="#section-3-8" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-3-9">
 <pre>
+  nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-ccitt(2)
+    country(16) us(840) organization(1) gov(101) csor(3)
+    nistAlgorithm(4) }
+
+  kems OBJECT IDENTIFIER ::= { nistAlgorithms 4 }
+
+  id-alg-ml-kem-512 OBJECT IDENTIFIER ::= { kems 1 }
+
+  id-alg-ml-kem-768 OBJECT IDENTIFIER ::= { kems 2 }
+
+  id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
+
   pk-ml-kem-512 PUBLIC-KEY ::= {
     IDENTIFIER id-alg-ml-kem-512
     -- KEY no ASN.1 wrapping --
@@ -1340,11 +1338,6 @@ certificate extension <span class="bcp14">MUST</span> only contain keyEncipherme
     }
 </pre><a href="#section-3-9" class="pilcrow">¶</a>
 </div>
-<aside id="section-3-10">
-        <p id="section-3-10.1">NOTE: As noted in Section 3, the values for these object identifers
-  will be assigned by NIST.  Once assigned, they will be added to a future
-  revision of this document.<a href="#section-3-10.1" class="pilcrow">¶</a></p>
-</aside>
 </section>
 </div>
 <div id="subject-public-key-fields">
@@ -1463,7 +1456,11 @@ encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="c
       <h2 id="name-iana-considerations">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-7-1">This document will have some IANA actions.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">For the ASN.1 Module in <a href="#asn1" class="auto internal xref">Appendix A</a>, IANA is requested to assign an
+object identifier (OID) for the module identifier (TBD2) with a
+Description of "id-mod-x509-ml-kem-2024".  The OID for the module
+should be allocated in the "SMI Security for PKIX Module Identifier"
+registry (1.3.6.1.5.5.7.0).<a href="#section-7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-combined-references">
@@ -1500,6 +1497,10 @@ encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="c
 <dt id="RFC8174">[RFC8174]</dt>
         <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9629">[RFC9629]</dt>
+        <dd>
+<span class="refAuthor">Housley, R.</span>, <span class="refAuthor">Gray, J.</span>, and <span class="refAuthor">T. Okubo</span>, <span class="refTitle">"Using Key Encapsulation Mechanism (KEM) Algorithms in the Cryptographic Message Syntax (CMS)"</span>, <span class="seriesInfo">RFC 9629</span>, <span class="seriesInfo">DOI 10.17487/RFC9629</span>, <time datetime="2024-08" class="refDate">August 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9629">https://www.rfc-editor.org/rfc/rfc9629</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="X680">[X680]</dt>
         <dd>
@@ -1547,12 +1548,15 @@ encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="c
 </div>
 </section>
 </div>
-<div id="asn1-module">
+<div id="asn1">
 <section id="appendix-A">
       <h2 id="name-asn1-module">
 <a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-asn1-module" class="section-name selfRef">ASN.1 Module</a>
       </h2>
-<div class="breakable sourcecode" id="appendix-A-1">
+<p id="appendix-A-1">This appendix includes the ASN.1 module <span>[<a href="#X680" class="cite xref">X680</a>]</span> for the ML-KEM.  Note that
+as per <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>, certificates use the Distinguished Encoding Rules; see
+<span>[<a href="#X690" class="cite xref">X690</a>]</span>. This module imports objects from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and <span>[<a href="#RFC9629" class="cite xref">RFC9629</a>]</span>.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<div class="breakable sourcecode" id="appendix-A-2">
 <pre>&lt;CODE BEGINS&gt;
 X509-ML-KEM-2024
 { iso(1) identified-organization(3) dod(6)
@@ -1648,7 +1652,7 @@ pk-ml-kem-1024 PUBLIC-KEY ::= {
 
 END
 
-&lt;CODE ENDS&gt;</pre><a href="#appendix-A-1" class="pilcrow">¶</a>
+&lt;CODE ENDS&gt;</pre><a href="#appendix-A-2" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
