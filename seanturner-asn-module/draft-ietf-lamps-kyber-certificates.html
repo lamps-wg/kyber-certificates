@@ -4,17 +4,17 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>Internet X.509 Public Key Infrastructure - Algorithm Identifiers for Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)</title>
+<title>Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)</title>
 <meta content="Sean Turner" name="author">
 <meta content="Panos Kampanakis" name="author">
 <meta content="Jake Massimo" name="author">
 <meta content="Bas Westerbaan" name="author">
 <meta content="
-       Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) is a
+       The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) is a
 quantum-resistant key-encapsulation mechanism (KEM). This document
-specifies algorithm identifiers and ASN.1 encoding format for ML-KEM in
-public key certificates. The encoding for public and private keys are
-also provided. 
+describes the conventions for using the ML-KEM in X.509 Public Key
+Infrastructure. The conventions for the subject public keys and
+private keys are also described. 
     " name="description">
 <meta content="xml2rfc 3.23.2" name="generator">
 <meta content="ML-KEM Kyber KEM Certificate X.509 PKIX" name="keyword">
@@ -1075,14 +1075,14 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
 </dl>
 </div>
-<h1 id="title">Internet X.509 Public Key Infrastructure - Algorithm Identifiers for Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)</h1>
+<h1 id="title">Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) is a
+<p id="section-abstract-1">The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) is a
 quantum-resistant key-encapsulation mechanism (KEM). This document
-specifies algorithm identifiers and ASN.1 encoding format for ML-KEM in
-public key certificates. The encoding for public and private keys are
-also provided.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+describes the conventions for using the ML-KEM in X.509 Public Key
+Infrastructure. The conventions for the subject public keys and
+private keys are also described.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1160,7 +1160,7 @@ also provided.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-identifiers" class="internal xref">Identifiers</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-algorithm-identifiers" class="internal xref">Algorithm Identifiers</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-subject-public-key-fields" class="internal xref">Subject Public Key Fields</a></p>
@@ -1224,11 +1224,7 @@ PQC Project <span>[<a href="#NIST-PQC" class="cite xref">NIST-PQC</a>]</span>. P
 as Kyber. ML-KEM and Kyber are not compatible. This document specifies the
 use of ML-KEM in Public Key Infrastructure X.509 (PKIX) certificates <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>
 at three security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using object
-identifiers assigned by NIST.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">This specification includes conventions for the subjectPublicKeyInfo
-field within Internet X.509 certificates <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>, like <span>[<a href="#RFC3279" class="cite xref">RFC3279</a>]</span>
-did for classic cryptography and <span>[<a href="#RFC5480" class="cite xref">RFC5480</a>]</span> did for elliptic curve
-cryptography. The private key format is also specified.<a href="#section-1-2" class="pilcrow">¶</a></p>
+identifiers assigned by NIST. The private key format is also specified.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <div id="applicability-statement">
 <section id="section-1.1">
         <h3 id="name-applicability-statement">
@@ -1255,18 +1251,14 @@ described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</s
 appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="identifiers">
+<div id="algorithm-identifiers">
 <section id="section-3">
-      <h2 id="name-identifiers">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-identifiers" class="section-name selfRef">Identifiers</a>
+      <h2 id="name-algorithm-identifiers">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-algorithm-identifiers" class="section-name selfRef">Algorithm Identifiers</a>
       </h2>
-<p id="section-3-1">Certificates conforming to <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> can convey a public key for any
-public key algorithm. The certificate indicates the algorithm through
-an algorithm identifier. An algorithm identifier consists of an object
-identifier and optional parameters.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">The AlgorithmIdentifier type, which is included herein for convenience,
-is defined as follows:<a href="#section-3-2" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3-3">
+<p id="section-3-1">The AlgorithmIdentifier type, which is included herein for convenience,
+is defined as follows:<a href="#section-3-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-3-2">
 <pre>
   AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
     SEQUENCE {
@@ -1274,32 +1266,32 @@ is defined as follows:<a href="#section-3-2" class="pilcrow">¶</a></p>
       parameters  ALGORITHM-TYPE.
                     &amp;Params({AlgorithmSet}{@algorithm}) OPTIONAL
     }
-</pre><a href="#section-3-3" class="pilcrow">¶</a>
+</pre><a href="#section-3-2" class="pilcrow">¶</a>
 </div>
-<aside id="section-3-4">
-        <p id="section-3-4.1">NOTE: The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the
-  2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>. See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988 ASN.1 syntax.<a href="#section-3-4.1" class="pilcrow">¶</a></p>
+<aside id="section-3-3">
+        <p id="section-3-3.1">NOTE: The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the
+  2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>. See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988 ASN.1 syntax.<a href="#section-3-3.1" class="pilcrow">¶</a></p>
 </aside>
-<p id="section-3-5">The fields in AlgorithmIdentifier have the following meanings:<a href="#section-3-5" class="pilcrow">¶</a></p>
+<p id="section-3-4">The fields in AlgorithmIdentifier have the following meanings:<a href="#section-3-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3-6.1">
-          <p id="section-3-6.1.1">algorithm identifies the cryptographic algorithm with an object
-identifier.<a href="#section-3-6.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3-5.1">
+          <p id="section-3-5.1.1">algorithm identifies the cryptographic algorithm with an object
+identifier.<a href="#section-3-5.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-3-6.2">
-          <p id="section-3-6.2.1">parameters, which are optional, are the associated parameters for
-the algorithm identifier in the algorithm field.<a href="#section-3-6.2.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-3-5.2">
+          <p id="section-3-5.2.1">parameters, which are optional, are the associated parameters for
+the algorithm identifier in the algorithm field.<a href="#section-3-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-3-7">The AlgorithmIdentifier for a ML-KEM public key <span class="bcp14">MUST</span> use one of the
+<p id="section-3-6">The AlgorithmIdentifier for a ML-KEM public key <span class="bcp14">MUST</span> use one of the
 id-alg-ml-kem object identifiers listed below, based on the security
 level. The parameters field of the AlgorithmIdentifier for the ML-KEM
-public key <span class="bcp14">MUST</span> be absent.<a href="#section-3-7" class="pilcrow">¶</a></p>
-<p id="section-3-8">When any of the ML-KEM AlgorithmIdentifier appears in the
+public key <span class="bcp14">MUST</span> be absent.<a href="#section-3-6" class="pilcrow">¶</a></p>
+<p id="section-3-7">When any of the ML-KEM AlgorithmIdentifier appears in the
 SubjectPublicKeyInfo field of an X.509 certificate, the key usage
 certificate extension <span class="bcp14">MUST</span> only contain keyEncipherment
-<span><a href="https://rfc-editor.org/rfc/rfc5280#section-4.2.1.3" class="relref">Section 4.2.1.3</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.<a href="#section-3-8" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3-9">
+<span><a href="https://rfc-editor.org/rfc/rfc5280#section-4.2.1.3" class="relref">Section 4.2.1.3</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.<a href="#section-3-7" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-3-8">
 <pre>
   nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-ccitt(2)
     country(16) us(840) organization(1) gov(101) csor(3)
@@ -1336,8 +1328,20 @@ certificate extension <span class="bcp14">MUST</span> only contain keyEncipherme
     CERT-KEY-USAGE { keyEncipherment }
     --- PRIVATE-KEY no ASN.1 wrapping --
     }
-</pre><a href="#section-3-9" class="pilcrow">¶</a>
+
+    ML-KEM-PublicKey ::= OCTET STRING
+
+    ML-KEM-PrivateKey ::= OCTET STRING
+</pre><a href="#section-3-8" class="pilcrow">¶</a>
 </div>
+<p id="section-3-9">No additional encoding of the ML-KEM public key value is applied in
+the SubjectPublicKeyInfo field of an X.509 certificate <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.
+However, whenever the ML-KEM public key value appears outside of a
+certificate, it <span class="bcp14">MAY</span> be encoded as an OCTET STRING.<a href="#section-3-9" class="pilcrow">¶</a></p>
+<p id="section-3-10">No additional encoding of the ML-KEM private key value is applied in
+the PrivateKeyInfo field of an Asymmetric Key Package <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span>.
+However, whenever the ML-KEM private key value appears outside of a
+Asymmetric Key Package, it <span class="bcp14">MAY</span> be encoded as an OCTET STRING.<a href="#section-3-10" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="subject-public-key-fields">
@@ -1366,9 +1370,7 @@ SubjectPublicKeyInfo type, which has the following ASN.1 syntax:<a href="#sectio
 public key (see above).<a href="#section-4-5.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-4-5.2">
-          <p id="section-4-5.2.1">subjectPublicKey contains the byte stream of the public key.  The
-algorithms defined in this document always encode the public key
-as TODO pick format e.g., exact multiple of 8 bits?.<a href="#section-4-5.2.1" class="pilcrow">¶</a></p>
+          <p id="section-4-5.2.1">subjectPublicKey contains the byte stream of the public key.<a href="#section-4-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="section-4-6"><a href="#example-public" class="auto internal xref">Appendix B.1</a> contains an example of an id-alg-ml-kem-768 public key
@@ -1407,27 +1409,17 @@ algorithm itself.<a href="#section-5-1" class="pilcrow">¶</a></p>
                                  OPTIONAL,
     ...
   }
-
-  PrivateKey ::= OCTET STRING
-
-  PublicKey ::= BIT STRING
 </pre><a href="#section-5-2" class="pilcrow">¶</a>
 </div>
 <aside id="section-5-3">
         <p id="section-5-3.1">NOTE: The above syntax is from <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> and is compatible with the
   2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.<a href="#section-5-3.1" class="pilcrow">¶</a></p>
 </aside>
-<p id="section-5-4">For the keys defined in this document, the private key is always an
-opaque byte sequence. The ASN.1 type PqckemPrivateKey is defined in
-this document to hold the byte sequence. Thus, when encoding a
-OneAsymmetricKey object, the private key is wrapped in a
-PqckemPrivateKey object and wrapped by the OCTET STRING of the
-"privateKey" field.<a href="#section-5-4" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-5-5">
-<pre>
-  PqckemPrivateKey ::= OCTET STRING
-</pre><a href="#section-5-5" class="pilcrow">¶</a>
-</div>
+<p id="section-5-4">When used in a OneAsymmetricKey type, the privateKey OCTET STRING contains
+the raw octet string encoding of the private key.<a href="#section-5-4" class="pilcrow">¶</a></p>
+<p id="section-5-5">When an ML-KEM public key is included in a OneAsymmetricKey type, it is
+encoded in the same manner as in a SubjectPublicKeyInfo type. That is, the
+publicKey BIT STRING contains the raw octet string encoding of the public key.<a href="#section-5-5" class="pilcrow">¶</a></p>
 <aside id="section-5-6">
         <p id="section-5-6.1">NOTE: There exist some private key import functions that have not
   implemented the new ASN.1 structure OneAsymmetricKey that is defined in
@@ -1530,14 +1522,6 @@ registry (1.3.6.1.5.5.7.0).<a href="#section-7-1" class="pilcrow">¶</a></p>
 <dt id="NIST-PQC">[NIST-PQC]</dt>
         <dd>
 <span class="refAuthor">National Institute of Standards and Technology (NIST)</span>, <span class="refTitle">"Post-Quantum Cryptography Project"</span>, <time datetime="2016-12-20" class="refDate">20 December 2016</time>, <span>&lt;<a href="https://csrc.nist.gov/projects/post-quantum-cryptography">https://csrc.nist.gov/projects/post-quantum-cryptography</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC3279">[RFC3279]</dt>
-        <dd>
-<span class="refAuthor">Bassham, L.</span>, <span class="refAuthor">Polk, W.</span>, and <span class="refAuthor">R. Housley</span>, <span class="refTitle">"Algorithms and Identifiers for the Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile"</span>, <span class="seriesInfo">RFC 3279</span>, <span class="seriesInfo">DOI 10.17487/RFC3279</span>, <time datetime="2002-04" class="refDate">April 2002</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3279">https://www.rfc-editor.org/rfc/rfc3279</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC5480">[RFC5480]</dt>
-        <dd>
-<span class="refAuthor">Turner, S.</span>, <span class="refAuthor">Brown, D.</span>, <span class="refAuthor">Yiu, K.</span>, <span class="refAuthor">Housley, R.</span>, and <span class="refAuthor">T. Polk</span>, <span class="refTitle">"Elliptic Curve Cryptography Subject Public Key Information"</span>, <span class="seriesInfo">RFC 5480</span>, <span class="seriesInfo">DOI 10.17487/RFC5480</span>, <time datetime="2009-03" class="refDate">March 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5480">https://www.rfc-editor.org/rfc/rfc5480</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7468">[RFC7468]</dt>
       <dd>
