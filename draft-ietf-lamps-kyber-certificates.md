@@ -250,6 +250,15 @@ encoded using the textual encoding defined in {{?RFC7468}}.
 
 # Private Key Format
 
+An ML-KEM private key is encoded by storing its 64-octet seed in
+the privateKey field as follows.
+
+{{FIPS203}} specifies two formats for an ML-KEM private key: a 64-octet
+seed and an (expanded) private key, which is referred to as the
+decapsulation key. The expanded private key (and public key)
+is computed from the seed using `ML-KEM.KeyGen_internal(d,z)` (algorithm 16)
+using the first 32 octets as *d* and the remaining 32 octets as *z*.
+
 "Asymmetric Key Packages" {{!RFC5958}} describes how to encode a private
 key in a structure that both identifies what algorithm the private key
 is for and allows for the public key and additional attributes about the
@@ -285,11 +294,7 @@ algorithm itself.
 </aside>
 
 When used in a OneAsymmetricKey type, the privateKey OCTET STRING contains
-the raw octet string encoding of the private key.
-
-When an ML-KEM public key is included in a OneAsymmetricKey type, it is
-encoded in the same manner as in a SubjectPublicKeyInfo type. That is, the
-publicKey BIT STRING contains the raw octet string encoding of the public key.
+the raw octet string encoding of the 64-octet seed.
 
 <aside markdown="block">
   NOTE: There exist some private key import functions that have not
