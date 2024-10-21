@@ -1,7 +1,7 @@
 ---
 title: >
   Internet X.509 Public Key Infrastructure - Algorithm Identifiers
-  for Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)
+  for the Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)
 abbrev: ML-KEM in Certificates
 category: std
 
@@ -85,11 +85,11 @@ informative:
 
 --- abstract
 
-Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) is a
+The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) is a
 quantum-resistant key-encapsulation mechanism (KEM). This document
-specifies algorithm identifiers and ASN.1 encoding format for ML-KEM in
-public key certificates. The encoding for public and private keys are
-also provided.
+describes the conventions for using the ML-KEM in X.509 Public Key
+Infrastructure. The conventions for the subject public keys and
+private keys are also described.
 
 --- middle
 
@@ -102,12 +102,7 @@ PQC Project {{NIST-PQC}}. Prior to standardization, the mechanism was known
 as Kyber. ML-KEM and Kyber are not compatible. This document specifies the
 use of ML-KEM in Public Key Infrastructure X.509 (PKIX) certificates {{!RFC5280}}
 at three security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using object
-identifiers assigned by NIST.
-
-This specification includes conventions for the subjectPublicKeyInfo
-field within Internet X.509 certificates {{RFC5280}}, like {{?RFC3279}}
-did for classic cryptography and {{?RFC5480}} did for elliptic curve
-cryptography. The private key format is also specified.
+identifiers assigned by NIST. The private key format is also specified.
 
 ## ASN.1 Module and ML-KEM Identifiers
 
@@ -130,12 +125,7 @@ certificates and would require significant updates to the protocol; see
 {::boilerplate bcp14-tagged}
 
 
-# Identifiers
-
-Certificates conforming to {{RFC5280}} can convey a public key for any
-public key algorithm. The certificate indicates the algorithm through
-an algorithm identifier. An algorithm identifier consists of an object
-identifier and optional parameters.
+# Algorithm Identifiers
 
 The AlgorithmIdentifier type, which is included herein for convenience,
 is defined as follows:
