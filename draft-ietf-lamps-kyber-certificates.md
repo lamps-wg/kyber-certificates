@@ -104,13 +104,6 @@ use of ML-KEM in Public Key Infrastructure X.509 (PKIX) certificates {{!RFC5280}
 at three security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using object
 identifiers assigned by NIST. The private key format is also specified.
 
-## ASN.1 Module and ML-KEM Identifiers
-
-An ASN.1 module {{X680}} is included for reference purposes. Note that
-as per {{RFC5280}}, certificates use the Distinguished Encoding Rules;
-see {{X690}}. Also note that NIST defined the object identifiers for
-the ML-KEM algorithms in an ASN.1 module; see (TODO insert reference).
-
 ## Applicability Statement
 
 ML-KEM certificates are used in protocols where the public key is used to
@@ -123,7 +116,6 @@ certificates and would require significant updates to the protocol; see
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
-
 
 # Algorithm Identifiers
 
@@ -163,6 +155,18 @@ certificate extension MUST only contain keyEncipherment
 {{Section 4.2.1.3 of RFC5280}}.
 
 ~~~
+  nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-ccitt(2)
+    country(16) us(840) organization(1) gov(101) csor(3)
+    nistAlgorithm(4) }
+
+  kems OBJECT IDENTIFIER ::= { nistAlgorithms 4 }
+
+  id-alg-ml-kem-512 OBJECT IDENTIFIER ::= { kems 1 }
+
+  id-alg-ml-kem-768 OBJECT IDENTIFIER ::= { kems 2 }
+
+  id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
+
   pk-ml-kem-512 PUBLIC-KEY ::= {
     IDENTIFIER id-alg-ml-kem-512
     -- KEY no ASN.1 wrapping --
@@ -201,13 +205,6 @@ No additional encoding of the ML-KEM private key value is applied in
 the PrivateKeyInfo field of an Asymmetric Key Package {{RFC5958}}.
 However, whenever the ML-KEM private key value appears outside of a
 Asymmetric Key Package, it MAY be encoded as an OCTET STRING.
-
-<aside markdown="block">
-  NOTE: As noted in Section 3, the values for these object identifers
-  will be assigned by NIST.  Once assigned, they will be added to a future
-  revision of this document.
-</aside>
-
 
 # Subject Public Key Fields
 
@@ -291,11 +288,6 @@ publicKey BIT STRING contains the raw octet string encoding of the public key.
 {{example-private}} contains an example of an id-alg-ml-kem-768 private key
 encoded using the textual encoding defined in {{?RFC7468}}.
 
-# ASN.1 Module
-
-TODO ASN.1 Module
-
-
 # Security Considerations
 
 The Security Considerations section of {{RFC5280}} applies to this specification as well.
@@ -306,10 +298,27 @@ The Security Considerations section of {{RFC5280}} applies to this specification
 
 # IANA Considerations
 
-This document will have some IANA actions.
+For the ASN.1 Module in {{asn1}}, IANA is requested to assign an
+object identifier (OID) for the module identifier (TBD2) with a
+Description of "id-mod-x509-ml-kem-2024".  The OID for the module
+should be allocated in the "SMI Security for PKIX Module Identifier"
+registry (1.3.6.1.5.5.7.0).
 
 
 --- back
+
+
+# ASN.1 Module {#asn1}
+
+This appendix includes the ASN.1 module {{X680}} for the ML-KEM.  Note that
+as per {{RFC5280}}, certificates use the Distinguished Encoding Rules; see
+{{X690}}. This module imports objects from {{RFC5912}} and {{!RFC9629}}.
+
+~~~
+<CODE BEGINS>
+{::include X509-ML-KEM-2024.asn}
+<CODE ENDS>
+~~~
 
 # Examples {#examples}
 
