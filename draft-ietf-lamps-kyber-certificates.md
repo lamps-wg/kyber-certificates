@@ -323,24 +323,48 @@ This document will have some IANA actions.
 
 This appendix contains examples of ML-KEM public keys, private keys and certificates.
 
-## Example Public Key {#example-public}
-
-The following is an example of a ML-KEM-768 public key:
-
-~~~
-  -----BEGIN PUBLIC KEY-----
-  TODO insert example public key
-  -----END PUBLIC KEY-------
-~~~
 
 ## Example Private Key {#example-private}
 
-The following is an example of a ML-KEM-768 private key:
+The following is an example of a ML-KEM-512 private key with hex seed `0001…3f`:
 
 ~~~
-  -----BEGIN PRIVATE KEY-----
-  TODO insert example private key
-  -----END PRIVATE KEY-------
+{::include ./example/ML-KEM-512.priv}
+~~~
+
+The following is an example of a ML-KEM-768 private key from the same seed.
+
+~~~
+{::include ./example/ML-KEM-768.priv}
+~~~
+
+The following is an example of a ML-KEM-1024 private key from the same seed.
+
+~~~
+{::include ./example/ML-KEM-1024.priv}
+~~~
+
+## Example Public Key {#example-public}
+
+The following is the ML-KEM-512 public key corresponding to the private
+key in the previous section.
+
+~~~
+{::include ./example/ML-KEM-512.pub}
+~~~
+
+The following is the ML-KEM-768 public key corresponding to the private
+key in the previous section.
+
+~~~
+{::include ./example/ML-KEM-768.pub}
+~~~
+
+The following is the ML-KEM-1024 public key corresponding to the private
+key in the previous section.
+
+~~~
+{::include ./example/ML-KEM-1024.pub}
 ~~~
 
 The following example, in addition to encoding the ML-KEM-768 private key,
