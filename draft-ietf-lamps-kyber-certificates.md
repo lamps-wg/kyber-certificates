@@ -241,9 +241,7 @@ The fields in SubjectPublicKeyInfo have the following meaning:
 * algorithm is the algorithm identifier and parameters for the
   public key (see above).
 
-* subjectPublicKey contains the byte stream of the public key.  The
-  algorithms defined in this document always encode the public key
-  as TODO pick format e.g., exact multiple of 8 bits?.
+* subjectPublicKey contains the byte stream of the public key.
 
 {{example-public}} contains an example of an id-alg-ml-kem-768 public key
 encoded using the textual encoding defined in {{?RFC7468}}.
