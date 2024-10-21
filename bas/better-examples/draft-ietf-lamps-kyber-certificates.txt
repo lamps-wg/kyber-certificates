@@ -202,6 +202,20 @@ Table of Contents
        --- PRIVATE-KEY no ASN.1 wrapping --
        }
 
+       ML-KEM-PublicKey ::= OCTET STRING
+
+       ML-KEM-PrivateKey ::= OCTET STRING
+
+   No additional encoding of the ML-KEM public key value is applied in
+   the SubjectPublicKeyInfo field of an X.509 certificate [RFC5280].
+   However, whenever the ML-KEM public key value appears outside of a
+   certificate, it MAY be encoded as an OCTET STRING.
+
+   No additional encoding of the ML-KEM private key value is applied in
+   the PrivateKeyInfo field of an Asymmetric Key Package [RFC5958].
+   However, whenever the ML-KEM private key value appears outside of a
+   Asymmetric Key Package, it MAY be encoded as an OCTET STRING.
+
       |  NOTE: As noted in Section 3, the values for these object
       |  identifers will be assigned by NIST.  Once assigned, they will
       |  be added to a future revision of this document.
@@ -234,6 +248,16 @@ Table of Contents
 
 5.  Private Key Format
 
+   An ML-KEM private key is encoded by storing its 64-octet seed in the
+   privateKey field as follows.
+
+   [FIPS203] specifies two formats for an ML-KEM private key: a 64-octet
+   seed and an (expanded) private key, which is referred to as the
+   decapsulation key.  The expanded private key (and public key) is
+   computed from the seed using ML-KEM.KeyGen_internal(d,z) (algorithm
+   16) using the first 32 octets as _d_ and the remaining 32 octets as
+   _z_.
+
    "Asymmetric Key Packages" [RFC5958] describes how to encode a private
    key in a structure that both identifies what algorithm the private
    key is for and allows for the public key and additional attributes
@@ -261,21 +285,11 @@ Table of Contents
        ...
      }
 
-     PrivateKey ::= OCTET STRING
-
-     PublicKey ::= BIT STRING
-
       |  NOTE: The above syntax is from [RFC5958] and is compatible with
       |  the 2021 ASN.1 syntax [X680].
 
-   For the keys defined in this document, the private key is always an
-   opaque byte sequence.  The ASN.1 type PqckemPrivateKey is defined in
-   this document to hold the byte sequence.  Thus, when encoding a
-   OneAsymmetricKey object, the private key is wrapped in a
-   PqckemPrivateKey object and wrapped by the OCTET STRING of the
-   "privateKey" field.
-
-     PqckemPrivateKey ::= OCTET STRING
+   When used in a OneAsymmetricKey type, the privateKey OCTET STRING
+   contains the raw octet string encoding of the 64-octet seed.
 
       |  NOTE: There exist some private key import functions that have
       |  not implemented the new ASN.1 structure OneAsymmetricKey that

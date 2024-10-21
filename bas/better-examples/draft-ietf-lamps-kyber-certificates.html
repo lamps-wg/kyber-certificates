@@ -1338,12 +1338,24 @@ certificate extension <span class="bcp14">MUST</span> only contain keyEncipherme
     CERT-KEY-USAGE { keyEncipherment }
     --- PRIVATE-KEY no ASN.1 wrapping --
     }
+
+    ML-KEM-PublicKey ::= OCTET STRING
+
+    ML-KEM-PrivateKey ::= OCTET STRING
 </pre><a href="#section-3-9" class="pilcrow">¶</a>
 </div>
-<aside id="section-3-10">
-        <p id="section-3-10.1">NOTE: As noted in Section 3, the values for these object identifers
+<p id="section-3-10">No additional encoding of the ML-KEM public key value is applied in
+the SubjectPublicKeyInfo field of an X.509 certificate <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.
+However, whenever the ML-KEM public key value appears outside of a
+certificate, it <span class="bcp14">MAY</span> be encoded as an OCTET STRING.<a href="#section-3-10" class="pilcrow">¶</a></p>
+<p id="section-3-11">No additional encoding of the ML-KEM private key value is applied in
+the PrivateKeyInfo field of an Asymmetric Key Package <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span>.
+However, whenever the ML-KEM private key value appears outside of a
+Asymmetric Key Package, it <span class="bcp14">MAY</span> be encoded as an OCTET STRING.<a href="#section-3-11" class="pilcrow">¶</a></p>
+<aside id="section-3-12">
+        <p id="section-3-12.1">NOTE: As noted in Section 3, the values for these object identifers
   will be assigned by NIST.  Once assigned, they will be added to a future
-  revision of this document.<a href="#section-3-10.1" class="pilcrow">¶</a></p>
+  revision of this document.<a href="#section-3-12.1" class="pilcrow">¶</a></p>
 </aside>
 </section>
 </div>
@@ -1387,14 +1399,21 @@ encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="c
       <h2 id="name-private-key-format">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-private-key-format" class="section-name selfRef">Private Key Format</a>
       </h2>
-<p id="section-5-1">"Asymmetric Key Packages" <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> describes how to encode a private
+<p id="section-5-1">An ML-KEM private key is encoded by storing its 64-octet seed in
+the privateKey field as follows.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2"><span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> specifies two formats for an ML-KEM private key: a 64-octet
+seed and an (expanded) private key, which is referred to as the
+decapsulation key. The expanded private key (and public key)
+is computed from the seed using <code>ML-KEM.KeyGen_internal(d,z)</code> (algorithm 16)
+using the first 32 octets as <em>d</em> and the remaining 32 octets as <em>z</em>.<a href="#section-5-2" class="pilcrow">¶</a></p>
+<p id="section-5-3">"Asymmetric Key Packages" <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> describes how to encode a private
 key in a structure that both identifies what algorithm the private key
 is for and allows for the public key and additional attributes about the
 key to be included as well. For illustration, the ASN.1 structure
 OneAsymmetricKey is replicated below. The algorithm-specific details of
 how a private key is encoded are left for the document describing the
-algorithm itself.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-5-2">
+algorithm itself.<a href="#section-5-3" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5-4">
 <pre>
   OneAsymmetricKey ::= SEQUENCE {
     version                  Version,
@@ -1414,37 +1433,24 @@ algorithm itself.<a href="#section-5-1" class="pilcrow">¶</a></p>
                                  OPTIONAL,
     ...
   }
-
-  PrivateKey ::= OCTET STRING
-
-  PublicKey ::= BIT STRING
-</pre><a href="#section-5-2" class="pilcrow">¶</a>
+</pre><a href="#section-5-4" class="pilcrow">¶</a>
 </div>
-<aside id="section-5-3">
-        <p id="section-5-3.1">NOTE: The above syntax is from <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> and is compatible with the
-  2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.<a href="#section-5-3.1" class="pilcrow">¶</a></p>
+<aside id="section-5-5">
+        <p id="section-5-5.1">NOTE: The above syntax is from <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> and is compatible with the
+  2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.<a href="#section-5-5.1" class="pilcrow">¶</a></p>
 </aside>
-<p id="section-5-4">For the keys defined in this document, the private key is always an
-opaque byte sequence. The ASN.1 type PqckemPrivateKey is defined in
-this document to hold the byte sequence. Thus, when encoding a
-OneAsymmetricKey object, the private key is wrapped in a
-PqckemPrivateKey object and wrapped by the OCTET STRING of the
-"privateKey" field.<a href="#section-5-4" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-5-5">
-<pre>
-  PqckemPrivateKey ::= OCTET STRING
-</pre><a href="#section-5-5" class="pilcrow">¶</a>
-</div>
-<aside id="section-5-6">
-        <p id="section-5-6.1">NOTE: There exist some private key import functions that have not
+<p id="section-5-6">When used in a OneAsymmetricKey type, the privateKey OCTET STRING contains
+the raw octet string encoding of the 64-octet seed.<a href="#section-5-6" class="pilcrow">¶</a></p>
+<aside id="section-5-7">
+        <p id="section-5-7.1">NOTE: There exist some private key import functions that have not
   implemented the new ASN.1 structure OneAsymmetricKey that is defined in
   <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span>. This means that they will not accept a private key
   structure that contains the public key field.  This means a balancing
   act needs to be done between being able to do a consistency check on the
-  key pair and widest ability to import the key.<a href="#section-5-6.1" class="pilcrow">¶</a></p>
+  key pair and widest ability to import the key.<a href="#section-5-7.1" class="pilcrow">¶</a></p>
 </aside>
-<p id="section-5-7"><a href="#example-private" class="auto internal xref">Appendix A.1</a> contains an example of an id-alg-ml-kem-768 private key
-encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-5-7" class="pilcrow">¶</a></p>
+<p id="section-5-8"><a href="#example-private" class="auto internal xref">Appendix A.1</a> contains an example of an id-alg-ml-kem-768 private key
+encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-5-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="asn1-module">
