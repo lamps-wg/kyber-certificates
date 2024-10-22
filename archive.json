@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-20T01:19:37.588594+00:00",
+  "timestamp": "2024-10-22T01:14:33.020697+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -62,7 +62,7 @@
       "labels": [],
       "body": "@seanturner do we need a Private Key section?\r\n\r\nOther drafts that update RFC3279 or RFC8419 which brings a new algorithm to CMS, I did not see them including a Private Key format for any of the algorithms. \r\n\r\nEncoding private keys is useful to the signer, but does this specification need to define it? Wouldn't that be an update to RFC5958?",
       "createdAt": "2022-02-11T04:53:18Z",
-      "updatedAt": "2024-10-15T16:10:09Z",
+      "updatedAt": "2024-10-21T21:10:36Z",
       "closedAt": null,
       "comments": [
         {
@@ -141,6 +141,13 @@
           "body": "I noticed https://github.com/lamps-wg/x509-slhdsa has some example PEM files: `id-slh-dsa-sha2-128s.priv` and\r\n`id-slh-dsa-sha2-128s.pub`.\r\n\r\nIt would be nice to have something similar here.",
           "createdAt": "2024-10-15T16:10:09Z",
           "updatedAt": "2024-10-15T16:10:09Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@tarcieri we added some examples.",
+          "createdAt": "2024-10-21T21:10:34Z",
+          "updatedAt": "2024-10-21T21:10:34Z"
         }
       ]
     },
@@ -271,16 +278,24 @@
       "id": "I_kwDOGV9y2s5de7z8",
       "title": "subjectPublicKey encoding",
       "url": "https://github.com/lamps-wg/kyber-certificates/issues/30",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "seanturner",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Currently, the I-D includes the following:\r\n\r\n    * subjectPublicKey contains the byte stream of the public key.  The\r\n      algorithms defined in this document always encode the public key\r\n      as TODO pick format e.g., exact multiple of 8 bits?.\r\n\r\nIs it correct to say that the public key is always encoded and exact multiple of 8 bits?",
       "createdAt": "2023-02-02T16:46:49Z",
-      "updatedAt": "2023-02-02T16:46:49Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2024-10-21T21:10:55Z",
+      "closedAt": "2024-10-21T21:10:55Z",
+      "comments": [
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closed via #51.",
+          "createdAt": "2024-10-21T21:10:55Z",
+          "updatedAt": "2024-10-21T21:10:55Z"
+        }
+      ]
     },
     {
       "number": 36,
@@ -313,6 +328,30 @@
       "updatedAt": "2024-07-22T17:33:44Z",
       "closedAt": "2024-07-22T17:33:44Z",
       "comments": []
+    },
+    {
+      "number": 60,
+      "id": "I_kwDOGV9y2s6bLrib",
+      "title": "Disallow public key in private key",
+      "url": "https://github.com/lamps-wg/kyber-certificates/issues/60",
+      "state": "OPEN",
+      "author": "bwesterb",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "              When \"unpacking\" the seed, you immediately get the expanded private and public key. Thus allowing a public key in the private key is redundant. I think we should disallow it. @seanturner WDYT?\r\n\r\n_Originally posted by @bwesterb in https://github.com/lamps-wg/kyber-certificates/issues/59#issuecomment-2427595844_\r\n            ",
+      "createdAt": "2024-10-21T19:55:22Z",
+      "updatedAt": "2024-10-21T21:50:58Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "dconnolly",
+          "authorAssociation": "NONE",
+          "body": "Agreed",
+          "createdAt": "2024-10-21T21:50:57Z",
+          "updatedAt": "2024-10-21T21:50:57Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -2778,24 +2817,26 @@
       "id": "PR_kwDOGV9y2s5-s6mG",
       "title": "Update example to generate ML-KEM keys",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/49",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bwesterb",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Still need to set the right OIDs, and use seed as private key.\r\n\r\n```\r\nbas@localhost ~/scm/kyber-certificates/example $ go run main.go                          \r\n-----BEGIN ML-KEM-768 PRIVATE KEY-----\r\n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\r\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\r\n-----END ML-KEM-768 PRIVATE KEY-----\r\n-----BEGIN PUBLIC KEY-----\r\nMIIEtTAOBgwrBgEEAYLaSy2JUgEDggShACVKeXiFxjsUQKo4nGU0DvM1IMwDmqjX\r\nSa5wlbqEhaJET4BwB0EyfDY6RXuFOLE7btbxPCmyMlGMcE4ShqdIZ9OqtgcpXRp0\r\ng4dlk9zoA7H6QmVsu1NVMdO3bRj5MPPRnfSgLUxoiNVZaz+zgiV6QePiUutIZdkQ\r\nXofXiI9kNIX1swC9dV4nBenTZsc3hu2nHRCxUWRhyNHLkc+XIUmGchKMk14EUS4H\r\nIjdyuAaHESOwjEBZp6dUFcS6hf0HYD04YT4BuYZyA8OhKhn4Tvubjml7NYFFWDPM\r\nSEOVM1IMrRO7sBFxhjZBsy4iMfiHDlBlW5wljLVHrafXhyKszlqJy7vbFic8d2x2\r\npFOqeh6ToQNQlOn7X3kJdVZxOEFBz8JoD093Ufmhwd+3ueVjWB65dSVVsasYZadp\r\nASNmSm5WD4QHvvhrxNoYwAjGhkpHWLymLaWhi6ozHIl7SfywLCtHFSFjL1nxzwMW\r\naGKxJKGsNYHzv4o1Hsech0KEYzZLCzvRXTWXYNmrj6uxe+kHh0Ghopr8WqR4dy7L\r\nPjPgsIEZXBLlwVlDTSm8KasSDW0YThFoRtqHm2v4qblnAmEmE6mqIU5Lorexun+0\r\nCNFUHYmDtQoMu04IRn81csSbTcgqpKEaomqFCXBom07pqpSHtg7WU2JXF4W0TD3s\r\nMoK5iXhDpoxDeiw4G2YJX/95WX/xB83LGBOxAO2iPb32ojn0BLSKV9pmI0unwHD1\r\nafD4ueElrIiHB/FwfStFYok6J+TcW6kbcrZbc1e6XDwzn+qcPni0IfQxwxRCHlEX\r\naDTlniuJmpnDjkhHktO8KHPoeELTxV9oSkqUDGpjoqFoo+szaPvoP43lNSTnh8GC\r\nQhqyhhexINAJeBEbtY4BsO+0Y9Prdp/GbkpZuUr2p6vkVOlgrj4LO05rkTu3P/x7\r\nKzRTd7klG8ZhOnTQGHdUG4zDE48pmm8nKKrricXSCKNHH3GohkqbzFMFgCUaZ0FT\r\nWmLYoOFxgSv5iEaihAVwSZ20GTJkBIhIexCMctQren3FRLlxoy/agGZ2nLRwCQXi\r\nJlt6Q3DYwD7if4wZdqSZwTTIJRJBN3j4hLF3Gp55hzIYkMZKoZzXj00ZI/WUlEgE\r\nj6XnE1qTQ9tmkeaxgFZ3kERmcRX7wUQ7bnSpIyeVhs8nYprihcoQDhBizPVslrnX\r\nIO2pLoG4rhmUpQhYilAzD3PUb5mBmfc4cBFGpN20HnhcmI/FHrcbjkknW397peWT\r\nAK4Syg/RUtA5x23wUmzjTb6roX0RprAGDKYUAc7DX+mxdeJ1F6QcS4oHBW/BDsb2\r\nJnf2K3aEC9kalSDEqBnIPYBDCUEkellkYpbMvqfcGrMBcN44Yk6KM7TCui3Je/c6\r\ncdmsNaSAqD8bseHEd3QJ0KBleCoacHsGjUvyIFEBIC/Lxxq5Sykpy0TixUfsELWn\r\nLYyHWfspIK3IC4VxOXVBS3sguYPoSNOgw7xDO78mtwChpAMiqE3lyH65h3rWir6Y\r\nhvfbaYmWQALqVmzGFkY7F+Dng+WpYheiAG065AZ2PFBFfRSBQCqvx+I/Q/nR18Cv\r\ncGCsHaqeyw5n\r\n-----END PUBLIC KEY-----\r\n```",
       "createdAt": "2024-10-15T16:24:09Z",
-      "updatedAt": "2024-10-15T16:25:19Z",
+      "updatedAt": "2024-10-21T19:30:31Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "8ffff847f67f85f58c56261ac810c9625ff546c4",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "bas/mlkem",
       "headRefOid": "81bdbbc73c923b65f079e17d97dbdbf705d26b91",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-10-21T19:30:31Z",
+      "mergedAt": "2024-10-21T19:30:31Z",
+      "mergedBy": "bwesterb",
+      "mergeCommit": {
+        "oid": "efdf4fd986ab1f22b5eae53bb70d7b12ac35eada"
+      },
       "comments": [],
       "reviews": []
     },
@@ -2894,24 +2935,26 @@
       "id": "PR_kwDOGV9y2s5-tCIK",
       "title": "Update subjectPublicKey description",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/51",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Dropped ToDo.",
       "createdAt": "2024-10-15T16:42:43Z",
-      "updatedAt": "2024-10-18T08:52:49Z",
+      "updatedAt": "2024-10-21T19:47:34Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "8ffff847f67f85f58c56261ac810c9625ff546c4",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "seanturner-spk-text",
       "headRefOid": "865072b11b4ca8edf370432f2e5802ad55e8f270",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-10-21T19:47:34Z",
+      "mergedAt": "2024-10-21T19:47:34Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "bacaf2ffd0bdc7ff060ff4afd1aec20c41d55da2"
+      },
       "comments": [
         {
           "author": "seanturner",
@@ -2956,24 +2999,26 @@
       "id": "PR_kwDOGV9y2s5-tyTT",
       "title": "Tweak Key Encoding Text",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/52",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Tweaking the key encoding text to match text from other LAMP I-Ds.",
       "createdAt": "2024-10-15T18:30:13Z",
-      "updatedAt": "2024-10-18T01:52:20Z",
+      "updatedAt": "2024-10-21T19:45:55Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "8ffff847f67f85f58c56261ac810c9625ff546c4",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "seanturner-key-encoding-tweaks",
       "headRefOid": "70ce429eb67d4a18eeafa8a0b887db8e49e4bd02",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-10-21T19:45:55Z",
+      "mergedAt": "2024-10-21T19:45:55Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "daa4c09dfc088ab25cef7a08513ef8e0e23f4f58"
+      },
       "comments": [
         {
           "author": "bwesterb",
@@ -3002,6 +3047,19 @@
           "body": "I'm very familiar with this text so of course I'd approve it.",
           "createdAt": "2024-10-16T09:15:55Z",
           "updatedAt": "2024-10-16T09:15:55Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6ODDp0",
+          "commit": {
+            "abbreviatedOid": "70ce429"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-21T19:44:44Z",
+          "updatedAt": "2024-10-21T19:44:44Z",
           "comments": []
         }
       ]
@@ -3066,6 +3124,324 @@
           "body": "Thanks.",
           "createdAt": "2024-10-16T10:37:52Z",
           "updatedAt": "2024-10-16T10:37:52Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 55,
+      "id": "PR_kwDOGV9y2s5_W1E4",
+      "title": "Create X509-ML-KEM-2024.asn",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/55",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-10-21T17:48:27Z",
+      "updatedAt": "2024-10-21T21:04:16Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "fc2466239c6d7d64ff468dd75a9d9beeef61933d",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-asn-module",
+      "headRefOid": "253bb86aa4678883313cc0b5686c9a5363a6263d",
+      "closedAt": "2024-10-21T21:04:16Z",
+      "mergedAt": "2024-10-21T21:04:15Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "28e82ab6fe2517c205b5bda9140dbae032d6a358"
+      },
+      "comments": [
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@danvangeest PTAL I basically just redid your PR.",
+          "createdAt": "2024-10-21T18:17:50Z",
+          "updatedAt": "2024-10-21T18:17:50Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6OC3Ij",
+          "commit": {
+            "abbreviatedOid": "f1d09bd"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "Strange that I deleted that branch.  Anyways, I have one tiny suggestion which could be ignored, otherwise looks good.",
+          "createdAt": "2024-10-21T19:16:20Z",
+          "updatedAt": "2024-10-21T19:18:42Z",
+          "comments": [
+            {
+              "originalPosition": 40,
+              "body": "```suggestion\r\n```",
+              "createdAt": "2024-10-21T19:16:20Z",
+              "updatedAt": "2024-10-21T19:18:42Z"
+            },
+            {
+              "originalPosition": 40,
+              "body": "that just removes some unnecessary lines",
+              "createdAt": "2024-10-21T19:16:39Z",
+              "updatedAt": "2024-10-21T19:18:42Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 56,
+      "id": "PR_kwDOGV9y2s5_W-ep",
+      "title": "Add OIDs",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/56",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "For 768 it's: 2, 16, 840, 1, 101, 3,4, 4, 3\r\n\r\nnistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-ccitt(2)\r\n  country(16) us(840) organization(1) gov(101) csor(3)\r\n  nistAlgorithm(4) }\r\n\r\nkems OBJECT IDENTIFIER ::= { nistAlgorithms 4 }\r\n\r\nid-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }",
+      "createdAt": "2024-10-21T18:12:40Z",
+      "updatedAt": "2024-10-21T19:29:29Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "5a5b17bbf6079604f7b0fc97d72d8ef2534cf2a2",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-example-oids",
+      "headRefOid": "a5f6c003daf6046f9454829a0e074a68260f7565",
+      "closedAt": "2024-10-21T19:29:29Z",
+      "mergedAt": "2024-10-21T19:29:29Z",
+      "mergedBy": "bwesterb",
+      "mergeCommit": {
+        "oid": "b1cda2e460a5af4e7e37e517974d64654dc54746"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 57,
+      "id": "PR_kwDOGV9y2s5_XIE2",
+      "title": "Tweaks and Streamlines",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/57",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Based on what's in draft-ietf-lamps-x509-slhdsa, we can drop some text.",
+      "createdAt": "2024-10-21T18:33:34Z",
+      "updatedAt": "2024-10-21T19:48:15Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "5a5b17bbf6079604f7b0fc97d72d8ef2534cf2a2",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-streamline",
+      "headRefOid": "b7f9c69970d68c0b3df7f1e5fd39e2a5a94c3c3f",
+      "closedAt": "2024-10-21T19:48:14Z",
+      "mergedAt": "2024-10-21T19:48:14Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "fc2466239c6d7d64ff468dd75a9d9beeef61933d"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6ODDd8",
+          "commit": {
+            "abbreviatedOid": "b7f9c69"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-21T19:44:16Z",
+          "updatedAt": "2024-10-21T19:44:16Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 58,
+      "id": "PR_kwDOGV9y2s5_Xkiw",
+      "title": "Use seed as private key",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/58",
+      "state": "MERGED",
+      "author": "bwesterb",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- Add text that we use seed as private key\r\n- Add examples for all three parameter sets.\r\n- Deduplicate.",
+      "createdAt": "2024-10-21T19:43:45Z",
+      "updatedAt": "2024-10-21T21:11:08Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "fc2466239c6d7d64ff468dd75a9d9beeef61933d",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "bas/better-examples",
+      "headRefOid": "bcdc0246d2e4931d6fcfb2d5b672304350564445",
+      "closedAt": "2024-10-21T21:11:08Z",
+      "mergedAt": "2024-10-21T21:11:08Z",
+      "mergedBy": "bwesterb",
+      "mergeCommit": {
+        "oid": "e618216e13108b906d1bce98ff0f23408b690a49"
+      },
+      "comments": [
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I can decode the .pub examples, but none of the .priv examples.  I am getting \"Length over 48 bits not supported at position 1.\"",
+          "createdAt": "2024-10-21T20:34:38Z",
+          "updatedAt": "2024-10-21T20:34:38Z"
+        },
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I can decode the .pub examples, but none of the .priv examples. I am getting \"Length over 48 bits not supported at position 1.\"\r\n\r\nNot sure what issue you hit, but I updated the examples because I noticed I didn't replace the private key by the seed yet \ud83d\ude2c.",
+          "createdAt": "2024-10-21T21:07:02Z",
+          "updatedAt": "2024-10-21T21:07:02Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6ODLxH",
+          "commit": {
+            "abbreviatedOid": "fd19a0f"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-21T20:02:34Z",
+          "updatedAt": "2024-10-21T20:02:34Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "```suggestion\r\n-----BEGIN PRIVATE KEY-----\r\n```",
+              "createdAt": "2024-10-21T20:02:34Z",
+              "updatedAt": "2024-10-21T20:02:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6ODMGI",
+          "commit": {
+            "abbreviatedOid": "fd19a0f"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-21T20:02:51Z",
+          "updatedAt": "2024-10-21T20:02:51Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "```suggestion\r\n-----BEGIN PRIVATE KEY-----\r\n```",
+              "createdAt": "2024-10-21T20:02:51Z",
+              "updatedAt": "2024-10-21T20:02:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6ODMQm",
+          "commit": {
+            "abbreviatedOid": "fd19a0f"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-21T20:03:06Z",
+          "updatedAt": "2024-10-21T20:03:06Z",
+          "comments": [
+            {
+              "originalPosition": 53,
+              "body": "```suggestion\r\n-----END PRIVATE KEY-----\r\n```",
+              "createdAt": "2024-10-21T20:03:06Z",
+              "updatedAt": "2024-10-21T20:03:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6ODMWn",
+          "commit": {
+            "abbreviatedOid": "fd19a0f"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-21T20:03:19Z",
+          "updatedAt": "2024-10-21T20:03:19Z",
+          "comments": [
+            {
+              "originalPosition": 37,
+              "body": "```suggestion\r\n-----END PRIVATE KEY-----\r\n```",
+              "createdAt": "2024-10-21T20:03:19Z",
+              "updatedAt": "2024-10-21T20:03:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6ODoii",
+          "commit": {
+            "abbreviatedOid": "bcdc024"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I can decode these just fine. Will add the ASN.1 pretty prints via another PR.\r\n\r\nWill look to do a Certificate we get the ML-DSA I-D closer to done.",
+          "createdAt": "2024-10-21T21:09:23Z",
+          "updatedAt": "2024-10-21T21:09:23Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 59,
+      "id": "PR_kwDOGV9y2s5_XomH",
+      "title": "Seed as private key",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/59",
+      "state": "CLOSED",
+      "author": "bwesterb",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-10-21T19:54:06Z",
+      "updatedAt": "2024-10-21T21:01:50Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "fc2466239c6d7d64ff468dd75a9d9beeef61933d",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "bas/seed",
+      "headRefOid": "2d44d1caef4012768c9d4413897a9657b31474fc",
+      "closedAt": "2024-10-21T21:01:49Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "When \"unpacking\" the seed, you immediately get the expanded private and public key. Thus allowing a public key in the private key is redundant. I think we should disallow it. @seanturner WDYT?",
+          "createdAt": "2024-10-21T19:55:14Z",
+          "updatedAt": "2024-10-21T19:55:14Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I'd would definitely drop it from the example.",
+          "createdAt": "2024-10-21T20:04:39Z",
+          "updatedAt": "2024-10-21T20:04:39Z"
+        },
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Superseded by #58 ",
+          "createdAt": "2024-10-21T21:01:49Z",
+          "updatedAt": "2024-10-21T21:01:49Z"
         }
       ],
       "reviews": []
