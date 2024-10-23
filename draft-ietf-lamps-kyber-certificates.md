@@ -558,7 +558,7 @@ key in the previous section.
       :   }
 ~~~
 
-The following is the ML-KEM-1024 public key corresponding to the public
+The following is the ML-KEM-1024 public key corresponding to the private
 key in the previous section.
 
 ~~~
