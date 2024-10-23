@@ -277,16 +277,9 @@ OneAsymmetricKey is replicated below.
 </aside>
 
 When used in a OneAsymmetricKey type, the privateKey OCTET STRING contains
-the raw octet string encoding of the 64-octet seed.
-
-<aside markdown="block">
-  NOTE: There exist some private key import functions that have not
-  implemented the new ASN.1 structure OneAsymmetricKey that is defined in
-  {{RFC5958}}. This means that they will not accept a private key
-  structure that contains the public key field.  This means a balancing
-  act needs to be done between being able to do a consistency check on the
-  key pair and widest ability to import the key.
-</aside>
+the raw octet string encoding of the 64-octet seed. The publicKey field
+SHOULD be omitted because the public key can be computed as noted earlier
+in this section.
 
 {{example-private}} contains an example of an id-alg-ml-kem-768 private key
 encoded using the textual encoding defined in {{?RFC7468}}.
