@@ -401,7 +401,7 @@ The following is an example of a ML-KEM-1024 private key from the same seed.
 
 ## Example Public Key {#example-public}
 
-The following is the ML-KEM-512 private key corresponding to the public
+The following is the ML-KEM-512 public key corresponding to the private
 key in the previous section.
 
 ~~~
