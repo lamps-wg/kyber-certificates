@@ -248,9 +248,7 @@ using the first 32 octets as *d* and the remaining 32 octets as *z*.
 key in a structure that both identifies what algorithm the private key
 is for and allows for the public key and additional attributes about the
 key to be included as well. For illustration, the ASN.1 structure
-OneAsymmetricKey is replicated below. The algorithm-specific details of
-how a private key is encoded are left for the document describing the
-algorithm itself.
+OneAsymmetricKey is replicated below.
 
 ~~~
   OneAsymmetricKey ::= SEQUENCE {
