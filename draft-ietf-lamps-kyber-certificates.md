@@ -279,7 +279,9 @@ algorithm itself.
 </aside>
 
 When used in a OneAsymmetricKey type, the privateKey OCTET STRING contains
-the raw octet string encoding of the 64-octet seed.
+the raw octet string encoding of the 64-octet seed. The publicKey field
+SHOULD be omitted because the public key can be compute as noted earlier
+in this section.
 
 <aside markdown="block">
   NOTE: There exist some private key import functions that have not
