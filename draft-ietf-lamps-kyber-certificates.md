@@ -297,9 +297,7 @@ encoded using the textual encoding defined in {{?RFC7468}}.
 
 The Security Considerations section of {{RFC5280}} applies to this specification as well.
 
-<aside markdown="block">
-  To Do: Discuss side-channels for Kyber TBD1.
-</aside>
+For ML-KEM specific security considerations refer to {{?I-D.sfluhrer-cfrg-ml-kem-security-considerations}}.
 
 # IANA Considerations
 
