@@ -1421,17 +1421,11 @@ OneAsymmetricKey is replicated below.<a href="#section-5-3" class="pilcrow">¶</
   2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.<a href="#section-5-5.1" class="pilcrow">¶</a></p>
 </aside>
 <p id="section-5-6">When used in a OneAsymmetricKey type, the privateKey OCTET STRING contains
-the raw octet string encoding of the 64-octet seed.<a href="#section-5-6" class="pilcrow">¶</a></p>
-<aside id="section-5-7">
-        <p id="section-5-7.1">NOTE: There exist some private key import functions that have not
-  implemented the new ASN.1 structure OneAsymmetricKey that is defined in
-  <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span>. This means that they will not accept a private key
-  structure that contains the public key field.  This means a balancing
-  act needs to be done between being able to do a consistency check on the
-  key pair and widest ability to import the key.<a href="#section-5-7.1" class="pilcrow">¶</a></p>
-</aside>
-<p id="section-5-8"><a href="#example-private" class="auto internal xref">Appendix B.1</a> contains an example of an id-alg-ml-kem-768 private key
-encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-5-8" class="pilcrow">¶</a></p>
+the raw octet string encoding of the 64-octet seed. The publicKey field
+<span class="bcp14">SHOULD</span> be omitted because the public key can be computed as noted earlier
+in this section.<a href="#section-5-6" class="pilcrow">¶</a></p>
+<p id="section-5-7"><a href="#example-private" class="auto internal xref">Appendix B.1</a> contains an example of an id-alg-ml-kem-768 private key
+encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-5-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
