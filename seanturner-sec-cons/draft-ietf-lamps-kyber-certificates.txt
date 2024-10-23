@@ -1,0 +1,662 @@
+
+
+
+
+LAMPS                                                          S. Turner
+Internet-Draft                                                     sn3rd
+Intended status: Standards Track                           P. Kampanakis
+Expires: 26 April 2025                                        J. Massimo
+                                                                     AWS
+                                                           B. Westerbaan
+                                                              Cloudflare
+                                                         23 October 2024
+
+
+Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
+       Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)
+               draft-ietf-lamps-kyber-certificates-latest
+
+Abstract
+
+   The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) is a
+   quantum-resistant key-encapsulation mechanism (KEM).  This document
+   describes the conventions for using the ML-KEM in X.509 Public Key
+   Infrastructure.  The conventions for the subject public keys and
+   private keys are also described.
+
+About This Document
+
+   This note is to be removed before publishing as an RFC.
+
+   The latest revision of this draft can be found at https://lamps-
+   wg.github.io/kyber-certificates/#go.draft-ietf-lamps-kyber-
+   certificates.html.  Status information for this document may be found
+   at https://datatracker.ietf.org/doc/draft-ietf-lamps-kyber-
+   certificates/.
+
+   Discussion of this document takes place on the Limited Additional
+   Mechanisms for PKIX and SMIME (lamps) Working Group mailing list
+   (mailto:spasm@ietf.org), which is archived at
+   https://mailarchive.ietf.org/arch/browse/spasm/.  Subscribe at
+   https://www.ietf.org/mailman/listinfo/spasm/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/lamps-wg/kyber-certificates.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 26 April 2025.
+
+Copyright Notice
+
+   Copyright (c) 2024 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+     1.1.  Applicability Statement
+   2.  Conventions and Definitions
+   3.  Algorithm Identifiers
+   4.  Subject Public Key Fields
+   5.  Private Key Format
+   6.  Security Considerations
+   7.  IANA Considerations
+   8.  References
+     8.1.  Normative References
+     8.2.  Informative References
+   Appendix A.  ASN.1 Module
+   Appendix B.  Examples
+     B.1.  Example Private Key
+     B.2.  Example Public Key
+     B.3.  Example Certificate
+   Acknowledgments
+   Authors' Addresses
+
+1.  Introduction
+
+   The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM)
+   standardized in [FIPS203] is a quantum-resistant key-encapsulation
+   mechanism (KEM) standardized by the US National Institute of
+   Standards and Technology (NIST) PQC Project [NIST-PQC].  Prior to
+   standardization, the mechanism was known as Kyber.  ML-KEM and Kyber
+   are not compatible.  This document specifies the use of ML-KEM in
+   Public Key Infrastructure X.509 (PKIX) certificates [RFC5280] at
+   three security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using
+   object identifiers assigned by NIST.  The private key format is also
+   specified.
+
+1.1.  Applicability Statement
+
+   ML-KEM certificates are used in protocols where the public key is
+   used to generate and encapsulate a shared secret used to derive a
+   symmetric key used to encrypt a payload; see
+   [I-D.ietf-lamps-cms-kyber].  To be used in TLS, ML-KEM certificates
+   could only be used as end-entity identity certificates and would
+   require significant updates to the protocol; see
+   [I-D.celi-wiggers-tls-authkem].
+
+2.  Conventions and Definitions
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+3.  Algorithm Identifiers
+
+   The AlgorithmIdentifier type, which is included herein for
+   convenience, is defined as follows:
+
+    AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
+      SEQUENCE {
+        algorithm   ALGORITHM-TYPE.&id({AlgorithmSet}),
+        parameters  ALGORITHM-TYPE.
+                      &Params({AlgorithmSet}{@algorithm}) OPTIONAL
+      }
+
+      |  NOTE: The above syntax is from [RFC5912] and is compatible with
+      |  the 2021 ASN.1 syntax [X680].  See [RFC5280] for the 1988 ASN.1
+      |  syntax.
+
+   The fields in AlgorithmIdentifier have the following meanings:
+
+   *  algorithm identifies the cryptographic algorithm with an object
+      identifier.
+
+   *  parameters, which are optional, are the associated parameters for
+      the algorithm identifier in the algorithm field.
+
+   The AlgorithmIdentifier for a ML-KEM public key MUST use one of the
+   id-alg-ml-kem object identifiers listed below, based on the security
+   level.  The parameters field of the AlgorithmIdentifier for the ML-
+   KEM public key MUST be absent.
+
+   When any of the ML-KEM AlgorithmIdentifier appears in the
+   SubjectPublicKeyInfo field of an X.509 certificate, the key usage
+   certificate extension MUST only contain keyEncipherment
+   Section 4.2.1.3 of [RFC5280].
+
+     nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-ccitt(2)
+       country(16) us(840) organization(1) gov(101) csor(3)
+       nistAlgorithm(4) }
+
+     kems OBJECT IDENTIFIER ::= { nistAlgorithms 4 }
+
+     id-alg-ml-kem-512 OBJECT IDENTIFIER ::= { kems 1 }
+
+     id-alg-ml-kem-768 OBJECT IDENTIFIER ::= { kems 2 }
+
+     id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
+
+     pk-ml-kem-512 PUBLIC-KEY ::= {
+       IDENTIFIER id-alg-ml-kem-512
+       -- KEY no ASN.1 wrapping --
+       PARAMS ARE absent
+       CERT-KEY-USAGE { keyEncipherment }
+       --- PRIVATE-KEY no ASN.1 wrapping --
+       }
+
+     pk-ml-kem-768 PUBLIC-KEY ::= {
+       IDENTIFIER id-alg-ml-kem-768
+       -- KEY no ASN.1 wrapping --
+       PARAMS ARE absent
+       CERT-KEY-USAGE { keyEncipherment }
+       --- PRIVATE-KEY no ASN.1 wrapping --
+       }
+
+     pk-ml-kem-1024 PUBLIC-KEY ::= {
+       IDENTIFIER id-alg-ml-kem-1024
+       -- KEY no ASN.1 wrapping --
+       PARAMS ARE absent
+       CERT-KEY-USAGE { keyEncipherment }
+       --- PRIVATE-KEY no ASN.1 wrapping --
+       }
+
+       ML-KEM-PublicKey ::= OCTET STRING
+
+       ML-KEM-PrivateKey ::= OCTET STRING
+
+   No additional encoding of the ML-KEM public key value is applied in
+   the SubjectPublicKeyInfo field of an X.509 certificate [RFC5280].
+   However, whenever the ML-KEM public key value appears outside of a
+   certificate, it MAY be encoded as an OCTET STRING.
+
+   No additional encoding of the ML-KEM private key value is applied in
+   the PrivateKeyInfo field of an Asymmetric Key Package [RFC5958].
+   However, whenever the ML-KEM private key value appears outside of a
+   Asymmetric Key Package, it MAY be encoded as an OCTET STRING.
+
+4.  Subject Public Key Fields
+
+   In the X.509 certificate, the subjectPublicKeyInfo field has the
+   SubjectPublicKeyInfo type, which has the following ASN.1 syntax:
+
+     SubjectPublicKeyInfo {PUBLIC-KEY: IOSet} ::= SEQUENCE {
+         algorithm        AlgorithmIdentifier {PUBLIC-KEY, {IOSet}},
+         subjectPublicKey BIT STRING
+     }
+
+      |  NOTE: The above syntax is from [RFC5912] and is compatible with
+      |  the 2021 ASN.1 syntax [X680].  See [RFC5280] for the 1988 ASN.1
+      |  syntax.
+
+   The fields in SubjectPublicKeyInfo have the following meaning:
+
+   *  algorithm is the algorithm identifier and parameters for the
+      public key (see above).
+
+   *  subjectPublicKey contains the byte stream of the public key.
+
+   Appendix B.2 contains an example of an id-alg-ml-kem-768 public key
+   encoded using the textual encoding defined in [RFC7468].
+
+5.  Private Key Format
+
+   An ML-KEM private key is encoded by storing its 64-octet seed in the
+   privateKey field as follows.
+
+   [FIPS203] specifies two formats for an ML-KEM private key: a 64-octet
+   seed and an (expanded) private key, which is referred to as the
+   decapsulation key.  The expanded private key (and public key) is
+   computed from the seed using ML-KEM.KeyGen_internal(d,z) (algorithm
+   16) using the first 32 octets as _d_ and the remaining 32 octets as
+   _z_.
+
+   "Asymmetric Key Packages" [RFC5958] describes how to encode a private
+   key in a structure that both identifies what algorithm the private
+   key is for and allows for the public key and additional attributes
+   about the key to be included as well.  For illustration, the ASN.1
+   structure OneAsymmetricKey is replicated below.  The algorithm-
+   specific details of how a private key is encoded are left for the
+   document describing the algorithm itself.
+
+     OneAsymmetricKey ::= SEQUENCE {
+       version                  Version,
+       privateKeyAlgorithm      SEQUENCE {
+       algorithm                PUBLIC-KEY.&id({PublicKeySet}),
+       parameters               PUBLIC-KEY.&Params({PublicKeySet}
+                                  {@privateKeyAlgorithm.algorithm})
+                                     OPTIONAL}
+       privateKey               OCTET STRING (CONTAINING
+                                  PUBLIC-KEY.&PrivateKey({PublicKeySet}
+                                    {@privateKeyAlgorithm.algorithm})),
+       attributes           [0] Attributes OPTIONAL,
+       ...,
+       [[2: publicKey       [1] BIT STRING (CONTAINING
+                                  PUBLIC-KEY.&Params({PublicKeySet}
+                                    {@privateKeyAlgorithm.algorithm})
+                                    OPTIONAL,
+       ...
+     }
+
+      |  NOTE: The above syntax is from [RFC5958] and is compatible with
+      |  the 2021 ASN.1 syntax [X680].
+
+   When used in a OneAsymmetricKey type, the privateKey OCTET STRING
+   contains the raw octet string encoding of the 64-octet seed.
+
+      |  NOTE: There exist some private key import functions that have
+      |  not implemented the new ASN.1 structure OneAsymmetricKey that
+      |  is defined in [RFC5958].  This means that they will not accept
+      |  a private key structure that contains the public key field.
+      |  This means a balancing act needs to be done between being able
+      |  to do a consistency check on the key pair and widest ability to
+      |  import the key.
+
+   Appendix B.1 contains an example of an id-alg-ml-kem-768 private key
+   encoded using the textual encoding defined in [RFC7468].
+
+6.  Security Considerations
+
+   The Security Considerations section of [RFC5280] applies to this
+   specification as well.
+
+   For ML-KEM specific security considerations refer to
+   [I-D.sfluhrer-cfrg-ml-kem-security-considerations].
+
+7.  IANA Considerations
+
+   For the ASN.1 Module in Appendix A, IANA is requested to assign an
+   object identifier (OID) for the module identifier (TBD2) with a
+   Description of "id-mod-x509-ml-kem-2024".  The OID for the module
+   should be allocated in the "SMI Security for PKIX Module Identifier"
+   registry (1.3.6.1.5.5.7.0).
+
+8.  References
+
+8.1.  Normative References
+
+   [FIPS203]  "Module-Lattice-Based Key-Encapsulation Mechanism
+              Standard", National Institute of Standards and Technology,
+              DOI 10.6028/nist.fips.203, August 2024,
+              <https://doi.org/10.6028/nist.fips.203>.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC5280]  Cooper, D., Santesson, S., Farrell, S., Boeyen, S.,
+              Housley, R., and W. Polk, "Internet X.509 Public Key
+              Infrastructure Certificate and Certificate Revocation List
+              (CRL) Profile", RFC 5280, DOI 10.17487/RFC5280, May 2008,
+              <https://www.rfc-editor.org/rfc/rfc5280>.
+
+   [RFC5912]  Hoffman, P. and J. Schaad, "New ASN.1 Modules for the
+              Public Key Infrastructure Using X.509 (PKIX)", RFC 5912,
+              DOI 10.17487/RFC5912, June 2010,
+              <https://www.rfc-editor.org/rfc/rfc5912>.
+
+   [RFC5958]  Turner, S., "Asymmetric Key Packages", RFC 5958,
+              DOI 10.17487/RFC5958, August 2010,
+              <https://www.rfc-editor.org/rfc/rfc5958>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC9629]  Housley, R., Gray, J., and T. Okubo, "Using Key
+              Encapsulation Mechanism (KEM) Algorithms in the
+              Cryptographic Message Syntax (CMS)", RFC 9629,
+              DOI 10.17487/RFC9629, August 2024,
+              <https://www.rfc-editor.org/rfc/rfc9629>.
+
+   [X680]     ITU-T, "Information technology - Abstract Syntax Notation
+              One (ASN.1): Specification of basic notation", ITU-T
+              Recommendation X.680, ISO/IEC 8824-1:2021, February 2021,
+              <https://www.itu.int/rec/T-REC-X.680>.
+
+   [X690]     ITU-T, "Information technology - Abstract Syntax Notation
+              One (ASN.1): ASN.1 encoding rules: Specification of Basic
+              Encoding Rules (BER), Canonical Encoding Rules (CER) and
+              Distinguished Encoding Rules (DER)", ITU-T
+              Recommendation X.690, ISO/IEC 8825-1:2021, February 2021,
+              <https://www.itu.int/rec/T-REC-X.690>.
+
+8.2.  Informative References
+
+   [I-D.celi-wiggers-tls-authkem]
+              Wiggers, T., Celi, S., Schwabe, P., Stebila, D., and N.
+              Sullivan, "KEM-based Authentication for TLS 1.3", Work in
+              Progress, Internet-Draft, draft-celi-wiggers-tls-authkem-
+              04, 17 October 2024,
+              <https://datatracker.ietf.org/doc/html/draft-celi-wiggers-
+              tls-authkem-04>.
+
+   [I-D.ietf-lamps-cms-kyber]
+              Prat, J., Ounsworth, M., and D. Van Geest, "Use of ML-KEM
+              in the Cryptographic Message Syntax (CMS)", Work in
+              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-05,
+              15 October 2024, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-lamps-cms-kyber-05>.
+
+   [I-D.sfluhrer-cfrg-ml-kem-security-considerations]
+              Fluhrer, S., Dang, Q., Mattsson, J. P., Milner, K., and D.
+              Shiu, "ML-KEM Security Considerations", Work in Progress,
+              Internet-Draft, draft-sfluhrer-cfrg-ml-kem-security-
+              considerations-01, 11 October 2024,
+              <https://datatracker.ietf.org/doc/html/draft-sfluhrer-
+              cfrg-ml-kem-security-considerations-01>.
+
+   [NIST-PQC] National Institute of Standards and Technology (NIST),
+              "Post-Quantum Cryptography Project", 20 December 2016,
+              <https://csrc.nist.gov/projects/post-quantum-
+              cryptography>.
+
+   [RFC7468]  Josefsson, S. and S. Leonard, "Textual Encodings of PKIX,
+              PKCS, and CMS Structures", RFC 7468, DOI 10.17487/RFC7468,
+              April 2015, <https://www.rfc-editor.org/rfc/rfc7468>.
+
+Appendix A.  ASN.1 Module
+
+   This appendix includes the ASN.1 module [X680] for the ML-KEM.  Note
+   that as per [RFC5280], certificates use the Distinguished Encoding
+   Rules; see [X690].  This module imports objects from [RFC5912] and
+   [RFC9629].
+
+   <CODE BEGINS>
+   X509-ML-KEM-2024
+   { iso(1) identified-organization(3) dod(6)
+     internet(1) security(5) mechanisms(5) pkix(7) id-mod(0)
+     id-mod-x509-ml-kem-2024(TBD2) }
+
+   DEFINITIONS IMPLICIT TAGS ::= BEGIN
+
+   EXPORTS ALL;
+
+   IMPORTS
+     PUBLIC-KEY
+       FROM AlgorithmInformation-2009  -- [RFC 5912]
+         { iso(1) identified-organization(3) dod(6) internet(1)
+           security(5) mechanisms(5) pkix(7) id-mod(0)
+           id-mod-algorithmInformation-02(58) }
+
+     KEM-ALGORITHM
+       FROM KEMAlgorithmInformation-2023  -- [RFC 9629]
+         { iso(1) identified-organization(3) dod(6) internet(1)
+           security(5) mechanisms(5) pkix(7) id-mod(0)
+           id-mod-kemAlgorithmInformation-2023(109) };
+
+   --
+   -- ML-KEM Identifiers
+   --
+
+   nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-ccitt(2)
+     country(16) us(840) organization(1) gov(101) csor(3)
+     nistAlgorithm(4) }
+
+   kems OBJECT IDENTIFIER ::= { nistAlgorithms 4 }
+
+   id-alg-ml-kem-512 OBJECT IDENTIFIER ::= { kems 1 }
+
+   id-alg-ml-kem-768 OBJECT IDENTIFIER ::= { kems 2 }
+
+   id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
+
+     --
+     -- Public Key Algorithms
+     --
+     -- To use the following with the PKIX1Explicit-2009 [RFC5912], replace
+     -- the PublicKeyAlgorithms therein with the following:
+     --
+     -- PublicKeyAlgorithms PUBLIC-KEY ::= {
+     --   PKIXAlgs-2009.PublicKeys,
+     --   ...,
+     --   PKIX1-PSS-OAEP-Algorithms-2009.PublicKeys,
+     --   X509-ML-KEM-2024.PublicKeys }
+
+     --
+     -- Public Key (pk-) Algorithms
+     --
+
+   PublicKeys PUBLIC-KEY ::= {
+     -- This expands PublicKeys from RFC 5912
+     pk-ml-kem-512 |
+     pk-ml-kem-768 |
+     pk-ml-kem-1024,
+     ...
+     }
+
+   --
+   -- ML-KEM Public Keys
+   --
+
+   pk-ml-kem-512 PUBLIC-KEY ::= {
+     IDENTIFIER id-alg-ml-kem-512
+     -- KEY no ASN.1 wrapping --
+     PARAMS ARE absent
+     CERT-KEY-USAGE { keyEncipherment }
+     --- PRIVATE-KEY no ASN.1 wrapping --
+     }
+
+   pk-ml-kem-768 PUBLIC-KEY ::= {
+     IDENTIFIER id-alg-ml-kem-768
+     -- KEY no ASN.1 wrapping --
+     PARAMS ARE absent
+     CERT-KEY-USAGE { keyEncipherment }
+     --- PRIVATE-KEY no ASN.1 wrapping --
+     }
+
+   pk-ml-kem-1024 PUBLIC-KEY ::= {
+     IDENTIFIER id-alg-ml-kem-1024
+     -- KEY no ASN.1 wrapping --
+     PARAMS ARE absent
+     CERT-KEY-USAGE { keyEncipherment }
+     --- PRIVATE-KEY no ASN.1 wrapping --
+     }
+
+   END
+   <CODE ENDS>
+
+Appendix B.  Examples
+
+   This appendix contains examples of ML-KEM public keys, private keys
+   and certificates.
+
+B.1.  Example Private Key
+
+   The following is an example of a ML-KEM-512 private key with hex seed
+   0001…3f:
+
+   -----BEGIN PRIVATE KEY-----
+   MFICAQAwCwYJYIZIAWUDBAQBBEAAAQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRob
+   HB0eHyAhIiMkJSYnKCkqKywtLi8wMTIzNDU2Nzg5Ojs8PT4/
+   -----END PRIVATE KEY-----
+
+   The following is an example of a ML-KEM-768 private key from the same
+   seed.
+
+   -----BEGIN PRIVATE KEY-----
+   MFICAQAwCwYJYIZIAWUDBAQCBEAAAQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRob
+   HB0eHyAhIiMkJSYnKCkqKywtLi8wMTIzNDU2Nzg5Ojs8PT4/
+   -----END PRIVATE KEY-----
+
+   The following is an example of a ML-KEM-1024 private key from the
+   same seed.
+
+   -----BEGIN PRIVATE KEY-----
+   MFICAQAwCwYJYIZIAWUDBAQDBEAAAQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRob
+   HB0eHyAhIiMkJSYnKCkqKywtLi8wMTIzNDU2Nzg5Ojs8PT4/
+   -----END PRIVATE KEY-----
+
+B.2.  Example Public Key
+
+   The following is the ML-KEM-512 public key corresponding to the
+   private key in the previous section.
+
+   -----BEGIN PUBLIC KEY-----
+   MIIDMjALBglghkgBZQMEBAEDggMhADmVgV5ZfRBDVc8pqlMzyTJRhp1bzb5IcST2
+   Ari2pmwWxHYWSK12XPXYAGtRXpBafwrAdrDGLvoygVPnylcBaZ8TBfHmvG+QsOSb
+   aTUSts6ZKouAFt38GmYsfj+WGcvYad13GvMIlszVkYrGy3dGbF53mZbWf/mqvJdQ
+   Pyx7fi0ADYZFD7GAfKTKvaRlgloxx4mht6SRqzhydl0yDQtxkg+iE8lAk0Frg7gS
+   Tmn2XmLLUADcw3qpoP/3OXDEdy81fSQYnKb1MFVowOI3ajdipoxgXlY8XSCVcuD8
+   dTLKKUcpU1VntfxBPF6HktJGRTbMgI+YrddGZPFBVm+QFqkKVBgpqYoEZM5BqLtE
+   wtT6PCwglGByjvFKGnxMm5jRIgO0zDUpFgqasteDj3/2tTrgWqMafWRrevpsRZMl
+   JqPDdVYZvplMIRwqMcBbNEeDbLIVC+GCna5rBMVTXP9Ubjkrp5dBFyD5JPSQpaxU
+   lfITVtVQt4KmTBaItrZVvMeEIZekNML2Vjtbfwmni8xIgjJ4NWHRb0y6tnVUAAUH
+   gVcMZmBLgXrRJSKUc26LAYYaS1p0UZuLb+UUiaUHI5Llh2JscTd2V10zgGocjicy
+   r5fCaA9RZmMxxOuLvAQxxPloMtrxs8RVKPuhU/bHixwZhwKUfM0zdyekb7U7oR3l
+   y0GRNGhZUWy2rXJADzzyCbI2rvNaWArIfrPjD6/WaXPKin3SZ1r0H3oXthQzzRr4
+   D3cIhp9mVIhJeYCxrBCgzctjagDthoGzXkKRJMqANQcluF+DperDpKPMFgCQPmUp
+   NWC5szblrw1SnawaBIEZMCy3qbzBELlIUb8CEX8ZncSFqFK3Rz8JuDGmgx1bVMC3
+   kNIlz2u5LZRiomzbM92lEjx6rw4moLg2Ve6ii/OoB0clAY/WuuS2Ac9huqtxp6PT
+   UZejQ+dLSicsEl1UCJZCbYW3lY07OKa6mH7DciXHtEzbEt3kU5tKsII2NoPwS/eg
+   nMXEHf6DChsWLgsyQzQ2LwhKFEZ3IzRLrdAA+NjFN8SPmY8FMHzr0e3guBw7xZoG
+   WhttY7Js
+   -----END PUBLIC KEY-----
+
+   The following is the ML-KEM-768 public key corresponding to the
+   private key in the previous section.
+
+   -----BEGIN PUBLIC KEY-----
+   MIIEsjALBglghkgBZQMEBAIDggShACmKoQ1CPI3aBp0CvFnmzfA6CWuLPaTKubgM
+   pKFJB2cszvHsT68jSgvFt+nUc/KzEzs7JqHRdctnp4BZGWmcAvdlMbmcX4kYBwS7
+   TKRTXFuJcmecZgoHxeUUuHAJyGLrj1FXaV77P8QKne9rgcHMAqJJrk8JStDZvTSF
+   wcHGgIBSCnyMYyAyzuc4FU5cUXbAfaVgJHdqQw/nbqz2ZaP3uDIQIhW8gvEJOcg1
+   VwQzao+sHYHkuwSFql18dNa1m75cXpcqDYusQRtVtdVVfNaAoaj3G064a8SMmgUJ
+   cxpUvZ1ykLJ5Y+Q3Lcmxmc/crAsBrNKKYjlREuTENkjWIsSMgjTQFEDozDdskn8j
+   pa/JrAR0xmInTkJFJchVLs47P+JlFt6QG8fVFb3olVjmJslcgLkzQvgBAATznmxs
+   lIccXjRMqzlmyDX5qWpZr9McQChrOLHBp4RwurlHUYk0RTzoZzapGfH1ptUQqG9U
+   VPw5gMtcdlvSvV97NrFBDWY1yM60fE3aDXaijqyTnHHDAkgEhmxxYmZYRCFjwsIh
+   F+UKzvzmN4qYVlIwKk7wws4Mxxa3eW4ray43d9+hrD2iWaMbWptTD4y2OKgaYqww
+   GEmrr5WnMBvaMAaJCb/bfmfbzLs4pVUaJbGjoPaFdIrVdT2IgPABbGJ0hhZjhMVX
+   H+I2WQA2TQODEeLYdds2ZoaTK17GAkMKNp6Hpu9cM4eGZXglvUwFes65I+sJNeaQ
+   XmO0ztf4CFenc91ksVDSZhLqmsEgUtsgF78YQ8y0sygbaQ3HKK36hcACgbjjwJKH
+   M1+Fa0/CiS9povV5Ia2gGRTECYhmLVd2lmKnhjUbm2ZJPat5WU2YbeIQDWW6D/Tq
+   WLgVONJKRDWiWPrCVASqf0H2WLE4UGXhWNy2ARVzJyD0BFmqrBXkBpU6kKxSmX0c
+   zQcAYO/GXbnmUzVEZ/rVbscTyG51QMQjrPJmn1L6b0rGiI2HHvPoR8ApqKr7uS4X
+   skqgebH0GbphdbRCr7EZCdSla3CgM1soc5IYqnyTSOLDwvPrPRWkHmQXwN2Uv+sh
+   QZsxGnuxOhgLvoMyGKmmsXRHzIXyJYWVh6cwdwSay8/UTQ8CVDjhXRU4Jw1Ybhv4
+   MZKpRZz2PA6XL4UpdnmDHs8SFQmFHLg0D28Qew+hoO/Rs2qBibwIXE9ct4TlU/Qb
+   kY+AOXzhlW94W+43fKmqi+aZitowwmt8PYxrVSVMyWIDsgxCruCsTh67QI5JqeP4
+   edCrB4XrcCVCXRMFoimcAV4SDRY7DhlJTOVyU9AkbRgnRcuBl6t0OLPBu3lyvsWj
+   BuujVnhVwBRpn+9lrlTHcKDYXBhADPZCrtxmB3e6SxOFAr1aeBL2IfhKSClrmN1D
+   IrbxWCi4qPDgCoukSlPDqLFDVxsHQKvVZ9rxzenHnCBLbV4lnRdmoxu7y05qBc9F
+   AhdrMBwcL0Ekd1AVe87IXoCbMKTWDXdHzdD1uZqoyCaYdRd5OqqAgKCxJKhVjfcr
+   vje3X07btr6CFtbGM/srIoDiURPYaV5DSBw+6zl+sZJQUim2eiAeqJPD4ssy2ovD
+   QvpN6gV4
+   -----END PUBLIC KEY-----
+
+   The following is the ML-KEM-1024 public key corresponding to the
+   private key in the previous section.
+
+   -----BEGIN PUBLIC KEY-----
+   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
+   uYOILhF1
+   -----END PUBLIC KEY-----
+
+   The following example, in addition to encoding the ML-KEM-768 private
+   key, has an attribute included as well as the public key:
+
+     -----BEGIN PRIVATE KEY-----
+     TODO insert example private key with attribute
+     -----END PRIVATE KEY-------
+
+B.3.  Example Certificate
+
+     TODO insert ASN.1 Pretty Print
+
+     -----BEGIN CERTIFICATE-----
+     TODO Certificate
+     -----END CERTIFICATE-------
+
+Acknowledgments
+
+   TODO acknowledge.
+
+Authors' Addresses
+
+   Sean Turner
+   sn3rd
+   Email: sean@sn3rd.com
+
+
+   Panos Kampanakis
+   AWS
+   Email: kpanos@amazon.com
+
+
+   Jake Massimo
+   AWS
+   Email: jakemas@amazon.com
+
+
+   Bas Westerbaan
+   Cloudflare
+   Email: bas@westerbaan.name
