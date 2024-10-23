@@ -557,7 +557,7 @@ B.1.  Example Private Key
 
 B.2.  Example Public Key
 
-   The following is the ML-KEM-512 public key corresponding to the
+   The following is the ML-KEM-512 private key corresponding to the
    public key in the previous section.
 
    -----BEGIN PUBLIC KEY-----
