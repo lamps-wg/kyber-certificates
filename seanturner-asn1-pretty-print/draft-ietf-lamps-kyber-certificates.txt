@@ -753,7 +753,7 @@ B.2.  Example Public Key
          :   }
 
    The following is the ML-KEM-1024 public key corresponding to the
-   public key in the previous section.
+   private key in the previous section.
 
    -----BEGIN PUBLIC KEY-----
    MIIGMjALBglghkgBZQMEBAMDggYhAEuUwpRQERGRgjs1FMmsHqPZglzLhjk6LfsE
