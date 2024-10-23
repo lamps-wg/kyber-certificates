@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 24 April 2025                                        J. Massimo
+Expires: 26 April 2025                                        J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                         21 October 2024
+                                                         23 October 2024
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 April 2025.
+   This Internet-Draft will expire on 26 April 2025.
 
 Copyright Notice
 
@@ -250,9 +250,7 @@ Table of Contents
    key in a structure that both identifies what algorithm the private
    key is for and allows for the public key and additional attributes
    about the key to be included as well.  For illustration, the ASN.1
-   structure OneAsymmetricKey is replicated below.  The algorithm-
-   specific details of how a private key is encoded are left for the
-   document describing the algorithm itself.
+   structure OneAsymmetricKey is replicated below.
 
      OneAsymmetricKey ::= SEQUENCE {
        version                  Version,
