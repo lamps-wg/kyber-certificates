@@ -639,7 +639,7 @@ B.2.  Example Public Key
          :   }
 
    The following is the ML-KEM-768 public key corresponding to the
-   public key in the previous section.
+   private key in the previous section.
 
    -----BEGIN PUBLIC KEY-----
    MIIEsjALBglghkgBZQMEBAIDggShACmKoQ1CPI3aBp0CvFnmzfA6CWuLPaTKubgM
