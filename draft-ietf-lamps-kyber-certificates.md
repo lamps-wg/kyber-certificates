@@ -323,7 +323,9 @@ encoded using the textual encoding defined in {{?RFC7468}}.
 The Security Considerations section of {{RFC5280}} applies to this
 specification as well.
 
-Protection of the private-key information, i.e., the seed, is vital to public-key cryptography.  Disclosure of the private-key material to another entity can lead to masquerades.
+Protection of the private-key information, i.e., the seed, is vital to
+public-key cryptography.  Disclosure of the private-key material to another
+entity can lead to masquerades.
 
 For ML-KEM specific security considerations refer to
 {{?I-D.sfluhrer-cfrg-ml-kem-security-considerations}}.
