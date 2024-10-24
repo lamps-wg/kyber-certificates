@@ -327,7 +327,7 @@ Protection of the private-key information, i.e., the seed, is vital to public-ke
 
 For ML-KEM specific security considerations refer to
 {{?I-D.sfluhrer-cfrg-ml-kem-security-considerations}}.
- 
+
 The generation of private keys relies on random numbers. The use of
 inadequate pseudo-random number generators (PRNGs) to generate these
 values can result in little or no security.  An attacker may find it
@@ -336,20 +336,21 @@ searching the resulting small set of possibilities, rather than brute
 force searching the whole key space.  The generation of quality
 random numbers is difficult, and {{?RFC4086}} offers important guidance
 in this area.
- 
+
 ML-KEM key generation as standardized in {{FIPS203}} has specific
 requirements around randomness generation, described in section 3.3,
 'Randomness generation'.
- 
-Per the analysis of the final {{FIPS203}} in {{KEMMY24}}, a compliant
-instantiation of ML-KEM is LEAK-BIND-K-PK-secure and LEAK-BIND-K-CT-secure
-when using the expanded key format, but not MAL-BIND-K-PK-secure nor
-MAL-BIND-K-CT-secure. This means that the computed shared secret binds to the
-encapsulation key used to compute it against a malicious adversary that has
-access to leaked, honestly-generated key material but is not capable of
-manufacturing maliciously generated keypairs. This binding to the
-encapsulation key broadly protects against re-encapsulation attacks but not
-completely.
+
+Key formats have implications on KEM binding properties, initially formalized
+in {{CDM23}}. Per the analysis of the final {{FIPS203}} in {{KEMMY24}}, a
+compliant instantiation of ML-KEM is LEAK-BIND-K-PK-secure and
+LEAK-BIND-K-CT-secure when using the expanded key format, but not
+MAL-BIND-K-PK-secure nor MAL-BIND-K-CT-secure. This means that the computed
+shared secret binds to the encapsulation key used to compute it against a
+malicious adversary that has access to leaked, honestly-generated key
+material but is not capable of manufacturing maliciously generated
+keypairs. This binding to the encapsulation key broadly protects against
+re-encapsulation attacks but not completely.
 
 Using the 64-byte seed format provides a step up in binding security by
 mitigating an attack enabled by the hash of the public encapsulation key
