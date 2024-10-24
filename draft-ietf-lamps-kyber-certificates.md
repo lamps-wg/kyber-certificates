@@ -335,7 +335,7 @@ much easier to reproduce the PRNG environment that produced the keys,
 searching the resulting small set of possibilities, rather than brute
 force searching the whole key space.  The generation of quality
 random numbers is difficult, and {{?RFC4086}} offers important guidance
- in this area.
+in this area.
  
 ML-KEM key generation as standardized in {{FIPS203}} has specific
 requirements around randomness generation, described in section 3.3,
