@@ -325,7 +325,16 @@ specification as well.
 
 For ML-KEM specific security considerations refer to
 {{?I-D.sfluhrer-cfrg-ml-kem-security-considerations}}.
-
+ 
+   The generation of private keys relies on random numbers.  The use of
+   inadequate pseudo-random number generators (PRNGs) to generate these
+   values can result in little or no security.  An attacker may find it
+   much easier to reproduce the PRNG environment that produced the keys,
+   searching the resulting small set of possibilities, rather than brute
+   force searching the whole key space.  The generation of quality
+   random numbers is difficult, and {{?RFC4086}} offers important guidance
+   in this area.
+ 
 Per the analysis of the final {{FIPS203}} in {{KEMMY24}}, a compliant
 instantiation of ML-KEM is LEAK-BIND-K-PK-secure and LEAK-BIND-K-CT-secure
 when using the expanded key format, but not MAL-BIND-K-PK-secure nor
