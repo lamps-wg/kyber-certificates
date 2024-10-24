@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-22T01:14:33.020697+00:00",
+  "timestamp": "2024-10-24T01:13:47.198516+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -334,22 +334,126 @@
       "id": "I_kwDOGV9y2s6bLrib",
       "title": "Disallow public key in private key",
       "url": "https://github.com/lamps-wg/kyber-certificates/issues/60",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bwesterb",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "              When \"unpacking\" the seed, you immediately get the expanded private and public key. Thus allowing a public key in the private key is redundant. I think we should disallow it. @seanturner WDYT?\r\n\r\n_Originally posted by @bwesterb in https://github.com/lamps-wg/kyber-certificates/issues/59#issuecomment-2427595844_\r\n            ",
       "createdAt": "2024-10-21T19:55:22Z",
-      "updatedAt": "2024-10-21T21:50:58Z",
-      "closedAt": null,
+      "updatedAt": "2024-10-23T13:09:47Z",
+      "closedAt": "2024-10-23T13:09:47Z",
       "comments": [
         {
           "author": "dconnolly",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Agreed",
           "createdAt": "2024-10-21T21:50:57Z",
           "updatedAt": "2024-10-21T21:50:57Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think disallow might be strong.  I can get behind a SHOULD and they say why you don't need to and then only people who want to use the footgun do so.",
+          "createdAt": "2024-10-23T01:35:18Z",
+          "updatedAt": "2024-10-23T01:35:18Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@danvangeest PTAL",
+          "createdAt": "2024-10-23T02:02:44Z",
+          "updatedAt": "2024-10-23T02:02:44Z"
+        },
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I think disallow might be strong. I can get behind a SHOULD and they say why you don't need to and then only people who want to use the footgun do so.\r\n\r\nIn ML-KEM the expanded private key contains the public key, which is required for decapsulation. At the very least we need to add language that the included public key cannot be used in decapsulation. I expect there would be some requests for checks on whether the public key matches the private key to some degree. One could for instance ask that the user checks whether the `rho` value (the seed of the lattice) matches between the included public key and seed, as a sanity check. That adds complexity down the line for implementations to implement those checks and linters to check whether that check is performed. As computing the expanded key pair from the seed is cheap, one could just require the included public key to match the seed completely. But then: what is the point?",
+          "createdAt": "2024-10-23T11:48:44Z",
+          "updatedAt": "2024-10-23T11:48:44Z"
+        }
+      ]
+    },
+    {
+      "number": 62,
+      "id": "I_kwDOGV9y2s6bYexG",
+      "title": "Security Considerations",
+      "url": "https://github.com/lamps-wg/kyber-certificates/issues/62",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Do we just refer to the [ML-KEM Security Considerations](https://datatracker.ietf.org/doc/draft-sfluhrer-cfrg-ml-kem-security-considerations/) and call it quits?",
+      "createdAt": "2024-10-23T01:28:28Z",
+      "updatedAt": "2024-10-23T14:23:55Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "danvangeest",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I think the security considerations should justify the choice of storing the 64-byte seed as providing the MAL-BIND-K-CT property.  While not explicit, section 3.1 of https://eprint.iacr.org/2024/523.pdf gives the justification.  That section suggests removing the hash value from the longer serialized format.  Implicitly, by using the shorter 64-byte seed format the hash has been removed.\r\n\r\nIt may also be worth noting that the 64-byte encoding does not achieve MAL-BIND-K-PK, but a protocol can achieve this property by binding the public key to the ML-KEM shared secret by feeding them both into a KDF.",
+          "createdAt": "2024-10-23T10:10:02Z",
+          "updatedAt": "2024-10-23T10:10:02Z"
+        },
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "As an aside, it's not just these binding properties. There are two other clear advantages of using the seed: 1. it simplifies implementation complexity as we don't have to think or worry about private key validation, and 2. it saves a lot of space.",
+          "createdAt": "2024-10-23T12:00:04Z",
+          "updatedAt": "2024-10-23T12:00:04Z"
+        },
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Maybe it's better to include a more detailed discussion of that in Scott's draft.",
+          "createdAt": "2024-10-23T12:00:34Z",
+          "updatedAt": "2024-10-23T12:00:34Z"
+        },
+        {
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Agree with Scott and Bas; a more expanded Security Considerations section in this document does not preclude the other document, or expanding the other document too",
+          "createdAt": "2024-10-23T14:21:49Z",
+          "updatedAt": "2024-10-23T14:21:49Z"
+        },
+        {
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Also Scott's document hasn't been adopted yet",
+          "createdAt": "2024-10-23T14:23:54Z",
+          "updatedAt": "2024-10-23T14:23:54Z"
+        }
+      ]
+    },
+    {
+      "number": 66,
+      "id": "I_kwDOGV9y2s6bi1sM",
+      "title": "Private key vs Decaps key, Public key vs Encaps key?",
+      "url": "https://github.com/lamps-wg/kyber-certificates/issues/66",
+      "state": "CLOSED",
+      "author": "dconnolly",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This is not the only document to have this dilemna, but what if we aligned with FIPS 203 and used the precise language for keys?",
+      "createdAt": "2024-10-23T19:02:29Z",
+      "updatedAt": "2024-10-23T20:48:48Z",
+      "closedAt": "2024-10-23T20:48:48Z",
+      "comments": [
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "X.509 uses different terminology. Thus we need to mention both terms to bridge the gap.",
+          "createdAt": "2024-10-23T20:27:04Z",
+          "updatedAt": "2024-10-23T20:27:04Z"
+        },
+        {
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Womp, ok thanks",
+          "createdAt": "2024-10-23T20:48:48Z",
+          "updatedAt": "2024-10-23T20:48:48Z"
         }
       ]
     }
@@ -3273,7 +3377,7 @@
       "labels": [],
       "body": "- Add text that we use seed as private key\r\n- Add examples for all three parameter sets.\r\n- Deduplicate.",
       "createdAt": "2024-10-21T19:43:45Z",
-      "updatedAt": "2024-10-21T21:11:08Z",
+      "updatedAt": "2024-10-23T21:30:13Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "fc2466239c6d7d64ff468dd75a9d9beeef61933d",
@@ -3395,6 +3499,66 @@
           "createdAt": "2024-10-21T21:09:23Z",
           "updatedAt": "2024-10-21T21:09:23Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OcWuE",
+          "commit": {
+            "abbreviatedOid": "bcdc024"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T18:58:46Z",
+          "updatedAt": "2024-10-23T18:58:46Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "I agree with using the 64-byte seed, but technically, a FIPS 203-compliant ML-KEM private key is / can be either a 64-byte seed or the fully expanded decapsulation key format; in this phrase, what is the meaning of 'is'? The ML-KEM in use in this document?  Or the ML-KEM in FIPS 203? (Making this harmonious with the next paragraph would help)",
+              "createdAt": "2024-10-23T18:58:46Z",
+              "updatedAt": "2024-10-23T18:58:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OeumQ",
+          "commit": {
+            "abbreviatedOid": "bcdc024"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T20:25:52Z",
+          "updatedAt": "2024-10-23T20:25:53Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Strictly speaking this sentence could be removed from the standard. It's here as a stepping stone to the precise definition. We could add a marker like \"essentially\" or \"in short\".",
+              "createdAt": "2024-10-23T20:25:53Z",
+              "updatedAt": "2024-10-23T20:25:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OfwI8",
+          "commit": {
+            "abbreviatedOid": "bcdc024"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T21:30:13Z",
+          "updatedAt": "2024-10-23T21:30:13Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Cool, went with 'in short': https://github.com/lamps-wg/kyber-certificates/pull/68",
+              "createdAt": "2024-10-23T21:30:13Z",
+              "updatedAt": "2024-10-23T21:30:13Z"
+            }
+          ]
         }
       ]
     },
@@ -3444,6 +3608,479 @@
           "updatedAt": "2024-10-21T21:01:49Z"
         }
       ],
+      "reviews": []
+    },
+    {
+      "number": 61,
+      "id": "PR_kwDOGV9y2s5_h-xY",
+      "title": "Add ASN.1 pretty print for examples",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/61",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Adding ASN.1 pretty print for examples.",
+      "createdAt": "2024-10-23T01:25:42Z",
+      "updatedAt": "2024-10-23T21:31:57Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "e618216e13108b906d1bce98ff0f23408b690a49",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-asn1-pretty-print",
+      "headRefOid": "bcc6b2f69f200c6963a7ac945c3919b5278be63f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "How did you create these? Would be cool to auto format with a simple `make` from the generated examples in case we still need any changes.",
+          "createdAt": "2024-10-23T20:52:26Z",
+          "updatedAt": "2024-10-23T20:52:26Z"
+        },
+        {
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> How did you create these? Would be cool to auto format with a simple `make` from the generated examples in case we still need any changes.\r\n\r\nyah these are cool",
+          "createdAt": "2024-10-23T21:31:56Z",
+          "updatedAt": "2024-10-23T21:31:56Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6OSxHQ",
+          "commit": {
+            "abbreviatedOid": "03e37b7"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T05:55:14Z",
+          "updatedAt": "2024-10-23T05:55:14Z",
+          "comments": [
+            {
+              "originalPosition": 86,
+              "body": "```suggestion\r\nThe following is the ML-KEM-512 private key corresponding to the public\r\n```",
+              "createdAt": "2024-10-23T05:55:14Z",
+              "updatedAt": "2024-10-23T05:55:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OSx18",
+          "commit": {
+            "abbreviatedOid": "a9f5074"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T05:56:07Z",
+          "updatedAt": "2024-10-23T05:56:08Z",
+          "comments": [
+            {
+              "originalPosition": 86,
+              "body": "```suggestion\r\nThe following is the ML-KEM-512 public key corresponding to the private\r\n```",
+              "createdAt": "2024-10-23T05:56:08Z",
+              "updatedAt": "2024-10-23T05:56:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OSykL",
+          "commit": {
+            "abbreviatedOid": "934243b"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T05:57:05Z",
+          "updatedAt": "2024-10-23T05:57:05Z",
+          "comments": [
+            {
+              "originalPosition": 150,
+              "body": "```suggestion\r\nThe following is the ML-KEM-768 public key corresponding to the private\r\n```",
+              "createdAt": "2024-10-23T05:57:05Z",
+              "updatedAt": "2024-10-23T05:57:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OSzBu",
+          "commit": {
+            "abbreviatedOid": "3b5729e"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T05:57:43Z",
+          "updatedAt": "2024-10-23T05:57:44Z",
+          "comments": [
+            {
+              "originalPosition": 241,
+              "body": "```suggestion\r\nThe following is the ML-KEM-1024 public key corresponding to the private\r\n```",
+              "createdAt": "2024-10-23T05:57:43Z",
+              "updatedAt": "2024-10-23T05:57:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OfdBq",
+          "commit": {
+            "abbreviatedOid": "bcc6b2f"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-23T20:52:47Z",
+          "updatedAt": "2024-10-23T20:52:47Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 63,
+      "id": "PR_kwDOGV9y2s5_iAbS",
+      "title": "Add Security Considerations.",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/63",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #62.",
+      "createdAt": "2024-10-23T01:33:43Z",
+      "updatedAt": "2024-10-23T20:30:22Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "e618216e13108b906d1bce98ff0f23408b690a49",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-sec-cons",
+      "headRefOid": "15392044394df746f63cdc71f12d0465f879c3bf",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6OVwxY",
+          "commit": {
+            "abbreviatedOid": "1539204"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T10:10:32Z",
+          "updatedAt": "2024-10-23T10:10:38Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "Commented in #62 but also here: \r\n\r\nI think the security considerations should justify the choice of storing the 64-byte seed as providing the MAL-BIND-K-CT property. While not explicit, section 3.1 of https://eprint.iacr.org/2024/523.pdf gives the justification. That section suggests removing the hash value from the longer serialized format. Implicitly, by using the shorter 64-byte seed format the hash has been removed.\r\n\r\nIt may also be worth noting that the 64-byte encoding does not achieve MAL-BIND-K-PK, but a protocol can achieve this property by binding the public key to the ML-KEM shared secret by feeding them both into a KDF.",
+              "createdAt": "2024-10-23T10:10:32Z",
+              "updatedAt": "2024-10-23T10:10:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OW_0N",
+          "commit": {
+            "abbreviatedOid": "1539204"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-23T12:01:11Z",
+          "updatedAt": "2024-10-23T12:01:11Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OcUSE",
+          "commit": {
+            "abbreviatedOid": "1539204"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T18:54:16Z",
+          "updatedAt": "2024-10-23T18:54:16Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "I've opened https://github.com/sfluhrer/ml-kem-security-considerations/pull/10 to help include the binding properties in that document too - I personally think the security stuff should live close to the actual specification whenever possible, even if that has some duplication\r\n\r\n// @bwesterb ",
+              "createdAt": "2024-10-23T18:54:16Z",
+              "updatedAt": "2024-10-23T18:54:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6Oem5Y",
+          "commit": {
+            "abbreviatedOid": "1539204"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T20:22:13Z",
+          "updatedAt": "2024-10-23T20:22:13Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "I think the ideal outcome is that we can mention that although ML-KEM achieves many desirable properties by using this 64-byte seed, it lacks one or two binding properties in the case the attacker can control the private key and refer to one place for  the details. ",
+              "createdAt": "2024-10-23T20:22:13Z",
+              "updatedAt": "2024-10-23T20:31:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6Oe23o",
+          "commit": {
+            "abbreviatedOid": "1539204"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T20:30:22Z",
+          "updatedAt": "2024-10-23T20:30:22Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "I agree. ML-KEM doesn't have the same security considerations in X.509 as in TLS as in Composite ML-KEMs, so just referring to Scott's draft and leaving it at that isn't helpful.  At a minimum I'd say each specific draft should call out sections of Scott's draft which are relevant, with a short blurb in the specific draft and a link to the appropriate section of Scott's.\r\n\r\nHow that works when Scott's isn't even adopted yet let alone and RFC, *shrug*",
+              "createdAt": "2024-10-23T20:30:22Z",
+              "updatedAt": "2024-10-23T20:30:22Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 64,
+      "id": "PR_kwDOGV9y2s5_iIg6",
+      "title": "tweak private key text",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/64",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Since NIST specified two formats, and then we picked one this text needs to be dropped.",
+      "createdAt": "2024-10-23T01:58:02Z",
+      "updatedAt": "2024-10-23T13:04:51Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "e618216e13108b906d1bce98ff0f23408b690a49",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-edit-priv-key-text",
+      "headRefOid": "bc70cd7d445d4326f676eac30ed53e97360a4bb4",
+      "closedAt": "2024-10-23T13:04:51Z",
+      "mergedAt": "2024-10-23T13:04:51Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "da18c1725834fd66337ea6f1c13d14f657f5cb75"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6OWnrg",
+          "commit": {
+            "abbreviatedOid": "bc70cd7"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-23T11:31:07Z",
+          "updatedAt": "2024-10-23T11:31:07Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 65,
+      "id": "PR_kwDOGV9y2s5_iKbp",
+      "title": "omit OneAsymmetricKey.publicKey field",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/65",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #60.",
+      "createdAt": "2024-10-23T02:02:08Z",
+      "updatedAt": "2024-10-23T13:09:46Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "e618216e13108b906d1bce98ff0f23408b690a49",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-oak-pk-field",
+      "headRefOid": "e7a56ba068031a7476a0e8db89ed0c18754c0159",
+      "closedAt": "2024-10-23T13:09:46Z",
+      "mergedAt": "2024-10-23T13:09:46Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "bd602cab30247eff47d271ff864bb17e78f7ebc0"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6OVFZs",
+          "commit": {
+            "abbreviatedOid": "aec16fd"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T09:14:14Z",
+          "updatedAt": "2024-10-23T10:16:09Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "IMO, now that the public key friend is recommended to be omitted, this NOTE isn't needed anymore.",
+              "createdAt": "2024-10-23T09:14:14Z",
+              "updatedAt": "2024-10-23T10:16:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OWvgB",
+          "commit": {
+            "abbreviatedOid": "aec16fd"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T11:41:13Z",
+          "updatedAt": "2024-10-23T11:41:13Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Perhaps also say that the OneAsymmetricKey version field SHOULD be set to 0 (v1).",
+              "createdAt": "2024-10-23T11:41:13Z",
+              "updatedAt": "2024-10-23T11:41:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OXAJd",
+          "commit": {
+            "abbreviatedOid": "aec16fd"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-23T12:01:48Z",
+          "updatedAt": "2024-10-23T12:01:48Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OXA4S",
+          "commit": {
+            "abbreviatedOid": "aec16fd"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T12:03:09Z",
+          "updatedAt": "2024-10-23T12:03:10Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "Typo: \"computed\". I'd phrase it like \"because the public key is computed as part of using the private key\".",
+              "createdAt": "2024-10-23T12:03:10Z",
+              "updatedAt": "2024-10-23T12:03:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OX3fs",
+          "commit": {
+            "abbreviatedOid": "aec16fd"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-23T13:05:29Z",
+          "updatedAt": "2024-10-23T13:05:30Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\nSHOULD be omitted because the public key can be computed as noted earlier\r\n```",
+              "createdAt": "2024-10-23T13:05:30Z",
+              "updatedAt": "2024-10-23T13:05:30Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 67,
+      "id": "PR_kwDOGV9y2s5_rkZa",
+      "title": "Update README.md - typo",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/67",
+      "state": "MERGED",
+      "author": "dconnolly",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-10-23T21:07:51Z",
+      "updatedAt": "2024-10-23T21:36:31Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "bd602cab30247eff47d271ff864bb17e78f7ebc0",
+      "headRepository": "dconnolly/kyber-certificates",
+      "headRefName": "patch-1",
+      "headRefOid": "aa9f98c39e3474ec8da3f54106a5fe3367b9943d",
+      "closedAt": "2024-10-23T21:36:31Z",
+      "mergedAt": "2024-10-23T21:36:31Z",
+      "mergedBy": "bwesterb",
+      "mergeCommit": {
+        "oid": "ed9dc8973973e588e4139609e4983f2c5364fc87"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 68,
+      "id": "PR_kwDOGV9y2s5_rsoY",
+      "title": "Qualify ML-KEM seed as 'the' private key format, wrap",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/68",
+      "state": "OPEN",
+      "author": "dconnolly",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "cc @bwesterb ",
+      "createdAt": "2024-10-23T21:29:38Z",
+      "updatedAt": "2024-10-23T21:29:45Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "bd602cab30247eff47d271ff864bb17e78f7ebc0",
+      "headRepository": "dconnolly/kyber-certificates",
+      "headRefName": "refine",
+      "headRefOid": "a24a29461058dd2441726d18fc4267785648dcf1",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
       "reviews": []
     }
   ]
