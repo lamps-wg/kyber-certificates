@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-24T01:13:47.198516+00:00",
+  "timestamp": "2024-10-27T01:19:09.826405+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -62,7 +62,7 @@
       "labels": [],
       "body": "@seanturner do we need a Private Key section?\r\n\r\nOther drafts that update RFC3279 or RFC8419 which brings a new algorithm to CMS, I did not see them including a Private Key format for any of the algorithms. \r\n\r\nEncoding private keys is useful to the signer, but does this specification need to define it? Wouldn't that be an update to RFC5958?",
       "createdAt": "2022-02-11T04:53:18Z",
-      "updatedAt": "2024-10-21T21:10:36Z",
+      "updatedAt": "2024-10-25T02:52:31Z",
       "closedAt": null,
       "comments": [
         {
@@ -148,6 +148,13 @@
           "body": "@tarcieri we added some examples.",
           "createdAt": "2024-10-21T21:10:34Z",
           "updatedAt": "2024-10-21T21:10:34Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I am going to close this one out, because it looks like we have agreement to do it.",
+          "createdAt": "2024-10-25T02:52:30Z",
+          "updatedAt": "2024-10-25T02:52:30Z"
         }
       ]
     },
@@ -201,7 +208,7 @@
       "labels": [],
       "body": "```\r\n$ cd draft-turner-lamps-nist-pqc-kem-certificates/\r\n$ make\r\ngit clone -q --depth 10  \\\r\n    -b main https://github.com/martinthomson/i-d-template lib\r\nlib/main.mk:21: Forcing rebuild of .targets.mk\r\ncat draft-turner-lamps-nist-pqc-kem-certificates.md  | kramdown-rfc2629 --v3 | lib/add-note.py | xml2rfc -q -s 'Setting consensus=\"true\" for IETF STD document' --rfc-base-url https://www.rfc-editor.org/rfc/ --id-base-url https://datatracker.ietf.org/doc/html/ --cache=/Users/ur20980/.cache/xml2rfc --v2v3 /dev/stdin -o /dev/stdout >draft-turner-lamps-nist-pqc-kem-certificates.xml\r\n*** attributes left {\"venue\"=>{\"group\"=>\"Limited Additional Mechanisms for PKIX and SMIME (lamps)\", \"type\"=>\"Working Group\", \"mail\"=>\"spasm@ietf.org\", \"arch\"=>\"https://mailarchive.ietf.org/arch/browse/spasm/\", \"github\"=>\"seanturner/draft-turner-lamps-nist-pqc-kem-certificates\"}}!\r\n/Users/ur20980/.cache/xml2rfc/reference.RFC.5280.xml: fetching from https://www.rfc-editor.org/refs/bibxml/reference.RFC.5280.xml\r\n*** execution expired while fetching https://www.rfc-editor.org/refs/bibxml/reference.RFC.5280.xml\r\n*** No such file or directory @ rb_sysopen - /Users/ur20980/.cache/xml2rfc/reference.RFC.5280.xml for /Users/ur20980/.cache/xml2rfc/reference.RFC.5280.xml\r\n** Can't manipulate reference XML: undefined method `attributes' for nil:NilClass\r\n*** KRAMDOWN_OFFLINE: Inserting broken reference for reference.RFC.5280.xml\r\n/Users/ur20980/.cache/xml2rfc/reference.RFC.2119.xml: fetching from https://www.rfc-editor.org/refs/bibxml/reference.RFC.2119.xml\r\n*** execution expired while fetching https://www.rfc-editor.org/refs/bibxml/reference.RFC.2119.xml\r\n*** No such file or directory @ rb_sysopen - /Users/ur20980/.cache/xml2rfc/reference.RFC.2119.xml for /Users/ur20980/.cache/xml2rfc/reference.RFC.2119.xml\r\n** Can't manipulate reference XML: undefined method `attributes' for nil:NilClass\r\n*** KRAMDOWN_OFFLINE: Inserting broken reference for reference.RFC.2119.xml\r\n/Users/ur20980/.cache/xml2rfc/reference.RFC.8174.xml: fetching from https://www.rfc-editor.org/refs/bibxml/reference.RFC.8174.xml\r\n*** execution expired while fetching https://www.rfc-editor.org/refs/bibxml/reference.RFC.8174.xml\r\n*** No such file or directory @ rb_sysopen - /Users/ur20980/.cache/xml2rfc/reference.RFC.8174.xml for /Users/ur20980/.cache/xml2rfc/reference.RFC.8174.xml\r\n** Can't manipulate reference XML: undefined method `attributes' for nil:NilClass\r\n*** KRAMDOWN_OFFLINE: Inserting broken reference for reference.RFC.8174.xml\r\n/Users/ur20980/.cache/xml2rfc/reference.RFC.5912.xml: fetching from https://www.rfc-editor.org/refs/bibxml/reference.RFC.5912.xml\r\n*** execution expired while fetching https://www.rfc-editor.org/refs/bibxml/reference.RFC.5912.xml\r\n*** No such file or directory @ rb_sysopen - /Users/ur20980/.cache/xml2rfc/reference.RFC.5912.xml for /Users/ur20980/.cache/xml2rfc/reference.RFC.5912.xml\r\n** Can't manipulate reference XML: undefined method `attributes' for nil:NilClass\r\n*** KRAMDOWN_OFFLINE: Inserting broken reference for reference.RFC.5912.xml\r\n/Users/ur20980/.cache/xml2rfc/reference.RFC.5958.xml: fetching from https://www.rfc-editor.org/refs/bibxml/reference.RFC.5958.xml\r\n*** execution expired while fetching https://www.rfc-editor.org/refs/bibxml/reference.RFC.5958.xml\r\n*** No such file or directory @ rb_sysopen - /Users/ur20980/.cache/xml2rfc/reference.RFC.5958.xml for /Users/ur20980/.cache/xml2rfc/reference.RFC.5958.xml\r\n** Can't manipulate reference XML: undefined method `attributes' for nil:NilClass\r\n*** KRAMDOWN_OFFLINE: Inserting broken reference for reference.RFC.5958.xml\r\n/Users/ur20980/.cache/xml2rfc/reference.RFC.7468.xml: fetching from https://www.rfc-editor.org/refs/bibxml/reference.RFC.7468.xml\r\n*** execution expired while fetching https://www.rfc-editor.org/refs/bibxml/reference.RFC.7468.xml\r\n*** No such file or directory @ rb_sysopen - /Users/ur20980/.cache/xml2rfc/reference.RFC.7468.xml for /Users/ur20980/.cache/xml2rfc/reference.RFC.7468.xml\r\n** Can't manipulate reference XML: undefined method `attributes' for nil:NilClass\r\n*** KRAMDOWN_OFFLINE: Inserting broken reference for reference.RFC.7468.xml\r\nxml2rfc -q -s 'Setting consensus=\"true\" for IETF STD document' --rfc-base-url https://www.rfc-editor.org/rfc/ --id-base-url https://datatracker.ietf.org/doc/html/ --cache=/Users/ur20980/.cache/xml2rfc draft-turner-lamps-nist-pqc-kem-certificates.xml -o draft-turner-lamps-nist-pqc-kem-certificates.txt --text --no-pagination\r\n/Users/ur20980/src/draft-turner-lamps-nist-pqc-kem-certificates/draft-turner-lamps-nist-pqc-kem-certificates.xml(166): Error: Cannot build a href for <xref target=\"RFC5280\"> with a section= attribute without also having a relative= attribute.\r\nNot creating output file due to errors (see above)\r\nUnable to complete processing draft-turner-lamps-nist-pqc-kem-certificates.xml\r\nmake: *** [lib/main.mk:122: draft-turner-lamps-nist-pqc-kem-certificates.txt] Error 1\r\nrm draft-turner-lamps-nist-pqc-kem-certificates.xml\r\n$ \r\n```",
       "createdAt": "2022-03-15T17:49:37Z",
-      "updatedAt": "2022-03-16T02:15:50Z",
+      "updatedAt": "2024-10-25T04:13:04Z",
       "closedAt": null,
       "comments": [
         {
@@ -238,6 +245,20 @@
           "body": "> Maybe you can just point me at HTML or TXT (or PDF) version? TNX\r\n\r\nIf you go here and click on editor's version you will see the latest:\r\nhttps://github.com/seanturner/draft-turner-lamps-nist-pqc-kem-certificates",
           "createdAt": "2022-03-16T02:15:50Z",
           "updatedAt": "2022-03-16T02:15:50Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@mouse07410 is this still not compiling? I have updated to the latest workflow.",
+          "createdAt": "2024-10-25T02:51:50Z",
+          "updatedAt": "2024-10-25T02:51:50Z"
+        },
+        {
+          "author": "mouse07410",
+          "authorAssociation": "NONE",
+          "body": "I didn't keep up - let me check over the weekend and report. ",
+          "createdAt": "2024-10-25T04:13:03Z",
+          "updatedAt": "2024-10-25T04:13:03Z"
         }
       ]
     },
@@ -3615,24 +3636,26 @@
       "id": "PR_kwDOGV9y2s5_h-xY",
       "title": "Add ASN.1 pretty print for examples",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/61",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Adding ASN.1 pretty print for examples.",
       "createdAt": "2024-10-23T01:25:42Z",
-      "updatedAt": "2024-10-23T21:31:57Z",
+      "updatedAt": "2024-10-25T02:47:05Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "e618216e13108b906d1bce98ff0f23408b690a49",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "seanturner-asn1-pretty-print",
       "headRefOid": "bcc6b2f69f200c6963a7ac945c3919b5278be63f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-10-25T02:47:05Z",
+      "mergedAt": "2024-10-25T02:47:05Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "c20600c60fe9691f7076006ef1651d20ad04c847"
+      },
       "comments": [
         {
           "author": "bwesterb",
@@ -3647,6 +3670,20 @@
           "body": "> How did you create these? Would be cool to auto format with a simple `make` from the generated examples in case we still need any changes.\r\n\r\nyah these are cool",
           "createdAt": "2024-10-23T21:31:56Z",
           "updatedAt": "2024-10-23T21:31:56Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I used openssl asn1parse and then had to hand jam 'em. This was the command that I used then stripped the end of and lined up the out by hand:\r\n\r\n      openssl asn1parse -in ML-KEM-1024.pub -i -dump\r\n\r\nI got the idea from a @danvangeest was working on. Maybe he's got some other pretty print utility?",
+          "createdAt": "2024-10-24T19:43:15Z",
+          "updatedAt": "2024-10-24T19:46:42Z"
+        },
+        {
+          "author": "danvangeest",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "For everyone else: `dumpasn1` Linux tool.  I had to mess with the command line parameters to make it nice for RFCs, possibly `-a -w66` or some other unintuitive number.",
+          "createdAt": "2024-10-24T21:17:40Z",
+          "updatedAt": "2024-10-24T21:17:40Z"
         }
       ],
       "reviews": [
@@ -4069,7 +4106,7 @@
       "labels": [],
       "body": "cc @bwesterb ",
       "createdAt": "2024-10-23T21:29:38Z",
-      "updatedAt": "2024-10-23T21:29:45Z",
+      "updatedAt": "2024-10-25T21:33:21Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "bd602cab30247eff47d271ff864bb17e78f7ebc0",
@@ -4080,8 +4117,171 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "cc @seanturner this needs approval for workflows to run",
+          "createdAt": "2024-10-25T21:04:01Z",
+          "updatedAt": "2024-10-25T21:04:01Z"
+        },
+        {
+          "author": "jakemas",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Approved! running workflow now!",
+          "createdAt": "2024-10-25T21:33:20Z",
+          "updatedAt": "2024-10-25T21:33:20Z"
+        }
+      ],
       "reviews": []
+    },
+    {
+      "number": 69,
+      "id": "PR_kwDOGV9y2s5_zrgR",
+      "title": "Add text in Security Consideration regarding the benefits of the 64-byte seed format",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/69",
+      "state": "OPEN",
+      "author": "dconnolly",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This is similar to what I have suggested for https://github.com/sfluhrer/ml-kem-security-considerations/pull/10. wdyt @bwesterb @seanturner @danvangeest ",
+      "createdAt": "2024-10-24T17:50:26Z",
+      "updatedAt": "2024-10-25T02:51:13Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "seanturner-sec-cons",
+      "baseRefOid": "15392044394df746f63cdc71f12d0465f879c3bf",
+      "headRepository": "dconnolly/kyber-certificates",
+      "headRefName": "seanturner-sec-cons",
+      "headRefOid": "c46178f7a1426bce1a2785eb0116d99fa07ddacc",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "~I'll fix the unused ref error~ Done",
+          "createdAt": "2024-10-24T19:55:29Z",
+          "updatedAt": "2024-10-24T20:21:42Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "After approvals I will merge this in, close #62 and close #63.",
+          "createdAt": "2024-10-25T02:51:02Z",
+          "updatedAt": "2024-10-25T02:51:13Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6Oqhow",
+          "commit": {
+            "abbreviatedOid": "47c80b4"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-24T19:10:27Z",
+          "updatedAt": "2024-10-24T19:18:27Z",
+          "comments": [
+            {
+              "originalPosition": 44,
+              "body": "```suggestion\r\n\r\nThe generation of private keys relies on random numbers.  The use of inadequate\r\npseudo-random number generators (PRNGs) to generate these values can result in\r\nlittle or no security.  An attacker may find it much easier to reproduce the PRNG\r\nenvironment that produced the keys, searching the resulting small set of possibilities,\r\nrather than brute force searching the whole key space.  The generation of quality\r\nrandom numbers is difficult, and {{?RFC4086}} offers important guidance in this\r\narea.\r\n \r\n```\r\nThis generic text is used a lot whenever the I-D talks about generating keys. I know the I-D referred to immediately before this address some randomness issues as well.",
+              "createdAt": "2024-10-24T19:10:27Z",
+              "updatedAt": "2024-10-24T19:28:03Z"
+            },
+            {
+              "originalPosition": 41,
+              "body": "```suggestion\r\n\r\nProtection of the private-key information, i.e., the seed, is vital to public-key cryptography.  Disclosure of the private-key material to another entity can lead to masquerades.\r\n\r\n```\r\nA motherhood and apple pie statement, but a safe one.",
+              "createdAt": "2024-10-24T19:14:16Z",
+              "updatedAt": "2024-10-24T19:18:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OqqSr",
+          "commit": {
+            "abbreviatedOid": "b754572"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-24T19:29:19Z",
+          "updatedAt": "2024-10-24T19:29:19Z",
+          "comments": [
+            {
+              "originalPosition": 55,
+              "body": "```suggestion\r\nFor ML-KEM specific security considerations refer to\r\n{{?I-D.sfluhrer-cfrg-ml-kem-security-considerations}}.\r\n \r\n The generation of private keys relies on random numbers. The use of\r\n inadequate pseudo-random number generators (PRNGs) to generate these\r\n values can result in little or no security.  An attacker may find it\r\n much easier to reproduce the PRNG environment that produced the keys,\r\n searching the resulting small set of possibilities, rather than brute\r\n force searching the whole key space.  The generation of quality\r\n random numbers is difficult, and {{?RFC4086}} offers important guidance\r\n in this area.\r\n \r\n```",
+              "createdAt": "2024-10-24T19:29:19Z",
+              "updatedAt": "2024-10-24T19:29:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6OqrFK",
+          "commit": {
+            "abbreviatedOid": "698e041"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-24T19:30:48Z",
+          "updatedAt": "2024-10-24T19:30:48Z",
+          "comments": [
+            {
+              "originalPosition": 55,
+              "body": "```suggestion\r\nThe generation of private keys relies on random numbers. The use of\r\ninadequate pseudo-random number generators (PRNGs) to generate these\r\nvalues can result in little or no security.  An attacker may find it\r\nmuch easier to reproduce the PRNG environment that produced the keys,\r\nsearching the resulting small set of possibilities, rather than brute\r\nforce searching the whole key space.  The generation of quality\r\nrandom numbers is difficult, and {{?RFC4086}} offers important guidance\r\nin this area.\r\n \r\n```",
+              "createdAt": "2024-10-24T19:30:48Z",
+              "updatedAt": "2024-10-24T19:30:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6Oqr_2",
+          "commit": {
+            "abbreviatedOid": "aa4de49"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-24T19:33:04Z",
+          "updatedAt": "2024-10-24T19:33:04Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "```suggestion\r\n in this area.\r\n \r\nML-KEM key generation as standardized in {{FIPS203}} has specific\r\nrequirements around randomness generation, described in section 3.3,\r\n'Randomness generation'.\r\n \r\nPer the analysis of the final {{FIPS203}} in {{KEMMY24}}, a compliant\r\n```",
+              "createdAt": "2024-10-24T19:33:04Z",
+              "updatedAt": "2024-10-24T19:33:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6Oqzdb",
+          "commit": {
+            "abbreviatedOid": "4546ca7"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-24T19:51:23Z",
+          "updatedAt": "2024-10-24T19:51:24Z",
+          "comments": [
+            {
+              "originalPosition": 54,
+              "body": "```suggestion\r\nin this area.\r\n```",
+              "createdAt": "2024-10-24T19:51:23Z",
+              "updatedAt": "2024-10-24T19:51:24Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
