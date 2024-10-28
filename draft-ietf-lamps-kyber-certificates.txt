@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 28 April 2025                                        J. Massimo
+Expires: 1 May 2025                                           J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                         25 October 2024
+                                                         28 October 2024
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 April 2025.
+   This Internet-Draft will expire on 1 May 2025.
 
 Copyright Notice
 
@@ -101,12 +101,12 @@ Table of Contents
    standardized in [FIPS203] is a quantum-resistant key-encapsulation
    mechanism (KEM) standardized by the US National Institute of
    Standards and Technology (NIST) PQC Project [NIST-PQC].  Prior to
-   standardization, the mechanism was known as Kyber.  ML-KEM and Kyber
-   are not compatible.  This document specifies the use of ML-KEM in
-   Public Key Infrastructure X.509 (PKIX) certificates [RFC5280] at
-   three security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using
-   object identifiers assigned by NIST.  The private key format is also
-   specified.
+   standardization, the earlier versions of the mechanism were known as
+   Kyber.  ML-KEM and Kyber are not compatible.  This document specifies
+   the use of ML-KEM in Public Key Infrastructure X.509 (PKIX)
+   certificates [RFC5280] at three security levels: ML-KEM-512, ML-KEM-
+   768, and ML-KEM-1024, using object identifiers assigned by NIST.  The
+   private key format is also specified.
 
 1.1.  Applicability Statement
 
@@ -236,8 +236,8 @@ Table of Contents
 
 5.  Private Key Format
 
-   An ML-KEM private key is encoded by storing its 64-octet seed in the
-   privateKey field as follows.
+   In short, an ML-KEM private key is encoded by storing its 64-octet
+   seed in the privateKey field as follows.
 
    [FIPS203] specifies two formats for an ML-KEM private key: a 64-octet
    seed and an (expanded) private key, which is referred to as the
