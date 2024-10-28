@@ -95,22 +95,24 @@ private keys are also described.
 
 # Introduction
 
-The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) standardized
-in {{!FIPS203=DOI.10.6028/NIST.FIPS.203}} is a quantum-resistant key-encapsulation mechanism (KEM)
-standardized by the US National Institute of Standards and Technology (NIST)
-PQC Project {{NIST-PQC}}. Prior to standardization, the mechanism was known
-as Kyber. ML-KEM and Kyber are not compatible. This document specifies the
-use of ML-KEM in Public Key Infrastructure X.509 (PKIX) certificates {{!RFC5280}}
-at three security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using object
-identifiers assigned by NIST. The private key format is also specified.
+The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) standardized in
+{{!FIPS203=DOI.10.6028/NIST.FIPS.203}} is a quantum-resistant
+key-encapsulation mechanism (KEM) standardized by the US National Institute
+of Standards and Technology (NIST) PQC Project {{NIST-PQC}}. Prior to
+standardization, the earlier versions of the mechanism were known as
+Kyber. ML-KEM and Kyber are not compatible. This document specifies the use
+of ML-KEM in Public Key Infrastructure X.509 (PKIX) certificates {{!RFC5280}}
+at three security levels: ML-KEM-512, ML-KEM-768, and ML-KEM-1024, using
+object identifiers assigned by NIST. The private key format is also
+specified.
 
 ## Applicability Statement
 
 ML-KEM certificates are used in protocols where the public key is used to
-generate and encapsulate a shared secret used to derive a symmetric key used to
-encrypt a payload; see {{?I-D.ietf-lamps-cms-kyber}}. To be used in
-TLS, ML-KEM certificates could only be used as end-entity identity
-certificates and would require significant updates to the protocol; see
+generate and encapsulate a shared secret used to derive a symmetric key used
+to encrypt a payload; see {{?I-D.ietf-lamps-cms-kyber}}. To be used in TLS,
+ML-KEM certificates could only be used as end-entity identity certificates
+and would require significant updates to the protocol; see
 {{?I-D.celi-wiggers-tls-authkem}}.
 
 # Conventions and Definitions
@@ -235,7 +237,7 @@ encoded using the textual encoding defined in {{?RFC7468}}.
 
 # Private Key Format
 
-An ML-KEM private key is encoded by storing its 64-octet seed in
+In short, an ML-KEM private key is encoded by storing its 64-octet seed in
 the privateKey field as follows.
 
 {{FIPS203}} specifies two formats for an ML-KEM private key: a 64-octet
@@ -286,7 +288,8 @@ encoded using the textual encoding defined in {{?RFC7468}}.
 
 # Security Considerations
 
-The Security Considerations section of {{RFC5280}} applies to this specification as well.
+The Security Considerations section of {{RFC5280}} applies to this
+specification as well.
 
 <aside markdown="block">
   To Do: Discuss side-channels for Kyber TBD1.
@@ -318,7 +321,8 @@ as per {{RFC5280}}, certificates use the Distinguished Encoding Rules; see
 
 # Examples {#examples}
 
-This appendix contains examples of ML-KEM public keys, private keys and certificates.
+This appendix contains examples of ML-KEM public keys, private keys and
+certificates.
 
 
 ## Example Private Key {#example-private}
