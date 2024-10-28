@@ -1,6 +1,8 @@
-# Internet X.509 Public Key Infrastructure - Algorithm Identifiers for Kyber
+# Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the ML-KEM
 
-This is the working area for the [IETF LAMPS Working Group](https://datatracker.ietf.org/wg/lamps/documents/) Internet-Draft Internet-Draft, "Algorithm Identifiers for NIST's PQC Algorithms for Use in the Internet X.509 Public Key Infrastructure".
+This is the working area for the [IETF LAMPS Working Group](https://datatracker.ietf.org/wg/lamps/documents/) Internet-Draft: Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM).
+
+NOTE: This I-D previously referred to Kyber. The I-D has been updated to refer to [FIPS-203](https://csrc.nist.gov/pubs/fips/203/final). The string "kyber" in the filename is just an artifact of the I-Ds name when it was created before ML-KEM was assigned.
 
 * [Editor's Copy](https://lamps-wg.github.io/kyber-certificates/#go.draft-ietf-lamps-kyber-certificates.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-lamps-kyber-certificates)
