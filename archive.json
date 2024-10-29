@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-27T01:19:09.826405+00:00",
+  "timestamp": "2024-10-29T01:15:30.074683+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -477,6 +477,22 @@
           "updatedAt": "2024-10-23T20:48:48Z"
         }
       ]
+    },
+    {
+      "number": 71,
+      "id": "I_kwDOGV9y2s6cHsi8",
+      "title": "Security Strengths",
+      "url": "https://github.com/lamps-wg/kyber-certificates/issues/71",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Do we need a security strength appendix (between ASN.1 and Examples) like the other I-Ds have? The CMS ML-KEM I-D doesn't have one, but these of them do.",
+      "createdAt": "2024-10-28T18:52:41Z",
+      "updatedAt": "2024-10-28T18:52:41Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -4099,24 +4115,26 @@
       "id": "PR_kwDOGV9y2s5_rsoY",
       "title": "Qualify ML-KEM seed as 'the' private key format, wrap",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/68",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "dconnolly",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "cc @bwesterb ",
       "createdAt": "2024-10-23T21:29:38Z",
-      "updatedAt": "2024-10-25T21:33:21Z",
+      "updatedAt": "2024-10-28T17:32:14Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "bd602cab30247eff47d271ff864bb17e78f7ebc0",
       "headRepository": "dconnolly/kyber-certificates",
       "headRefName": "refine",
       "headRefOid": "a24a29461058dd2441726d18fc4267785648dcf1",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-10-28T17:32:14Z",
+      "mergedAt": "2024-10-28T17:32:14Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "6b9989dfb21707154b4fa321aaaf91973af276d7"
+      },
       "comments": [
         {
           "author": "dconnolly",
@@ -4147,7 +4165,7 @@
       "labels": [],
       "body": "This is similar to what I have suggested for https://github.com/sfluhrer/ml-kem-security-considerations/pull/10. wdyt @bwesterb @seanturner @danvangeest ",
       "createdAt": "2024-10-24T17:50:26Z",
-      "updatedAt": "2024-10-25T02:51:13Z",
+      "updatedAt": "2024-10-28T17:33:16Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "seanturner-sec-cons",
       "baseRefOid": "15392044394df746f63cdc71f12d0465f879c3bf",
@@ -4280,8 +4298,122 @@
               "updatedAt": "2024-10-24T19:51:24Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6PCWk5",
+          "commit": {
+            "abbreviatedOid": "c46178f"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "lgtm",
+          "createdAt": "2024-10-28T17:33:16Z",
+          "updatedAt": "2024-10-28T17:33:16Z",
+          "comments": []
         }
       ]
+    },
+    {
+      "number": 70,
+      "id": "PR_kwDOGV9y2s6ACG0a",
+      "title": "Update README.md",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/70",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-10-28T01:58:08Z",
+      "updatedAt": "2024-10-28T10:07:04Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "c20600c60fe9691f7076006ef1651d20ad04c847",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-readme",
+      "headRefOid": "e2d7443dd42a14991a462f375df3316ac630980d",
+      "closedAt": "2024-10-28T10:07:04Z",
+      "mergedAt": "2024-10-28T10:07:04Z",
+      "mergedBy": "bwesterb",
+      "mergeCommit": {
+        "oid": "239e04666da30261c0fc58508fa903abaddee3df"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6O67Ic",
+          "commit": {
+            "abbreviatedOid": "e2d7443"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-28T02:32:07Z",
+          "updatedAt": "2024-10-28T02:32:08Z",
+          "comments": [
+            {
+              "originalPosition": 2,
+              "body": "```suggestion\r\n# Internet X.509 Public Key Infrastructure - Algorithm Identifiers for ML-KEM\r\n```",
+              "createdAt": "2024-10-28T02:32:07Z",
+              "updatedAt": "2024-10-28T02:32:08Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 72,
+      "id": "PR_kwDOGV9y2s6AJP7B",
+      "title": "Add Security Strengths Appendix",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/72",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #71.",
+      "createdAt": "2024-10-28T18:54:09Z",
+      "updatedAt": "2024-10-28T18:54:09Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "6b9989dfb21707154b4fa321aaaf91973af276d7",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-security-strengths",
+      "headRefOid": "647cbe9eb447972355ffb553085d7f9224c479ef",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 73,
+      "id": "PR_kwDOGV9y2s6AK3MK",
+      "title": "OID=TBD",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/73",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "There's only one so let's just make it TBD.",
+      "createdAt": "2024-10-28T23:30:14Z",
+      "updatedAt": "2024-10-28T23:31:30Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "6b9989dfb21707154b4fa321aaaf91973af276d7",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-oid-tbd",
+      "headRefOid": "7f1b4aa8347b1ba8145c67b2601b84d20f63481f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
