@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-29T01:15:30.074683+00:00",
+  "timestamp": "2024-10-31T01:15:11.550915+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -4375,7 +4375,7 @@
       "labels": [],
       "body": "Closes #71.",
       "createdAt": "2024-10-28T18:54:09Z",
-      "updatedAt": "2024-10-28T18:54:09Z",
+      "updatedAt": "2024-10-30T20:28:13Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "6b9989dfb21707154b4fa321aaaf91973af276d7",
@@ -4387,7 +4387,101 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6PKKpW",
+          "commit": {
+            "abbreviatedOid": "647cbe9"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-29T13:03:35Z",
+          "updatedAt": "2024-10-29T13:03:36Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "ML-KEM-512, ML-KEM-768, ML-KEM-1024, no?",
+              "createdAt": "2024-10-29T13:03:35Z",
+              "updatedAt": "2024-10-29T13:03:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6PKLNS",
+          "commit": {
+            "abbreviatedOid": "647cbe9"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-29T13:04:13Z",
+          "updatedAt": "2024-10-29T13:04:13Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6PZXio",
+          "commit": {
+            "abbreviatedOid": "647cbe9"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-30T17:47:32Z",
+          "updatedAt": "2024-10-30T17:47:32Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "```suggestion\r\nmanner using the imprecise notion of bits of security, NIST has\r\ndefined security levels by picking a reference scheme, which\r\n```",
+              "createdAt": "2024-10-30T17:47:32Z",
+              "updatedAt": "2024-10-30T17:47:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6PbCps",
+          "commit": {
+            "abbreviatedOid": "647cbe9"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-30T20:26:11Z",
+          "updatedAt": "2024-10-30T20:26:12Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "@seanturner @bwesterb wdyt\r\n\r\n```suggestion\r\nclassical attack.  To wit, a KEM algorithm that achieves NIST PQC\r\nsecurity must require computational resources to break IND-CCA2\r\nsecurity comparable or greater than that required for key search\r\non AES-128, AES-192, and AES-256 for Levels 1, 3, and 5, respectively.\r\nLevels 2 and 4 use collision search for SHA-256 and SHA-384 as reference.\r\n```",
+              "createdAt": "2024-10-30T20:26:12Z",
+              "updatedAt": "2024-10-30T20:26:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6PbD0g",
+          "commit": {
+            "abbreviatedOid": "647cbe9"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-30T20:28:13Z",
+          "updatedAt": "2024-10-30T20:28:13Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "```suggestion\r\n| Level | Parameter Set | Encap. Key | Decap. Key | Ciphertext | SS |\r\n|-      |-              |-           |-           |-           |-   |\r\n| 1     | ML-KEM-512    | 800        | 1632       | 768        | 32 |\r\n| 3     | ML-KEM-768    | 1184       | 2400       | 1952       | 32 |\r\n| 5     | ML-KEM-1024   | 1568       | 3168       | 2592       | 32 |\r\n{: #tab-strengths title=\"ML-KEM security strengths\"}\r\n```",
+              "createdAt": "2024-10-30T20:28:13Z",
+              "updatedAt": "2024-10-30T20:28:13Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 73,
@@ -4401,7 +4495,7 @@
       "labels": [],
       "body": "There's only one so let's just make it TBD.",
       "createdAt": "2024-10-28T23:30:14Z",
-      "updatedAt": "2024-10-28T23:31:30Z",
+      "updatedAt": "2024-10-30T14:44:27Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "6b9989dfb21707154b4fa321aaaf91973af276d7",
@@ -4413,7 +4507,21 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6PXCnR",
+          "commit": {
+            "abbreviatedOid": "7f1b4aa"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-30T14:44:27Z",
+          "updatedAt": "2024-10-30T14:44:27Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
