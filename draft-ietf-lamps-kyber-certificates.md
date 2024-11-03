@@ -322,8 +322,8 @@ as per {{RFC5280}}, certificates use the Distinguished Encoding Rules; see
 # Security Strengths {#arnold}
 
 Instead of defining the strength of a quantum algorithm in a traditional
-manner using the imprecise notion of bits of security, NIST has instead
-elected to define security levels by picking a reference scheme, which
+manner using the imprecise notion of bits of security, NIST has
+defined security levels by picking a reference scheme, which
 NIST expects to offer notable levels of resistance to both quantum and
 classical attack.  To wit, an algorithm that achieves NIST PQC security
 level 1 must require computational resources to break the relevant
