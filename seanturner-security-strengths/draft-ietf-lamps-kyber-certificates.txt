@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 1 May 2025                                           J. Massimo
+Expires: 7 May 2025                                           J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                         28 October 2024
+                                                         3 November 2024
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 May 2025.
+   This Internet-Draft will expire on 7 May 2025.
 
 Copyright Notice
 
@@ -480,15 +480,14 @@ Appendix B.  Security Strengths
 
    Instead of defining the strength of a quantum algorithm in a
    traditional manner using the imprecise notion of bits of security,
-   NIST has instead elected to define security levels by picking a
-   reference scheme, which NIST expects to offer notable levels of
-   resistance to both quantum and classical attack.  To wit, an
-   algorithm that achieves NIST PQC security level 1 must require
-   computational resources to break the relevant security property,
-   which are greater than those required for a brute-force key search on
-   AES-128.  Levels 3 and 5 use AES-192 and AES-256 as reference,
-   respectively.  Levels 2 and 4 use collision search for SHA-256 and
-   SHA-384 as reference.
+   NIST has defined security levels by picking a reference scheme, which
+   NIST expects to offer notable levels of resistance to both quantum
+   and classical attack.  To wit, an algorithm that achieves NIST PQC
+   security level 1 must require computational resources to break the
+   relevant security property, which are greater than those required for
+   a brute-force key search on AES-128.  Levels 3 and 5 use AES-192 and
+   AES-256 as reference, respectively.  Levels 2 and 4 use collision
+   search for SHA-256 and SHA-384 as reference.
 
       |  TODO: what should go in this table?
 
