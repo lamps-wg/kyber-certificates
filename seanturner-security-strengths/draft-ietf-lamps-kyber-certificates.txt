@@ -482,12 +482,12 @@ Appendix B.  Security Strengths
    traditional manner using the imprecise notion of bits of security,
    NIST has defined security levels by picking a reference scheme, which
    NIST expects to offer notable levels of resistance to both quantum
-   and classical attack.  To wit, an algorithm that achieves NIST PQC
-   security level 1 must require computational resources to break the
-   relevant security property, which are greater than those required for
-   a brute-force key search on AES-128.  Levels 3 and 5 use AES-192 and
-   AES-256 as reference, respectively.  Levels 2 and 4 use collision
-   search for SHA-256 and SHA-384 as reference.
+   and classical attack.  To wit, a KEM algorithm that achieves NIST PQC
+   security must require computational resources to break IND-CCA2
+   security comparable or greater than that required for key search on
+   AES-128, AES-192, and AES-256 for Levels 1, 3, and 5, respectively.
+   Levels 2 and 4 use collision search for SHA-256 and SHA-384 as
+   reference.
 
       |  TODO: what should go in this table?
 
