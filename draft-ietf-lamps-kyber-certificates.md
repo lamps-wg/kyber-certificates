@@ -335,11 +335,11 @@ Levels 2 and 4 use collision search for SHA-256 and SHA-384 as reference.
   TODO: what should go in this table?
 </aside>
 
-| Level | ? | Encap. Key | Decap. Key | Ciphertext | SS |
-|-      |-  |-           |-           |-           |-   |
-| 1     |   | 800        | 1632       | 768        | 32 |
-| 3     |   | 1184       | 2400       | 1952       | 32 |
-| 5     |   | 1568       | 3168       | 2592       | 32 |
+| Level | Parameter Set | Encap. Key | Decap. Key | Ciphertext | SS |
+|-      |-              |-           |-           |-           |-   |
+| 1     | ML-KEM-512    | 800        | 1632       | 768        | 32 |
+| 3     | ML-KEM-768    | 1184       | 2400       | 1952       | 32 |
+| 5     | ML-KEM-1024   | 1568       | 3168       | 2592       | 32 |
 {: #tab-strengths title="ML-KEM security strengths"}
 
 # Examples {#examples}
