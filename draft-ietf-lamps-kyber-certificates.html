@@ -1493,9 +1493,36 @@ encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="c
       </h2>
 <p id="section-6-1">The Security Considerations section of <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> applies to this
 specification as well.<a href="#section-6-1" class="pilcrow">¶</a></p>
-<aside id="section-6-2">
-        <p id="section-6-2.1">To Do: Discuss side-channels for Kyber TBD1.<a href="#section-6-2.1" class="pilcrow">¶</a></p>
-</aside>
+<p id="section-6-2">Protection of the private-key information, i.e., the seed, is vital to
+public-key cryptography.  Disclosure of the private-key material to another
+entity can lead to masquerades.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-3">For ML-KEM specific security considerations refer to
+<span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span>.<a href="#section-6-3" class="pilcrow">¶</a></p>
+<p id="section-6-4">The generation of private keys relies on random numbers. The use of
+inadequate pseudo-random number generators (PRNGs) to generate these
+values can result in little or no security.  An attacker may find it
+much easier to reproduce the PRNG environment that produced the keys,
+searching the resulting small set of possibilities, rather than brute
+force searching the whole key space.  The generation of quality
+random numbers is difficult, and <span>[<a href="#RFC4086" class="cite xref">RFC4086</a>]</span> offers important guidance
+in this area.<a href="#section-6-4" class="pilcrow">¶</a></p>
+<p id="section-6-5">ML-KEM key generation as standardized in <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> has specific
+requirements around randomness generation, described in section 3.3,
+'Randomness generation'.<a href="#section-6-5" class="pilcrow">¶</a></p>
+<p id="section-6-6">Key formats have implications on KEM binding properties, initially formalized
+in <span>[<a href="#CDM23" class="cite xref">CDM23</a>]</span>. Per the analysis of the final <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> in <span>[<a href="#KEMMY24" class="cite xref">KEMMY24</a>]</span>, a
+compliant instantiation of ML-KEM is LEAK-BIND-K-PK-secure and
+LEAK-BIND-K-CT-secure when using the expanded key format, but not
+MAL-BIND-K-PK-secure nor MAL-BIND-K-CT-secure. This means that the computed
+shared secret binds to the encapsulation key used to compute it against a
+malicious adversary that has access to leaked, honestly-generated key
+material but is not capable of manufacturing maliciously generated
+keypairs. This binding to the encapsulation key broadly protects against
+re-encapsulation attacks but not completely.<a href="#section-6-6" class="pilcrow">¶</a></p>
+<p id="section-6-7">Using the 64-byte seed format provides a step up in binding security by
+mitigating an attack enabled by the hash of the public encapsulation key
+stored in the expanded private decapsulation key format, providing
+MAL-BIND-K-CT security and LEAK-BIND-K-PK security.<a href="#section-6-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -1566,6 +1593,10 @@ registry (1.3.6.1.5.5.7.0).<a href="#section-7-1" class="pilcrow">¶</a></p>
 <a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="CDM23">[CDM23]</dt>
+        <dd>
+<span class="refAuthor">Cremers, C.</span>, <span class="refAuthor">Dax, A.</span>, and <span class="refAuthor">N. Medinger</span>, <span class="refTitle">"Keeping Up with the KEMs: Stronger Security Notions for KEMs and automated analysis of KEM-based protocols"</span>, <time datetime="2023" class="refDate">2023</time>, <span>&lt;<a href="https://eprint.iacr.org/2023/1933.pdf">https://eprint.iacr.org/2023/1933.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="I-D.celi-wiggers-tls-authkem">[I-D.celi-wiggers-tls-authkem]</dt>
         <dd>
 <span class="refAuthor">Wiggers, T.</span>, <span class="refAuthor">Celi, S.</span>, <span class="refAuthor">Schwabe, P.</span>, <span class="refAuthor">Stebila, D.</span>, and <span class="refAuthor">N. Sullivan</span>, <span class="refTitle">"KEM-based Authentication for TLS 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-celi-wiggers-tls-authkem-04</span>, <time datetime="2024-10-17" class="refDate">17 October 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-celi-wiggers-tls-authkem-04">https://datatracker.ietf.org/doc/html/draft-celi-wiggers-tls-authkem-04</a>&gt;</span>. </dd>
@@ -1574,9 +1605,21 @@ registry (1.3.6.1.5.5.7.0).<a href="#section-7-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Prat, J.</span>, <span class="refAuthor">Ounsworth, M.</span>, and <span class="refAuthor">D. Van Geest</span>, <span class="refTitle">"Use of ML-KEM in the Cryptographic Message Syntax (CMS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-cms-kyber-05</span>, <time datetime="2024-10-15" class="refDate">15 October 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-kyber-05">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-kyber-05</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="I-D.sfluhrer-cfrg-ml-kem-security-considerations">[I-D.sfluhrer-cfrg-ml-kem-security-considerations]</dt>
+        <dd>
+<span class="refAuthor">Fluhrer, S.</span>, <span class="refAuthor">Dang, Q.</span>, <span class="refAuthor">Mattsson, J. P.</span>, <span class="refAuthor">Milner, K.</span>, and <span class="refAuthor">D. Shiu</span>, <span class="refTitle">"ML-KEM Security Considerations"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-sfluhrer-cfrg-ml-kem-security-considerations-01</span>, <time datetime="2024-10-11" class="refDate">11 October 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-sfluhrer-cfrg-ml-kem-security-considerations-01">https://datatracker.ietf.org/doc/html/draft-sfluhrer-cfrg-ml-kem-security-considerations-01</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="KEMMY24">[KEMMY24]</dt>
+        <dd>
+<span class="refAuthor">Schmieg, S.</span>, <span class="refTitle">"Unbindable Kemmy Schmidt: ML-KEM is neither MAL-BIND-K-CT nor MAL-BIND-K-PK"</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://eprint.iacr.org/2024/523.pdf">https://eprint.iacr.org/2024/523.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="NIST-PQC">[NIST-PQC]</dt>
         <dd>
 <span class="refAuthor">National Institute of Standards and Technology (NIST)</span>, <span class="refTitle">"Post-Quantum Cryptography Project"</span>, <time datetime="2016-12-20" class="refDate">20 December 2016</time>, <span>&lt;<a href="https://csrc.nist.gov/projects/post-quantum-cryptography">https://csrc.nist.gov/projects/post-quantum-cryptography</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC4086">[RFC4086]</dt>
+        <dd>
+<span class="refAuthor">Eastlake 3rd, D.</span>, <span class="refAuthor">Schiller, J.</span>, and <span class="refAuthor">S. Crocker</span>, <span class="refTitle">"Randomness Requirements for Security"</span>, <span class="seriesInfo">BCP 106</span>, <span class="seriesInfo">RFC 4086</span>, <span class="seriesInfo">DOI 10.17487/RFC4086</span>, <time datetime="2005-06" class="refDate">June 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4086">https://www.rfc-editor.org/rfc/rfc4086</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7468">[RFC7468]</dt>
       <dd>
