@@ -319,6 +319,29 @@ as per {{RFC5280}}, certificates use the Distinguished Encoding Rules; see
 <CODE ENDS>
 ~~~
 
+# Security Strengths {#arnold}
+
+Instead of defining the strength of a quantum algorithm in a traditional
+manner using the imprecise notion of bits of security, NIST has
+defined security levels by picking a reference scheme, which
+NIST expects to offer notable levels of resistance to both quantum and
+classical attack.  To wit, a KEM algorithm that achieves NIST PQC
+security must require computational resources to break IND-CCA2
+security comparable or greater than that required for key search
+on AES-128, AES-192, and AES-256 for Levels 1, 3, and 5, respectively.
+Levels 2 and 4 use collision search for SHA-256 and SHA-384 as reference.
+
+<aside markdown="block">
+  TODO: what should go in this table?
+</aside>
+
+| Level | Parameter Set | Encap. Key | Decap. Key | Ciphertext | SS |
+|-      |-              |-           |-           |-           |-   |
+| 1     | ML-KEM-512    | 800        | 1632       | 768        | 32 |
+| 3     | ML-KEM-768    | 1184       | 2400       | 1952       | 32 |
+| 5     | ML-KEM-1024   | 1568       | 3168       | 2592       | 32 |
+{: #tab-strengths title="ML-KEM security strengths"}
+
 # Examples {#examples}
 
 This appendix contains examples of ML-KEM public keys, private keys and
