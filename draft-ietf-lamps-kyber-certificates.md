@@ -457,7 +457,7 @@ The following is an example of a ML-KEM-1024 private key from the same seed.
 0  82: SEQUENCE
 2   2:  INTEGER 0
 5  11:  SEQUENCE {
-7   9:   OBJECT IDENTIFIER '2.16.840.1.101.3.4.4.2'
+7   9:   OBJECT IDENTIFIER '2.16.840.1.101.3.4.4.3'
      :   }
 18 64:  OCTET STRING
      :    00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f
