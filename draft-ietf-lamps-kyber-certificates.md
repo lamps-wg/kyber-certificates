@@ -75,6 +75,31 @@ normative:
       ISO/IEC: 8825-1:2021
 
 informative:
+  CDM23:
+    title: "Keeping Up with the KEMs: Stronger Security Notions for KEMs and automated analysis of KEM-based protocols"
+    target: https://eprint.iacr.org/2023/1933.pdf
+    date: 2023
+    author:
+      -
+        ins: C. Cremers
+        name: Cas Cremers
+        org: CISPA Helmholtz Center for Information Security
+      -
+        ins: A. Dax
+        name: Alexander Dax
+        org: CISPA Helmholtz Center for Information Security
+      -
+        ins: N. Medinger
+        name: Niklas Medinger
+        org: CISPA Helmholtz Center for Information Security
+  KEMMY24:
+    title: "Unbindable Kemmy Schmidt: ML-KEM is neither MAL-BIND-K-CT nor MAL-BIND-K-PK"
+    target: https://eprint.iacr.org/2024/523.pdf
+    date: 2024
+    author:
+      -
+        ins: S. Schmieg
+        name: Sophie Schmieg
   NIST-PQC:
     target: https://csrc.nist.gov/projects/post-quantum-cryptography
     title: >
@@ -295,9 +320,44 @@ encoded using the textual encoding defined in {{?RFC7468}}.
 
 # Security Considerations
 
-The Security Considerations section of {{RFC5280}} applies to this specification as well.
+The Security Considerations section of {{RFC5280}} applies to this
+specification as well.
 
-For ML-KEM specific security considerations refer to {{?I-D.sfluhrer-cfrg-ml-kem-security-considerations}}.
+Protection of the private-key information, i.e., the seed, is vital to
+public-key cryptography.  Disclosure of the private-key material to another
+entity can lead to masquerades.
+
+For ML-KEM specific security considerations refer to
+{{?I-D.sfluhrer-cfrg-ml-kem-security-considerations}}.
+
+The generation of private keys relies on random numbers. The use of
+inadequate pseudo-random number generators (PRNGs) to generate these
+values can result in little or no security.  An attacker may find it
+much easier to reproduce the PRNG environment that produced the keys,
+searching the resulting small set of possibilities, rather than brute
+force searching the whole key space.  The generation of quality
+random numbers is difficult, and {{?RFC4086}} offers important guidance
+in this area.
+
+ML-KEM key generation as standardized in {{FIPS203}} has specific
+requirements around randomness generation, described in section 3.3,
+'Randomness generation'.
+
+Key formats have implications on KEM binding properties, initially formalized
+in {{CDM23}}. Per the analysis of the final {{FIPS203}} in {{KEMMY24}}, a
+compliant instantiation of ML-KEM is LEAK-BIND-K-PK-secure and
+LEAK-BIND-K-CT-secure when using the expanded key format, but not
+MAL-BIND-K-PK-secure nor MAL-BIND-K-CT-secure. This means that the computed
+shared secret binds to the encapsulation key used to compute it against a
+malicious adversary that has access to leaked, honestly-generated key
+material but is not capable of manufacturing maliciously generated
+keypairs. This binding to the encapsulation key broadly protects against
+re-encapsulation attacks but not completely.
+
+Using the 64-byte seed format provides a step up in binding security by
+mitigating an attack enabled by the hash of the public encapsulation key
+stored in the expanded private decapsulation key format, providing
+MAL-BIND-K-CT security and LEAK-BIND-K-PK security.
 
 # IANA Considerations
 
