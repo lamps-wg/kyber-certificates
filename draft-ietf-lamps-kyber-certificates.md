@@ -146,7 +146,7 @@ and would require significant updates to the protocol; see
 
 # Algorithm Identifiers
 
-The AlgorithmIdentifier type is defined as follows:
+The AlgorithmIdentifier type is defined in {{!RFC5912}} as follows:
 
 ~~~
   AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
