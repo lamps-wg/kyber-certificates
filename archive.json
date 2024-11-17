@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-14T01:13:25.673982+00:00",
+  "timestamp": "2024-11-17T01:21:27.789770+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -4735,6 +4735,53 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 76,
+      "id": "PR_kwDOGV9y2s6CBMf1",
+      "title": "Preempt comment from Deb on repetitive text",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/76",
+      "state": "OPEN",
+      "author": "danvangeest",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-11-15T08:45:01Z",
+      "updatedAt": "2024-11-15T12:57:40Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "8871c86af729f39c0c098cfad408a6c849264f7f",
+      "headRepository": "danvangeest/kyber-certificates",
+      "headRefName": "dvg/preempt_Deb_comment",
+      "headRefOid": "f902cf57b97530e04962bd68264c776ec0bac36f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6RWJlw",
+          "commit": {
+            "abbreviatedOid": "f902cf5"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-11-15T12:57:39Z",
+          "updatedAt": "2024-11-15T12:57:40Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\nThe AlgorithmIdentifier type is defined in {{!RFC5912}} as follows:\r\n```",
+              "createdAt": "2024-11-15T12:57:40Z",
+              "updatedAt": "2024-11-15T12:57:40Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
