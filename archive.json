@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-17T01:21:27.789770+00:00",
+  "timestamp": "2024-11-19T01:17:53.105469+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -4741,24 +4741,26 @@
       "id": "PR_kwDOGV9y2s6CBMf1",
       "title": "Preempt comment from Deb on repetitive text",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/76",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danvangeest",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-11-15T08:45:01Z",
-      "updatedAt": "2024-11-15T12:57:40Z",
+      "updatedAt": "2024-11-17T14:17:53Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "8871c86af729f39c0c098cfad408a6c849264f7f",
       "headRepository": "danvangeest/kyber-certificates",
       "headRefName": "dvg/preempt_Deb_comment",
-      "headRefOid": "f902cf57b97530e04962bd68264c776ec0bac36f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "ab487b9bd488d93d911e95f28cdd8a3f18a25419",
+      "closedAt": "2024-11-17T14:17:53Z",
+      "mergedAt": "2024-11-17T14:17:53Z",
+      "mergedBy": "bwesterb",
+      "mergeCommit": {
+        "oid": "6d5894dbce32b4ca4e6072974f7a2a3b5805128d"
+      },
       "comments": [],
       "reviews": [
         {
@@ -4778,6 +4780,53 @@
               "body": "```suggestion\r\nThe AlgorithmIdentifier type is defined in {{!RFC5912}} as follows:\r\n```",
               "createdAt": "2024-11-15T12:57:40Z",
               "updatedAt": "2024-11-15T12:57:40Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 77,
+      "id": "PR_kwDOGV9y2s6CPy1Q",
+      "title": "Add paragraph clarifying key generation",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/77",
+      "state": "OPEN",
+      "author": "bwesterb",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Suggested-by: Carl Wallice",
+      "createdAt": "2024-11-18T13:18:49Z",
+      "updatedAt": "2024-11-18T14:32:31Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "6d5894dbce32b4ca4e6072974f7a2a3b5805128d",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "bas/carl",
+      "headRefOid": "68a33fbcd2b490adcdb9192865ca016bf49aa04d",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6RmiMg",
+          "commit": {
+            "abbreviatedOid": "68a33fb"
+          },
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-11-18T14:32:31Z",
+          "updatedAt": "2024-11-18T14:32:31Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "change to?:\r\n\r\n> ...for the seed (private key) from a cryptographically secure pseudorandom number generator (CSPRNGs).\r\n\r\n",
+              "createdAt": "2024-11-18T14:32:31Z",
+              "updatedAt": "2024-11-18T14:32:31Z"
             }
           ]
         }
