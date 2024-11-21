@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-19T01:17:53.105469+00:00",
+  "timestamp": "2024-11-21T01:17:07.614621+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -62,7 +62,7 @@
       "labels": [],
       "body": "@seanturner do we need a Private Key section?\r\n\r\nOther drafts that update RFC3279 or RFC8419 which brings a new algorithm to CMS, I did not see them including a Private Key format for any of the algorithms. \r\n\r\nEncoding private keys is useful to the signer, but does this specification need to define it? Wouldn't that be an update to RFC5958?",
       "createdAt": "2022-02-11T04:53:18Z",
-      "updatedAt": "2024-11-04T14:46:47Z",
+      "updatedAt": "2024-11-19T17:14:00Z",
       "closedAt": null,
       "comments": [
         {
@@ -162,6 +162,13 @@
           "body": "I'm strongly in support of defining private key storage too, interoperability testing is one thing, but side-channel validation is another: I need to know what private key the System Under Test is using to see if its behaviour leaks part of the expanded private key. The easiest way to do it is to import externally generate private keys to the SUT.",
           "createdAt": "2024-11-04T14:46:11Z",
           "updatedAt": "2024-11-04T14:46:47Z"
+        },
+        {
+          "author": "ounsworth",
+          "authorAssociation": "NONE",
+          "body": "I am shocked at people saying that this draft does not need to define private keys. I assume that these people have never tried to import a client certificate as a .p12 file into their browser, or S/MIME email client, or pointed nginx at a TLS key in a .p12 file? Of course we need a standardized private key format.",
+          "createdAt": "2024-11-19T17:13:24Z",
+          "updatedAt": "2024-11-19T17:14:00Z"
         }
       ]
     },
@@ -515,6 +522,22 @@
       "createdAt": "2024-11-04T14:37:50Z",
       "updatedAt": "2024-11-04T16:41:11Z",
       "closedAt": "2024-11-04T16:41:11Z",
+      "comments": []
+    },
+    {
+      "number": 78,
+      "id": "I_kwDOGV9y2s6fUXkz",
+      "title": "ASN.1 size constraints on public key and private key types",
+      "url": "https://github.com/lamps-wg/kyber-certificates/issues/78",
+      "state": "OPEN",
+      "author": "ounsworth",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "See: https://mailarchive.ietf.org/arch/msg/spasm/G45YcgPnTwvqmOJwX6IxLzYA-LI/",
+      "createdAt": "2024-11-19T17:15:37Z",
+      "updatedAt": "2024-11-19T17:15:37Z",
+      "closedAt": null,
       "comments": []
     }
   ],
@@ -4797,13 +4820,13 @@
       "labels": [],
       "body": "Suggested-by: Carl Wallice",
       "createdAt": "2024-11-18T13:18:49Z",
-      "updatedAt": "2024-11-18T14:32:31Z",
+      "updatedAt": "2024-11-19T19:09:14Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "6d5894dbce32b4ca4e6072974f7a2a3b5805128d",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "bas/carl",
-      "headRefOid": "68a33fbcd2b490adcdb9192865ca016bf49aa04d",
+      "headRefOid": "f7f61de3d24b992fbf71b768850e9a7aa1f44c4f",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -4827,6 +4850,79 @@
               "body": "change to?:\r\n\r\n> ...for the seed (private key) from a cryptographically secure pseudorandom number generator (CSPRNGs).\r\n\r\n",
               "createdAt": "2024-11-18T14:32:31Z",
               "updatedAt": "2024-11-18T14:32:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6R0Lr1",
+          "commit": {
+            "abbreviatedOid": "f7f61de"
+          },
+          "author": "ounsworth",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "This change is minimalistic, but I think sufficient. ",
+          "createdAt": "2024-11-19T19:07:36Z",
+          "updatedAt": "2024-11-19T19:09:14Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\npseudorandom number generator (CSPRNGs). The public key can then\r\n```",
+              "createdAt": "2024-11-19T19:07:37Z",
+              "updatedAt": "2024-11-19T19:09:14Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 79,
+      "id": "PR_kwDOGV9y2s6CbV9N",
+      "title": "add implementation considerations section to address gap between serialization format and APIs in FIPS 203",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/79",
+      "state": "OPEN",
+      "author": "carl-wallace",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-11-19T18:27:27Z",
+      "updatedAt": "2024-11-19T20:42:05Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "6d5894dbce32b4ca4e6072974f7a2a3b5805128d",
+      "headRepository": "carl-wallace/kyber-certificates",
+      "headRefName": "main",
+      "headRefOid": "17e27ccc653b3c4f7b9d6063450320ce9070b5f2",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6R1EKp",
+          "commit": {
+            "abbreviatedOid": "17e27cc"
+          },
+          "author": "ounsworth",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-11-19T20:39:02Z",
+          "updatedAt": "2024-11-19T20:42:05Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\nSimilarly, the algorithm that expands seed values is not listed as one of the \"main algorithms\" and features \"internal\" in the name even though it is clear that it is allowed to be exposed externally for the purposes of expanding a key from a seed.\r\n```",
+              "createdAt": "2024-11-19T20:39:02Z",
+              "updatedAt": "2024-11-19T20:42:05Z"
+            },
+            {
+              "originalPosition": 11,
+              "body": "```suggestion\r\n\r\nNote also that unlike other private key compression methods in other algorithms, expanding a private key from a seed is a one-way function, meaning that once a full key is expanded from seed and the seed discarded, the seed cannot be re-created even if the full expanded private key is available. For this reason it is RECOMMENDED that implementations retain and export the seed, even when also exporting the expanded key.\r\n```",
+              "createdAt": "2024-11-19T20:42:02Z",
+              "updatedAt": "2024-11-19T20:42:05Z"
             }
           ]
         }
