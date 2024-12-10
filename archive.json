@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-12-08T01:26:01.351203+00:00",
+  "timestamp": "2024-12-10T01:21:46.524131+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -4927,6 +4927,32 @@
           ]
         }
       ]
+    },
+    {
+      "number": 80,
+      "id": "PR_kwDOGV9y2s6EiiGG",
+      "title": "Fix private key pretty print",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/80",
+      "state": "OPEN",
+      "author": "danvangeest",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "A line was missing from the MLKEM-512 key.\r\nThe leading 00 should not have been printed as that's part of the BIT STRING.\r\nUsed dumpasn1 tool (Sean had hand jammed it before).",
+      "createdAt": "2024-12-09T13:34:08Z",
+      "updatedAt": "2024-12-09T13:34:08Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "6d5894dbce32b4ca4e6072974f7a2a3b5805128d",
+      "headRepository": "danvangeest/kyber-certificates",
+      "headRefName": "dvg/fix_priv_pretty_print",
+      "headRefOid": "aef78b5da26643a47ffbb5b78bc60cc859198d43",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
