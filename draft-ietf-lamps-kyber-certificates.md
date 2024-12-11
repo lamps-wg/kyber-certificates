@@ -318,6 +318,7 @@ Below are possible ways to extend the APIs defined in {{FIPS203}} to support ser
 
 To support serialization of seed values as private keys, Algorithm 19 in {{FIPS203}} should return (ek, dk, d, z) on line 7 and Algorithm 16 should be promoted to be a "main algorithm" for external use in expanding seed values.
 
+Note also that unlike other private key compression methods in other algorithms, expanding a private key from a seed is a one-way function, meaning that once a full key is expanded from seed and the seed discarded, the seed cannot be re-created even if the full expanded private key is available. For this reason it is RECOMMENDED that implementations retain and export the seed, even when also exporting the expanded key.
 # Security Considerations
 
 The Security Considerations section of {{RFC5280}} applies to this
