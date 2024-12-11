@@ -313,7 +313,7 @@ encoded using the textual encoding defined in {{?RFC7468}}.
 # Implementation Considerations
 
 Though section 7.1 of {{FIPS203}} mentions the potential to save seed values for future expansion, Algorithm 19 does not make the seed values available to a caller for serialization.
-Similarly, the algorithm that expands seed values is not listed as one of the "main algorithms" and features "internal" in the name.
+Similarly, the algorithm that expands seed values is not listed as one of the "main algorithms" and features "internal" in the name even though it is clear that it is allowed to be exposed externally for the purposes of expanding a key from a seed.
 Below are possible ways to extend the APIs defined in {{FIPS203}} to support serialization of seed values as private keys.
 
 To support serialization of seed values as private keys, Algorithm 19 in {{FIPS203}} should return (ek, dk, d, z) on line 7 and Algorithm 16 should be promoted to be a "main algorithm" for external use in expanding seed values.
