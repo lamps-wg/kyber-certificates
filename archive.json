@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-12-10T01:21:46.524131+00:00",
+  "timestamp": "2024-12-12T01:20:08.797730+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -165,7 +165,7 @@
         },
         {
           "author": "ounsworth",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "I am shocked at people saying that this draft does not need to define private keys. I assume that these people have never tried to import a client certificate as a .p12 file into their browser, or S/MIME email client, or pointed nginx at a TLS key in a .p12 file? Of course we need a standardized private key format.",
           "createdAt": "2024-11-19T17:13:24Z",
           "updatedAt": "2024-11-19T17:14:00Z"
@@ -531,7 +531,7 @@
       "url": "https://github.com/lamps-wg/kyber-certificates/issues/78",
       "state": "OPEN",
       "author": "ounsworth",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "See: https://mailarchive.ietf.org/arch/msg/spasm/G45YcgPnTwvqmOJwX6IxLzYA-LI/",
@@ -4813,24 +4813,26 @@
       "id": "PR_kwDOGV9y2s6CPy1Q",
       "title": "Add paragraph clarifying key generation",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/77",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bwesterb",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Suggested-by: Carl Wallice",
       "createdAt": "2024-11-18T13:18:49Z",
-      "updatedAt": "2024-11-19T19:09:14Z",
+      "updatedAt": "2024-12-11T16:17:20Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "6d5894dbce32b4ca4e6072974f7a2a3b5805128d",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "bas/carl",
-      "headRefOid": "f7f61de3d24b992fbf71b768850e9a7aa1f44c4f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "d68a052fc21441a6974bc87827606123240dd49b",
+      "closedAt": "2024-12-11T16:17:20Z",
+      "mergedAt": "2024-12-11T16:17:20Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "a87d0586be611573a7858ab139ba15131ec536c2"
+      },
       "comments": [],
       "reviews": [
         {
@@ -4859,7 +4861,7 @@
             "abbreviatedOid": "f7f61de"
           },
           "author": "ounsworth",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "This change is minimalistic, but I think sufficient. ",
           "createdAt": "2024-11-19T19:07:36Z",
@@ -4887,13 +4889,13 @@
       "labels": [],
       "body": "",
       "createdAt": "2024-11-19T18:27:27Z",
-      "updatedAt": "2024-11-19T20:42:05Z",
+      "updatedAt": "2024-12-11T16:21:12Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "6d5894dbce32b4ca4e6072974f7a2a3b5805128d",
       "headRepository": "carl-wallace/kyber-certificates",
       "headRefName": "main",
-      "headRefOid": "17e27ccc653b3c4f7b9d6063450320ce9070b5f2",
+      "headRefOid": "8ab0effe373c723d07cd38ae40362ef29f71ffb5",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -4906,7 +4908,7 @@
             "abbreviatedOid": "17e27cc"
           },
           "author": "ounsworth",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2024-11-19T20:39:02Z",
@@ -4923,6 +4925,26 @@
               "body": "```suggestion\r\n\r\nNote also that unlike other private key compression methods in other algorithms, expanding a private key from a seed is a one-way function, meaning that once a full key is expanded from seed and the seed discarded, the seed cannot be re-created even if the full expanded private key is available. For this reason it is RECOMMENDED that implementations retain and export the seed, even when also exporting the expanded key.\r\n```",
               "createdAt": "2024-11-19T20:42:02Z",
               "updatedAt": "2024-11-19T20:42:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6UyLtR",
+          "commit": {
+            "abbreviatedOid": "946a7b0"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-11T16:20:59Z",
+          "updatedAt": "2024-12-11T16:21:00Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "```suggestion\r\nNote also that unlike other private key compression methods in other algorithms, expanding a private key from a seed is a one-way function, meaning that once a full key is expanded from seed and the seed discarded, the seed cannot be re-created even if the full expanded private key is available. For this reason it is RECOMMENDED that implementations retain and export the seed, even when also exporting the expanded key.\r\n\r\n```",
+              "createdAt": "2024-12-11T16:20:59Z",
+              "updatedAt": "2024-12-11T16:21:00Z"
             }
           ]
         }
