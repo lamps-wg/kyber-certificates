@@ -789,7 +789,7 @@ from {{I-D.ietf-lamps-dilithium-certificates}}.
 
 The following is the ML-KEM-1024 certificate that corresponding to the
 public key in the previous section signed with the ML-DSA-87 private key
-from {{I-D.lamps-dilithium-certificates}}.
+from {{I-D.ietf-lamps-dilithium-certificates}}.
 
 ~~~
 {::include ./example/ML-KEM-1024.crt}
