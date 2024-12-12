@@ -792,7 +792,7 @@ public key in the previous section signed with the ML-DSA-87 private key
 from {{I-D.lamps-dilithium-certificates}}.
 
 ~~~
-{::include ./example/ML-KEM-1024.pem}
+{::include ./example/ML-KEM-1024.crt}
 ~~~
 
 ~~~
