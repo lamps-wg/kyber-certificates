@@ -761,16 +761,42 @@ has an attribute included as well as the public key:
   -----END PRIVATE KEY-------
 ~~~
 
-## Example Certificate {#example-certificate}
+## Example Certificates {#example-certificate}
+
+The following is the ML-KEM-512 certificate that corresponding to the
+public key in the previous section signed with the ML-DSA-44 private key
+from {{?I-D.lamps-dilithium-certificates}}.
 
 ~~~
-  TODO insert ASN.1 Pretty Print
+{::include ./example/ML-KEM-512.pem}
 ~~~
 
 ~~~
-  -----BEGIN CERTIFICATE-----
-  TODO Certificate
-  -----END CERTIFICATE-------
+  TODO insert ASN.1 Pretty Print for ML-KEM-512.pem
+~~~
+
+The following is the ML-KEM-768 certificate that corresponding to the
+public key in the previous section signed with the ML-DSA-65 private key
+from {{I-D.lamps-dilithium-certificates}}.
+
+~~~
+{::include ./example/ML-KEM-768.pem}
+~~~
+
+~~~
+  TODO insert ASN.1 Pretty Print for ML-KEM-768.pem
+~~~
+
+The following is the ML-KEM-1024 certificate that corresponding to the
+public key in the previous section signed with the ML-DSA-87 private key
+from {{I-D.lamps-dilithium-certificates}}.
+
+~~~
+{::include ./example/ML-KEM-1024.pem}
+~~~
+
+~~~
+  TODO insert ASN.1 Pretty Print for ML-KEM-768.pem
 ~~~
 
 # Acknowledgments
