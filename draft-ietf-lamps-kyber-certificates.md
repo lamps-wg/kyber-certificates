@@ -633,6 +633,9 @@ key in the previous section.
          :     1E A8 93 C3 E2 CB 32 DA 8B C3 42 FA 4D EA 05 78
          :   }
 ~~~
+<aside markdown="block">
+NOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.
+</aside>
 
 The following is the ML-KEM-1024 public key corresponding to the private
 key in the previous section.
