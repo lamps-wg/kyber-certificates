@@ -219,7 +219,7 @@ certificate extension MUST only contain keyEncipherment
 
     ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
 
-    ML-KEM-PrivateKey ::= OCTET STRING (SIZE (32))
+    ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
 ~~~
 
 No additional encoding of the ML-KEM public key value is applied in
