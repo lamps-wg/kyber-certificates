@@ -750,6 +750,9 @@ key in the previous section.
          :     EB 0C 87 01 ED 58 DC 62 87 76 B9 83 88 2E 11 75
          :   }
 ~~~
+<aside markdown="block">
+NOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.
+</aside>
 
 The following example, in addition to encoding the ML-KEM-768 private key,
 has an attribute included as well as the public key:
