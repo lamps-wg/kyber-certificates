@@ -410,8 +410,14 @@ Table of Contents
               11 December 2024, <https://datatracker.ietf.org/doc/html/
               draft-ietf-lamps-cms-kyber-06>.
 
-   [I-D.lamps-dilithium-certificates]
-              "*** BROKEN REFERENCE ***".
+   [I-D.ietf-lamps-dilithium-certificates]
+              Massimo, J., Kampanakis, P., Turner, S., and B.
+              Westerbaan, "Internet X.509 Public Key Infrastructure:
+              Algorithm Identifiers for ML-DSA", Work in Progress,
+              Internet-Draft, draft-ietf-lamps-dilithium-certificates-
+              05, 4 November 2024,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-lamps-
+              dilithium-certificates-05>.
 
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations]
               Fluhrer, S., Dang, Q., Mattsson, J. P., Milner, K., and D.
@@ -994,7 +1000,7 @@ C.3.  Example Certificates
 
    The following is the ML-KEM-512 certificate that corresponding to the
    public key in the previous section signed with the ML-DSA-44 private
-   key from [I-D.lamps-dilithium-certificates].
+   key from [I-D.ietf-lamps-dilithium-certificates].
 
    -----BEGIN CERTIFICATE-----
    MIINpDCCBBqgAwIBAgIUFZ/+byL9XMQsUk32/V4o0N44808wCwYJYIZIAWUDBAMR
@@ -1076,7 +1082,7 @@ C.3.  Example Certificates
 
    The following is the ML-KEM-768 certificate that corresponding to the
    public key in the previous section signed with the ML-DSA-65 private
-   key from [I-D.lamps-dilithium-certificates].
+   key from [I-D.ietf-lamps-dilithium-certificates].
 
    -----BEGIN CERTIFICATE-----
    MIISnTCCBZqgAwIBAgIUFZ/+byL9XMQsUk32/V4o0N44808wCwYJYIZIAWUDBAMS
@@ -1185,7 +1191,7 @@ C.3.  Example Certificates
 
    The following is the ML-KEM-1024 certificate that corresponding to
    the public key in the previous section signed with the ML-DSA-87
-   private key from [I-D.lamps-dilithium-certificates].
+   private key from [I-D.ietf-lamps-dilithium-certificates].
 
    -----BEGIN CERTIFICATE-----
    MIIZQzCCBxqgAwIBAgIUFZ/+byL9XMQsUk32/V4o0N44808wCwYJYIZIAWUDBAMT
