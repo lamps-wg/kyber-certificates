@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-12-12T01:20:08.797730+00:00",
+  "timestamp": "2024-12-15T01:25:57.781017+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -55,15 +55,15 @@
       "id": "I_kwDOGV9y2s5DdMKn",
       "title": "Does the draft need a Private Key section?",
       "url": "https://github.com/lamps-wg/kyber-certificates/issues/1",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "csosto-pk",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "@seanturner do we need a Private Key section?\r\n\r\nOther drafts that update RFC3279 or RFC8419 which brings a new algorithm to CMS, I did not see them including a Private Key format for any of the algorithms. \r\n\r\nEncoding private keys is useful to the signer, but does this specification need to define it? Wouldn't that be an update to RFC5958?",
       "createdAt": "2022-02-11T04:53:18Z",
-      "updatedAt": "2024-11-19T17:14:00Z",
-      "closedAt": null,
+      "updatedAt": "2024-12-12T03:10:31Z",
+      "closedAt": "2024-12-12T03:10:31Z",
       "comments": [
         {
           "author": "seanturner",
@@ -169,6 +169,13 @@
           "body": "I am shocked at people saying that this draft does not need to define private keys. I assume that these people have never tried to import a client certificate as a .p12 file into their browser, or S/MIME email client, or pointed nginx at a TLS key in a .p12 file? Of course we need a standardized private key format.",
           "createdAt": "2024-11-19T17:13:24Z",
           "updatedAt": "2024-11-19T17:14:00Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Finally getting around to closing this out.",
+          "createdAt": "2024-12-12T03:10:31Z",
+          "updatedAt": "2024-12-12T03:10:31Z"
         }
       ]
     },
@@ -539,6 +546,44 @@
       "updatedAt": "2024-11-19T17:15:37Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 83,
+      "id": "I_kwDOGV9y2s6jAD80",
+      "title": "pretty print",
+      "url": "https://github.com/lamps-wg/kyber-certificates/issues/83",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Should we just use the pretty print routine from https://github.com/lamps-wg/dilithium-certificates/tree/main/examples?  I have zero problem with that.",
+      "createdAt": "2024-12-12T03:55:45Z",
+      "updatedAt": "2024-12-12T14:36:48Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think @danvangeest proposed a different pretty printer. I'm happy to take anything as long as it's automated.",
+          "createdAt": "2024-12-12T12:36:27Z",
+          "updatedAt": "2024-12-12T12:36:36Z"
+        },
+        {
+          "author": "danvangeest",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Unfortunately, I use our proprietary openssl provider for pretty-printing, so we can't automate that.  I don't know the state of ML-KEM in the OQS provider, but I think their ML-DSA implementation isn't ready so they could have problems displaying the signature.",
+          "createdAt": "2024-12-12T14:34:58Z",
+          "updatedAt": "2024-12-12T14:34:58Z"
+        },
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Ok, I'll fashion a PR to add some pretty printing and we can change that later on if we have something non-proprietary available, or one-shot at the last minute when there aren't any changes anymore.",
+          "createdAt": "2024-12-12T14:36:46Z",
+          "updatedAt": "2024-12-12T14:36:46Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -4955,26 +5000,550 @@
       "id": "PR_kwDOGV9y2s6EiiGG",
       "title": "Fix private key pretty print",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/80",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danvangeest",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "A line was missing from the MLKEM-512 key.\r\nThe leading 00 should not have been printed as that's part of the BIT STRING.\r\nUsed dumpasn1 tool (Sean had hand jammed it before).",
       "createdAt": "2024-12-09T13:34:08Z",
-      "updatedAt": "2024-12-09T13:34:08Z",
+      "updatedAt": "2024-12-12T16:09:59Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "6d5894dbce32b4ca4e6072974f7a2a3b5805128d",
       "headRepository": "danvangeest/kyber-certificates",
       "headRefName": "dvg/fix_priv_pretty_print",
-      "headRefOid": "aef78b5da26643a47ffbb5b78bc60cc859198d43",
+      "headRefOid": "d9c67026ee2d49626a213023e0462e8f384587f6",
+      "closedAt": "2024-12-12T16:09:59Z",
+      "mergedAt": "2024-12-12T16:09:59Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "12f3ec7c360a12c92d98a6053fbbf517535e82df"
+      },
+      "comments": [
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Also check out #84 ",
+          "createdAt": "2024-12-12T14:44:05Z",
+          "updatedAt": "2024-12-12T14:44:05Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6U3DSE",
+          "commit": {
+            "abbreviatedOid": "aef78b5"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-12T02:27:23Z",
+          "updatedAt": "2024-12-12T02:27:23Z",
+          "comments": [
+            {
+              "originalPosition": 117,
+              "body": "<aside markdown=\"block\">\r\nNOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.\r\n</aside>\r\n",
+              "createdAt": "2024-12-12T02:27:23Z",
+              "updatedAt": "2024-12-12T14:38:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6U3Da4",
+          "commit": {
+            "abbreviatedOid": "aef78b5"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-12T02:27:35Z",
+          "updatedAt": "2024-12-12T02:27:36Z",
+          "comments": [
+            {
+              "originalPosition": 285,
+              "body": "```suggestion\r\n<aside markdown=\"block\">\r\nNOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.\r\n</aside>\r\n\r\n```",
+              "createdAt": "2024-12-12T02:27:35Z",
+              "updatedAt": "2024-12-12T14:37:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6U3DeR",
+          "commit": {
+            "abbreviatedOid": "aef78b5"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-12T02:27:45Z",
+          "updatedAt": "2024-12-12T02:27:46Z",
+          "comments": [
+            {
+              "originalPosition": 501,
+              "body": "<aside markdown=\"block\">\r\nNOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.\r\n</aside>\r\n",
+              "createdAt": "2024-12-12T02:27:45Z",
+              "updatedAt": "2024-12-12T14:38:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6U3D1R",
+          "commit": {
+            "abbreviatedOid": "aef78b5"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-12T02:28:14Z",
+          "updatedAt": "2024-12-12T02:28:14Z",
+          "comments": [
+            {
+              "originalPosition": 117,
+              "body": "@danvangeest if you are happy with this note, I'll merge.",
+              "createdAt": "2024-12-12T02:28:14Z",
+              "updatedAt": "2024-12-12T02:28:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6U7W3k",
+          "commit": {
+            "abbreviatedOid": "aef78b5"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-12T09:29:22Z",
+          "updatedAt": "2024-12-12T09:29:22Z",
+          "comments": [
+            {
+              "originalPosition": 285,
+              "body": "I don't like calling the padding part of the content because it's not part of the public key.  How about:\r\n\r\nNOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.",
+              "createdAt": "2024-12-12T09:29:22Z",
+              "updatedAt": "2024-12-12T09:29:23Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6U-OBC",
+          "commit": {
+            "abbreviatedOid": "aef78b5"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-12-12T12:33:27Z",
+          "updatedAt": "2024-12-12T12:33:27Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6VALeQ",
+          "commit": {
+            "abbreviatedOid": "aef78b5"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-12T14:39:34Z",
+          "updatedAt": "2024-12-12T14:39:34Z",
+          "comments": [
+            {
+              "originalPosition": 117,
+              "body": "```suggestion\r\n<aside markdown=\"block\">\r\nNOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.\r\n</aside>\r\n\r\n```",
+              "createdAt": "2024-12-12T14:39:34Z",
+              "updatedAt": "2024-12-12T14:39:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6VAN2E",
+          "commit": {
+            "abbreviatedOid": "62aaa5a"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-12T14:41:51Z",
+          "updatedAt": "2024-12-12T14:41:51Z",
+          "comments": [
+            {
+              "originalPosition": 509,
+              "body": "```suggestion\r\n<aside markdown=\"block\">\r\nNOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.\r\n</aside>\r\n\r\n```",
+              "createdAt": "2024-12-12T14:41:51Z",
+              "updatedAt": "2024-12-12T14:41:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6VAOid",
+          "commit": {
+            "abbreviatedOid": "d9c6702"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-12-12T14:42:24Z",
+          "updatedAt": "2024-12-12T14:42:24Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 81,
+      "id": "PR_kwDOGV9y2s6E8quf",
+      "title": "Add certificate examples",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/81",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Add certificate examples (thanks Bas).",
+      "createdAt": "2024-12-12T02:57:44Z",
+      "updatedAt": "2024-12-12T14:43:03Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "a87d0586be611573a7858ab139ba15131ec536c2",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-cert-examples",
+      "headRefOid": "a144dfea0df01a53de3f4999c73e7a34c225a02e",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@danvangeest could I impose on you to save me a lot of time and provide me with the dumpasn1 output to include in the 3 places for the pretty print?",
+          "createdAt": "2024-12-12T02:59:52Z",
+          "updatedAt": "2024-12-12T02:59:52Z"
+        },
+        {
+          "author": "danvangeest",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Attaching files because I can't push to this PR directly:\r\n\r\n[ML-KEM-512.crt.txt](https://github.com/user-attachments/files/18110637/ML-KEM-512.crt.txt)\r\n[ML-KEM-768.crt.txt](https://github.com/user-attachments/files/18110638/ML-KEM-768.crt.txt)\r\n[ML-KEM-1024.crt.txt](https://github.com/user-attachments/files/18110639/ML-KEM-1024.crt.txt)\r\n\r\nAlso, you could add this to the beginning of the Makefile:\r\nDEPS_FILES := \\\r\n\texample/ML-KEM-1024.crt \\\r\n\texample/ML-KEM-1024.priv \\\r\n\texample/ML-KEM-512.crt.txt \\\r\n\texample/ML-KEM-512.pub \\\r\n\texample/ML-KEM-1024.crt.txt \\\r\n\texample/ML-KEM-1024.pub \\\r\n\texample/ML-KEM-768.crt \\\r\n\texample/ML-KEM-768.priv \\\r\n\texample/ML-KEM-512.crt \\\r\n\texample/ML-KEM-512.priv \\\r\n\texample/ML-KEM-768.crt.txt \\\r\n\texample/ML-KEM-768.pub\r\n",
+          "createdAt": "2024-12-12T11:18:50Z",
+          "updatedAt": "2024-12-12T11:18:50Z"
+        },
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Please consider merging #84 into this branch before merging.",
+          "createdAt": "2024-12-12T14:43:02Z",
+          "updatedAt": "2024-12-12T14:43:02Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6U3RlD",
+          "commit": {
+            "abbreviatedOid": "bc4578d"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-12T03:16:56Z",
+          "updatedAt": "2024-12-12T03:16:56Z",
+          "comments": [
+            {
+              "originalPosition": 37,
+              "body": "```suggestion\r\n{::include ./example/ML-KEM-1024.crt}\r\n```",
+              "createdAt": "2024-12-12T03:16:56Z",
+              "updatedAt": "2024-12-12T03:16:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6U3R3_",
+          "commit": {
+            "abbreviatedOid": "b339d0c"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-12T03:17:37Z",
+          "updatedAt": "2024-12-12T03:17:37Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "```suggestion\r\n{::include ./example/ML-KEM-512.crt}\r\n```",
+              "createdAt": "2024-12-12T03:17:37Z",
+              "updatedAt": "2024-12-12T03:17:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6U3SDl",
+          "commit": {
+            "abbreviatedOid": "d6ab3d3"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-12T03:18:05Z",
+          "updatedAt": "2024-12-12T03:18:05Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "```suggestion\r\n{::include ./example/ML-KEM-768.crt}\r\n```",
+              "createdAt": "2024-12-12T03:18:05Z",
+              "updatedAt": "2024-12-12T03:18:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6U9FPO",
+          "commit": {
+            "abbreviatedOid": "4da5435"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-12T11:19:05Z",
+          "updatedAt": "2024-12-12T11:19:43Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "```suggestion\r\nfrom {{I-D.ietf-lamps-dilithium-certificates}}.\r\n```",
+              "createdAt": "2024-12-12T11:19:05Z",
+              "updatedAt": "2024-12-12T11:19:43Z"
+            },
+            {
+              "originalPosition": 33,
+              "body": "```suggestion\r\nfrom {{I-D.ietf-lamps-dilithium-certificates}}.\r\n```",
+              "createdAt": "2024-12-12T11:19:15Z",
+              "updatedAt": "2024-12-12T11:19:43Z"
+            },
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\r\nfrom {{?I-D.ietf-lamps-dilithium-certificates}}.\r\n```",
+              "createdAt": "2024-12-12T11:19:33Z",
+              "updatedAt": "2024-12-12T11:19:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6U-MRx",
+          "commit": {
+            "abbreviatedOid": "a144dfe"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-12-12T12:32:00Z",
+          "updatedAt": "2024-12-12T12:32:00Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 82,
+      "id": "PR_kwDOGV9y2s6E8vEA",
+      "title": "Constraints on Public & Private Keys",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/82",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Similar to ML-DSA constraints; see [PR](https://github.com/lamps-wg/cms-ml-dsa/pull/13/files).\r\n\r\nCloses #78.",
+      "createdAt": "2024-12-12T03:07:34Z",
+      "updatedAt": "2024-12-12T16:21:28Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "a87d0586be611573a7858ab139ba15131ec536c2",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-asn1-constraints",
+      "headRefOid": "573bc9db496f16c92c7dd1e3b25665ecfd9d3348",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6U-Xb1",
+          "commit": {
+            "abbreviatedOid": "9256bca"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-12T12:43:27Z",
+          "updatedAt": "2024-12-12T12:43:28Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "64",
+              "createdAt": "2024-12-12T12:43:27Z",
+              "updatedAt": "2024-12-12T12:43:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6U-YEm",
+          "commit": {
+            "abbreviatedOid": "9256bca"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Private key size should be 64 \u2014 otherwise it's good to go.",
+          "createdAt": "2024-12-12T12:44:08Z",
+          "updatedAt": "2024-12-12T12:44:08Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6VBPst",
+          "commit": {
+            "abbreviatedOid": "9256bca"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-12T16:11:38Z",
+          "updatedAt": "2024-12-12T16:11:38Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "Me trying to pwn the Internet again.",
+              "createdAt": "2024-12-12T16:11:38Z",
+              "updatedAt": "2024-12-12T16:11:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6VBP6r",
+          "commit": {
+            "abbreviatedOid": "9256bca"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-12T16:12:00Z",
+          "updatedAt": "2024-12-12T16:12:00Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "```suggestion\r\n    ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))\r\n```",
+              "createdAt": "2024-12-12T16:12:00Z",
+              "updatedAt": "2024-12-12T16:12:00Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6VBWA6",
+          "commit": {
+            "abbreviatedOid": "573bc9d"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-12-12T16:21:28Z",
+          "updatedAt": "2024-12-12T16:21:28Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 84,
+      "id": "PR_kwDOGV9y2s6FB5Nu",
+      "title": "Automate pretty print",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/84",
+      "state": "OPEN",
+      "author": "bwesterb",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #83 ",
+      "createdAt": "2024-12-12T14:42:31Z",
+      "updatedAt": "2024-12-12T18:39:39Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "seanturner-cert-examples",
+      "baseRefOid": "a144dfea0df01a53de3f4999c73e7a34c225a02e",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "bas/issue-83",
+      "headRefOid": "482bf47ddeb34df4e7c0409df351b477989dd52d",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6VCqk7",
+          "commit": {
+            "abbreviatedOid": "482bf47"
+          },
+          "author": "dconnolly",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-12-12T18:39:39Z",
+          "updatedAt": "2024-12-12T18:39:39Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 85,
+      "id": "PR_kwDOGV9y2s6FKVmK",
+      "title": "Adjust Security Strengths section",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/85",
+      "state": "OPEN",
+      "author": "danvangeest",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I stole this section for cms-kyber and Mike didn't like some of it, so here's his suggestion.",
+      "createdAt": "2024-12-13T15:42:32Z",
+      "updatedAt": "2024-12-13T15:53:56Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "12f3ec7c360a12c92d98a6053fbbf517535e82df",
+      "headRepository": "danvangeest/kyber-certificates",
+      "headRefName": "dvg/table_adjustments",
+      "headRefOid": "3ed93c04427c50b0eb13a783ea5d0ecae7cee617",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6VKtRJ",
+          "commit": {
+            "abbreviatedOid": "3ed93c0"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-12-13T15:53:56Z",
+          "updatedAt": "2024-12-13T15:53:56Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
