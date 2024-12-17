@@ -315,6 +315,16 @@ in this section.
 {{example-private}} contains examples for ML-KEM private keys
 encoded using the textual encoding defined in {{?RFC7468}}.
 
+# Implementation Considerations
+
+Though section 7.1 of {{FIPS203}} mentions the potential to save seed values for future expansion, Algorithm 19 does not make the seed values available to a caller for serialization.
+Similarly, the algorithm that expands seed values is not listed as one of the "main algorithms" and features "internal" in the name even though it is clear that it is allowed to be exposed externally for the purposes of expanding a key from a seed.
+Below are possible ways to extend the APIs defined in {{FIPS203}} to support serialization of seed values as private keys.
+
+To support serialization of seed values as private keys, let Algorithm 19b denote the same procedure as Algorithm 19 in {{FIPS203}} except it returns (ek, dk, d, z) on line 7. Additionally, Algorithm 16 should be promoted to be a "main algorithm" for external use in expanding seed values.
+
+Note also that unlike other private key compression methods in other algorithms, expanding a private key from a seed is a one-way function, meaning that once a full key is expanded from seed and the seed discarded, the seed cannot be re-created even if the full expanded private key is available. For this reason it is RECOMMENDED that implementations retain and export the seed, even when also exporting the expanded key.
+
 # Security Considerations
 
 The Security Considerations section of {{RFC5280}} applies to this
