@@ -217,19 +217,19 @@ certificate extension MUST only contain keyEncipherment
     --- PRIVATE-KEY no ASN.1 wrapping --
     }
 
-    ML-KEM-PublicKey ::= OCTET STRING
+    ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
 
-    ML-KEM-PrivateKey ::= OCTET STRING
+    ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
 ~~~
 
 No additional encoding of the ML-KEM public key value is applied in
 the SubjectPublicKeyInfo field of an X.509 certificate {{RFC5280}}.
-However, whenever the ML-KEM public key value appears outside of a
+However, whenever it appears outside of a
 certificate, it MAY be encoded as an OCTET STRING.
 
 No additional encoding of the ML-KEM private key value is applied in
 the PrivateKeyInfo field of an Asymmetric Key Package {{RFC5958}}.
-However, whenever the ML-KEM private key value appears outside of a
+However, whenever it appears outside of a
 Asymmetric Key Package, it MAY be encoded as an OCTET STRING.
 
 # Subject Public Key Fields
