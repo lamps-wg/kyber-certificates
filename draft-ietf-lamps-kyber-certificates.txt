@@ -88,7 +88,7 @@ Table of Contents
      8.1.  Normative References
      8.2.  Informative References
    Appendix A.  ASN.1 Module
-   Appendix B.  Security Strengths
+   Appendix B.  Parameter Set Security and Sizes
    Appendix C.  Examples
      C.1.  Example Private Key
      C.2.  Example Public Key
@@ -537,7 +537,7 @@ Appendix A.  ASN.1 Module
    END
    <CODE ENDS>
 
-Appendix B.  Security Strengths
+Appendix B.  Parameter Set Security and Sizes
 
    Instead of defining the strength of a quantum algorithm in a
    traditional manner using the imprecise notion of bits of security,
@@ -552,18 +552,19 @@ Appendix B.  Security Strengths
 
       |  TODO: what should go in this table?
 
-    +=======+===============+=============+========+============+====+
-    | Level | Parameter Set | Encap.  Key | Decap. | Ciphertext | SS |
-    |       |               |             | Key    |            |    |
-    +=======+===============+=============+========+============+====+
-    | 1     | ML-KEM-512    | 800         | 1632   | 768        | 32 |
-    +-------+---------------+-------------+--------+------------+----+
-    | 3     | ML-KEM-768    | 1184        | 2400   | 1952       | 32 |
-    +-------+---------------+-------------+--------+------------+----+
-    | 5     | ML-KEM-1024   | 1568        | 3168   | 2592       | 32 |
-    +-------+---------------+-------------+--------+------------+----+
+     +=======+===============+========+========+============+========+
+     | Level | Parameter Set | Encap. | Decap. | Ciphertext | Secret |
+     |       |               | Key    | Key    |            |        |
+     +=======+===============+========+========+============+========+
+     | 1     | ML-KEM-512    | 800    | 1632   | 768        | 32     |
+     +-------+---------------+--------+--------+------------+--------+
+     | 3     | ML-KEM-768    | 1184   | 2400   | 1952       | 32     |
+     +-------+---------------+--------+--------+------------+--------+
+     | 5     | ML-KEM-1024   | 1568   | 3168   | 2592       | 32     |
+     +-------+---------------+--------+--------+------------+--------+
 
-                    Table 1: ML-KEM security strengths
+            Table 1: Mapping between NIST Security Level, ML-KEM
+                     parameter set, and sizes in bytes
 
 Appendix C.  Examples
 
