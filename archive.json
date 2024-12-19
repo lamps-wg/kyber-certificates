@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-12-17T01:20:17.872736+00:00",
+  "timestamp": "2024-12-19T01:18:03.682306+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -536,15 +536,15 @@
       "id": "I_kwDOGV9y2s6fUXkz",
       "title": "ASN.1 size constraints on public key and private key types",
       "url": "https://github.com/lamps-wg/kyber-certificates/issues/78",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "ounsworth",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "See: https://mailarchive.ietf.org/arch/msg/spasm/G45YcgPnTwvqmOJwX6IxLzYA-LI/",
       "createdAt": "2024-11-19T17:15:37Z",
-      "updatedAt": "2024-11-19T17:15:37Z",
-      "closedAt": null,
+      "updatedAt": "2024-12-17T14:30:27Z",
+      "closedAt": "2024-12-17T14:30:27Z",
       "comments": []
     },
     {
@@ -4927,24 +4927,26 @@
       "id": "PR_kwDOGV9y2s6CbV9N",
       "title": "add implementation considerations section to address gap between serialization format and APIs in FIPS 203",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/79",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "carl-wallace",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-11-19T18:27:27Z",
-      "updatedAt": "2024-12-11T16:21:12Z",
+      "updatedAt": "2024-12-17T15:41:54Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "6d5894dbce32b4ca4e6072974f7a2a3b5805128d",
       "headRepository": "carl-wallace/kyber-certificates",
       "headRefName": "main",
-      "headRefOid": "8ab0effe373c723d07cd38ae40362ef29f71ffb5",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "8474a62c49f39fca88a44eb6fb60bd150d16cd3e",
+      "closedAt": "2024-12-17T15:41:54Z",
+      "mergedAt": "2024-12-17T15:41:54Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "b020d2d30f2fa173b9f6f604acbd6987a580cba1"
+      },
       "comments": [],
       "reviews": [
         {
@@ -4990,6 +4992,119 @@
               "body": "```suggestion\r\nNote also that unlike other private key compression methods in other algorithms, expanding a private key from a seed is a one-way function, meaning that once a full key is expanded from seed and the seed discarded, the seed cannot be re-created even if the full expanded private key is available. For this reason it is RECOMMENDED that implementations retain and export the seed, even when also exporting the expanded key.\r\n\r\n```",
               "createdAt": "2024-12-11T16:20:59Z",
               "updatedAt": "2024-12-11T16:21:00Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6VjkTW",
+          "commit": {
+            "abbreviatedOid": "8ab0eff"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-17T15:03:00Z",
+          "updatedAt": "2024-12-17T15:03:01Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "> Algorithm 19 in {{FIPS203}} should return\r\n\r\nThis sounds like we're redefining FIPS203 instead of extending it. Better to phrase it like let \"alg 19b\" denote the same procedure as algorithm 19 except that it returns (ek, dk, d, z) on line 7.",
+              "createdAt": "2024-12-17T15:03:01Z",
+              "updatedAt": "2024-12-17T15:03:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6Vjkq_",
+          "commit": {
+            "abbreviatedOid": "8ab0eff"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-12-17T15:03:34Z",
+          "updatedAt": "2024-12-17T15:03:34Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6Vj0MS",
+          "commit": {
+            "abbreviatedOid": "8ab0eff"
+          },
+          "author": "carl-wallace",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-17T15:24:14Z",
+          "updatedAt": "2024-12-17T15:24:14Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "Works for me.",
+              "createdAt": "2024-12-17T15:24:14Z",
+              "updatedAt": "2024-12-17T15:24:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6Vj2yQ",
+          "commit": {
+            "abbreviatedOid": "8ab0eff"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-17T15:27:56Z",
+          "updatedAt": "2024-12-17T15:27:57Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "@carl-wallace are you going to suggest some changes I can merge in?",
+              "createdAt": "2024-12-17T15:27:56Z",
+              "updatedAt": "2024-12-17T15:27:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6Vj9C_",
+          "commit": {
+            "abbreviatedOid": "8ab0eff"
+          },
+          "author": "carl-wallace",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-17T15:37:27Z",
+          "updatedAt": "2024-12-17T15:37:27Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "Applying Bas' suggestion to the PR I sent yields something like this:\r\n\r\nTo support serialization of seed values as private keys, let Algorithm 19b denote the same procedure as Algorithm 19 in {{FIPS203}} except it returns (ek, dk, d, z) on line 7. Additionally, Algorithm 16 should be promoted to be a \"main algorithm\" for external use in expanding seed values.",
+              "createdAt": "2024-12-17T15:37:27Z",
+              "updatedAt": "2024-12-17T15:37:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6Vj_41",
+          "commit": {
+            "abbreviatedOid": "8ab0eff"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-17T15:40:37Z",
+          "updatedAt": "2024-12-17T15:40:38Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "```suggestion\r\nTo support serialization of seed values as private keys, let Algorithm 19b denote the same procedure as Algorithm 19 in {{FIPS203}} except it returns (ek, dk, d, z) on line 7. Additionally, Algorithm 16 should be promoted to be a \"main algorithm\" for external use in expanding seed values.\r\n```",
+              "createdAt": "2024-12-17T15:40:37Z",
+              "updatedAt": "2024-12-17T15:40:38Z"
             }
           ]
         }
@@ -5357,24 +5472,26 @@
       "id": "PR_kwDOGV9y2s6E8vEA",
       "title": "Constraints on Public & Private Keys",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/82",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Similar to ML-DSA constraints; see [PR](https://github.com/lamps-wg/cms-ml-dsa/pull/13/files).\r\n\r\nCloses #78.",
       "createdAt": "2024-12-12T03:07:34Z",
-      "updatedAt": "2024-12-12T16:21:28Z",
+      "updatedAt": "2024-12-17T14:30:26Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "a87d0586be611573a7858ab139ba15131ec536c2",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "seanturner-asn1-constraints",
       "headRefOid": "573bc9db496f16c92c7dd1e3b25665ecfd9d3348",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-12-17T14:30:26Z",
+      "mergedAt": "2024-12-17T14:30:26Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "24e6e4c32306bc32db4021555efcde76671ba653"
+      },
       "comments": [],
       "reviews": [
         {
@@ -5510,24 +5627,26 @@
       "id": "PR_kwDOGV9y2s6FKVmK",
       "title": "Adjust Security Strengths section",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/85",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danvangeest",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "I stole this section for cms-kyber and Mike didn't like some of it, so here's his suggestion.",
       "createdAt": "2024-12-13T15:42:32Z",
-      "updatedAt": "2024-12-13T15:53:56Z",
+      "updatedAt": "2024-12-17T14:32:54Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "12f3ec7c360a12c92d98a6053fbbf517535e82df",
       "headRepository": "danvangeest/kyber-certificates",
       "headRefName": "dvg/table_adjustments",
       "headRefOid": "3ed93c04427c50b0eb13a783ea5d0ecae7cee617",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-12-17T14:32:53Z",
+      "mergedAt": "2024-12-17T14:32:53Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "e060899c7279519fe0047b6358c9b01f8fd462d7"
+      },
       "comments": [],
       "reviews": [
         {
