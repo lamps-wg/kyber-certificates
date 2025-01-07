@@ -217,19 +217,19 @@ certificate extension MUST only contain keyEncipherment
     --- PRIVATE-KEY no ASN.1 wrapping --
     }
 
-    ML-KEM-PublicKey ::= OCTET STRING
+    ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
 
-    ML-KEM-PrivateKey ::= OCTET STRING
+    ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
 ~~~
 
 No additional encoding of the ML-KEM public key value is applied in
 the SubjectPublicKeyInfo field of an X.509 certificate {{RFC5280}}.
-However, whenever the ML-KEM public key value appears outside of a
+However, whenever it appears outside of a
 certificate, it MAY be encoded as an OCTET STRING.
 
 No additional encoding of the ML-KEM private key value is applied in
 the PrivateKeyInfo field of an Asymmetric Key Package {{RFC5958}}.
-However, whenever the ML-KEM private key value appears outside of a
+However, whenever it appears outside of a
 Asymmetric Key Package, it MAY be encoded as an OCTET STRING.
 
 # Subject Public Key Fields
@@ -315,6 +315,16 @@ in this section.
 {{example-private}} contains examples for ML-KEM private keys
 encoded using the textual encoding defined in {{?RFC7468}}.
 
+# Implementation Considerations
+
+Though section 7.1 of {{FIPS203}} mentions the potential to save seed values for future expansion, Algorithm 19 does not make the seed values available to a caller for serialization.
+Similarly, the algorithm that expands seed values is not listed as one of the "main algorithms" and features "internal" in the name even though it is clear that it is allowed to be exposed externally for the purposes of expanding a key from a seed.
+Below are possible ways to extend the APIs defined in {{FIPS203}} to support serialization of seed values as private keys.
+
+To support serialization of seed values as private keys, let Algorithm 19b denote the same procedure as Algorithm 19 in {{FIPS203}} except it returns (ek, dk, d, z) on line 7. Additionally, Algorithm 16 should be promoted to be a "main algorithm" for external use in expanding seed values.
+
+Note also that unlike other private key compression methods in other algorithms, expanding a private key from a seed is a one-way function, meaning that once a full key is expanded from seed and the seed discarded, the seed cannot be re-created even if the full expanded private key is available. For this reason it is RECOMMENDED that implementations retain and export the seed, even when also exporting the expanded key.
+
 # Security Considerations
 
 The Security Considerations section of {{RFC5280}} applies to this
@@ -380,7 +390,7 @@ as per {{RFC5280}}, certificates use the Distinguished Encoding Rules; see
 <CODE ENDS>
 ~~~
 
-# Security Strengths {#arnold}
+# Parameter Set Security and Sizes {#arnold}
 
 Instead of defining the strength of a quantum algorithm in a traditional
 manner using the imprecise notion of bits of security, NIST has
@@ -396,12 +406,12 @@ Levels 2 and 4 use collision search for SHA-256 and SHA-384 as reference.
   TODO: what should go in this table?
 </aside>
 
-| Level | Parameter Set | Encap. Key | Decap. Key | Ciphertext | SS |
-|-      |-              |-           |-           |-           |-   |
-| 1     | ML-KEM-512    | 800        | 1632       | 768        | 32 |
-| 3     | ML-KEM-768    | 1184       | 2400       | 1952       | 32 |
-| 5     | ML-KEM-1024   | 1568       | 3168       | 2592       | 32 |
-{: #tab-strengths title="ML-KEM security strengths"}
+| Level | Parameter Set | Encap. Key | Decap. Key | Ciphertext | Secret |
+|-      |-              |-           |-           |-           |-       |
+| 1     | ML-KEM-512    | 800        | 1632       | 768        | 32     |
+| 3     | ML-KEM-768    | 1184       | 2400       | 1952       | 32     |
+| 5     | ML-KEM-1024   | 1568       | 3168       | 2592       | 32     |
+{: #tab-strengths title="Mapping between NIST Security Level, ML-KEM parameter set, and sizes in bytes"}
 
 # Examples {#examples}
 
@@ -459,7 +469,11 @@ key in the previous section.
 
 ~~~
 {::include ./example/ML-KEM-512.pub.txt}
+
 ~~~
+<aside markdown="block">
+NOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.
+</aside>
 
 The following is the ML-KEM-768 public key corresponding to the private
 key in the previous section.
@@ -471,6 +485,9 @@ key in the previous section.
 ~~~
 {::include ./example/ML-KEM-768.pub.txt}
 ~~~
+<aside markdown="block">
+NOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.
+</aside>
 
 The following is the ML-KEM-1024 public key corresponding to the private
 key in the previous section.
@@ -482,6 +499,9 @@ key in the previous section.
 ~~~
 {::include ./example/ML-KEM-1024.pub.txt}
 ~~~
+<aside markdown="block">
+NOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.
+</aside>
 
 The following example, in addition to encoding the ML-KEM-768 private key,
 has an attribute included as well as the public key:
