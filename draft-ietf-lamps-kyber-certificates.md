@@ -503,15 +503,6 @@ key in the previous section.
 NOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.
 </aside>
 
-The following example, in addition to encoding the ML-KEM-768 private key,
-has an attribute included as well as the public key:
-
-~~~
-  -----BEGIN PRIVATE KEY-----
-  TODO insert example private key with attribute
-  -----END PRIVATE KEY-------
-~~~
-
 ## Example Certificates {#example-certificate}
 
 The following is the ML-KEM-512 certificate that corresponding to the
