@@ -61,7 +61,7 @@ PublicKeys PUBLIC-KEY ::= {
   }
 
 --
--- ML-KEM Public Keys
+-- ML-KEM Public Keys & Private Key
 --
 
 pk-ml-kem-512 PUBLIC-KEY ::= {
@@ -87,5 +87,9 @@ pk-ml-kem-1024 PUBLIC-KEY ::= {
   CERT-KEY-USAGE { keyEncipherment }
   --- PRIVATE-KEY no ASN.1 wrapping --
   }
+
+ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
+
+ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
 
 END
