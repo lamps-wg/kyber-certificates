@@ -36,21 +36,21 @@ id-alg-ml-kem-768 OBJECT IDENTIFIER ::= { kems 2 }
 
 id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
 
-  --
-  -- Public Key Algorithms
-  --
-  -- To use the following with the PKIX1Explicit-2009 [RFC5912], replace
-  -- the PublicKeyAlgorithms therein with the following:
-  --
-  -- PublicKeyAlgorithms PUBLIC-KEY ::= {
-  --   PKIXAlgs-2009.PublicKeys,
-  --   ...,
-  --   PKIX1-PSS-OAEP-Algorithms-2009.PublicKeys,
-  --   X509-ML-KEM-2024.PublicKeys }
+--
+-- Public Key Algorithms
+--
+-- To use the following with the PKIX1Explicit-2009 [RFC5912], replace
+-- the PublicKeyAlgorithms therein with the following:
+--
+-- PublicKeyAlgorithms PUBLIC-KEY ::= {
+--   PKIXAlgs-2009.PublicKeys,
+--   ...,
+--   PKIX1-PSS-OAEP-Algorithms-2009.PublicKeys,
+--   X509-ML-KEM-2024.PublicKeys }
 
-  --
-  -- Public Key (pk-) Algorithms
-  --
+--
+-- Public Key (pk-) Algorithms
+--
 
 PublicKeys PUBLIC-KEY ::= {
   -- This expands PublicKeys from RFC 5912
