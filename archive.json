@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-07T01:14:47.442913+00:00",
+  "timestamp": "2025-01-09T01:13:53.161597+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -552,15 +552,15 @@
       "id": "I_kwDOGV9y2s6jAD80",
       "title": "pretty print",
       "url": "https://github.com/lamps-wg/kyber-certificates/issues/83",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "seanturner",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Should we just use the pretty print routine from https://github.com/lamps-wg/dilithium-certificates/tree/main/examples?  I have zero problem with that.",
       "createdAt": "2024-12-12T03:55:45Z",
-      "updatedAt": "2024-12-12T14:36:48Z",
-      "closedAt": null,
+      "updatedAt": "2025-01-07T21:48:08Z",
+      "closedAt": "2025-01-07T21:48:08Z",
       "comments": [
         {
           "author": "bwesterb",
@@ -582,8 +582,63 @@
           "body": "Ok, I'll fashion a PR to add some pretty printing and we can change that later on if we have something non-proprietary available, or one-shot at the last minute when there aren't any changes anymore.",
           "createdAt": "2024-12-12T14:36:46Z",
           "updatedAt": "2024-12-12T14:36:46Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closed via #84 -> #81.",
+          "createdAt": "2025-01-07T21:48:08Z",
+          "updatedAt": "2025-01-07T21:48:08Z"
         }
       ]
+    },
+    {
+      "number": 86,
+      "id": "I_kwDOGV9y2s6lVQSY",
+      "title": "Drop ML-KEM-768 PKCS#8 with private key & attribute & public key",
+      "url": "https://github.com/lamps-wg/kyber-certificates/issues/86",
+      "state": "CLOSED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We have lots of examples. This one seems over the top.",
+      "createdAt": "2025-01-07T21:51:31Z",
+      "updatedAt": "2025-01-07T22:58:50Z",
+      "closedAt": "2025-01-07T22:58:50Z",
+      "comments": []
+    },
+    {
+      "number": 88,
+      "id": "I_kwDOGV9y2s6lVm_t",
+      "title": "Drop ToDo in Appendix B",
+      "url": "https://github.com/lamps-wg/kyber-certificates/issues/88",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We suggested text for the table so we can drop the ToDo.",
+      "createdAt": "2025-01-07T23:00:09Z",
+      "updatedAt": "2025-01-07T23:00:09Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 90,
+      "id": "I_kwDOGV9y2s6lWNeQ",
+      "title": "Add ML-KEM-P*Keys To ASN.1 Module",
+      "url": "https://github.com/lamps-wg/kyber-certificates/issues/90",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Need to add ML-KEM-PublicKey & ML-KEM-PrivateKey to ASN.1 module and mention them in Section 3.",
+      "createdAt": "2025-01-08T01:56:09Z",
+      "updatedAt": "2025-01-08T01:56:09Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -5318,24 +5373,26 @@
       "id": "PR_kwDOGV9y2s6E8quf",
       "title": "Add certificate examples",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/81",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Add certificate examples (thanks Bas).",
       "createdAt": "2024-12-12T02:57:44Z",
-      "updatedAt": "2024-12-12T14:43:03Z",
+      "updatedAt": "2025-01-07T21:46:41Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
-      "baseRefOid": "a87d0586be611573a7858ab139ba15131ec536c2",
+      "baseRefOid": "b020d2d30f2fa173b9f6f604acbd6987a580cba1",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "seanturner-cert-examples",
-      "headRefOid": "a144dfea0df01a53de3f4999c73e7a34c225a02e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "a1fae63cf5d642a292413fdd902267379195c4c3",
+      "closedAt": "2025-01-07T21:46:41Z",
+      "mergedAt": "2025-01-07T21:46:41Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "9a3fbe10986e86180023d32e4e71952a55be0112"
+      },
       "comments": [
         {
           "author": "seanturner",
@@ -5587,25 +5644,33 @@
       "id": "PR_kwDOGV9y2s6FB5Nu",
       "title": "Automate pretty print",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/84",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bwesterb",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Closes #83 ",
       "createdAt": "2024-12-12T14:42:31Z",
-      "updatedAt": "2024-12-12T18:39:39Z",
+      "updatedAt": "2025-01-07T21:47:38Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "seanturner-cert-examples",
       "baseRefOid": "a144dfea0df01a53de3f4999c73e7a34c225a02e",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "bas/issue-83",
       "headRefOid": "482bf47ddeb34df4e7c0409df351b477989dd52d",
-      "closedAt": null,
+      "closedAt": "2025-01-07T21:47:37Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I am pretty sure I merged everything in by hand; I completely missed this PR was against my PR and I could have just merged.\r\n\r\nAddressed via #81.",
+          "createdAt": "2025-01-07T21:47:37Z",
+          "updatedAt": "2025-01-07T21:47:37Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOGV9y2s6VCqk7",
@@ -5660,6 +5725,114 @@
           "body": "",
           "createdAt": "2024-12-13T15:53:56Z",
           "updatedAt": "2024-12-13T15:53:56Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 87,
+      "id": "PR_kwDOGV9y2s6G_Ydv",
+      "title": "Drop PKCS#8 example with attribute & public key",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/87",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Addresses #86.",
+      "createdAt": "2025-01-07T21:52:55Z",
+      "updatedAt": "2025-01-07T21:54:19Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "9a3fbe10986e86180023d32e4e71952a55be0112",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-pkcs8-example",
+      "headRefOid": "bf14dc5618adb1aaa8d72fe8350fb7ff864a1a03",
+      "closedAt": "2025-01-07T21:54:19Z",
+      "mergedAt": "2025-01-07T21:54:19Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "ba3c740c0cbc44b84c43a09e7e6d1da55f930415"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 89,
+      "id": "PR_kwDOGV9y2s6G_tIK",
+      "title": "Drop ToDo In Appendix B",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/89",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #88.",
+      "createdAt": "2025-01-07T23:02:15Z",
+      "updatedAt": "2025-01-08T11:43:22Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "ba3c740c0cbc44b84c43a09e7e6d1da55f930415",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-88",
+      "headRefOid": "ba64547f0ee99c3a5cd2d308497bbad7868667f4",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6XNmf6",
+          "commit": {
+            "abbreviatedOid": "ba64547"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-01-08T11:43:22Z",
+          "updatedAt": "2025-01-08T11:43:22Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 91,
+      "id": "PR_kwDOGV9y2s6HAOeW",
+      "title": "Add ML-KEM-P*Keys to ASN.1 Module",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/91",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #90.",
+      "createdAt": "2025-01-08T01:57:17Z",
+      "updatedAt": "2025-01-08T11:45:09Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "ba3c740c0cbc44b84c43a09e7e6d1da55f930415",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-90",
+      "headRefOid": "87ff4c87567deddd1a4ef4d7595f78f6777cb02a",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6XNnSz",
+          "commit": {
+            "abbreviatedOid": "87ff4c8"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-01-08T11:45:09Z",
+          "updatedAt": "2025-01-08T11:45:09Z",
           "comments": []
         }
       ]
