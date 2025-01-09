@@ -471,9 +471,6 @@ key in the previous section.
 {::include ./example/ML-KEM-512.pub.txt}
 
 ~~~
-<aside markdown="block">
-NOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.
-</aside>
 
 The following is the ML-KEM-768 public key corresponding to the private
 key in the previous section.
@@ -485,9 +482,6 @@ key in the previous section.
 ~~~
 {::include ./example/ML-KEM-768.pub.txt}
 ~~~
-<aside markdown="block">
-NOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.
-</aside>
 
 The following is the ML-KEM-1024 public key corresponding to the private
 key in the previous section.
@@ -499,15 +493,17 @@ key in the previous section.
 ~~~
 {::include ./example/ML-KEM-1024.pub.txt}
 ~~~
-<aside markdown="block">
-NOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.
-</aside>
 
 ## Example Certificates {#example-certificate}
 
+<aside markdown="block">
+  RFC EDITOR: Please replace the following reference to
+  {{?I-D.ietf-lamps-dilithium-certificates}} with a reference to the published RFC.
+</aside>
+
 The following is the ML-KEM-512 certificate that corresponding to the
 public key in the previous section signed with the ML-DSA-44 private key
-from {{?I-D.ietf-lamps-dilithium-certificates}}.
+from {{I-D.ietf-lamps-dilithium-certificates}}.
 
 ~~~
 {::include ./example/ML-KEM-512.crt}
@@ -516,6 +512,11 @@ from {{?I-D.ietf-lamps-dilithium-certificates}}.
 ~~~
 {::include ./example/ML-KEM-512.crt.txt}
 ~~~
+
+<aside markdown="block">
+  RFC EDITOR: Please replace the following reference to
+  {{I-D.ietf-lamps-dilithium-certificates}} with a reference to the published RFC.
+</aside>
 
 The following is the ML-KEM-768 certificate that corresponding to the
 public key in the previous section signed with the ML-DSA-65 private key
@@ -528,6 +529,11 @@ from {{I-D.ietf-lamps-dilithium-certificates}}.
 ~~~
 {::include ./example/ML-KEM-768.crt.txt}
 ~~~
+
+<aside markdown="block">
+  RFC EDITOR: Please replace the following reference to
+  {{I-D.ietf-lamps-dilithium-certificates}} with a reference to the published RFC.
+</aside>
 
 The following is the ML-KEM-1024 certificate that corresponding to the
 public key in the previous section signed with the ML-DSA-87 private key
