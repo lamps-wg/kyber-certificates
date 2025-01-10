@@ -353,7 +353,7 @@ requirements around randomness generation, described in section 3.3,
 Many protocols only rely on the IND-CCA security of a KEM. Some
 (implicitly) require further binding properties, formalized
 in {{CDM23}}.
-The key format influences these binding properties.
+The private key format influences these binding properties.
 Per {{KEMMY24}}, ML-KEM is LEAK-BIND-K-PK-secure and
 LEAK-BIND-K-CT-secure when using the expanded private key format,
 but not MAL-BIND-K-CT nor MAL-BIND-K-PK.
