@@ -358,7 +358,7 @@ Per {{KEMMY24}}, ML-KEM is LEAK-BIND-K-PK-secure and
 LEAK-BIND-K-CT-secure when using the expanded private key format,
 but not MAL-BIND-K-CT nor MAL-BIND-K-PK.
 Using the 64-byte seed format provides a step up in binding security,
-providing MAL-BIND-K-CT, but still not MAL-BIND-K-PK.
+additionally providing MAL-BIND-K-CT security, but still not MAL-BIND-K-PK.
 For more guidance, see {{?I-D.sfluhrer-cfrg-ml-kem-security-considerations}}.
 
 # IANA Considerations
