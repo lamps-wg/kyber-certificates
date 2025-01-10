@@ -355,7 +355,7 @@ Many protocols only rely on the IND-CCA security of a KEM. Some
 in {{CDM23}}.
 The key format influences these binding properties.
 Per {{KEMMY24}}, ML-KEM is LEAK-BIND-K-PK-secure and
-LEAK-BIND-K-CT-secure when using the expanded key format,
+LEAK-BIND-K-CT-secure when using the expanded private key format,
 but not MAL-BIND-K-CT nor MAL-BIND-K-PK.
 Using the 64-byte seed format provides a step up in binding security,
 providing MAL-BIND-K-CT, but still not MAL-BIND-K-PK.
