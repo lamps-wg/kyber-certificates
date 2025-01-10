@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 13 July 2025                                         J. Massimo
+Expires: 14 July 2025                                         J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                          9 January 2025
+                                                         10 January 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 July 2025.
+   This Internet-Draft will expire on 14 July 2025.
 
 Copyright Notice
 
@@ -343,8 +343,8 @@ Table of Contents
    (implicitly) require further binding properties, formalized in
    [CDM23].  The key format influences these binding properties.  Per
    [KEMMY24], ML-KEM is LEAK-BIND-K-PK-secure and LEAK-BIND-K-CT-secure
-   when using the expanded key format, but not MAL-BIND-K-CT nor MAL-
-   BIND-K-PK.  Using the 64-byte seed format provides a step up in
+   when using the expanded private key format, but not MAL-BIND-K-CT nor
+   MAL-BIND-K-PK.  Using the 64-byte seed format provides a step up in
    binding security, providing MAL-BIND-K-CT, but still not MAL-BIND-
    K-PK.  For more guidance, see
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations].
