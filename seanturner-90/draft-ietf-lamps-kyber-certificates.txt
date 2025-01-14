@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 12 July 2025                                         J. Massimo
+Expires: 18 July 2025                                         J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                          8 January 2025
+                                                         14 January 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 July 2025.
+   This Internet-Draft will expire on 18 July 2025.
 
 Copyright Notice
 
@@ -151,12 +151,12 @@ Table of Contents
    *  parameters, which are optional, are the associated parameters for
       the algorithm identifier in the algorithm field.
 
-   The AlgorithmIdentifier for a ML-KEM public key MUST use one of the
+   The AlgorithmIdentifier for an ML-KEM public key MUST use one of the
    id-alg-ml-kem object identifiers listed below, based on the security
    level.  The parameters field of the AlgorithmIdentifier for the ML-
    KEM public key MUST be absent.
 
-   When any of the ML-KEM AlgorithmIdentifier appears in the
+   When any of the ML-KEM AlgorithmIdentifiers appear in the
    SubjectPublicKeyInfo field of an X.509 certificate, the key usage
    certificate extension MUST only contain keyEncipherment
    Section 4.2.1.3 of [RFC5280].
@@ -254,7 +254,7 @@ Table of Contents
    using ML-KEM.KeyGen_internal(d,z) as described earlier.
 
    "Asymmetric Key Packages" [RFC5958] describes how to encode a private
-   key in a structure that both identifies what algorithm the private
+   key in a structure that both identifies which algorithm the private
    key is for and allows for the public key and additional attributes
    about the key to be included as well.  For illustration, the ASN.1
    structure OneAsymmetricKey is replicated below.
@@ -349,7 +349,7 @@ Table of Contents
    to compute it against a malicious adversary that has access to
    leaked, honestly-generated key material but is not capable of
    manufacturing maliciously generated keypairs.  This binding to the
-   encapsulation key broadly protects against re-encapsulation attacks
+   encapsulation key broadly protects against re-encapsulation attacks,
    but not completely.
 
    Using the 64-byte seed format provides a step up in binding security
@@ -434,9 +434,9 @@ Table of Contents
    [I-D.ietf-lamps-cms-kyber]
               Prat, J., Ounsworth, M., and D. Van Geest, "Use of ML-KEM
               in the Cryptographic Message Syntax (CMS)", Work in
-              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-07,
-              13 December 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-lamps-cms-kyber-07>.
+              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-08, 9
+              January 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-lamps-cms-kyber-08>.
 
    [I-D.ietf-lamps-dilithium-certificates]
               Massimo, J., Kampanakis, P., Turner, S., and B.
@@ -519,21 +519,21 @@ Appendix A.  ASN.1 Module
 
    id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
 
-     --
-     -- Public Key Algorithms
-     --
-     -- To use the following with the PKIX1Explicit-2009 [RFC5912], replace
-     -- the PublicKeyAlgorithms therein with the following:
-     --
-     -- PublicKeyAlgorithms PUBLIC-KEY ::= {
-     --   PKIXAlgs-2009.PublicKeys,
-     --   ...,
-     --   PKIX1-PSS-OAEP-Algorithms-2009.PublicKeys,
-     --   X509-ML-KEM-2024.PublicKeys }
+   --
+   -- Public Key Algorithms
+   --
+   -- To use the following with the PKIX1Explicit-2009 [RFC5912], replace
+   -- the PublicKeyAlgorithms therein with the following:
+   --
+   -- PublicKeyAlgorithms PUBLIC-KEY ::= {
+   --   PKIXAlgs-2009.PublicKeys,
+   --   ...,
+   --   PKIX1-PSS-OAEP-Algorithms-2009.PublicKeys,
+   --   X509-ML-KEM-2024.PublicKeys }
 
-     --
-     -- Public Key (pk-) Algorithms
-     --
+   --
+   -- Public Key (pk-) Algorithms
+   --
 
    PublicKeys PUBLIC-KEY ::= {
      -- This expands PublicKeys from RFC 5912
