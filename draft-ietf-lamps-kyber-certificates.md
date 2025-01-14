@@ -170,12 +170,12 @@ The fields in AlgorithmIdentifier have the following meanings:
 * parameters, which are optional, are the associated parameters for
   the algorithm identifier in the algorithm field.
 
-The AlgorithmIdentifier for a ML-KEM public key MUST use one of the
+The AlgorithmIdentifier for an ML-KEM public key MUST use one of the
 id-alg-ml-kem object identifiers listed below, based on the security
 level. The parameters field of the AlgorithmIdentifier for the ML-KEM
 public key MUST be absent.
 
-When any of the ML-KEM AlgorithmIdentifier appears in the
+When any of the ML-KEM AlgorithmIdentifiers appear in the
 SubjectPublicKeyInfo field of an X.509 certificate, the key usage
 certificate extension MUST only contain keyEncipherment
 {{Section 4.2.1.3 of RFC5280}}.
@@ -278,7 +278,7 @@ pseudorandom number generator (CSPRNGs). The public key can then
 be computed using `ML-KEM.KeyGen_internal(d,z)` as described earlier.
 
 "Asymmetric Key Packages" {{!RFC5958}} describes how to encode a private
-key in a structure that both identifies what algorithm the private key
+key in a structure that both identifies which algorithm the private key
 is for and allows for the public key and additional attributes about the
 key to be included as well. For illustration, the ASN.1 structure
 OneAsymmetricKey is replicated below.
@@ -361,7 +361,7 @@ shared secret binds to the encapsulation key used to compute it against a
 malicious adversary that has access to leaked, honestly-generated key
 material but is not capable of manufacturing maliciously generated
 keypairs. This binding to the encapsulation key broadly protects against
-re-encapsulation attacks but not completely.
+re-encapsulation attacks, but not completely.
 
 Using the 64-byte seed format provides a step up in binding security by
 mitigating an attack enabled by the hash of the public encapsulation key
