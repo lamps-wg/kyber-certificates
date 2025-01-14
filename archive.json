@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-12T01:20:50.031159+00:00",
+  "timestamp": "2025-01-14T01:10:57.350363+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -5957,7 +5957,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-01-09T15:01:00Z",
-      "updatedAt": "2025-01-10T19:51:04Z",
+      "updatedAt": "2025-01-13T15:27:50Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "4d9df74e6e23848b7fd4055cfd3096c52e1f8dbd",
