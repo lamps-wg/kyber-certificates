@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-14T01:10:57.350363+00:00",
+  "timestamp": "2025-01-16T01:12:09.203268+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -5769,7 +5769,7 @@
       "labels": [],
       "body": "Closes #88.",
       "createdAt": "2025-01-07T23:02:15Z",
-      "updatedAt": "2025-01-08T11:43:22Z",
+      "updatedAt": "2025-01-14T14:21:09Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "ba3c740c0cbc44b84c43a09e7e6d1da55f930415",
@@ -5780,7 +5780,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Will merge at the end of WGLC; see [WGLC messages](https://mailarchive.ietf.org/arch/msg/spasm/tGtrahmTuH_iWjzKFdD0rMcw7iw/).",
+          "createdAt": "2025-01-14T14:21:07Z",
+          "updatedAt": "2025-01-14T14:21:07Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOGV9y2s6XNmf6",
@@ -5809,18 +5817,26 @@
       "labels": [],
       "body": "Closes #90.",
       "createdAt": "2025-01-08T01:57:17Z",
-      "updatedAt": "2025-01-08T11:45:09Z",
+      "updatedAt": "2025-01-14T14:22:30Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
-      "baseRefOid": "ba3c740c0cbc44b84c43a09e7e6d1da55f930415",
+      "baseRefOid": "4d9df74e6e23848b7fd4055cfd3096c52e1f8dbd",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "seanturner-90",
-      "headRefOid": "87ff4c87567deddd1a4ef4d7595f78f6777cb02a",
+      "headRefOid": "529309df7c51596a3bfd6bc1e47ebc594cb750a2",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Will merge at the end of WGLC; see [WGLC messages](https://mailarchive.ietf.org/arch/msg/spasm/tGtrahmTuH_iWjzKFdD0rMcw7iw/).",
+          "createdAt": "2025-01-14T14:22:28Z",
+          "updatedAt": "2025-01-14T14:22:28Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOGV9y2s6XNnSz",
@@ -5904,7 +5920,7 @@
       "labels": [],
       "body": "Remove notes about BIT STRING padding and add notes for RFC editor.",
       "createdAt": "2025-01-09T13:44:26Z",
-      "updatedAt": "2025-01-09T14:20:34Z",
+      "updatedAt": "2025-01-14T14:22:42Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "4d9df74e6e23848b7fd4055cfd3096c52e1f8dbd",
@@ -5915,7 +5931,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Will merge at the end of WGLC; see [WGLC messages](https://mailarchive.ietf.org/arch/msg/spasm/tGtrahmTuH_iWjzKFdD0rMcw7iw/).",
+          "createdAt": "2025-01-14T14:22:40Z",
+          "updatedAt": "2025-01-14T14:22:40Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOGV9y2s6XZYLs",
@@ -5957,7 +5981,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-01-09T15:01:00Z",
-      "updatedAt": "2025-01-13T15:27:50Z",
+      "updatedAt": "2025-01-14T14:23:05Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "4d9df74e6e23848b7fd4055cfd3096c52e1f8dbd",
@@ -5982,6 +6006,13 @@
           "body": "> Approved, but for posterity, why do you want to remove the extra explanation? For simplicity or to avoid inaccuracies?\r\n\r\nExplaining these binding properties accurately and clearly, requires more than a sentence or two. At that point, I felt it's more appropriate to cover it in a different document.",
           "createdAt": "2025-01-10T11:10:51Z",
           "updatedAt": "2025-01-10T11:10:51Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Will merge at the end of WGLC; see [WGLC messages](https://mailarchive.ietf.org/arch/msg/spasm/tGtrahmTuH_iWjzKFdD0rMcw7iw/).",
+          "createdAt": "2025-01-14T14:23:04Z",
+          "updatedAt": "2025-01-14T14:23:04Z"
         }
       ],
       "reviews": [
@@ -6103,6 +6134,19 @@
               "updatedAt": "2025-01-10T19:51:04Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6X6CWl",
+          "commit": {
+            "abbreviatedOid": "f430fe0"
+          },
+          "author": "csosto-pk",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-01-14T02:40:41Z",
+          "updatedAt": "2025-01-14T02:40:41Z",
+          "comments": []
         }
       ]
     }
