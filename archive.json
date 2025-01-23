@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-21T01:11:52.504748+00:00",
+  "timestamp": "2025-01-23T01:12:18.522236+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -639,6 +639,30 @@
       "updatedAt": "2025-01-08T01:56:09Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 95,
+      "id": "I_kwDOGV9y2s6nNnzc",
+      "title": "Private Key Format",
+      "url": "https://github.com/lamps-wg/kyber-certificates/issues/95",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "See [mail thread](https://mailarchive.ietf.org/arch/msg/spasm/6iUmCadOg3PfGja7j26-MUXTUVk/).",
+      "createdAt": "2025-01-22T21:19:09Z",
+      "updatedAt": "2025-01-22T21:26:32Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "For posterity: also see #1 for previous discussion.",
+          "createdAt": "2025-01-22T21:26:30Z",
+          "updatedAt": "2025-01-22T21:26:30Z"
+        }
+      ]
     }
   ],
   "pulls": [
