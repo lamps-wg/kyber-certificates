@@ -1051,11 +1051,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">ML-KEM in Certificates</td>
-<td class="right">January 2025</td>
+<td class="right">February 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Turner, et al.</td>
-<td class="center">Expires 11 July 2025</td>
+<td class="center">Expires 6 August 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-lamps-kyber-certificates-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-01-07" class="published">7 January 2025</time>
+<time datetime="2025-02-02" class="published">2 February 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-07-11">11 July 2025</time></dd>
+<dd class="expires"><time datetime="2025-08-06">6 August 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1139,7 +1139,7 @@ private keys are also described.<a href="#section-abstract-1" class="pilcrow">¶
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 11 July 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 6 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1310,11 +1310,11 @@ identifier.<a href="#section-3-5.1.1" class="pilcrow">¶</a></p>
 the algorithm identifier in the algorithm field.<a href="#section-3-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-3-6">The AlgorithmIdentifier for a ML-KEM public key <span class="bcp14">MUST</span> use one of the
+<p id="section-3-6">The AlgorithmIdentifier for an ML-KEM public key <span class="bcp14">MUST</span> use one of the
 id-alg-ml-kem object identifiers listed below, based on the security
 level. The parameters field of the AlgorithmIdentifier for the ML-KEM
 public key <span class="bcp14">MUST</span> be absent.<a href="#section-3-6" class="pilcrow">¶</a></p>
-<p id="section-3-7">When any of the ML-KEM AlgorithmIdentifier appears in the
+<p id="section-3-7">When any of the ML-KEM AlgorithmIdentifiers appear in the
 SubjectPublicKeyInfo field of an X.509 certificate, the key usage
 certificate extension <span class="bcp14">MUST</span> only contain keyEncipherment
 <span><a href="https://rfc-editor.org/rfc/rfc5280#section-4.2.1.3" class="relref">Section 4.2.1.3</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.<a href="#section-3-7" class="pilcrow">¶</a></p>
@@ -1356,19 +1356,21 @@ certificate extension <span class="bcp14">MUST</span> only contain keyEncipherme
     --- PRIVATE-KEY no ASN.1 wrapping --
     }
 
-    ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
+  ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
 
-    ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
+  ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
 </pre><a href="#section-3-8" class="pilcrow">¶</a>
 </div>
 <p id="section-3-9">No additional encoding of the ML-KEM public key value is applied in
 the SubjectPublicKeyInfo field of an X.509 certificate <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.
 However, whenever it appears outside of a
-certificate, it <span class="bcp14">MAY</span> be encoded as an OCTET STRING.<a href="#section-3-9" class="pilcrow">¶</a></p>
+certificate, it <span class="bcp14">MAY</span> be encoded as an OCTET STRING by using the
+ML-KEM-PublicKey type.<a href="#section-3-9" class="pilcrow">¶</a></p>
 <p id="section-3-10">No additional encoding of the ML-KEM private key value is applied in
-the PrivateKeyInfo field of an Asymmetric Key Package <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span>.
-However, whenever it appears outside of a
-Asymmetric Key Package, it <span class="bcp14">MAY</span> be encoded as an OCTET STRING.<a href="#section-3-10" class="pilcrow">¶</a></p>
+the PrivateKeyInfo field of the OneAsymmetricKey type of an Asymmetric
+Key Package <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span>. However, whenever it appears outside of a
+Asymmetric Key Package, it <span class="bcp14">MAY</span> be encoded as an OCTET STRING by using
+the ML-KEM-PrivateKey type.<a href="#section-3-10" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="subject-public-key-fields">
@@ -1421,7 +1423,7 @@ for the seed (private key)  from a cryptographically secure
 pseudorandom number generator (CSPRNGs). The public key can then
 be computed using <code>ML-KEM.KeyGen_internal(d,z)</code> as described earlier.<a href="#section-5-3" class="pilcrow">¶</a></p>
 <p id="section-5-4">"Asymmetric Key Packages" <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> describes how to encode a private
-key in a structure that both identifies what algorithm the private key
+key in a structure that both identifies which algorithm the private key
 is for and allows for the public key and additional attributes about the
 key to be included as well. For illustration, the ASN.1 structure
 OneAsymmetricKey is replicated below.<a href="#section-5-4" class="pilcrow">¶</a></p>
@@ -1494,20 +1496,16 @@ in this area.<a href="#section-7-4" class="pilcrow">¶</a></p>
 <p id="section-7-5">ML-KEM key generation as standardized in <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> has specific
 requirements around randomness generation, described in section 3.3,
 'Randomness generation'.<a href="#section-7-5" class="pilcrow">¶</a></p>
-<p id="section-7-6">Key formats have implications on KEM binding properties, initially formalized
-in <span>[<a href="#CDM23" class="cite xref">CDM23</a>]</span>. Per the analysis of the final <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> in <span>[<a href="#KEMMY24" class="cite xref">KEMMY24</a>]</span>, a
-compliant instantiation of ML-KEM is LEAK-BIND-K-PK-secure and
-LEAK-BIND-K-CT-secure when using the expanded key format, but not
-MAL-BIND-K-PK-secure nor MAL-BIND-K-CT-secure. This means that the computed
-shared secret binds to the encapsulation key used to compute it against a
-malicious adversary that has access to leaked, honestly-generated key
-material but is not capable of manufacturing maliciously generated
-keypairs. This binding to the encapsulation key broadly protects against
-re-encapsulation attacks but not completely.<a href="#section-7-6" class="pilcrow">¶</a></p>
-<p id="section-7-7">Using the 64-byte seed format provides a step up in binding security by
-mitigating an attack enabled by the hash of the public encapsulation key
-stored in the expanded private decapsulation key format, providing
-MAL-BIND-K-CT security and LEAK-BIND-K-PK security.<a href="#section-7-7" class="pilcrow">¶</a></p>
+<p id="section-7-6">Many protocols only rely on the IND-CCA security of a KEM. Some
+(implicitly) require further binding properties, formalized
+in <span>[<a href="#CDM23" class="cite xref">CDM23</a>]</span>.
+The private key format influences these binding properties.
+Per <span>[<a href="#KEMMY24" class="cite xref">KEMMY24</a>]</span>, ML-KEM is LEAK-BIND-K-PK-secure and
+LEAK-BIND-K-CT-secure when using the expanded private key format,
+but not MAL-BIND-K-CT nor MAL-BIND-K-PK.
+Using the 64-byte seed format provides a step up in binding security,
+additionally providing MAL-BIND-K-CT security, but still not MAL-BIND-K-PK.
+For more guidance, see <span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span>.<a href="#section-7-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -1588,11 +1586,11 @@ registry (1.3.6.1.5.5.7.0).<a href="#section-8-1" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="I-D.ietf-lamps-cms-kyber">[I-D.ietf-lamps-cms-kyber]</dt>
         <dd>
-<span class="refAuthor">Prat, J.</span>, <span class="refAuthor">Ounsworth, M.</span>, and <span class="refAuthor">D. Van Geest</span>, <span class="refTitle">"Use of ML-KEM in the Cryptographic Message Syntax (CMS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-cms-kyber-07</span>, <time datetime="2024-12-13" class="refDate">13 December 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-kyber-07">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-kyber-07</a>&gt;</span>. </dd>
+<span class="refAuthor">Prat, J.</span>, <span class="refAuthor">Ounsworth, M.</span>, and <span class="refAuthor">D. Van Geest</span>, <span class="refTitle">"Use of ML-KEM in the Cryptographic Message Syntax (CMS)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-cms-kyber-08</span>, <time datetime="2025-01-09" class="refDate">9 January 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-kyber-08">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-cms-kyber-08</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-lamps-dilithium-certificates">[I-D.ietf-lamps-dilithium-certificates]</dt>
         <dd>
-<span class="refAuthor">Massimo, J.</span>, <span class="refAuthor">Kampanakis, P.</span>, <span class="refAuthor">Turner, S.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Internet X.509 Public Key Infrastructure: Algorithm Identifiers for ML-DSA"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-dilithium-certificates-05</span>, <time datetime="2024-11-04" class="refDate">4 November 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-05">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-05</a>&gt;</span>. </dd>
+<span class="refAuthor">Massimo, J.</span>, <span class="refAuthor">Kampanakis, P.</span>, <span class="refAuthor">Turner, S.</span>, and <span class="refAuthor">B. Westerbaan</span>, <span class="refTitle">"Internet X.509 Public Key Infrastructure: Algorithm Identifiers for ML-DSA"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-dilithium-certificates-06</span>, <time datetime="2025-01-14" class="refDate">14 January 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-06">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-dilithium-certificates-06</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.sfluhrer-cfrg-ml-kem-security-considerations">[I-D.sfluhrer-cfrg-ml-kem-security-considerations]</dt>
         <dd>
@@ -1667,21 +1665,21 @@ id-alg-ml-kem-768 OBJECT IDENTIFIER ::= { kems 2 }
 
 id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
 
-  --
-  -- Public Key Algorithms
-  --
-  -- To use the following with the PKIX1Explicit-2009 [RFC5912], replace
-  -- the PublicKeyAlgorithms therein with the following:
-  --
-  -- PublicKeyAlgorithms PUBLIC-KEY ::= {
-  --   PKIXAlgs-2009.PublicKeys,
-  --   ...,
-  --   PKIX1-PSS-OAEP-Algorithms-2009.PublicKeys,
-  --   X509-ML-KEM-2024.PublicKeys }
+--
+-- Public Key Algorithms
+--
+-- To use the following with the PKIX1Explicit-2009 [RFC5912], replace
+-- the PublicKeyAlgorithms therein with the following:
+--
+-- PublicKeyAlgorithms PUBLIC-KEY ::= {
+--   PKIXAlgs-2009.PublicKeys,
+--   ...,
+--   PKIX1-PSS-OAEP-Algorithms-2009.PublicKeys,
+--   X509-ML-KEM-2024.PublicKeys }
 
-  --
-  -- Public Key (pk-) Algorithms
-  --
+--
+-- Public Key (pk-) Algorithms
+--
 
 PublicKeys PUBLIC-KEY ::= {
   -- This expands PublicKeys from RFC 5912
@@ -1692,7 +1690,7 @@ PublicKeys PUBLIC-KEY ::= {
   }
 
 --
--- ML-KEM Public Keys
+-- ML-KEM Public Keys &amp; Private Key
 --
 
 pk-ml-kem-512 PUBLIC-KEY ::= {
@@ -1719,6 +1717,10 @@ pk-ml-kem-1024 PUBLIC-KEY ::= {
   --- PRIVATE-KEY no ASN.1 wrapping --
   }
 
+ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
+
+ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
+
 END
 
 &lt;CODE ENDS&gt;</pre><a href="#appendix-A-2" class="pilcrow">¶</a>
@@ -1735,13 +1737,10 @@ manner using the imprecise notion of bits of security, NIST has
 defined security levels by picking a reference scheme, which
 NIST expects to offer notable levels of resistance to both quantum and
 classical attack.  To wit, a KEM algorithm that achieves NIST PQC
-security must require computational resources to break IND-CCA2
+security must require computational resources to break IND-CCA
 security comparable or greater than that required for key search
 on AES-128, AES-192, and AES-256 for Levels 1, 3, and 5, respectively.
 Levels 2 and 4 use collision search for SHA-256 and SHA-384 as reference.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
-<aside id="appendix-B-2">
-        <p id="appendix-B-2.1">TODO: what should go in this table?<a href="#appendix-B-2.1" class="pilcrow">¶</a></p>
-</aside>
 <span id="name-mapping-between-nist-securi"></span><div id="tab-strengths">
 <table class="center" id="table-1">
         <caption>
@@ -1941,12 +1940,9 @@ c3bc59a065a1b6d63b26c` }
 
 </pre><a href="#appendix-C.2-3" class="pilcrow">¶</a>
 </div>
-<aside id="appendix-C.2-4">
-          <p id="appendix-C.2-4.1">NOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.<a href="#appendix-C.2-4.1" class="pilcrow">¶</a></p>
-</aside>
-<p id="appendix-C.2-5">The following is the ML-KEM-768 public key corresponding to the private
-key in the previous section.<a href="#appendix-C.2-5" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="appendix-C.2-6">
+<p id="appendix-C.2-4">The following is the ML-KEM-768 public key corresponding to the private
+key in the previous section.<a href="#appendix-C.2-4" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-C.2-5">
 <pre>
 -----BEGIN PUBLIC KEY-----
 MIIEsjALBglghkgBZQMEBAIDggShACmKoQ1CPI3aBp0CvFnmzfA6CWuLPaTKubgM
@@ -1976,9 +1972,9 @@ AhdrMBwcL0Ekd1AVe87IXoCbMKTWDXdHzdD1uZqoyCaYdRd5OqqAgKCxJKhVjfcr
 vje3X07btr6CFtbGM/srIoDiURPYaV5DSBw+6zl+sZJQUim2eiAeqJPD4ssy2ovD
 QvpN6gV4
 -----END PUBLIC KEY-----
-</pre><a href="#appendix-C.2-6" class="pilcrow">¶</a>
+</pre><a href="#appendix-C.2-5" class="pilcrow">¶</a>
 </div>
-<div class="alignLeft art-text artwork" id="appendix-C.2-7">
+<div class="alignLeft art-text artwork" id="appendix-C.2-6">
 <pre>
 SEQUENCE {
   SEQUENCE {
@@ -2023,14 +2019,11 @@ e6a05cf4502176b301c1c2f41247750157bcec85e809b30a4d60d7747cdd0f5b
 633fb2b2280e25113d8695e43481c3eeb397eb192505229b67a201ea893c3e2c
 b32da8bc342fa4dea0578` }
 }
-</pre><a href="#appendix-C.2-7" class="pilcrow">¶</a>
+</pre><a href="#appendix-C.2-6" class="pilcrow">¶</a>
 </div>
-<aside id="appendix-C.2-8">
-          <p id="appendix-C.2-8.1">NOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.<a href="#appendix-C.2-8.1" class="pilcrow">¶</a></p>
-</aside>
-<p id="appendix-C.2-9">The following is the ML-KEM-1024 public key corresponding to the private
-key in the previous section.<a href="#appendix-C.2-9" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="appendix-C.2-10">
+<p id="appendix-C.2-7">The following is the ML-KEM-1024 public key corresponding to the private
+key in the previous section.<a href="#appendix-C.2-7" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-C.2-8">
 <pre>
 -----BEGIN PUBLIC KEY-----
 MIIGMjALBglghkgBZQMEBAMDggYhAEuUwpRQERGRgjs1FMmsHqPZglzLhjk6LfsE
@@ -2068,9 +2061,9 @@ MWd8PTrwcZ5HXbhcqVr1CJvqvrBbL6q0iWumD4HIhHKle0aoKIJqDN+0RvgYkYLS
 v16sTsHMXer1mcihPkgjVAbRf/3cg0S2xmmEqGiqkvoCInoIaVDrDIcB7VjcYod2
 uYOILhF1
 -----END PUBLIC KEY-----
-</pre><a href="#appendix-C.2-10" class="pilcrow">¶</a>
+</pre><a href="#appendix-C.2-8" class="pilcrow">¶</a>
 </div>
-<div class="alignLeft art-text artwork" id="appendix-C.2-11">
+<div class="alignLeft art-text artwork" id="appendix-C.2-9">
 <pre>
 SEQUENCE {
   SEQUENCE {
@@ -2127,11 +2120,8 @@ f81c88472a57b46a828826a0cdfb446f8189182d2bf5eac4ec1cc5deaf599c8a
 13e48235406d17ffddc8344b6c66984a868aa92fa02227a086950eb0c8701ed5
 8dc628776b983882e1175` }
 }
-</pre><a href="#appendix-C.2-11" class="pilcrow">¶</a>
+</pre><a href="#appendix-C.2-9" class="pilcrow">¶</a>
 </div>
-<aside id="appendix-C.2-12">
-          <p id="appendix-C.2-12.1">NOTE: The padding byte of the DER-encoded BIT STRING is not displayed in the pretty print above.<a href="#appendix-C.2-12.1" class="pilcrow">¶</a></p>
-</aside>
 </section>
 </div>
 <div id="example-certificate">
@@ -2139,10 +2129,14 @@ f81c88472a57b46a828826a0cdfb446f8189182d2bf5eac4ec1cc5deaf599c8a
         <h3 id="name-example-certificates">
 <a href="#appendix-C.3" class="section-number selfRef">C.3. </a><a href="#name-example-certificates" class="section-name selfRef">Example Certificates</a>
         </h3>
-<p id="appendix-C.3-1">The following is the ML-KEM-512 certificate that corresponding to the
+<aside id="appendix-C.3-1">
+          <p id="appendix-C.3-1.1">RFC EDITOR: Please replace the following reference to
+  <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span> with a reference to the published RFC.<a href="#appendix-C.3-1.1" class="pilcrow">¶</a></p>
+</aside>
+<p id="appendix-C.3-2">The following is the ML-KEM-512 certificate that corresponding to the
 public key in the previous section signed with the ML-DSA-44 private key
-from <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>.<a href="#appendix-C.3-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="appendix-C.3-2">
+from <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>.<a href="#appendix-C.3-2" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-C.3-3">
 <pre>
 -----BEGIN CERTIFICATE-----
 MIINpDCCBBqgAwIBAgIUFZ/+byL9XMQsUk32/V4o0N44808wCwYJYIZIAWUDBAMR
@@ -2219,9 +2213,9 @@ IyKgwlIYOghCE3r6SBCrx0+sTP0sixV5Refu2JIBkjoywPavmK3+109l1F0BkzST
 fQ1pAwENGx0oLVFdZHB1f4CSlZaiq8Te7AtOfX6Qtba4w8bP1+j2FSVCWGt4goSv
 s7TAwcrR1drv9BRiaH2qytnr8PcAAAAAAAAAAAAAAAAAAAAAFSM2QA==
 -----END CERTIFICATE-----
-</pre><a href="#appendix-C.3-2" class="pilcrow">¶</a>
+</pre><a href="#appendix-C.3-3" class="pilcrow">¶</a>
 </div>
-<div class="alignLeft art-text artwork" id="appendix-C.3-3">
+<div class="alignLeft art-text artwork" id="appendix-C.3-4">
 <pre>
 SEQUENCE {
   SEQUENCE {
@@ -2410,12 +2404,16 @@ fc424b8bd79c6b13192ae2e34fdb05b4da3cbaf13f9b5d697f86c69c65e00444
 b4e7d7e90b5b6b8c3c6cfd7e8f6152542586b788284afb3b4c0c1cad1d5daeff
 41462687daacad9ebf0f70000000000000000000000000000000015233640` }
 }
-</pre><a href="#appendix-C.3-3" class="pilcrow">¶</a>
+</pre><a href="#appendix-C.3-4" class="pilcrow">¶</a>
 </div>
-<p id="appendix-C.3-4">The following is the ML-KEM-768 certificate that corresponding to the
+<aside id="appendix-C.3-5">
+          <p id="appendix-C.3-5.1">RFC EDITOR: Please replace the following reference to
+  <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span> with a reference to the published RFC.<a href="#appendix-C.3-5.1" class="pilcrow">¶</a></p>
+</aside>
+<p id="appendix-C.3-6">The following is the ML-KEM-768 certificate that corresponding to the
 public key in the previous section signed with the ML-DSA-65 private key
-from <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>.<a href="#appendix-C.3-4" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="appendix-C.3-5">
+from <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>.<a href="#appendix-C.3-6" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-C.3-7">
 <pre>
 -----BEGIN CERTIFICATE-----
 MIISnTCCBZqgAwIBAgIUFZ/+byL9XMQsUk32/V4o0N44808wCwYJYIZIAWUDBAMS
@@ -2519,9 +2517,9 @@ XkFvmlJbGn4UCaaHOUaDZsFBMiAcMAAcPv9FIM+A9NIjbC2imd0TJf+tLf6tLA6P
 gFHtzTF9yuL8FSI+bbLr9go0PG2SnqPM4RQha4s2OoOvtNkQI2Smvu0AAAAAAAAA
 AAAAAAAAAAAAAAAFDBUZHyU=
 -----END CERTIFICATE-----
-</pre><a href="#appendix-C.3-5" class="pilcrow">¶</a>
+</pre><a href="#appendix-C.3-7" class="pilcrow">¶</a>
 </div>
-<div class="alignLeft art-text artwork" id="appendix-C.3-6">
+<div class="alignLeft art-text artwork" id="appendix-C.3-8">
 <pre>
 SEQUENCE {
   SEQUENCE {
@@ -2750,12 +2748,16 @@ f4520cf80f4d2236c2da299dd1325ffad2dfead2c0e8f8051edcd317dcae2fc1
 5223e6db2ebf60a343c6d929ea3cce114216b8b363a83afb4d9102364a6beed0
 00000000000000000000000000000000000050c15191f25` }
 }
-</pre><a href="#appendix-C.3-6" class="pilcrow">¶</a>
+</pre><a href="#appendix-C.3-8" class="pilcrow">¶</a>
 </div>
-<p id="appendix-C.3-7">The following is the ML-KEM-1024 certificate that corresponding to the
+<aside id="appendix-C.3-9">
+          <p id="appendix-C.3-9.1">RFC EDITOR: Please replace the following reference to
+  <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span> with a reference to the published RFC.<a href="#appendix-C.3-9.1" class="pilcrow">¶</a></p>
+</aside>
+<p id="appendix-C.3-10">The following is the ML-KEM-1024 certificate that corresponding to the
 public key in the previous section signed with the ML-DSA-87 private key
-from <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>.<a href="#appendix-C.3-7" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="appendix-C.3-8">
+from <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>.<a href="#appendix-C.3-10" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-C.3-11">
 <pre>
 -----BEGIN CERTIFICATE-----
 MIIZQzCCBxqgAwIBAgIUFZ/+byL9XMQsUk32/V4o0N44808wCwYJYIZIAWUDBAMT
@@ -2894,9 +2896,9 @@ BPoRrmdIWKQYC8/MD5PtZMqUoEGvHl6jFpfbO6+RP6NakpA+q4Tl4xuDNyeKqOdD
 HVT854OIkNIUoqfnESODrczb3C5kjJ230df4V156qMbJBwwcJFtzf5ObyO3ycnd/
 kNggIp4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIDxcdKS4x
 -----END CERTIFICATE-----
-</pre><a href="#appendix-C.3-8" class="pilcrow">¶</a>
+</pre><a href="#appendix-C.3-11" class="pilcrow">¶</a>
 </div>
-<div class="alignLeft art-text artwork" id="appendix-C.3-9">
+<div class="alignLeft art-text artwork" id="appendix-C.3-12">
 <pre>
 SEQUENCE {
   SEQUENCE {
@@ -3178,7 +3180,7 @@ d2e655cb805af1d54fce7838890d214a2a7e7112383adccdbdc2e648c9db7d1d
 7f8575e7aa8c6c9070c1c245b737f939bc8edf272777f90d820229e000000000
 000000000000000000000000000000000000000000004080f171d292e31` }
 }
-</pre><a href="#appendix-C.3-9" class="pilcrow">¶</a>
+</pre><a href="#appendix-C.3-12" class="pilcrow">¶</a>
 </div>
 </section>
 </div>

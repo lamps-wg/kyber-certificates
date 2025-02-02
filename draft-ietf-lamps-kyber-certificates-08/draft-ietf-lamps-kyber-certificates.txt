@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 11 July 2025                                         J. Massimo
+Expires: 6 August 2025                                        J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                          7 January 2025
+                                                         2 February 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 July 2025.
+   This Internet-Draft will expire on 6 August 2025.
 
 Copyright Notice
 
@@ -151,12 +151,12 @@ Table of Contents
    *  parameters, which are optional, are the associated parameters for
       the algorithm identifier in the algorithm field.
 
-   The AlgorithmIdentifier for a ML-KEM public key MUST use one of the
+   The AlgorithmIdentifier for an ML-KEM public key MUST use one of the
    id-alg-ml-kem object identifiers listed below, based on the security
    level.  The parameters field of the AlgorithmIdentifier for the ML-
    KEM public key MUST be absent.
 
-   When any of the ML-KEM AlgorithmIdentifier appears in the
+   When any of the ML-KEM AlgorithmIdentifiers appear in the
    SubjectPublicKeyInfo field of an X.509 certificate, the key usage
    certificate extension MUST only contain keyEncipherment
    Section 4.2.1.3 of [RFC5280].
@@ -197,19 +197,20 @@ Table of Contents
        --- PRIVATE-KEY no ASN.1 wrapping --
        }
 
-       ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
+     ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
 
-       ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
+     ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
 
    No additional encoding of the ML-KEM public key value is applied in
    the SubjectPublicKeyInfo field of an X.509 certificate [RFC5280].
    However, whenever it appears outside of a certificate, it MAY be
-   encoded as an OCTET STRING.
+   encoded as an OCTET STRING by using the ML-KEM-PublicKey type.
 
    No additional encoding of the ML-KEM private key value is applied in
-   the PrivateKeyInfo field of an Asymmetric Key Package [RFC5958].
-   However, whenever it appears outside of a Asymmetric Key Package, it
-   MAY be encoded as an OCTET STRING.
+   the PrivateKeyInfo field of the OneAsymmetricKey type of an
+   Asymmetric Key Package [RFC5958].  However, whenever it appears
+   outside of a Asymmetric Key Package, it MAY be encoded as an OCTET
+   STRING by using the ML-KEM-PrivateKey type.
 
 4.  Subject Public Key Fields
 
@@ -253,7 +254,7 @@ Table of Contents
    using ML-KEM.KeyGen_internal(d,z) as described earlier.
 
    "Asymmetric Key Packages" [RFC5958] describes how to encode a private
-   key in a structure that both identifies what algorithm the private
+   key in a structure that both identifies which algorithm the private
    key is for and allows for the public key and additional attributes
    about the key to be included as well.  For illustration, the ASN.1
    structure OneAsymmetricKey is replicated below.
@@ -339,22 +340,15 @@ Table of Contents
    requirements around randomness generation, described in section 3.3,
    'Randomness generation'.
 
-   Key formats have implications on KEM binding properties, initially
-   formalized in [CDM23].  Per the analysis of the final [FIPS203] in
-   [KEMMY24], a compliant instantiation of ML-KEM is LEAK-BIND-K-PK-
-   secure and LEAK-BIND-K-CT-secure when using the expanded key format,
-   but not MAL-BIND-K-PK-secure nor MAL-BIND-K-CT-secure.  This means
-   that the computed shared secret binds to the encapsulation key used
-   to compute it against a malicious adversary that has access to
-   leaked, honestly-generated key material but is not capable of
-   manufacturing maliciously generated keypairs.  This binding to the
-   encapsulation key broadly protects against re-encapsulation attacks
-   but not completely.
-
-   Using the 64-byte seed format provides a step up in binding security
-   by mitigating an attack enabled by the hash of the public
-   encapsulation key stored in the expanded private decapsulation key
-   format, providing MAL-BIND-K-CT security and LEAK-BIND-K-PK security.
+   Many protocols only rely on the IND-CCA security of a KEM.  Some
+   (implicitly) require further binding properties, formalized in
+   [CDM23].  The private key format influences these binding properties.
+   Per [KEMMY24], ML-KEM is LEAK-BIND-K-PK-secure and LEAK-BIND-K-CT-
+   secure when using the expanded private key format, but not MAL-BIND-
+   K-CT nor MAL-BIND-K-PK.  Using the 64-byte seed format provides a
+   step up in binding security, additionally providing MAL-BIND-K-CT
+   security, but still not MAL-BIND-K-PK.  For more guidance, see
+   [I-D.sfluhrer-cfrg-ml-kem-security-considerations].
 
 8.  IANA Considerations
 
@@ -433,18 +427,18 @@ Table of Contents
    [I-D.ietf-lamps-cms-kyber]
               Prat, J., Ounsworth, M., and D. Van Geest, "Use of ML-KEM
               in the Cryptographic Message Syntax (CMS)", Work in
-              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-07,
-              13 December 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-lamps-cms-kyber-07>.
+              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-08, 9
+              January 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-lamps-cms-kyber-08>.
 
    [I-D.ietf-lamps-dilithium-certificates]
               Massimo, J., Kampanakis, P., Turner, S., and B.
               Westerbaan, "Internet X.509 Public Key Infrastructure:
               Algorithm Identifiers for ML-DSA", Work in Progress,
               Internet-Draft, draft-ietf-lamps-dilithium-certificates-
-              05, 4 November 2024,
+              06, 14 January 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-lamps-
-              dilithium-certificates-05>.
+              dilithium-certificates-06>.
 
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations]
               Fluhrer, S., Dang, Q., Mattsson, J. P., Milner, K., and D.
@@ -518,21 +512,21 @@ Appendix A.  ASN.1 Module
 
    id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
 
-     --
-     -- Public Key Algorithms
-     --
-     -- To use the following with the PKIX1Explicit-2009 [RFC5912], replace
-     -- the PublicKeyAlgorithms therein with the following:
-     --
-     -- PublicKeyAlgorithms PUBLIC-KEY ::= {
-     --   PKIXAlgs-2009.PublicKeys,
-     --   ...,
-     --   PKIX1-PSS-OAEP-Algorithms-2009.PublicKeys,
-     --   X509-ML-KEM-2024.PublicKeys }
+   --
+   -- Public Key Algorithms
+   --
+   -- To use the following with the PKIX1Explicit-2009 [RFC5912], replace
+   -- the PublicKeyAlgorithms therein with the following:
+   --
+   -- PublicKeyAlgorithms PUBLIC-KEY ::= {
+   --   PKIXAlgs-2009.PublicKeys,
+   --   ...,
+   --   PKIX1-PSS-OAEP-Algorithms-2009.PublicKeys,
+   --   X509-ML-KEM-2024.PublicKeys }
 
-     --
-     -- Public Key (pk-) Algorithms
-     --
+   --
+   -- Public Key (pk-) Algorithms
+   --
 
    PublicKeys PUBLIC-KEY ::= {
      -- This expands PublicKeys from RFC 5912
@@ -543,7 +537,7 @@ Appendix A.  ASN.1 Module
      }
 
    --
-   -- ML-KEM Public Keys
+   -- ML-KEM Public Keys & Private Key
    --
 
    pk-ml-kem-512 PUBLIC-KEY ::= {
@@ -570,6 +564,10 @@ Appendix A.  ASN.1 Module
      --- PRIVATE-KEY no ASN.1 wrapping --
      }
 
+   ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
+
+   ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
+
    END
    <CODE ENDS>
 
@@ -580,13 +578,11 @@ Appendix B.  Parameter Set Security and Sizes
    NIST has defined security levels by picking a reference scheme, which
    NIST expects to offer notable levels of resistance to both quantum
    and classical attack.  To wit, a KEM algorithm that achieves NIST PQC
-   security must require computational resources to break IND-CCA2
+   security must require computational resources to break IND-CCA
    security comparable or greater than that required for key search on
    AES-128, AES-192, and AES-256 for Levels 1, 3, and 5, respectively.
    Levels 2 and 4 use collision search for SHA-256 and SHA-384 as
    reference.
-
-      |  TODO: what should go in this table?
 
      +=======+===============+========+========+============+========+
      | Level | Parameter Set | Encap. | Decap. | Ciphertext | Secret |
@@ -726,9 +722,6 @@ C.2.  Example Public Key
    c3bc59a065a1b6d63b26c` }
    }
 
-      |  NOTE: The padding byte of the DER-encoded BIT STRING is not
-      |  displayed in the pretty print above.
-
    The following is the ML-KEM-768 public key corresponding to the
    private key in the previous section.
 
@@ -804,9 +797,6 @@ C.2.  Example Public Key
    633fb2b2280e25113d8695e43481c3eeb397eb192505229b67a201ea893c3e2c
    b32da8bc342fa4dea0578` }
    }
-
-      |  NOTE: The padding byte of the DER-encoded BIT STRING is not
-      |  displayed in the pretty print above.
 
    The following is the ML-KEM-1024 public key corresponding to the
    private key in the previous section.
@@ -904,10 +894,11 @@ C.2.  Example Public Key
    8dc628776b983882e1175` }
    }
 
-      |  NOTE: The padding byte of the DER-encoded BIT STRING is not
-      |  displayed in the pretty print above.
-
 C.3.  Example Certificates
+
+      |  RFC EDITOR: Please replace the following reference to
+      |  [I-D.ietf-lamps-dilithium-certificates] with a reference to the
+      |  published RFC.
 
    The following is the ML-KEM-512 certificate that corresponding to the
    public key in the previous section signed with the ML-DSA-44 private
@@ -1176,6 +1167,10 @@ C.3.  Example Certificates
    b4e7d7e90b5b6b8c3c6cfd7e8f6152542586b788284afb3b4c0c1cad1d5daeff
    41462687daacad9ebf0f70000000000000000000000000000000015233640` }
    }
+
+      |  RFC EDITOR: Please replace the following reference to
+      |  [I-D.ietf-lamps-dilithium-certificates] with a reference to the
+      |  published RFC.
 
    The following is the ML-KEM-768 certificate that corresponding to the
    public key in the previous section signed with the ML-DSA-65 private
@@ -1511,6 +1506,10 @@ C.3.  Example Certificates
    5223e6db2ebf60a343c6d929ea3cce114216b8b363a83afb4d9102364a6beed0
    00000000000000000000000000000000000050c15191f25` }
    }
+
+      |  RFC EDITOR: Please replace the following reference to
+      |  [I-D.ietf-lamps-dilithium-certificates] with a reference to the
+      |  published RFC.
 
    The following is the ML-KEM-1024 certificate that corresponding to
    the public key in the previous section signed with the ML-DSA-87
