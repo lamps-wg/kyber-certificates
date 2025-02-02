@@ -402,10 +402,6 @@ security comparable or greater than that required for key search
 on AES-128, AES-192, and AES-256 for Levels 1, 3, and 5, respectively.
 Levels 2 and 4 use collision search for SHA-256 and SHA-384 as reference.
 
-<aside markdown="block">
-  TODO: what should go in this table?
-</aside>
-
 | Level | Parameter Set | Encap. Key | Decap. Key | Ciphertext | Secret |
 |-      |-              |-           |-           |-           |-       |
 | 1     | ML-KEM-512    | 800        | 1632       | 768        | 32     |
