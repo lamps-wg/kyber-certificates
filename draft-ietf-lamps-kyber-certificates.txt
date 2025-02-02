@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 13 July 2025                                         J. Massimo
+Expires: 6 August 2025                                        J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                          9 January 2025
+                                                         2 February 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 July 2025.
+   This Internet-Draft will expire on 6 August 2025.
 
 Copyright Notice
 
@@ -204,12 +204,13 @@ Table of Contents
    No additional encoding of the ML-KEM public key value is applied in
    the SubjectPublicKeyInfo field of an X.509 certificate [RFC5280].
    However, whenever it appears outside of a certificate, it MAY be
-   encoded as an OCTET STRING.
+   encoded as an OCTET STRING by using the ML-KEM-PublicKey type.
 
    No additional encoding of the ML-KEM private key value is applied in
-   the PrivateKeyInfo field of an Asymmetric Key Package [RFC5958].
-   However, whenever it appears outside of an Asymmetric Key Package, it
-   MAY be encoded as an OCTET STRING.
+   the PrivateKeyInfo field of the OneAsymmetricKey type of an
+   Asymmetric Key Package [RFC5958].  However, whenever it appears
+   outside of a Asymmetric Key Package, it MAY be encoded as an OCTET
+   STRING by using the ML-KEM-PrivateKey type.
 
 4.  Subject Public Key Fields
 
@@ -433,18 +434,18 @@ Table of Contents
    [I-D.ietf-lamps-cms-kyber]
               Prat, J., Ounsworth, M., and D. Van Geest, "Use of ML-KEM
               in the Cryptographic Message Syntax (CMS)", Work in
-              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-07,
-              13 December 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-lamps-cms-kyber-07>.
+              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-08, 9
+              January 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-lamps-cms-kyber-08>.
 
    [I-D.ietf-lamps-dilithium-certificates]
               Massimo, J., Kampanakis, P., Turner, S., and B.
               Westerbaan, "Internet X.509 Public Key Infrastructure:
               Algorithm Identifiers for ML-DSA", Work in Progress,
               Internet-Draft, draft-ietf-lamps-dilithium-certificates-
-              05, 4 November 2024,
+              06, 14 January 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-lamps-
-              dilithium-certificates-05>.
+              dilithium-certificates-06>.
 
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations]
               Fluhrer, S., Dang, Q., Mattsson, J. P., Milner, K., and D.
@@ -543,7 +544,7 @@ Appendix A.  ASN.1 Module
      }
 
    --
-   -- ML-KEM Public Keys
+   -- ML-KEM Public Keys & Private Key
    --
 
    pk-ml-kem-512 PUBLIC-KEY ::= {
@@ -570,6 +571,10 @@ Appendix A.  ASN.1 Module
      --- PRIVATE-KEY no ASN.1 wrapping --
      }
 
+   ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
+
+   ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
+
    END
    <CODE ENDS>
 
@@ -585,8 +590,6 @@ Appendix B.  Parameter Set Security and Sizes
    AES-128, AES-192, and AES-256 for Levels 1, 3, and 5, respectively.
    Levels 2 and 4 use collision search for SHA-256 and SHA-384 as
    reference.
-
-      |  TODO: what should go in this table?
 
      +=======+===============+========+========+============+========+
      | Level | Parameter Set | Encap. | Decap. | Ciphertext | Secret |
