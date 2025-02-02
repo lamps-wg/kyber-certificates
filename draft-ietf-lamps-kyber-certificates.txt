@@ -204,13 +204,12 @@ Table of Contents
    No additional encoding of the ML-KEM public key value is applied in
    the SubjectPublicKeyInfo field of an X.509 certificate [RFC5280].
    However, whenever it appears outside of a certificate, it MAY be
-   encoded as an OCTET STRING by using the ML-KEM-PublicKey type.
+   encoded as an OCTET STRING.
 
    No additional encoding of the ML-KEM private key value is applied in
-   the PrivateKeyInfo field of the OneAsymmetricKey type of an
-   Asymmetric Key Package [RFC5958].  However, whenever it appears
-   outside of a Asymmetric Key Package, it MAY be encoded as an OCTET
-   STRING by using the ML-KEM-PrivateKey type.
+   the PrivateKeyInfo field of an Asymmetric Key Package [RFC5958].
+   However, whenever it appears outside of an Asymmetric Key Package, it
+   MAY be encoded as an OCTET STRING.
 
 4.  Subject Public Key Fields
 
@@ -544,7 +543,7 @@ Appendix A.  ASN.1 Module
      }
 
    --
-   -- ML-KEM Public Keys & Private Key
+   -- ML-KEM Public Keys
    --
 
    pk-ml-kem-512 PUBLIC-KEY ::= {
@@ -570,10 +569,6 @@ Appendix A.  ASN.1 Module
      CERT-KEY-USAGE { keyEncipherment }
      --- PRIVATE-KEY no ASN.1 wrapping --
      }
-
-   ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
-
-   ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
 
    END
    <CODE ENDS>

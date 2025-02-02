@@ -1364,13 +1364,11 @@ certificate extension <span class="bcp14">MUST</span> only contain keyEncipherme
 <p id="section-3-9">No additional encoding of the ML-KEM public key value is applied in
 the SubjectPublicKeyInfo field of an X.509 certificate <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.
 However, whenever it appears outside of a
-certificate, it <span class="bcp14">MAY</span> be encoded as an OCTET STRING by using the
-ML-KEM-PublicKey type.<a href="#section-3-9" class="pilcrow">¶</a></p>
+certificate, it <span class="bcp14">MAY</span> be encoded as an OCTET STRING.<a href="#section-3-9" class="pilcrow">¶</a></p>
 <p id="section-3-10">No additional encoding of the ML-KEM private key value is applied in
-the PrivateKeyInfo field of the OneAsymmetricKey type of an Asymmetric
-Key Package <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span>. However, whenever it appears outside of a
-Asymmetric Key Package, it <span class="bcp14">MAY</span> be encoded as an OCTET STRING by using
-the ML-KEM-PrivateKey type.<a href="#section-3-10" class="pilcrow">¶</a></p>
+the PrivateKeyInfo field of an Asymmetric Key Package <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span>.
+However, whenever it appears outside of an
+Asymmetric Key Package, it <span class="bcp14">MAY</span> be encoded as an OCTET STRING.<a href="#section-3-10" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="subject-public-key-fields">
@@ -1694,7 +1692,7 @@ PublicKeys PUBLIC-KEY ::= {
   }
 
 --
--- ML-KEM Public Keys &amp; Private Key
+-- ML-KEM Public Keys
 --
 
 pk-ml-kem-512 PUBLIC-KEY ::= {
@@ -1720,10 +1718,6 @@ pk-ml-kem-1024 PUBLIC-KEY ::= {
   CERT-KEY-USAGE { keyEncipherment }
   --- PRIVATE-KEY no ASN.1 wrapping --
   }
-
-ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
-
-ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
 
 END
 
