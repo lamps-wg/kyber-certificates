@@ -225,12 +225,14 @@ certificate extension MUST only contain keyEncipherment
 No additional encoding of the ML-KEM public key value is applied in
 the SubjectPublicKeyInfo field of an X.509 certificate {{RFC5280}}.
 However, whenever it appears outside of a
-certificate, it MAY be encoded as an OCTET STRING.
+certificate, it MAY be encoded as an OCTET STRING by using the
+ML-KEM-PublicKey type.
 
 No additional encoding of the ML-KEM private key value is applied in
-the PrivateKeyInfo field of an Asymmetric Key Package {{RFC5958}}.
-However, whenever it appears outside of an
-Asymmetric Key Package, it MAY be encoded as an OCTET STRING.
+the PrivateKeyInfo field of the OneAsymmetricKey type of an Asymmetric
+Key Package {{RFC5958}}. However, whenever it appears outside of a
+Asymmetric Key Package, it MAY be encoded as an OCTET STRING by using
+the ML-KEM-PrivateKey type.
 
 # Subject Public Key Fields
 
