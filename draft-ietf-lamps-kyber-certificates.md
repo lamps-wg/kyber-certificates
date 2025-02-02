@@ -352,21 +352,16 @@ ML-KEM key generation as standardized in {{FIPS203}} has specific
 requirements around randomness generation, described in section 3.3,
 'Randomness generation'.
 
-Key formats have implications on KEM binding properties, initially formalized
-in {{CDM23}}. Per the analysis of the final {{FIPS203}} in {{KEMMY24}}, a
-compliant instantiation of ML-KEM is LEAK-BIND-K-PK-secure and
-LEAK-BIND-K-CT-secure when using the expanded key format, but not
-MAL-BIND-K-PK-secure nor MAL-BIND-K-CT-secure. This means that the computed
-shared secret binds to the encapsulation key used to compute it against a
-malicious adversary that has access to leaked, honestly-generated key
-material but is not capable of manufacturing maliciously generated
-keypairs. This binding to the encapsulation key broadly protects against
-re-encapsulation attacks, but not completely.
-
-Using the 64-byte seed format provides a step up in binding security by
-mitigating an attack enabled by the hash of the public encapsulation key
-stored in the expanded private decapsulation key format, providing
-MAL-BIND-K-CT security and LEAK-BIND-K-PK security.
+Many protocols only rely on the IND-CCA security of a KEM. Some
+(implicitly) require further binding properties, formalized
+in {{CDM23}}.
+The private key format influences these binding properties.
+Per {{KEMMY24}}, ML-KEM is LEAK-BIND-K-PK-secure and
+LEAK-BIND-K-CT-secure when using the expanded private key format,
+but not MAL-BIND-K-CT nor MAL-BIND-K-PK.
+Using the 64-byte seed format provides a step up in binding security,
+additionally providing MAL-BIND-K-CT security, but still not MAL-BIND-K-PK.
+For more guidance, see {{?I-D.sfluhrer-cfrg-ml-kem-security-considerations}}.
 
 # IANA Considerations
 
@@ -399,7 +394,7 @@ manner using the imprecise notion of bits of security, NIST has
 defined security levels by picking a reference scheme, which
 NIST expects to offer notable levels of resistance to both quantum and
 classical attack.  To wit, a KEM algorithm that achieves NIST PQC
-security must require computational resources to break IND-CCA2
+security must require computational resources to break IND-CCA
 security comparable or greater than that required for key search
 on AES-128, AES-192, and AES-256 for Levels 1, 3, and 5, respectively.
 Levels 2 and 4 use collision search for SHA-256 and SHA-384 as reference.
