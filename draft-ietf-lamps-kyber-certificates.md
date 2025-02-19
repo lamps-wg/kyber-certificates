@@ -543,4 +543,16 @@ from {{I-D.ietf-lamps-dilithium-certificates}}.
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+The authors wish to thank the following people for their contributions
+to this document: Deirdre Connolly, Viktor Dukhovni, Alicja Kario, Russ
+Housley, Mike Ounsworth, Daniel Van Geest, Thom Wiggers, and Carl Wallace.
+
+In addition, we would like to thank those who contributed to the private
+key format discussion: Tony Arcieri, Bob Beck, Dmitry Belyavskiy, David
+Benjamin, Daniel Bernstein, Uri Blumenthal, Theo Buehler, Stephen Farrell,
+Jean-Pierre Fiset, Scott Fluhrer, Alex Gaynor, John Gray, Peter Gutmann,
+David Hook, Tim Hudson, Paul Kehrer, John Kemp, Watson Ladd, Adam Langley,
+John Mattsson, Damien Miller, Robert Relyea, Michael Richardson,
+Markku-Juhani O. Saarinen, Rich Salz, Roland Shoemaker, Sophie Schmieg,
+Simo Sorce, Michael St. Johns, Falko Strenzke, Filippo Valsorda, and
+Wei-Jun Wang.
