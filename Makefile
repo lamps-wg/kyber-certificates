@@ -1,5 +1,5 @@
 DEPS_FILES := \
-	X509-ML-KEM-2024.asn \
+	X509-ML-KEM-2025.asn \
 	./example/ML-KEM-1024.crt \
 	./example/ML-KEM-1024.crt.txt \
 	./example/ML-KEM-1024.priv \
