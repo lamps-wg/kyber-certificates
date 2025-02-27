@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-25T01:16:24.704906+00:00",
+  "timestamp": "2025-02-27T01:15:50.106020+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -652,7 +652,7 @@
       "labels": [],
       "body": "See [mail thread](https://mailarchive.ietf.org/arch/msg/spasm/6iUmCadOg3PfGja7j26-MUXTUVk/).",
       "createdAt": "2025-01-22T21:19:09Z",
-      "updatedAt": "2025-01-22T21:26:32Z",
+      "updatedAt": "2025-02-26T18:45:35Z",
       "closedAt": null,
       "comments": [
         {
@@ -661,6 +661,13 @@
           "body": "For posterity: also see #1 for previous discussion.",
           "createdAt": "2025-01-22T21:26:30Z",
           "updatedAt": "2025-01-22T21:26:30Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "To do:\n\n- [ ] Update .asn file - See #97\n- [ ] Update ASN.1 in [Section 3](https://lamps-wg.github.io/kyber-certificates/draft-ietf-lamps-kyber-certificates.html#name-algorithm-identifiers)\n- [ ] Add text to end of [Section 3](https://lamps-wg.github.io/kyber-certificates/draft-ietf-lamps-kyber-certificates.html#name-algorithm-identifiers) for ML-KEM-*-PublicKey and ML-KEM-*-PrivateKey\n- [ ] Add text for seed/expanded consistency checking\n- [ ] Update IANA Consideration - See #98\n- [ ] Update private key examples",
+          "createdAt": "2025-02-26T18:07:48Z",
+          "updatedAt": "2025-02-26T18:45:35Z"
         }
       ]
     }
@@ -6220,6 +6227,86 @@
           "body": "",
           "createdAt": "2025-02-19T16:35:50Z",
           "updatedAt": "2025-02-19T16:35:50Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 97,
+      "id": "PR_kwDOGV9y2s6MsGQG",
+      "title": "Update ASN.1 module",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/97",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-26T18:15:42Z",
+      "updatedAt": "2025-02-26T21:35:58Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "f6fee3e8687118bf752541f92183b383c2cd3e6f",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-asn-module",
+      "headRefOid": "ffe5d7c48fe99d9e5e027e63571c6c2f1eb44870",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6dtskW",
+          "commit": {
+            "abbreviatedOid": "ffe5d7c"
+          },
+          "author": "jakemas",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-26T21:35:58Z",
+          "updatedAt": "2025-02-26T21:35:58Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 98,
+      "id": "PR_kwDOGV9y2s6MsSxE",
+      "title": "Update IANA Considerations",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/98",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-26T18:44:51Z",
+      "updatedAt": "2025-02-26T21:36:14Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "f6fee3e8687118bf752541f92183b383c2cd3e6f",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-iana-considerations",
+      "headRefOid": "bc886c97712b57e0b3ca7ef52ba92d5bda5288fd",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6dtsrQ",
+          "commit": {
+            "abbreviatedOid": "bc886c9"
+          },
+          "author": "jakemas",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-26T21:36:14Z",
+          "updatedAt": "2025-02-26T21:36:14Z",
           "comments": []
         }
       ]
