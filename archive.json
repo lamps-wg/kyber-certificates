@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-27T01:15:50.106020+00:00",
+  "timestamp": "2025-03-02T01:20:12.058141+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -6243,7 +6243,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-02-26T18:15:42Z",
-      "updatedAt": "2025-02-26T21:35:58Z",
+      "updatedAt": "2025-03-01T05:06:28Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "f6fee3e8687118bf752541f92183b383c2cd3e6f",
@@ -6267,6 +6267,19 @@
           "body": "",
           "createdAt": "2025-02-26T21:35:58Z",
           "updatedAt": "2025-02-26T21:35:58Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6eFiRH",
+          "commit": {
+            "abbreviatedOid": "ffe5d7c"
+          },
+          "author": "vdukhovni",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-01T05:06:28Z",
+          "updatedAt": "2025-03-01T05:06:28Z",
           "comments": []
         }
       ]
