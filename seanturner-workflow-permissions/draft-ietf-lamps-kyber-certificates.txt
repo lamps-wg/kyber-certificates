@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 6 August 2025                                        J. Massimo
+Expires: 6 September 2025                                     J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                         2 February 2025
+                                                            5 March 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 August 2025.
+   This Internet-Draft will expire on 6 September 2025.
 
 Copyright Notice
 
@@ -436,9 +436,9 @@ Table of Contents
               Westerbaan, "Internet X.509 Public Key Infrastructure:
               Algorithm Identifiers for ML-DSA", Work in Progress,
               Internet-Draft, draft-ietf-lamps-dilithium-certificates-
-              06, 14 January 2025,
+              07, 2 February 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-lamps-
-              dilithium-certificates-06>.
+              dilithium-certificates-07>.
 
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations]
               Fluhrer, S., Dang, Q., Mattsson, J. P., Milner, K., and D.
@@ -1936,7 +1936,21 @@ C.3.  Example Certificates
 
 Acknowledgments
 
-   TODO acknowledge.
+   The authors wish to thank the following people for their
+   contributions to this document: Deirdre Connolly, Viktor Dukhovni,
+   Alicja Kario, Russ Housley, Mike Ounsworth, Daniel Van Geest, Thom
+   Wiggers, and Carl Wallace.
+
+   In addition, we would like to thank those who contributed to the
+   private key format discussion: Tony Arcieri, Bob Beck, Dmitry
+   Belyavskiy, David Benjamin, Daniel Bernstein, Uri Blumenthal, Theo
+   Buehler, Stephen Farrell, Jean-Pierre Fiset, Scott Fluhrer, Alex
+   Gaynor, John Gray, Peter Gutmann, David Hook, Tim Hudson, Paul
+   Kehrer, John Kemp, Watson Ladd, Adam Langley, John Mattsson, Damien
+   Miller, Robert Relyea, Michael Richardson, Markku-Juhani O.
+   Saarinen, Rich Salz, Roland Shoemaker, Sophie Schmieg, Simo Sorce,
+   Michael St. Johns, Falko Strenzke, Filippo Valsorda, and Wei-Jun
+   Wang.
 
 Authors' Addresses
 
