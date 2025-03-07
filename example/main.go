@@ -5,7 +5,6 @@ import (
 	"encoding/asn1"
 	"encoding/pem"
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/cloudflare/circl/kem/schemes"
@@ -16,12 +15,53 @@ type subjectPublicKeyInfo struct {
 	PublicKey asn1.BitString
 }
 
-type oneAsymmetricKey struct {
+type mlkemPrivateKey struct {
 	Version    int
 	Algorithm  pkix.AlgorithmIdentifier
 	PrivateKey []byte
-	Attributes []asn1.RawValue       `asn1:"tag:0,optional"`
-	PublicKey  *subjectPublicKeyInfo `asn1:"tag:1,optional"`
+}
+
+func generatePrivateKeyBytes(format string, seed []byte, expandedKey []byte) ([]byte, error) {
+	switch format {
+	case "seed":
+		// Create [0] OCTET STRING structure
+		seedValue := asn1.RawValue{
+			Class:      asn1.ClassContextSpecific,
+			Tag:        0,
+			Bytes:      seed,
+			IsCompound: false,
+		}
+		return asn1.Marshal(seedValue)
+	case "expanded":
+		return asn1.Marshal(expandedKey)
+	case "both":
+		sequence := struct {
+			Seed        []byte
+			ExpandedKey []byte
+		}{
+			Seed:        seed,
+			ExpandedKey: expandedKey,
+		}
+		return asn1.Marshal(sequence)
+	}
+	return nil, fmt.Errorf("unknown format")
+}
+
+func generatePrivateKey(format string, alg pkix.AlgorithmIdentifier, seed []byte, expandedKey []byte) (mlkemPrivateKey, error) {
+	ask := mlkemPrivateKey{
+		Version:   0,
+		Algorithm: alg,
+	}
+
+	// Generate the inner CHOICE structure
+	innerBytes, err := generatePrivateKeyBytes(format, seed, expandedKey)
+	if err != nil {
+		return ask, err
+	}
+
+	// Set as the private key bytes
+	ask.PrivateKey = innerBytes
+	return ask, nil
 }
 
 func example(name string) {
@@ -33,12 +73,13 @@ func example(name string) {
 	for i := 0; i < len(seed); i++ {
 		seed[i] = byte(i)
 	}
-	pk, _ := scheme.DeriveKeyPair(seed)
+	pk, sk := scheme.DeriveKeyPair(seed)
+
+	expandedKey, _ := sk.MarshalBinary()
 
 	ppk, _ := pk.MarshalBinary()
 
 	var oid int
-
 	switch name {
 	case "ML-KEM-512":
 		oid = 1
@@ -62,46 +103,48 @@ func example(name string) {
 		},
 	}
 
-	ask := oneAsymmetricKey{
-		Version:    0,
-		Algorithm:  alg,
-		PrivateKey: seed,
+	formats := []string{"seed", "expanded", "both"}
+	for _, format := range formats {
+		ask, err := generatePrivateKey(format, alg, seed, expandedKey)
+		if err != nil {
+			panic(err)
+		}
+
+		pask, err := asn1.Marshal(ask)
+		if err != nil {
+			panic(err)
+		}
+
+		fsk, err := os.Create(fmt.Sprintf("%s-%s.priv", name, format))
+		if err != nil {
+			panic(err)
+		}
+		defer fsk.Close()
+
+		if err = pem.Encode(fsk, &pem.Block{
+			Type:  "PRIVATE KEY",
+			Bytes: pask,
+		}); err != nil {
+			panic(err)
+		}
 	}
 
 	papk, err := asn1.Marshal(apk)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
-
-	pask, err := asn1.Marshal(ask)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fsk, err := os.Create(fmt.Sprintf("%s.priv", name))
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer fsk.Close()
 
 	fpk, err := os.Create(fmt.Sprintf("%s.pub", name))
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	defer fpk.Close()
-
-	if err = pem.Encode(fsk, &pem.Block{
-		Type:  "PRIVATE KEY",
-		Bytes: pask,
-	}); err != nil {
-		log.Fatal(err)
-	}
 
 	if err = pem.Encode(fpk, &pem.Block{
 		Type:  "PUBLIC KEY",
 		Bytes: papk,
 	}); err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 }
 

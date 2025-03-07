@@ -414,42 +414,98 @@ certificates.
 
 ## Example Private Key {#example-private}
 
-The following is an example of a ML-KEM-512 private key with hex seed `0001…3f`:
+The following examples show ML-KEM private keys in different formats,
+all derived from the same seed `000102…1e1f`. For each security level,
+we show the seed-only format (using a context-specific `[0]` primitive
+tag with an implicit encoding of OCTET STRING), the expanded format,
+and both formats together.
 
-~~~
-{::include ./example/ML-KEM-512.priv}
-~~~
+### ML-KEM-512 Private Key Examples
 
+#### Seed Format
 ~~~
-{::include ./example/ML-KEM-512.priv.txt}
-~~~
-
-The following is an example of a ML-KEM-768 private key from the same seed.
-
-~~~
-{::include ./example/ML-KEM-768.priv}
+{::include ./example/ML-KEM-512-seed.priv}
 ~~~
 
 ~~~
-{::include ./example/ML-KEM-768.priv.txt}
+{::include ./example/ML-KEM-512-seed.priv.txt}
 ~~~
 
-The following is an example of a ML-KEM-1024 private key from the same seed.
-
+#### Expanded Format
 ~~~
-{::include ./example/ML-KEM-1024.priv}
-~~~
-
-~~~
-{::include ./example/ML-KEM-1024.priv.txt}
+{::include ./example/ML-KEM-512-expanded.priv}
 ~~~
 
-<aside markdown="block">
-  NOTE: The private key is the seed and all three examples keys
-  use the same seed; therefore, the private above are the same
-  except for the OID used to represent the ML-KEM algorithm's
-  security strength.
-</aside>
+~~~
+{::include ./example/ML-KEM-512-expanded.priv.txt}
+~~~
+
+#### Both Format
+~~~
+{::include ./example/ML-KEM-512-both.priv}
+~~~
+
+~~~
+{::include ./example/ML-KEM-512-both.priv.txt}
+~~~
+
+### ML-KEM-768 Private Key Examples
+
+#### Seed Format
+~~~
+{::include ./example/ML-KEM-768-seed.priv}
+~~~
+
+~~~
+{::include ./example/ML-KEM-768-seed.priv.txt}
+~~~
+
+#### Expanded Format
+~~~
+{::include ./example/ML-KEM-768-expanded.priv}
+~~~
+
+~~~
+{::include ./example/ML-KEM-768-expanded.priv.txt}
+~~~
+
+#### Both Format
+~~~
+{::include ./example/ML-KEM-768-both.priv}
+~~~
+
+~~~
+{::include ./example/ML-KEM-768-both.priv.txt}
+~~~
+
+### ML-KEM-1024 Private Key Examples
+
+#### Seed Format
+~~~
+{::include ./example/ML-KEM-1024-seed.priv}
+~~~
+
+~~~
+{::include ./example/ML-KEM-1024-seed.priv.txt}
+~~~
+
+#### Expanded Format
+~~~
+{::include ./example/ML-KEM-1024-expanded.priv}
+~~~
+
+~~~
+{::include ./example/ML-KEM-1024-expanded.priv.txt}
+~~~
+
+#### Both Format
+~~~
+{::include ./example/ML-KEM-1024-both.priv}
+~~~
+
+~~~
+{::include ./example/ML-KEM-1024-both.priv.txt}
+~~~
 
 ## Example Public Key {#example-public}
 
