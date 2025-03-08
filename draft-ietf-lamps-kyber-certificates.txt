@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 8 September 2025                                     J. Massimo
+Expires: 9 September 2025                                     J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                            7 March 2025
+                                                            8 March 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 September 2025.
+   This Internet-Draft will expire on 9 September 2025.
 
 Copyright Notice
 
