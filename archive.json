@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-06T01:17:05.576073+00:00",
+  "timestamp": "2025-03-09T01:07:18.255624+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -6243,7 +6243,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-02-26T18:15:42Z",
-      "updatedAt": "2025-03-01T05:06:28Z",
+      "updatedAt": "2025-03-08T05:49:08Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "f6fee3e8687118bf752541f92183b383c2cd3e6f",
@@ -6281,6 +6281,106 @@
           "createdAt": "2025-03-01T05:06:28Z",
           "updatedAt": "2025-03-01T05:06:28Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6fBJlw",
+          "commit": {
+            "abbreviatedOid": "ffe5d7c"
+          },
+          "author": "randombit",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-07T17:15:02Z",
+          "updatedAt": "2025-03-07T17:15:02Z",
+          "comments": [
+            {
+              "originalPosition": 66,
+              "body": "Why tag the seed instead of the expanded key? If the seed was untagged and expandedKey tagged, then this `CHOICE` encoding would remain compatible with previous drafts.",
+              "createdAt": "2025-03-07T17:15:02Z",
+              "updatedAt": "2025-03-07T17:15:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6fB0Y5",
+          "commit": {
+            "abbreviatedOid": "ffe5d7c"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-07T18:39:21Z",
+          "updatedAt": "2025-03-07T18:39:21Z",
+          "comments": [
+            {
+              "originalPosition": 66,
+              "body": "There's been ~500 message where we are trying to some to an agreement on this format; see on of the [threads](https://mailarchive.ietf.org/arch/msg/spasm/mCsmGs3NPWO01bGSHXwtDmsAM-A/). In this [message](https://mailarchive.ietf.org/arch/msg/spasm/X9FwsnRqb2gyMje7HOKxv8xkpXw/), Russ indicates that \"We know that some implementations that are already under evaluation cannot meet this requirement.  We expect that those implementations will only be able to handle the expandedKey format, which is the reason that that it does not have a tag specified in the ASN.1.\"",
+              "createdAt": "2025-03-07T18:39:21Z",
+              "updatedAt": "2025-03-07T18:39:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6fCfxz",
+          "commit": {
+            "abbreviatedOid": "ffe5d7c"
+          },
+          "author": "randombit",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-07T20:12:00Z",
+          "updatedAt": "2025-03-07T20:12:00Z",
+          "comments": [
+            {
+              "originalPosition": 66,
+              "body": "I guess I don't see a connection between some implementation not being able to handle the seed format and the choice of which format gets a tag vs which does not. Some implementations will similarly not going to support only the expanded key variants, since you cannot re-encode those keys as seed only.",
+              "createdAt": "2025-03-07T20:12:00Z",
+              "updatedAt": "2025-03-07T20:12:00Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6fCpQM",
+          "commit": {
+            "abbreviatedOid": "ffe5d7c"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-07T20:24:45Z",
+          "updatedAt": "2025-03-07T20:24:45Z",
+          "comments": [
+            {
+              "originalPosition": 66,
+              "body": "I guess also see this [PR](https://github.com/lamps-wg/dilithium-certificates/pull/87) in the ML-DSA repo.",
+              "createdAt": "2025-03-07T20:24:45Z",
+              "updatedAt": "2025-03-07T20:24:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6fFZWV",
+          "commit": {
+            "abbreviatedOid": "ffe5d7c"
+          },
+          "author": "vdukhovni",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-08T05:49:08Z",
+          "updatedAt": "2025-03-08T05:49:08Z",
+          "comments": [
+            {
+              "originalPosition": 66,
+              "body": "Tagging the seed is compatible with prior drafts and OQS (also BouncyCastle, ...) that used an octet string for the `dk`.\r\nThere is not a substantial history of implementations using untagged octet string for just the seed.\r\nIn any case this issue is now essentially settled, with the seed tagged, it would not be productive to reopen it.",
+              "createdAt": "2025-03-08T05:49:08Z",
+              "updatedAt": "2025-03-08T05:50:38Z"
+            }
+          ]
         }
       ]
     },
@@ -6329,24 +6429,26 @@
       "id": "PR_kwDOGV9y2s6NgZ4n",
       "title": "Update workflow permissions",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/99",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-03-05T17:18:58Z",
-      "updatedAt": "2025-03-05T23:09:41Z",
+      "updatedAt": "2025-03-08T03:27:58Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "f6fee3e8687118bf752541f92183b383c2cd3e6f",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "seanturner-workflow-permissions",
       "headRefOid": "03065f8993cadaf8366f2c6b5340263a4030317d",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-03-08T03:27:58Z",
+      "mergedAt": "2025-03-08T03:27:58Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "62d76d728f0756ba9536f809b524e1c7a0101fac"
+      },
       "comments": [],
       "reviews": [
         {
@@ -6369,26 +6471,269 @@
       "id": "PR_kwDOGV9y2s6NkImX",
       "title": "updated examples with new private key formats",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/100",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "jakemas",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "## Changes to Support Multiple Private Key Formats\r\n\r\nThis PR updates the examples to support three different private key formats as defined in the ASN.1 module:\r\n\r\n## Key Changes\r\n\r\n```\r\nML-KEM-512-PrivateKey ::= CHOICE {\r\n  seed [0] OCTET STRING (SIZE (64)),\r\n  expandedKey OCTET STRING (SIZE (1632)),\r\n  both SEQUENCE {\r\n      seed OCTET STRING (SIZE (64)),\r\n      expandedKey OCTET STRING (SIZE (1632))\r\n      }\r\n  }\r\n```\r\n\r\n- updated `generate.go` source code for new examples (seed, expanded, both)\r\n- added new examples (and ASN.1 pretty print)\r\n\r\n## Examples\r\n\r\nEach security level (ML-KEM-512, ML-KEM-768, ML-KEM-1024) now includes examples of all three formats, showing:\r\n- How the same seed produces different expanded keys\r\n- ASN.1 structure and encoding",
       "createdAt": "2025-03-06T01:00:04Z",
-      "updatedAt": "2025-03-06T01:04:48Z",
+      "updatedAt": "2025-03-07T21:59:17Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "f6fee3e8687118bf752541f92183b383c2cd3e6f",
       "headRepository": "jakemas/kyber-certificates",
       "headRefName": "priv-examples",
-      "headRefOid": "2a71f08ceb6dc2aa8587048723f3d9741f409d39",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "headRefOid": "726ca33b904c2de541dd44617662fb9971a57ffa",
+      "closedAt": "2025-03-07T21:59:17Z",
+      "mergedAt": "2025-03-07T21:59:17Z",
+      "mergedBy": "jakemas",
+      "mergeCommit": {
+        "oid": "5b10784507f21170ea5e74b78ff4f4baa9cc83c8"
+      },
+      "comments": [
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "You tag the seed in within both too, which is not what is written in the spec, right?",
+          "createdAt": "2025-03-06T09:38:30Z",
+          "updatedAt": "2025-03-06T09:38:30Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6ez042",
+          "commit": {
+            "abbreviatedOid": "2a71f08"
+          },
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Those are not PKCS#8 files, let alone the format discussed on the mailing list:\r\n\r\nthat's the contents:\r\n```\r\n$ openssl asn1parse -in ML-KEM-1024-seed.priv -i\r\n    0:d=0  hl=2 l=  84 cons: SEQUENCE          \r\n    2:d=1  hl=2 l=   1 prim:  INTEGER           :00\r\n    5:d=1  hl=2 l=  11 cons:  SEQUENCE          \r\n    7:d=2  hl=2 l=   9 prim:   OBJECT            :2.16.840.1.101.3.4.4.3\r\n   18:d=1  hl=2 l=  66 cons:  SEQUENCE          \r\n   20:d=2  hl=2 l=  64 prim:   cont [ 0 ]\r\n```\r\nwhile a proper PKCS#8 file would have an OCTET STRING in place of last SEQUENCE:\r\n```\r\n$ openssl asn1parse -in prv-512-priv-only.pem -i\r\n    0:d=0  hl=4 l=1656 cons: SEQUENCE          \r\n    4:d=1  hl=2 l=   1 prim:  INTEGER           :00\r\n    7:d=1  hl=2 l=  11 cons:  SEQUENCE          \r\n    9:d=2  hl=2 l=   9 prim:   OBJECT            :2.16.840.1.101.3.4.4.1\r\n   20:d=1  hl=4 l=1636 prim:  OCTET STRING      [HEX DUMP]:0482066070554FD436344F2...\r\n```",
+          "createdAt": "2025-03-06T13:04:41Z",
+          "updatedAt": "2025-03-06T13:14:38Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6e3lAH",
+          "commit": {
+            "abbreviatedOid": "17ad96f"
+          },
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "checked all the PEM files: they are consistent and follow the WG agreed formats",
+          "createdAt": "2025-03-06T18:58:39Z",
+          "updatedAt": "2025-03-06T18:58:39Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6e3mMf",
+          "commit": {
+            "abbreviatedOid": "17ad96f"
+          },
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-06T19:01:04Z",
+          "updatedAt": "2025-03-06T19:01:04Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "that doesn't seem right though... the tag here is an OCTET STRING, but it has a SEQUENCE in it\r\n\r\n(the PEM file is fine, just this text decode is bad)",
+              "createdAt": "2025-03-06T19:01:04Z",
+              "updatedAt": "2025-03-06T19:01:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6e3mXk",
+          "commit": {
+            "abbreviatedOid": "17ad96f"
+          },
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-06T19:01:24Z",
+          "updatedAt": "2025-03-06T19:01:24Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "same here, that should be OCTET STRING",
+              "createdAt": "2025-03-06T19:01:24Z",
+              "updatedAt": "2025-03-06T19:01:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6e3me6",
+          "commit": {
+            "abbreviatedOid": "17ad96f"
+          },
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-06T19:01:38Z",
+          "updatedAt": "2025-03-06T19:01:38Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "and OCTET STRING again",
+              "createdAt": "2025-03-06T19:01:38Z",
+              "updatedAt": "2025-03-06T19:01:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6e3ooF",
+          "commit": {
+            "abbreviatedOid": "17ad96f"
+          },
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-06T19:05:58Z",
+          "updatedAt": "2025-03-06T19:05:58Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "> using explicit tag `[0]`\r\n\r\n\"using a context-specific `[0]` primitive tag with an implicit encoding of OCTET STRING\" is more technically correct.",
+              "createdAt": "2025-03-06T19:05:58Z",
+              "updatedAt": "2025-03-06T19:09:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6e3tCA",
+          "commit": {
+            "abbreviatedOid": "17ad96f"
+          },
+          "author": "jakemas",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-06T19:15:17Z",
+          "updatedAt": "2025-03-06T19:15:18Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "I haven't updated the pretty print yet, thats why :)",
+              "createdAt": "2025-03-06T19:15:18Z",
+              "updatedAt": "2025-03-06T19:15:18Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6e4cHT",
+          "commit": {
+            "abbreviatedOid": "17ad96f"
+          },
+          "author": "jakemas",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-06T20:49:53Z",
+          "updatedAt": "2025-03-06T20:49:53Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "updated in [726ca33](https://github.com/lamps-wg/kyber-certificates/pull/100/commits/726ca33b904c2de541dd44617662fb9971a57ffa)",
+              "createdAt": "2025-03-06T20:49:53Z",
+              "updatedAt": "2025-03-06T20:49:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6e4cId",
+          "commit": {
+            "abbreviatedOid": "17ad96f"
+          },
+          "author": "jakemas",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-06T20:49:55Z",
+          "updatedAt": "2025-03-06T20:49:55Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "[726ca33](https://github.com/lamps-wg/kyber-certificates/pull/100/commits/726ca33b904c2de541dd44617662fb9971a57ffa)",
+              "createdAt": "2025-03-06T20:49:55Z",
+              "updatedAt": "2025-03-06T20:49:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6e4cJ3",
+          "commit": {
+            "abbreviatedOid": "17ad96f"
+          },
+          "author": "jakemas",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-06T20:49:58Z",
+          "updatedAt": "2025-03-06T20:49:58Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "[726ca33](https://github.com/lamps-wg/kyber-certificates/pull/100/commits/726ca33b904c2de541dd44617662fb9971a57ffa)",
+              "createdAt": "2025-03-06T20:49:58Z",
+              "updatedAt": "2025-03-06T20:49:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6e4cNQ",
+          "commit": {
+            "abbreviatedOid": "17ad96f"
+          },
+          "author": "jakemas",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-06T20:50:06Z",
+          "updatedAt": "2025-03-06T20:50:06Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "[8f499e0](https://github.com/lamps-wg/kyber-certificates/pull/100/commits/8f499e07b2face998d1aea39aa3a921de29d0880)",
+              "createdAt": "2025-03-06T20:50:06Z",
+              "updatedAt": "2025-03-06T20:50:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6e9OSn",
+          "commit": {
+            "abbreviatedOid": "726ca33"
+          },
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "haven't byte-compared the text encodings with the PEM files, but the structures do look fine",
+          "createdAt": "2025-03-07T10:23:55Z",
+          "updatedAt": "2025-03-07T10:23:55Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6fDULe",
+          "commit": {
+            "abbreviatedOid": "726ca33"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Like I said on the [list](https://mailarchive.ietf.org/arch/msg/spasm/egXNlkkjUA2HLKU2Gz6tiVRqGp4/) I checked the examples and they looked good. I also checked them against Viktor's examples and they were the same.\r\n\r\nOff to write some text that matches the examples ;)",
+          "createdAt": "2025-03-07T21:42:34Z",
+          "updatedAt": "2025-03-07T21:42:34Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
