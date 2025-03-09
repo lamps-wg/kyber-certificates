@@ -367,7 +367,7 @@ For more guidance, see {{?I-D.sfluhrer-cfrg-ml-kem-security-considerations}}.
 
 For the ASN.1 Module in {{asn1}}, IANA is requested to assign an
 object identifier (OID) for the module identifier (TBD) with a
-Description of "id-mod-x509-ml-kem-2024".  The OID for the module
+Description of "id-mod-x509-ml-kem-2025".  The OID for the module
 should be allocated in the "SMI Security for PKIX Module Identifier"
 registry (1.3.6.1.5.5.7.0).
 
