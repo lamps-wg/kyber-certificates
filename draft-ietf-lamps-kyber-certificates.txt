@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 9 September 2025                                     J. Massimo
+Expires: 11 September 2025                                    J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                            8 March 2025
+                                                           10 March 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 September 2025.
+   This Internet-Draft will expire on 11 September 2025.
 
 Copyright Notice
 
@@ -477,27 +477,28 @@ Appendix A.  ASN.1 Module
    [RFC9629].
 
    <CODE BEGINS>
-   X509-ML-KEM-2024
+   X509-ML-KEM-2025
    { iso(1) identified-organization(3) dod(6)
      internet(1) security(5) mechanisms(5) pkix(7) id-mod(0)
-     id-mod-x509-ml-kem-2024(TBD) }
+     id-mod-x509-ml-kem-2025(TBD) }
 
    DEFINITIONS IMPLICIT TAGS ::= BEGIN
 
    EXPORTS ALL;
 
    IMPORTS
-     PUBLIC-KEY
-       FROM AlgorithmInformation-2009  -- [RFC 5912]
-         { iso(1) identified-organization(3) dod(6) internet(1)
-           security(5) mechanisms(5) pkix(7) id-mod(0)
-           id-mod-algorithmInformation-02(58) }
 
-     KEM-ALGORITHM
-       FROM KEMAlgorithmInformation-2023  -- [RFC 9629]
-         { iso(1) identified-organization(3) dod(6) internet(1)
-           security(5) mechanisms(5) pkix(7) id-mod(0)
-           id-mod-kemAlgorithmInformation-2023(109) };
+    PUBLIC-KEY
+      FROM AlgorithmInformation-2009  -- [RFC 5912]
+        { iso(1) identified-organization(3) dod(6) internet(1)
+          security(5) mechanisms(5) pkix(7) id-mod(0)
+          id-mod-algorithmInformation-02(58) }
+
+    KEM-ALGORITHM
+      FROM KEMAlgorithmInformation-2023  -- [RFC 9629]
+        { iso(1) identified-organization(3) dod(6) internet(1)
+          security(5) mechanisms(5) pkix(7) id-mod(0)
+          id-mod-kemAlgorithmInformation-2023(109) };
 
    --
    -- ML-KEM Identifiers
@@ -518,21 +519,9 @@ Appendix A.  ASN.1 Module
    --
    -- Public Key Algorithms
    --
-   -- To use the following with the PKIX1Explicit-2009 [RFC5912], replace
-   -- the PublicKeyAlgorithms therein with the following:
-   --
-   -- PublicKeyAlgorithms PUBLIC-KEY ::= {
-   --   PKIXAlgs-2009.PublicKeys,
-   --   ...,
-   --   PKIX1-PSS-OAEP-Algorithms-2009.PublicKeys,
-   --   X509-ML-KEM-2024.PublicKeys }
-
-   --
-   -- Public Key (pk-) Algorithms
-   --
 
    PublicKeys PUBLIC-KEY ::= {
-     -- This expands PublicKeys from RFC 5912
+     -- This expands PublicKeys from [RFC 5912]
      pk-ml-kem-512 |
      pk-ml-kem-768 |
      pk-ml-kem-1024,
@@ -540,36 +529,65 @@ Appendix A.  ASN.1 Module
      }
 
    --
-   -- ML-KEM Public Keys & Private Key
+   -- ML-KEM Public Keys
    --
 
    pk-ml-kem-512 PUBLIC-KEY ::= {
      IDENTIFIER id-alg-ml-kem-512
-     -- KEY no ASN.1 wrapping --
+     -- KEY no ASN.1 wrapping; 800 octets --
      PARAMS ARE absent
      CERT-KEY-USAGE { keyEncipherment }
-     --- PRIVATE-KEY no ASN.1 wrapping --
+     PRIVATE-KEY ML-KEM-512-PrivateKey
+     }
+
+   ML-KEM-512-PrivateKey ::= CHOICE {
+     seed [0] OCTET STRING (SIZE (64)),
+     expandedKey OCTET STRING (SIZE (1632)),
+     both SEQUENCE {
+         seed OCTET STRING (SIZE (64)),
+         expandedKey OCTET STRING (SIZE (1632))
+         }
      }
 
    pk-ml-kem-768 PUBLIC-KEY ::= {
      IDENTIFIER id-alg-ml-kem-768
-     -- KEY no ASN.1 wrapping --
+     -- KEY no ASN.1 wrapping; 1184 octets --
      PARAMS ARE absent
      CERT-KEY-USAGE { keyEncipherment }
-     --- PRIVATE-KEY no ASN.1 wrapping --
+     PRIVATE-KEY ML-KEM-768-PrivateKey
+     }
+
+   ML-KEM-768-PrivateKey ::= CHOICE {
+     seed [0] OCTET STRING (SIZE (64)),
+     expandedKey OCTET STRING (SIZE (2400)),
+     both SEQUENCE {
+         seed OCTET STRING (SIZE (64)),
+         expandedKey OCTET STRING (SIZE (2400))
+         }
      }
 
    pk-ml-kem-1024 PUBLIC-KEY ::= {
      IDENTIFIER id-alg-ml-kem-1024
-     -- KEY no ASN.1 wrapping --
+     -- KEY no ASN.1 wrapping; 1568 octets --
      PARAMS ARE absent
      CERT-KEY-USAGE { keyEncipherment }
-     --- PRIVATE-KEY no ASN.1 wrapping --
+     PRIVATE-KEY ML-KEM-1024-PrivateKey
      }
 
-   ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
+   ML-KEM-1024-PrivateKey ::= CHOICE {
+     seed [0] OCTET STRING (SIZE (64)),
+     expandedKey OCTET STRING (SIZE (3168)),
+     both SEQUENCE {
+         seed OCTET STRING (SIZE (64)),
+         expandedKey OCTET STRING (SIZE (3168))
+         }
+     }
 
-   ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
+   ML-KEM-512-PublicKey ::= OCTET STRING (SIZE (800))
+
+   ML-KEM-768-PublicKey ::= OCTET STRING (SIZE (1184))
+
+   ML-KEM-1024-PublicKey ::= OCTET STRING (SIZE (1568))
 
    END
    <CODE ENDS>
