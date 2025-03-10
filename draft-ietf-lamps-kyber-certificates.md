@@ -327,6 +327,15 @@ To support serialization of seed values as private keys, let Algorithm 19b denot
 
 Note also that unlike other private key compression methods in other algorithms, expanding a private key from a seed is a one-way function, meaning that once a full key is expanded from seed and the seed discarded, the seed cannot be re-created even if the full expanded private key is available. For this reason it is RECOMMENDED that implementations retain and export the seed, even when also exporting the expanded key.
 
+# Private Key Consistency Tesing
+
+When receiving a private key that contains both the seed and the
+expandedKey, the recipient SHOULD perform a seed consistency check to
+ensure that the sender properly generated the private key.
+
+If the check is done and the seed and the expandedKey are not consistent,
+the recipient MUST reject the private key as malformed.
+
 # Security Considerations
 
 The Security Considerations section of {{RFC5280}} applies to this
