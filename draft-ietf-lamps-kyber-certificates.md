@@ -383,7 +383,7 @@ as per {{RFC5280}}, certificates use the Distinguished Encoding Rules; see
 
 ~~~
 <CODE BEGINS>
-{::include X509-ML-KEM-2024.asn}
+{::include X509-ML-KEM-2025.asn}
 <CODE ENDS>
 ~~~
 
