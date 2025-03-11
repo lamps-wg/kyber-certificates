@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-09T01:07:18.255624+00:00",
+  "timestamp": "2025-03-11T01:17:43.180712+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -6236,24 +6236,26 @@
       "id": "PR_kwDOGV9y2s6MsGQG",
       "title": "Update ASN.1 module",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/97",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-02-26T18:15:42Z",
-      "updatedAt": "2025-03-08T05:49:08Z",
+      "updatedAt": "2025-03-10T15:55:36Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "f6fee3e8687118bf752541f92183b383c2cd3e6f",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "seanturner-asn-module",
       "headRefOid": "ffe5d7c48fe99d9e5e027e63571c6c2f1eb44870",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-03-10T15:55:36Z",
+      "mergedAt": "2025-03-10T15:55:36Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "9ac72a026a5f4448858d3afaa2de5de01a562f46"
+      },
       "comments": [],
       "reviews": [
         {
@@ -6381,6 +6383,66 @@
               "updatedAt": "2025-03-08T05:50:38Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6fHHg3",
+          "commit": {
+            "abbreviatedOid": "ffe5d7c"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-09T14:37:14Z",
+          "updatedAt": "2025-03-09T14:37:14Z",
+          "comments": [
+            {
+              "originalPosition": 66,
+              "body": "What existing implementations do is irrelevant when we set a standard. I'm in favour of tagging the expanded key instead of the seed.",
+              "createdAt": "2025-03-09T14:37:14Z",
+              "updatedAt": "2025-03-09T14:37:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6fHH6G",
+          "commit": {
+            "abbreviatedOid": "ffe5d7c"
+          },
+          "author": "vdukhovni",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-09T14:43:56Z",
+          "updatedAt": "2025-03-09T14:43:56Z",
+          "comments": [
+            {
+              "originalPosition": 66,
+              "body": "> What existing implementations do is irrelevant when we set a standard. I'm in favour of tagging the expanded key instead of the seed.\r\n\r\nWell, it isn't irrelevant, since they also have a say in the outcome. I'm against tagging the expanded key, ditto Bouncy Castle, and now multiple other implementations that have made the switch to the emerging consensus format.\r\n\r\nBarring a sound reason to change the tag, just your bikeshed colour is NOT sufficient reason to make a change.\r\n\r\n[ I've seen no evidence that working with the seed will be any more difficult if the tag is 0x80 rather than 0x04, with every other byte in the entire key being the same. ]",
+              "createdAt": "2025-03-09T14:43:56Z",
+              "updatedAt": "2025-03-09T14:46:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6fHJ8t",
+          "commit": {
+            "abbreviatedOid": "ffe5d7c"
+          },
+          "author": "dghgit",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-09T15:21:31Z",
+          "updatedAt": "2025-03-09T15:21:31Z",
+          "comments": [
+            {
+              "originalPosition": 66,
+              "body": "I also had the impression this had already been agreed, but for what it's worth, here are my thoughts.\r\n\r\nThe tagging is implicit, it makes no difference to the size of the seed encoding, and, as Viktor has mentioned, the only effect is to start the encoding with a 0x80 instead of a 0x04. \r\n\r\nI'm not sure tagging the expanded key would achieve anything other than removing any chance of backwards compatibility with what was implied in draft 4 and earlier. Drafts 5 (which is dated November 2024) to 8 specify a raw encoding of the seed which is not compatible with either the use of a octet string or a tagged octet string.\r\n\r\nIs there a reason for breaking all compatibility? I do know there are a lot of implementations running on what was implied on draft 4 and earlier though, at Bouncy Castle we moved to seed encoding in our release after draft 5 and immediately started getting requests to make the expanded key available. A tagged seed will remove the need for a lot of people to have to change (some people will not support seed or both, nor should they need to). PQC is arriving fast, much faster than anything we've had to deal with before, it does not seem worth creating the extra work by tagging the expanded key when it is for no apparent gain, other than to (probably) cause upset.\r\n\r\n",
+              "createdAt": "2025-03-09T15:21:31Z",
+              "updatedAt": "2025-03-09T15:22:01Z"
+            }
+          ]
         }
       ]
     },
@@ -6389,24 +6451,26 @@
       "id": "PR_kwDOGV9y2s6MsSxE",
       "title": "Update IANA Considerations",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/98",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-02-26T18:44:51Z",
-      "updatedAt": "2025-02-26T21:36:14Z",
+      "updatedAt": "2025-03-10T15:55:49Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "f6fee3e8687118bf752541f92183b383c2cd3e6f",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "seanturner-iana-considerations",
       "headRefOid": "bc886c97712b57e0b3ca7ef52ba92d5bda5288fd",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-03-10T15:55:49Z",
+      "mergedAt": "2025-03-10T15:55:49Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "39a995ae6e017c93e29a42b3b3897106b7c76942"
+      },
       "comments": [],
       "reviews": [
         {
@@ -6731,6 +6795,48 @@
           "body": "Like I said on the [list](https://mailarchive.ietf.org/arch/msg/spasm/egXNlkkjUA2HLKU2Gz6tiVRqGp4/) I checked the examples and they looked good. I also checked them against Viktor's examples and they were the same.\r\n\r\nOff to write some text that matches the examples ;)",
           "createdAt": "2025-03-07T21:42:34Z",
           "updatedAt": "2025-03-07T21:42:34Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 101,
+      "id": "PR_kwDOGV9y2s6OBScw",
+      "title": "Private Key Consistency Testing",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/101",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Same text from this [PR](https://github.com/lamps-wg/dilithium-certificates/pull/88/files) in the ML-DSA repo.",
+      "createdAt": "2025-03-10T16:01:15Z",
+      "updatedAt": "2025-03-10T20:15:03Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "39a995ae6e017c93e29a42b3b3897106b7c76942",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-pk-consistency-testing",
+      "headRefOid": "48da694bce5dbaf847da19decff4837787abf01e",
+      "closedAt": "2025-03-10T20:15:03Z",
+      "mergedAt": "2025-03-10T20:15:03Z",
+      "mergedBy": "jakemas",
+      "mergeCommit": {
+        "oid": "8b4a53b99196087966ce551aa01befcbe83c539b"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6fPG7m",
+          "commit": {
+            "abbreviatedOid": "48da694"
+          },
+          "author": "jakemas",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-10T16:13:34Z",
+          "updatedAt": "2025-03-10T16:13:34Z",
           "comments": []
         }
       ]
