@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-13T01:18:15.215295+00:00",
+  "timestamp": "2025-03-16T01:22:59.218187+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -229,7 +229,7 @@
       "labels": [],
       "body": "```\r\n$ cd draft-turner-lamps-nist-pqc-kem-certificates/\r\n$ make\r\ngit clone -q --depth 10  \\\r\n    -b main https://github.com/martinthomson/i-d-template lib\r\nlib/main.mk:21: Forcing rebuild of .targets.mk\r\ncat draft-turner-lamps-nist-pqc-kem-certificates.md  | kramdown-rfc2629 --v3 | lib/add-note.py | xml2rfc -q -s 'Setting consensus=\"true\" for IETF STD document' --rfc-base-url https://www.rfc-editor.org/rfc/ --id-base-url https://datatracker.ietf.org/doc/html/ --cache=/Users/ur20980/.cache/xml2rfc --v2v3 /dev/stdin -o /dev/stdout >draft-turner-lamps-nist-pqc-kem-certificates.xml\r\n*** attributes left {\"venue\"=>{\"group\"=>\"Limited Additional Mechanisms for PKIX and SMIME (lamps)\", \"type\"=>\"Working Group\", \"mail\"=>\"spasm@ietf.org\", \"arch\"=>\"https://mailarchive.ietf.org/arch/browse/spasm/\", \"github\"=>\"seanturner/draft-turner-lamps-nist-pqc-kem-certificates\"}}!\r\n/Users/ur20980/.cache/xml2rfc/reference.RFC.5280.xml: fetching from https://www.rfc-editor.org/refs/bibxml/reference.RFC.5280.xml\r\n*** execution expired while fetching https://www.rfc-editor.org/refs/bibxml/reference.RFC.5280.xml\r\n*** No such file or directory @ rb_sysopen - /Users/ur20980/.cache/xml2rfc/reference.RFC.5280.xml for /Users/ur20980/.cache/xml2rfc/reference.RFC.5280.xml\r\n** Can't manipulate reference XML: undefined method `attributes' for nil:NilClass\r\n*** KRAMDOWN_OFFLINE: Inserting broken reference for reference.RFC.5280.xml\r\n/Users/ur20980/.cache/xml2rfc/reference.RFC.2119.xml: fetching from https://www.rfc-editor.org/refs/bibxml/reference.RFC.2119.xml\r\n*** execution expired while fetching https://www.rfc-editor.org/refs/bibxml/reference.RFC.2119.xml\r\n*** No such file or directory @ rb_sysopen - /Users/ur20980/.cache/xml2rfc/reference.RFC.2119.xml for /Users/ur20980/.cache/xml2rfc/reference.RFC.2119.xml\r\n** Can't manipulate reference XML: undefined method `attributes' for nil:NilClass\r\n*** KRAMDOWN_OFFLINE: Inserting broken reference for reference.RFC.2119.xml\r\n/Users/ur20980/.cache/xml2rfc/reference.RFC.8174.xml: fetching from https://www.rfc-editor.org/refs/bibxml/reference.RFC.8174.xml\r\n*** execution expired while fetching https://www.rfc-editor.org/refs/bibxml/reference.RFC.8174.xml\r\n*** No such file or directory @ rb_sysopen - /Users/ur20980/.cache/xml2rfc/reference.RFC.8174.xml for /Users/ur20980/.cache/xml2rfc/reference.RFC.8174.xml\r\n** Can't manipulate reference XML: undefined method `attributes' for nil:NilClass\r\n*** KRAMDOWN_OFFLINE: Inserting broken reference for reference.RFC.8174.xml\r\n/Users/ur20980/.cache/xml2rfc/reference.RFC.5912.xml: fetching from https://www.rfc-editor.org/refs/bibxml/reference.RFC.5912.xml\r\n*** execution expired while fetching https://www.rfc-editor.org/refs/bibxml/reference.RFC.5912.xml\r\n*** No such file or directory @ rb_sysopen - /Users/ur20980/.cache/xml2rfc/reference.RFC.5912.xml for /Users/ur20980/.cache/xml2rfc/reference.RFC.5912.xml\r\n** Can't manipulate reference XML: undefined method `attributes' for nil:NilClass\r\n*** KRAMDOWN_OFFLINE: Inserting broken reference for reference.RFC.5912.xml\r\n/Users/ur20980/.cache/xml2rfc/reference.RFC.5958.xml: fetching from https://www.rfc-editor.org/refs/bibxml/reference.RFC.5958.xml\r\n*** execution expired while fetching https://www.rfc-editor.org/refs/bibxml/reference.RFC.5958.xml\r\n*** No such file or directory @ rb_sysopen - /Users/ur20980/.cache/xml2rfc/reference.RFC.5958.xml for /Users/ur20980/.cache/xml2rfc/reference.RFC.5958.xml\r\n** Can't manipulate reference XML: undefined method `attributes' for nil:NilClass\r\n*** KRAMDOWN_OFFLINE: Inserting broken reference for reference.RFC.5958.xml\r\n/Users/ur20980/.cache/xml2rfc/reference.RFC.7468.xml: fetching from https://www.rfc-editor.org/refs/bibxml/reference.RFC.7468.xml\r\n*** execution expired while fetching https://www.rfc-editor.org/refs/bibxml/reference.RFC.7468.xml\r\n*** No such file or directory @ rb_sysopen - /Users/ur20980/.cache/xml2rfc/reference.RFC.7468.xml for /Users/ur20980/.cache/xml2rfc/reference.RFC.7468.xml\r\n** Can't manipulate reference XML: undefined method `attributes' for nil:NilClass\r\n*** KRAMDOWN_OFFLINE: Inserting broken reference for reference.RFC.7468.xml\r\nxml2rfc -q -s 'Setting consensus=\"true\" for IETF STD document' --rfc-base-url https://www.rfc-editor.org/rfc/ --id-base-url https://datatracker.ietf.org/doc/html/ --cache=/Users/ur20980/.cache/xml2rfc draft-turner-lamps-nist-pqc-kem-certificates.xml -o draft-turner-lamps-nist-pqc-kem-certificates.txt --text --no-pagination\r\n/Users/ur20980/src/draft-turner-lamps-nist-pqc-kem-certificates/draft-turner-lamps-nist-pqc-kem-certificates.xml(166): Error: Cannot build a href for <xref target=\"RFC5280\"> with a section= attribute without also having a relative= attribute.\r\nNot creating output file due to errors (see above)\r\nUnable to complete processing draft-turner-lamps-nist-pqc-kem-certificates.xml\r\nmake: *** [lib/main.mk:122: draft-turner-lamps-nist-pqc-kem-certificates.txt] Error 1\r\nrm draft-turner-lamps-nist-pqc-kem-certificates.xml\r\n$ \r\n```",
       "createdAt": "2022-03-15T17:49:37Z",
-      "updatedAt": "2024-10-25T04:13:04Z",
+      "updatedAt": "2025-03-15T06:03:14Z",
       "closedAt": null,
       "comments": [
         {
@@ -280,6 +280,13 @@
           "body": "I didn't keep up - let me check over the weekend and report. ",
           "createdAt": "2024-10-25T04:13:03Z",
           "updatedAt": "2024-10-25T04:13:03Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@mouse07410 Just checking if you've checked ;)",
+          "createdAt": "2025-03-15T06:03:13Z",
+          "updatedAt": "2025-03-15T06:03:13Z"
         }
       ]
     },
@@ -652,7 +659,7 @@
       "labels": [],
       "body": "See [mail thread](https://mailarchive.ietf.org/arch/msg/spasm/6iUmCadOg3PfGja7j26-MUXTUVk/).",
       "createdAt": "2025-01-22T21:19:09Z",
-      "updatedAt": "2025-02-26T18:45:35Z",
+      "updatedAt": "2025-03-15T05:45:53Z",
       "closedAt": null,
       "comments": [
         {
@@ -665,9 +672,9 @@
         {
           "author": "seanturner",
           "authorAssociation": "COLLABORATOR",
-          "body": "To do:\n\n- [ ] Update .asn file - See #97\n- [ ] Update ASN.1 in [Section 3](https://lamps-wg.github.io/kyber-certificates/draft-ietf-lamps-kyber-certificates.html#name-algorithm-identifiers)\n- [ ] Add text to end of [Section 3](https://lamps-wg.github.io/kyber-certificates/draft-ietf-lamps-kyber-certificates.html#name-algorithm-identifiers) for ML-KEM-*-PublicKey and ML-KEM-*-PrivateKey\n- [ ] Add text for seed/expanded consistency checking\n- [ ] Update IANA Consideration - See #98\n- [ ] Update private key examples",
+          "body": "To do:\n\n- [ ] Update .asn file - See #97\n- [ ] Update ASN.1 in [Section 3](https://lamps-wg.github.io/kyber-certificates/draft-ietf-lamps-kyber-certificates.html#name-algorithm-identifiers) - See #102 \n- [ ] Add text to end of [Section 3](https://lamps-wg.github.io/kyber-certificates/draft-ietf-lamps-kyber-certificates.html#name-algorithm-identifiers) for ML-KEM-*-PublicKey and ML-KEM-*-PrivateKey - See #102\n- [ ] Add text for seed/expanded consistency checking - See #101\n- [ ] Update IANA Consideration - See #98\n- [ ] Update private key examples - See #100",
           "createdAt": "2025-02-26T18:07:48Z",
-          "updatedAt": "2025-02-26T18:45:35Z"
+          "updatedAt": "2025-03-15T05:45:52Z"
         }
       ]
     }
@@ -6840,6 +6847,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 102,
+      "id": "PR_kwDOGV9y2s6OwZxy",
+      "title": "Private Key Text",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/102",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Text to go along with the ASN.1 and Examples.\r\n\r\nAlso, moved some stuff around.",
+      "createdAt": "2025-03-15T05:43:56Z",
+      "updatedAt": "2025-03-15T05:46:12Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "8b4a53b99196087966ce551aa01befcbe83c539b",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-refactor-privkey",
+      "headRefOid": "830a4ba154ac32213b1545910c840f78f93b402d",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
