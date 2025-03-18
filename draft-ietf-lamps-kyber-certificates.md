@@ -363,13 +363,12 @@ from which both the expanded private key and public key can be
 derived using `ML-KEM.KeyGen_internal(d,z)` (algorithm 16) using
 the first 32 octets as *d* and the remaining 32 octets as *z*.
 
-* The expandedKey format contains the full expanded private key
+* The expandedKey format contains the expanded private key
 that was derived from the seed.
 
 * The both format contains both the seed and expanded key, allowing
-for interoperability, some that may
-want to use and retain the seed, others that may only support expanded
-keys.
+for interoperability; some may want to use and retain the seed and
+others may only support expanded keys.
 
 When encoding an ML-KEM private key in a OneAsymmetricKey object, any
 of these three formats may be used, though the seed format is RECOMMENDED
