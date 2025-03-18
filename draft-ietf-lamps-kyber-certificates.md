@@ -144,7 +144,7 @@ and would require significant updates to the protocol; see
 
 {::boilerplate bcp14-tagged}
 
-# Algorithm Identifiers
+# Algorithm Identifiers {#oids}
 
 The AlgorithmIdentifier type is defined in {{!RFC5912}} as follows:
 
@@ -175,11 +175,6 @@ id-alg-ml-kem object identifiers listed below, based on the security
 level. The parameters field of the AlgorithmIdentifier for the ML-KEM
 public key MUST be absent.
 
-When any of the ML-KEM AlgorithmIdentifiers appear in the
-SubjectPublicKeyInfo field of an X.509 certificate, the key usage
-certificate extension MUST only contain keyEncipherment
-{{Section 4.2.1.3 of RFC5280}}.
-
 ~~~
   nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-ccitt(2)
     country(16) us(840) organization(1) gov(101) csor(3)
@@ -193,48 +188,9 @@ certificate extension MUST only contain keyEncipherment
 
   id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
 
-  pk-ml-kem-512 PUBLIC-KEY ::= {
-    IDENTIFIER id-alg-ml-kem-512
-    -- KEY no ASN.1 wrapping --
-    PARAMS ARE absent
-    CERT-KEY-USAGE { keyEncipherment }
-    --- PRIVATE-KEY no ASN.1 wrapping --
-    }
-
-  pk-ml-kem-768 PUBLIC-KEY ::= {
-    IDENTIFIER id-alg-ml-kem-768
-    -- KEY no ASN.1 wrapping --
-    PARAMS ARE absent
-    CERT-KEY-USAGE { keyEncipherment }
-    --- PRIVATE-KEY no ASN.1 wrapping --
-    }
-
-  pk-ml-kem-1024 PUBLIC-KEY ::= {
-    IDENTIFIER id-alg-ml-kem-1024
-    -- KEY no ASN.1 wrapping --
-    PARAMS ARE absent
-    CERT-KEY-USAGE { keyEncipherment }
-    --- PRIVATE-KEY no ASN.1 wrapping --
-    }
-
-  ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
-
-  ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
 ~~~
 
-No additional encoding of the ML-KEM public key value is applied in
-the SubjectPublicKeyInfo field of an X.509 certificate {{RFC5280}}.
-However, whenever it appears outside of a
-certificate, it MAY be encoded as an OCTET STRING by using the
-ML-KEM-PublicKey type.
-
-No additional encoding of the ML-KEM private key value is applied in
-the PrivateKeyInfo field of the OneAsymmetricKey type of an Asymmetric
-Key Package {{RFC5958}}. However, whenever it appears outside of a
-Asymmetric Key Package, it MAY be encoded as an OCTET STRING by using
-the ML-KEM-PrivateKey type.
-
-# Subject Public Key Fields
+# Subject Public Key Fields  {#pub-key}
 
 In the X.509 certificate, the subjectPublicKeyInfo field has the
 SubjectPublicKeyInfo type, which has the following ASN.1 syntax:
@@ -258,13 +214,69 @@ The fields in SubjectPublicKeyInfo have the following meaning:
 
 * subjectPublicKey contains the byte stream of the public key.
 
+The PUBLIC-KEY ASN.1 type for ML-KEM are defined here:
+
+~~~
+
+  pk-ml-kem-512 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-ml-kem-512
+    -- KEY no ASN.1 wrapping; 800 octets --
+    PARAMS ARE absent
+    CERT-KEY-USAGE { keyEncipherment }
+    PRIVATE-KEY ML-KEM-512-PrivateKey -- defined in Section 6
+    }
+
+  pk-ml-kem-768 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-ml-kem-768
+    -- KEY no ASN.1 wrapping; 1184 octets --
+    PARAMS ARE absent
+    CERT-KEY-USAGE { keyEncipherment }
+    PRIVATE-KEY ML-KEM-768-PrivateKey -- defined in Section 6
+    }
+
+  pk-ml-kem-1024 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-ml-kem-1024
+    -- KEY no ASN.1 wrapping; 1568 octets --
+    PARAMS ARE absent
+    CERT-KEY-USAGE { keyEncipherment }
+    PRIVATE-KEY ML-KEM-1024-PrivateKey -- defined in Section 6
+  }
+
+  ML-KEM-512-PublicKey ::= OCTET STRING (SIZE (800))
+
+  ML-KEM-768-PublicKey ::= OCTET STRING (SIZE (1184))
+
+  ML-KEM-1024-PublicKey ::= OCTET STRING (SIZE (1568))
+~~~
+
+When an ML-KEM public key appears outside of a SubjectPublicKeyInfo
+type in an environment that uses ASN.1 encoding, it can be encoded
+as an OCTET STRING by using the ML-KEM-512-PublicKey,
+ML-KEM-768-PublicKey, ML-KEM-1024-PublicKey types corresponding to
+the correct key size.
+
+{{!RFC5958}} describes the Asymmetric Key Package's OneAsymmetricKey
+type for encoding asymmetric keypairs. When an ML-KEM private key or
+keypair is encoded as a OneAsymmetricKey, it follows the description
+in {{priv-key}}.
+
+When the ML-KEM private key appears outside of an Asymmetric Key Package
+in an environment that uses ASN.1 encoding, it can be encoded using one
+of the the ML-KEM-PrivateKey CHOICE formats defined in {{priv-key}}. The
+seed format is RECOMMENDED as it efficiently stores both the private and
+public key.
+
 {{example-public}} contains examples for ML-KEM public keys
 encoded using the textual encoding defined in {{?RFC7468}}.
 
-# Private Key Format
+# Key Usage Bits
 
-In short, an ML-KEM private key is encoded by storing its 64-octet seed in
-the privateKey field as follows.
+The intended application for the key is indicated in the keyUsage certificate
+extension; see {{Section 4.2.1.3 of RFC5280}}. If the keyUsage extension is
+present in a certificate that indicates id-alg-ml-kem-* in the SubjectPublicKeyInfo,
+then keyEncipherment MUST be the only key usage set.
+
+# Private Key Format {#priv-key}
 
 {{FIPS203}} specifies two formats for an ML-KEM private key: a 64-octet
 seed and an (expanded) private key, which is referred to as the
@@ -273,11 +285,11 @@ is computed from the seed using `ML-KEM.KeyGen_internal(d,z)` (algorithm 16)
 using the first 32 octets as *d* and the remaining 32 octets as *z*.
 
 A keypair is generated by sampling 64 octets uniformly at random
-for the seed (private key)  from a cryptographically secure
+for the seed (private key) from a cryptographically secure
 pseudorandom number generator (CSPRNGs). The public key can then
 be computed using `ML-KEM.KeyGen_internal(d,z)` as described earlier.
 
-"Asymmetric Key Packages" {{!RFC5958}} describes how to encode a private
+"Asymmetric Key Packages" {{RFC5958}} describes how to encode a private
 key in a structure that both identifies which algorithm the private key
 is for and allows for the public key and additional attributes about the
 key to be included as well. For illustration, the ASN.1 structure
@@ -309,10 +321,71 @@ OneAsymmetricKey is replicated below.
   2021 ASN.1 syntax {{X680}}.
 </aside>
 
-When used in a OneAsymmetricKey type, the privateKey OCTET STRING contains
-the raw octet string encoding of the 64-octet seed. The publicKey field
-SHOULD be omitted because the public key can be computed as noted earlier
-in this section.
+For ML-KEM private keys, the privateKey field in OneAsymmetricKey contains
+one of the following CHOICE structures encoded as an OCTET STRING. The seed
+format is a fixed 64 bytes for all security levels, while the expandedKey
+and both formats vary in size by security level:
+
+~~~
+  ML-KEM-512-PrivateKey ::= CHOICE {
+    seed [0] OCTET STRING (SIZE (64)),
+    expandedKey OCTET STRING (SIZE (1632)),
+    both SEQUENCE {
+      seed OCTET STRING (SIZE (64)),
+      expandedKey OCTET STRING (SIZE (1632))
+      }
+    }
+
+  ML-KEM-768-PrivateKey ::= CHOICE {
+    seed [0] OCTET STRING (SIZE (64)),
+    expandedKey OCTET STRING (SIZE (2400)),
+    both SEQUENCE {
+      seed OCTET STRING (SIZE (64)),
+      expandedKey OCTET STRING (SIZE (2400))
+      }
+    }
+
+  ML-KEM-1024-PrivateKey ::= CHOICE {
+    seed [0] OCTET STRING (SIZE (64)),
+    expandedKey OCTET STRING (SIZE (3168)),
+    both SEQUENCE {
+      seed OCTET STRING (SIZE (64)),
+      expandedKey OCTET STRING (SIZE (3168))
+      }
+    }
+
+~~~
+
+The CHOICE allows three representations of the private key:
+
+* The seed format (tag [0]) contains just the 64-byte seed value
+from which both the expanded private key and public key can be
+derived using `ML-KEM.KeyGen_internal(d,z)` (algorithm 16) using
+the first 32 octets as *d* and the remaining 32 octets as *z*.
+
+* The expandedKey format contains the full expanded private key
+that was derived from the seed.
+
+* The both format contains both the seed and expanded key, allowing
+for interoperability, some that may
+want to use and retain the seed, others that may only support expanded
+keys.
+
+When encoding an ML-KEM private key in a OneAsymmetricKey object, any
+of these three formats may be used, though the seed format is RECOMMENDED
+for storage efficiency.
+
+The "privateKeyAlgorithm" field uses the AlgorithmIdentifier structure
+with the appropriate OID as defined in {{oids}}. If present, the "publicKey"
+field will hold the encoded public key as defined in {{pub-key}}.
+
+NOTE: While the private key can be stored in multiple formats, the seed-only
+format is RECOMMENDED as it is the most compact representation. Both the
+expanded private key and the public key can be deterministically derived
+from the seed using `ML-KEM.KeyGen_internal(d,z)` (algorithm 16) using the
+first 32 octets as *d* and the remaining 32 octets as *z*. While the publicKey field and
+expandedKey format are technically redundant when using the seed-only format,
+they MAY be included to enable keypair consistency checks during import operations.
 
 {{example-private}} contains examples for ML-KEM private keys
 encoded using the textual encoding defined in {{?RFC7468}}.
@@ -421,13 +494,16 @@ This appendix contains examples of ML-KEM public keys, private keys and
 certificates.
 
 
-## Example Private Key {#example-private}
+## Example Private Keys {#example-private}
 
 The following examples show ML-KEM private keys in different formats,
 all derived from the same seed `000102…1e1f`. For each security level,
 we show the seed-only format (using a context-specific `[0]` primitive
 tag with an implicit encoding of OCTET STRING), the expanded format,
 and both formats together.
+
+NOTE: All examples use the same seed value, showing how the same seed	
+produces different expanded keys for each security level.
 
 ### ML-KEM-512 Private Key Examples
 
