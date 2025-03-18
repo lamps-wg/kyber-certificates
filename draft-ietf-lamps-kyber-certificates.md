@@ -367,7 +367,7 @@ the first 32 octets as *d* and the remaining 32 octets as *z*.
 that was derived from the seed.
 
 * The both format contains both the seed and expanded key, allowing
-for interoperability with a broad range of consumers, some that may
+for interoperability, some that may
 want to use and retain the seed, others that may only support expanded
 keys.
 
