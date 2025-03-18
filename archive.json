@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-16T01:22:59.218187+00:00",
+  "timestamp": "2025-03-18T01:18:04.650745+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -6860,7 +6860,7 @@
       "labels": [],
       "body": "Text to go along with the ASN.1 and Examples.\r\n\r\nAlso, moved some stuff around.",
       "createdAt": "2025-03-15T05:43:56Z",
-      "updatedAt": "2025-03-15T05:46:12Z",
+      "updatedAt": "2025-03-17T07:28:36Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "8b4a53b99196087966ce551aa01befcbe83c539b",
@@ -6872,7 +6872,61 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6gQSY2",
+          "commit": {
+            "abbreviatedOid": "830a4ba"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-16T11:45:48Z",
+          "updatedAt": "2025-03-16T11:45:48Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6gSt2N",
+          "commit": {
+            "abbreviatedOid": "830a4ba"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-17T06:31:58Z",
+          "updatedAt": "2025-03-17T06:32:15Z",
+          "comments": [
+            {
+              "originalPosition": 251,
+              "body": "```suggestion\r\nproduces different expanded keys for each security level.\r\n```\r\n\r\nThis change would align with the ML-DSA [PR](https://github.com/lamps-wg/dilithium-certificates/pull/98).",
+              "createdAt": "2025-03-17T06:31:59Z",
+              "updatedAt": "2025-03-17T06:32:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6gTH6x",
+          "commit": {
+            "abbreviatedOid": "830a4ba"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-17T07:28:36Z",
+          "updatedAt": "2025-03-17T07:28:36Z",
+          "comments": [
+            {
+              "originalPosition": 213,
+              "body": "```suggestion\r\nfor interoperability with a broad range of consumers, some that may\r\nwant to use and retain the seed, others that may only support expanded\r\nkeys.\r\n```\r\n\r\nAligns with this ML-DSA [PR](https://github.com/lamps-wg/dilithium-certificates/pull/98/files).",
+              "createdAt": "2025-03-17T07:28:36Z",
+              "updatedAt": "2025-03-17T07:29:34Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
