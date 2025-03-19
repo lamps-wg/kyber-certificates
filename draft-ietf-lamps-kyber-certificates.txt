@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 19 September 2025                                    J. Massimo
+Expires: 20 September 2025                                    J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                           18 March 2025
+                                                           19 March 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 September 2025.
+   This Internet-Draft will expire on 20 September 2025.
 
 Copyright Notice
 
@@ -357,10 +357,11 @@ Table of Contents
    representation.  Both the expanded private key and the public key can
    be deterministically derived from the seed using ML-
    KEM.KeyGen_internal(d,z) (algorithm 16) using the first 32 octets as
-   _d_ and the remaining 32 octets as _z_. While the publicKey field and
-   expandedKey format are technically redundant when using the seed-only
-   format, they MAY be included to enable keypair consistency checks
-   during import operations.
+   _d_ and the remaining 32 octets as _z_.  Alternatively, the public
+   key can be extracted from the extended private key.  While the
+   publicKey field and expandedKey format are technically redundant when
+   using the seed-only format, they MAY be included to enable keypair
+   consistency checks during import operations.
 
    Appendix C.1 contains examples for ML-KEM private keys encoded using
    the textual encoding defined in [RFC7468].
