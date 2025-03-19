@@ -383,7 +383,7 @@ format is RECOMMENDED as it is the most compact representation. Both the
 expanded private key and the public key can be deterministically derived
 from the seed using `ML-KEM.KeyGen_internal(d,z)` (algorithm 16) using the
 first 32 octets as *d* and the remaining 32 octets as *z*.  Alternatively,
-the public key can be extracted from the private key. While the publicKey field and
+the public key can be extracted from the extended private key. While the publicKey field and
 expandedKey format are technically redundant when using the seed-only format,
 they MAY be included to enable keypair consistency checks during import operations.
 
