@@ -358,10 +358,10 @@ Table of Contents
    be deterministically derived from the seed using ML-
    KEM.KeyGen_internal(d,z) (algorithm 16) using the first 32 octets as
    _d_ and the remaining 32 octets as _z_.  Alternatively, the public
-   key can be extracted from the private key.  While the publicKey field
-   and expandedKey format are technically redundant when using the seed-
-   only format, they MAY be included to enable keypair consistency
-   checks during import operations.
+   key can be extracted from the extended private key.  While the
+   publicKey field and expandedKey format are technically redundant when
+   using the seed-only format, they MAY be included to enable keypair
+   consistency checks during import operations.
 
    Appendix C.1 contains examples for ML-KEM private keys encoded using
    the textual encoding defined in [RFC7468].

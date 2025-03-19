@@ -1550,7 +1550,7 @@ format is <span class="bcp14">RECOMMENDED</span> as it is the most compact repre
 expanded private key and the public key can be deterministically derived
 from the seed using <code>ML-KEM.KeyGen_internal(d,z)</code> (algorithm 16) using the
 first 32 octets as <em>d</em> and the remaining 32 octets as <em>z</em>.  Alternatively,
-the public key can be extracted from the private key. While the publicKey field and
+the public key can be extracted from the extended private key. While the publicKey field and
 expandedKey format are technically redundant when using the seed-only format,
 they <span class="bcp14">MAY</span> be included to enable keypair consistency checks during import operations.<a href="#section-6-12" class="pilcrow">¶</a></p>
 <p id="section-6-13"><a href="#example-private" class="auto internal xref">Appendix C.1</a> contains examples for ML-KEM private keys
