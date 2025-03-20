@@ -387,6 +387,11 @@ the public key can be extracted from the extended private key. While the publicK
 expandedKey format are technically redundant when using the seed-only format,
 they MAY be included to enable keypair consistency checks during import operations.
 
+ When parsing the private key, the ASN.1 tag explicitly indicates which
+ variant of CHOICE is present. Implementations should use tag value 0x80
+ for seed only, 0x04 for key only, and 0x30 for both to parse the private
+ key, rather than any other heuristic like length of the OCTET STRING.
+
 {{example-private}} contains examples for ML-KEM private keys
 encoded using the textual encoding defined in {{?RFC7468}}.
 
@@ -408,6 +413,11 @@ ensure that the sender properly generated the private key.
 
 If the check is done and the seed and the expandedKey are not consistent,
 the recipient MUST reject the private key as malformed.
+
+The seed consistency check consists of regenerating the expanded form from
+the seed via `ML-KEM.KeyGen_internal(d,z)` (algorithm 16) using the first
+32 octets as *d* and the remaining 32 octets as *z* and ensuring it is
+bytewise equal to the value presented in the private key.
 
 # Security Considerations
 
