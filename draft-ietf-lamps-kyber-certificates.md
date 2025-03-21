@@ -217,7 +217,6 @@ The fields in `SubjectPublicKeyInfo` have the following meaning:
 The `PUBLIC-KEY` ASN.1 type for ML-KEM are defined here:
 
 ~~~
-
   pk-ml-kem-512 PUBLIC-KEY ::= {
     IDENTIFIER id-alg-ml-kem-512
     -- KEY no ASN.1 wrapping; 800 octets --
@@ -248,6 +247,11 @@ The `PUBLIC-KEY` ASN.1 type for ML-KEM are defined here:
 
   ML-KEM-1024-PublicKey ::= OCTET STRING (SIZE (1568))
 ~~~
+
+<aside markdown="block">
+  NOTE: The above syntax is from {{!RFC5912}} and is compatible with the
+  2021 ASN.1 syntax {{X680}}. See {{RFC5280}} for the 1988 ASN.1 syntax.
+</aside>
 
 When an ML-KEM public key appears outside of a `SubjectPublicKeyInfo`
 type in an environment that uses ASN.1 encoding, it can be encoded
@@ -353,8 +357,12 @@ and `both` formats vary in size by security level:
       expandedKey OCTET STRING (SIZE (3168))
       }
     }
-
 ~~~
+
+<aside markdown="block">
+  NOTE: The above syntax is from {{!RFC5912}} and is compatible with the
+  2021 ASN.1 syntax {{X680}}. See {{RFC5280}} for the 1988 ASN.1 syntax.
+</aside>
 
 The `CHOICE` allows three representations of the private key:
 
