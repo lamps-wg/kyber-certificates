@@ -1055,7 +1055,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Turner, et al.</td>
-<td class="center">Expires 20 September 2025</td>
+<td class="center">Expires 22 September 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-lamps-kyber-certificates-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-03-19" class="published">19 March 2025</time>
+<time datetime="2025-03-21" class="published">21 March 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-09-20">20 September 2025</time></dd>
+<dd class="expires"><time datetime="2025-09-22">22 September 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1139,7 +1139,7 @@ private keys are also described.<a href="#section-abstract-1" class="pilcrow">¶
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 20 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 22 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1301,7 +1301,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-algorithm-identifiers">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-algorithm-identifiers" class="section-name selfRef">Algorithm Identifiers</a>
       </h2>
-<p id="section-3-1">The AlgorithmIdentifier type is defined in <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> as follows:<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">The <code>AlgorithmIdentifier</code> type is defined in <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> as follows:<a href="#section-3-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-3-2">
 <pre>
   AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
@@ -1316,20 +1316,20 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <p id="section-3-3.1">NOTE: The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the
   2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>. See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988 ASN.1 syntax.<a href="#section-3-3.1" class="pilcrow">¶</a></p>
 </aside>
-<p id="section-3-4">The fields in AlgorithmIdentifier have the following meanings:<a href="#section-3-4" class="pilcrow">¶</a></p>
+<p id="section-3-4">The fields in <code>AlgorithmIdentifier</code> have the following meanings:<a href="#section-3-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3-5.1">
-          <p id="section-3-5.1.1">algorithm identifies the cryptographic algorithm with an object
+          <p id="section-3-5.1.1"><code>algorithm</code> identifies the cryptographic algorithm with an object
 identifier.<a href="#section-3-5.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-5.2">
-          <p id="section-3-5.2.1">parameters, which are optional, are the associated parameters for
-the algorithm identifier in the algorithm field.<a href="#section-3-5.2.1" class="pilcrow">¶</a></p>
+          <p id="section-3-5.2.1"><code>parameters</code>, which are optional, are the associated parameters for
+the algorithm identifier in the <code>algorithm</code> field.<a href="#section-3-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-3-6">The AlgorithmIdentifier for an ML-KEM public key <span class="bcp14">MUST</span> use one of the
-id-alg-ml-kem object identifiers listed below, based on the security
-level. The parameters field of the AlgorithmIdentifier for the ML-KEM
+<p id="section-3-6">The <code>AlgorithmIdentifier</code> for an ML-KEM public key <span class="bcp14">MUST</span> use one of the
+<code>id-alg-ml-kem</code> object identifiers listed below, based on the security
+level. The <code>parameters</code> field of the <code>AlgorithmIdentifier</code> for the ML-KEM
 public key <span class="bcp14">MUST</span> be absent.<a href="#section-3-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-3-7">
 <pre>
@@ -1354,8 +1354,8 @@ public key <span class="bcp14">MUST</span> be absent.<a href="#section-3-6" clas
       <h2 id="name-subject-public-key-fields">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-subject-public-key-fields" class="section-name selfRef">Subject Public Key Fields</a>
       </h2>
-<p id="section-4-1">In the X.509 certificate, the subjectPublicKeyInfo field has the
-SubjectPublicKeyInfo type, which has the following ASN.1 syntax:<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">In the X.509 certificate, the <code>subjectPublicKeyInfo</code> field has the
+<code>SubjectPublicKeyInfo</code> type, which has the following ASN.1 syntax:<a href="#section-4-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4-2">
 <pre>
   SubjectPublicKeyInfo {PUBLIC-KEY: IOSet} ::= SEQUENCE {
@@ -1368,17 +1368,17 @@ SubjectPublicKeyInfo type, which has the following ASN.1 syntax:<a href="#sectio
         <p id="section-4-3.1">NOTE: The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the
   2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>. See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988 ASN.1 syntax.<a href="#section-4-3.1" class="pilcrow">¶</a></p>
 </aside>
-<p id="section-4-4">The fields in SubjectPublicKeyInfo have the following meaning:<a href="#section-4-4" class="pilcrow">¶</a></p>
+<p id="section-4-4">The fields in <code>SubjectPublicKeyInfo</code> have the following meaning:<a href="#section-4-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4-5.1">
-          <p id="section-4-5.1.1">algorithm is the algorithm identifier and parameters for the
+          <p id="section-4-5.1.1"><code>algorithm</code> is the algorithm identifier and parameters for the
 public key (see above).<a href="#section-4-5.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-4-5.2">
-          <p id="section-4-5.2.1">subjectPublicKey contains the byte stream of the public key.<a href="#section-4-5.2.1" class="pilcrow">¶</a></p>
+          <p id="section-4-5.2.1"><code>subjectPublicKey</code> contains the byte stream of the public key.<a href="#section-4-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-4-6">The PUBLIC-KEY ASN.1 type for ML-KEM are defined here:<a href="#section-4-6" class="pilcrow">¶</a></p>
+<p id="section-4-6">The <code>PUBLIC-KEY</code> ASN.1 type for ML-KEM are defined here:<a href="#section-4-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4-7">
 <pre>
   pk-ml-kem-512 PUBLIC-KEY ::= {
@@ -1412,19 +1412,19 @@ public key (see above).<a href="#section-4-5.1.1" class="pilcrow">¶</a></p>
   ML-KEM-1024-PublicKey ::= OCTET STRING (SIZE (1568))
 </pre><a href="#section-4-7" class="pilcrow">¶</a>
 </div>
-<p id="section-4-8">When an ML-KEM public key appears outside of a SubjectPublicKeyInfo
+<p id="section-4-8">When an ML-KEM public key appears outside of a <code>SubjectPublicKeyInfo</code>
 type in an environment that uses ASN.1 encoding, it can be encoded
-as an OCTET STRING by using the ML-KEM-512-PublicKey,
-ML-KEM-768-PublicKey, ML-KEM-1024-PublicKey types corresponding to
+as an OCTET STRING by using the <code>ML-KEM-512-PublicKey</code>,
+<code>ML-KEM-768-PublicKey</code>, <code>ML-KEM-1024-PublicKey</code> types corresponding to
 the correct key size.<a href="#section-4-8" class="pilcrow">¶</a></p>
-<p id="section-4-9"><span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> describes the Asymmetric Key Package's OneAsymmetricKey
+<p id="section-4-9"><span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> describes the Asymmetric Key Package's <code>OneAsymmetricKey</code>
 type for encoding asymmetric keypairs. When an ML-KEM private key or
-keypair is encoded as a OneAsymmetricKey, it follows the description
+keypair is encoded as a <code>OneAsymmetricKey</code>, it follows the description
 in <a href="#priv-key" class="auto internal xref">Section 6</a>.<a href="#section-4-9" class="pilcrow">¶</a></p>
 <p id="section-4-10">When the ML-KEM private key appears outside of an Asymmetric Key Package
 in an environment that uses ASN.1 encoding, it can be encoded using one
-of the the ML-KEM-PrivateKey CHOICE formats defined in <a href="#priv-key" class="auto internal xref">Section 6</a>. The
-seed format is <span class="bcp14">RECOMMENDED</span> as it efficiently stores both the private and
+of the the <code>ML-KEM-PrivateKey CHOICE</code> formats defined in <a href="#priv-key" class="auto internal xref">Section 6</a>. The
+<code>seed</code> format is <span class="bcp14">RECOMMENDED</span> as it efficiently stores both the private and
 public key.<a href="#section-4-10" class="pilcrow">¶</a></p>
 <p id="section-4-11"><a href="#example-public" class="auto internal xref">Appendix C.2</a> contains examples for ML-KEM public keys
 encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-4-11" class="pilcrow">¶</a></p>
@@ -1436,9 +1436,9 @@ encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="c
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-key-usage-bits" class="section-name selfRef">Key Usage Bits</a>
       </h2>
 <p id="section-5-1">The intended application for the key is indicated in the keyUsage certificate
-extension; see <span><a href="https://rfc-editor.org/rfc/rfc5280#section-4.2.1.3" class="relref">Section 4.2.1.3</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>. If the keyUsage extension is
-present in a certificate that indicates id-alg-ml-kem-* in the SubjectPublicKeyInfo,
-then keyEncipherment <span class="bcp14">MUST</span> be the only key usage set.<a href="#section-5-1" class="pilcrow">¶</a></p>
+extension; see <span><a href="https://rfc-editor.org/rfc/rfc5280#section-4.2.1.3" class="relref">Section 4.2.1.3</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>. If the <code>keyUsage</code> extension is
+present in a certificate that indicates <code>id-alg-ml-kem-*</code> in the <code>SubjectPublicKeyInfo</code>,
+then <code>keyEncipherment</code> <span class="bcp14">MUST</span> be the only key usage set.<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="priv-key">
@@ -1459,7 +1459,7 @@ be computed using <code>ML-KEM.KeyGen_internal(d,z)</code> as described earlier.
 key in a structure that both identifies which algorithm the private key
 is for and allows for the public key and additional attributes about the
 key to be included as well. For illustration, the ASN.1 structure
-OneAsymmetricKey is replicated below.<a href="#section-6-3" class="pilcrow">¶</a></p>
+<code>OneAsymmetricKey</code> is replicated below.<a href="#section-6-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-6-4">
 <pre>
   OneAsymmetricKey ::= SEQUENCE {
@@ -1486,10 +1486,10 @@ OneAsymmetricKey is replicated below.<a href="#section-6-3" class="pilcrow">¶</
         <p id="section-6-5.1">NOTE: The above syntax is from <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> and is compatible with the
   2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.<a href="#section-6-5.1" class="pilcrow">¶</a></p>
 </aside>
-<p id="section-6-6">For ML-KEM private keys, the privateKey field in OneAsymmetricKey contains
-one of the following CHOICE structures encoded as an OCTET STRING. The seed
-format is a fixed 64 bytes for all security levels, while the expandedKey
-and both formats vary in size by security level:<a href="#section-6-6" class="pilcrow">¶</a></p>
+<p id="section-6-6">For ML-KEM private keys, the privateKey field in <code>OneAsymmetricKey</code> contains
+one of the following <code>CHOICE</code> structures encoded as an <code>OCTET STRING</code>. The <code>seed</code>
+format is a fixed 64 bytes for all security levels, while the <code>expandedKey</code>
+and <code>both</code> formats vary in size by security level:<a href="#section-6-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-6-7">
 <pre>
   ML-KEM-512-PrivateKey ::= CHOICE {
@@ -1521,37 +1521,37 @@ and both formats vary in size by security level:<a href="#section-6-6" class="pi
 
 </pre><a href="#section-6-7" class="pilcrow">¶</a>
 </div>
-<p id="section-6-8">The CHOICE allows three representations of the private key:<a href="#section-6-8" class="pilcrow">¶</a></p>
+<p id="section-6-8">The <code>CHOICE</code> allows three representations of the private key:<a href="#section-6-8" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-6-9.1">
-          <p id="section-6-9.1.1">The seed format (tag [0]) contains just the 64-byte seed value
+          <p id="section-6-9.1.1">The <code>seed</code> format (tag [0]) contains just the 64-byte seed value
 from which both the expanded private key and public key can be
 derived using <code>ML-KEM.KeyGen_internal(d,z)</code> (algorithm 16) using
 the first 32 octets as <em>d</em> and the remaining 32 octets as <em>z</em>.<a href="#section-6-9.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-6-9.2">
-          <p id="section-6-9.2.1">The expandedKey format contains the expanded private key
+          <p id="section-6-9.2.1">The <code>expandedKey</code> format contains the expanded private key
 that was derived from the seed.<a href="#section-6-9.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-6-9.3">
-          <p id="section-6-9.3.1">The both format contains both the seed and expanded key, allowing
+          <p id="section-6-9.3.1">The <code>both</code> format contains both the seed and expanded key, allowing
 for interoperability; some may want to use and retain the seed and
 others may only support expanded keys.<a href="#section-6-9.3.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-6-10">When encoding an ML-KEM private key in a OneAsymmetricKey object, any
-of these three formats may be used, though the seed format is <span class="bcp14">RECOMMENDED</span>
+<p id="section-6-10">When encoding an ML-KEM private key in a <code>OneAsymmetricKey</code> object, any
+of these three formats may be used, though the <code>seed</code> format is <span class="bcp14">RECOMMENDED</span>
 for storage efficiency.<a href="#section-6-10" class="pilcrow">¶</a></p>
-<p id="section-6-11">The "privateKeyAlgorithm" field uses the AlgorithmIdentifier structure
-with the appropriate OID as defined in <a href="#oids" class="auto internal xref">Section 3</a>. If present, the "publicKey"
+<p id="section-6-11">The <code>privateKeyAlgorithm</code> field uses the <code>AlgorithmIdentifier</code> structure
+with the appropriate OID as defined in <a href="#oids" class="auto internal xref">Section 3</a>. If present, the <code>publicKey</code>
 field will hold the encoded public key as defined in <a href="#pub-key" class="auto internal xref">Section 4</a>.<a href="#section-6-11" class="pilcrow">¶</a></p>
 <p id="section-6-12">NOTE: While the private key can be stored in multiple formats, the seed-only
 format is <span class="bcp14">RECOMMENDED</span> as it is the most compact representation. Both the
 expanded private key and the public key can be deterministically derived
 from the seed using <code>ML-KEM.KeyGen_internal(d,z)</code> (algorithm 16) using the
 first 32 octets as <em>d</em> and the remaining 32 octets as <em>z</em>.  Alternatively,
-the public key can be extracted from the extended private key. While the publicKey field and
-expandedKey format are technically redundant when using the seed-only format,
+the public key can be extracted from the extended private key. While the <code>publicKey</code> field and
+<code>expandedKey</code> format are technically redundant when using the seed-only format,
 they <span class="bcp14">MAY</span> be included to enable keypair consistency checks during import operations.<a href="#section-6-12" class="pilcrow">¶</a></p>
 <p id="section-6-13"><a href="#example-private" class="auto internal xref">Appendix C.1</a> contains examples for ML-KEM private keys
 encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-6-13" class="pilcrow">¶</a></p>
@@ -1928,7 +1928,7 @@ certificates.<a href="#appendix-C-1" class="pilcrow">¶</a></p>
 <p id="appendix-C.1-1">The following examples show ML-KEM private keys in different formats,
 all derived from the same seed <code>000102…1e1f</code>. For each security level,
 we show the seed-only format (using a context-specific <code>[0]</code> primitive
-tag with an implicit encoding of OCTET STRING), the expanded format,
+tag with an implicit encoding of <code>OCTET STRING</code>), the expanded format,
 and both formats together.<a href="#appendix-C.1-1" class="pilcrow">¶</a></p>
 <p id="appendix-C.1-2">NOTE: All examples use the same seed value, showing how the same seed <br>
 produces different expanded keys for each security level.<a href="#appendix-C.1-2" class="pilcrow">¶</a></p>
