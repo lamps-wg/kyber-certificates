@@ -507,6 +507,9 @@ produces different expanded keys for each security level.
 
 ### ML-KEM-512 Private Key Examples
 
+Each of the examples includes the textual encoding {{RFC7468}} followed by
+the so-called "pretty print"; the private keys are the same.
+
 #### Seed Format
 ~~~
 {::include ./example/ML-KEM-512-seed.priv}
@@ -536,6 +539,9 @@ produces different expanded keys for each security level.
 
 ### ML-KEM-768 Private Key Examples
 
+Each of the examples includes the textual encoding {{RFC7468}} followed by
+the so-called "pretty print"; the private keys are the same.
+
 #### Seed Format
 ~~~
 {::include ./example/ML-KEM-768-seed.priv}
@@ -564,6 +570,9 @@ produces different expanded keys for each security level.
 ~~~
 
 ### ML-KEM-1024 Private Key Examples
+
+Each of the examples includes the textual encoding {{RFC7468}} followed by
+the so-called "pretty print"; the private keys are the same.
 
 #### Seed Format
 ~~~
@@ -595,7 +604,8 @@ produces different expanded keys for each security level.
 ## Example Public Keys {#example-public}
 
 The following is the ML-KEM-512 public key corresponding to the private
-key in the previous section.
+key in the previous section. The textual encoding {{RFC7468}} is
+followed by the so-called "pretty print"; the public keys are the same.
 
 ~~~
 {::include ./example/ML-KEM-512.pub}
@@ -607,7 +617,8 @@ key in the previous section.
 ~~~
 
 The following is the ML-KEM-768 public key corresponding to the private
-key in the previous section.
+key in the previous section. The textual encoding {{RFC7468}} is
+followed by the so-called "pretty print"; the public keys are the same.
 
 ~~~
 {::include ./example/ML-KEM-768.pub}
@@ -618,7 +629,8 @@ key in the previous section.
 ~~~
 
 The following is the ML-KEM-1024 public key corresponding to the private
-key in the previous section.
+key in the previous section. The textual encoding {{RFC7468}} is
+followed by the so-called "pretty print"; the public keys are the same.
 
 ~~~
 {::include ./example/ML-KEM-1024.pub}
@@ -637,7 +649,8 @@ key in the previous section.
 
 The following is the ML-KEM-512 certificate that corresponding to the
 public key in the previous section signed with the ML-DSA-44 private key
-from {{I-D.ietf-lamps-dilithium-certificates}}.
+from {{I-D.ietf-lamps-dilithium-certificates}}. The textual encoding {{RFC7468}}
+is followed by the so-called "pretty print"; the certificates are the same.
 
 ~~~
 {::include ./example/ML-KEM-512.crt}
@@ -654,7 +667,8 @@ from {{I-D.ietf-lamps-dilithium-certificates}}.
 
 The following is the ML-KEM-768 certificate that corresponding to the
 public key in the previous section signed with the ML-DSA-65 private key
-from {{I-D.ietf-lamps-dilithium-certificates}}.
+from {{I-D.ietf-lamps-dilithium-certificates}}. The textual encoding {{RFC7468}}
+is followed by the so-called "pretty print"; the certificates are the same.
 
 ~~~
 {::include ./example/ML-KEM-768.crt}
@@ -671,7 +685,8 @@ from {{I-D.ietf-lamps-dilithium-certificates}}.
 
 The following is the ML-KEM-1024 certificate that corresponding to the
 public key in the previous section signed with the ML-DSA-87 private key
-from {{I-D.ietf-lamps-dilithium-certificates}}.
+from {{I-D.ietf-lamps-dilithium-certificates}}. The textual encoding {{RFC7468}}
+is followed by the so-called "pretty print"; the certificates are the same.
 
 ~~~
 {::include ./example/ML-KEM-1024.crt}
