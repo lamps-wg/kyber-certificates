@@ -409,6 +409,14 @@ ensure that the sender properly generated the private key.
 If the check is done and the seed and the expandedKey are not consistent,
 the recipient MUST reject the private key as malformed.
 
+When receiving a private key that contains an `expandedKey`,
+{{FIPS203}} stipulates in section 7.3 that before use,
+a "hash check" MUST be performed. This section stipulates two other
+checks on the type and length of the `expandedKey` which are ensured
+by this standard. To increase interoperability, it is RECOMMENDED
+that no further checks are performed on the `expandedKey` outside
+these stipulations of {{FIPS203}}.
+
 # Security Considerations
 
 The Security Considerations section of {{RFC5280}} applies to this
