@@ -592,7 +592,7 @@ produces different expanded keys for each security level.
 {::include ./example/ML-KEM-1024-both.priv.txt}
 ~~~
 
-## Example Public Key {#example-public}
+## Example Public Keys {#example-public}
 
 The following is the ML-KEM-512 public key corresponding to the private
 key in the previous section.
