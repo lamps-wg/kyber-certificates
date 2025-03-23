@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-20T01:17:31.165018+00:00",
+  "timestamp": "2025-03-23T01:23:38.068996+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -706,9 +706,38 @@
       "labels": [],
       "body": "Whatever the resolution of [104](https://github.com/lamps-wg/dilithium-certificates/issues/104) and [105](https://github.com/lamps-wg/dilithium-certificates/issues/105), the same resolution should be applied here.",
       "createdAt": "2025-03-19T09:54:04Z",
-      "updatedAt": "2025-03-19T09:54:04Z",
+      "updatedAt": "2025-03-21T05:57:13Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "vdukhovni",
+          "authorAssociation": "NONE",
+          "body": "ML-KEM-512 seed <-> key mismatch (updated, to make expanded key internally consistent, examples of problems confined to the expanded key will be separate):\n```\n-----BEGIN PRIVATE KEY-----\n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\nP0A=\n-----END PRIVATE KEY-----\n```",
+          "createdAt": "2025-03-21T04:34:39Z",
+          "updatedAt": "2025-03-21T04:58:49Z"
+        },
+        {
+          "author": "vdukhovni",
+          "authorAssociation": "NONE",
+          "body": "Expanded key with mutated $`s_0`$, public key hash is valid, but a PCT would find public key fails to match private:\n```\n-----BEGIN PRIVATE KEY-----\n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\nJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+Pw==\n-----END PRIVATE KEY-----\n```",
+          "createdAt": "2025-03-21T05:33:11Z",
+          "updatedAt": "2025-03-21T05:33:11Z"
+        },
+        {
+          "author": "vdukhovni",
+          "authorAssociation": "NONE",
+          "body": "Expanded key with mutated `H(ek)` (pub key digest check or PCT should fail):\n```\n-----BEGIN PRIVATE KEY-----\n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\nJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+Pw==\n-----END PRIVATE KEY-----\n```",
+          "createdAt": "2025-03-21T05:48:55Z",
+          "updatedAt": "2025-03-21T05:48:55Z"
+        },
+        {
+          "author": "vdukhovni",
+          "authorAssociation": "NONE",
+          "body": "Mismatch of seed and expanded key in only the `z` implicit rejection secret, the private and public vectors, ... match, PCT passes, ... In the first example the expanded key was entirely unrelated to the seed, here the the keys are almost the same, apart from `z`.\n```\n-----BEGIN PRIVATE KEY-----\n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\nPj4=\n-----END PRIVATE KEY-----\n```",
+          "createdAt": "2025-03-21T05:57:12Z",
+          "updatedAt": "2025-03-21T05:57:12Z"
+        }
+      ]
     },
     {
       "number": 108,
@@ -718,11 +747,13 @@
       "state": "OPEN",
       "author": "dennisjackson",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "bwesterb"
+      ],
       "labels": [],
       "body": "The draft doesn't actually specify how to parse expandedKey. I guess the length and hash checks in 7.3 of FIPS 203 are the right ones. Presumably, these SHOULD be done at import time in order to avoid having to repeat the check during each decap? ",
       "createdAt": "2025-03-19T10:52:04Z",
-      "updatedAt": "2025-03-19T10:52:04Z",
+      "updatedAt": "2025-03-20T06:13:23Z",
       "closedAt": null,
       "comments": []
     }
@@ -7162,19 +7193,504 @@
       "labels": [],
       "body": "Closes #105.",
       "createdAt": "2025-03-19T08:38:26Z",
-      "updatedAt": "2025-03-19T08:38:26Z",
+      "updatedAt": "2025-03-21T09:04:52Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "5ffb820485436cc671fab093876924afd71ea258",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "seanturner-more-words",
-      "headRefOid": "dcacef4c5e8afdf90734593ba206678566329e51",
+      "headRefOid": "195896a7520284fac727c8544dcfa65f74d90768",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6hOK7C",
+          "commit": {
+            "abbreviatedOid": "dcacef4"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-21T06:13:27Z",
+          "updatedAt": "2025-03-21T06:13:28Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "```suggestion\r\nand compare operations, but are unable to ensure that the `seed` and\r\n`expandedKey` match.\r\n```",
+              "createdAt": "2025-03-21T06:13:28Z",
+              "updatedAt": "2025-03-21T06:13:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6hOR-D",
+          "commit": {
+            "abbreviatedOid": "9446236"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-21T06:34:35Z",
+          "updatedAt": "2025-03-21T06:34:36Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "```suggestion\r\nIf the check is done and the seed and the `expandedKey` are not consistent,\r\n```",
+              "createdAt": "2025-03-21T06:34:35Z",
+              "updatedAt": "2025-03-21T06:34:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6hPiIJ",
+          "commit": {
+            "abbreviatedOid": "195896a"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-21T09:04:52Z",
+          "updatedAt": "2025-03-21T09:04:52Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 109,
+      "id": "PR_kwDOGV9y2s6PZUey",
+      "title": "More Implementation Guidance",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/109",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "From Dennis; see #107.\r\n\r\n@dennisjackson @vdukhovni PTAL.",
+      "createdAt": "2025-03-20T05:15:59Z",
+      "updatedAt": "2025-03-21T09:48:28Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "5ffb820485436cc671fab093876924afd71ea258",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-impl-guide",
+      "headRefOid": "11673e3583f527c0e21f3addcdd2027869a020f1",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "vdukhovni",
+          "authorAssociation": "NONE",
+          "body": "FWIW, when the key is imported via the expanded form, rather than a seed, OpenSSL performs a PCT on import, checking the internal consistency of the key.\r\nThis could be mentioned, or not, as you see fit, but if one is concerned about malformed keys, one might want to avoid using keys where the public part does not match the private.",
+          "createdAt": "2025-03-21T09:41:18Z",
+          "updatedAt": "2025-03-21T09:41:18Z"
+        },
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Relatedly you probably have an opinion about #116 ",
+          "createdAt": "2025-03-21T09:48:26Z",
+          "updatedAt": "2025-03-21T09:48:26Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6hBstZ",
+          "commit": {
+            "abbreviatedOid": "2c99d6e"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-20T07:43:10Z",
+          "updatedAt": "2025-03-20T07:43:10Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6hHVGP",
+          "commit": {
+            "abbreviatedOid": "2c99d6e"
+          },
+          "author": "dennisjackson",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM. https://github.com/lamps-wg/dilithium-certificates/pull/108#pullrequestreview-2703046645 applies here as well, if you like the suggestion.",
+          "createdAt": "2025-03-20T14:48:48Z",
+          "updatedAt": "2025-03-20T14:48:48Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6hOKoX",
+          "commit": {
+            "abbreviatedOid": "2c99d6e"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-21T06:12:28Z",
+          "updatedAt": "2025-03-21T06:12:28Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\nvariant of `CHOICE` is present. Implementations should use tag `UNIVERSAL IMPLICIT [0]`\r\n(raw value `0x80`) for `seed`, `OCTET STRING` (`0x04`) for `expandedKey`, and\r\n`SEQUENCE` (`0x30`) for `both` to parse the private key, rather than any other heuristic like length of the `OCTET STRING`.\r\n```",
+              "createdAt": "2025-03-21T06:12:28Z",
+              "updatedAt": "2025-03-21T06:12:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6hOLuX",
+          "commit": {
+            "abbreviatedOid": "9d5aae8"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-21T06:15:48Z",
+          "updatedAt": "2025-03-21T06:15:49Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\n`SEQUENCE` (`0x30`) for `both` to parse the private key, rather than any\r\nother heuristic like length of the enclosing `OCTET STRING`.\r\n```",
+              "createdAt": "2025-03-21T06:15:49Z",
+              "updatedAt": "2025-03-21T06:15:49Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6hOQs5",
+          "commit": {
+            "abbreviatedOid": "11673e3"
+          },
+          "author": "vdukhovni",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-21T06:30:34Z",
+          "updatedAt": "2025-03-21T06:30:34Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6hPjOg",
+          "commit": {
+            "abbreviatedOid": "11673e3"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-21T09:06:04Z",
+          "updatedAt": "2025-03-21T09:06:04Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 110,
+      "id": "PR_kwDOGV9y2s6PkUsq",
+      "title": "Add quotes for fields",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/110",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "just making it consistent across the draft.",
+      "createdAt": "2025-03-21T06:30:55Z",
+      "updatedAt": "2025-03-21T09:05:43Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "5ffb820485436cc671fab093876924afd71ea258",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-quotes",
+      "headRefOid": "2dacaa4ef46bbee98da3b54f7592ec6902a245e1",
+      "closedAt": "2025-03-21T06:32:42Z",
+      "mergedAt": "2025-03-21T06:32:42Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "f26c27aa90c09398167f85d3caed06fe613cd83a"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 111,
+      "id": "PR_kwDOGV9y2s6PkYB9",
+      "title": "Be consistent: expanded private key",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/111",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Sometimes expanded key sometimes expanded private key. Went with the later.",
+      "createdAt": "2025-03-21T06:40:44Z",
+      "updatedAt": "2025-03-21T08:15:42Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "f26c27aa90c09398167f85d3caed06fe613cd83a",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-exprivkey-text",
+      "headRefOid": "1434ef729daf312f21a9b11bbdc2d000b2f967e2",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6hPEQz",
+          "commit": {
+            "abbreviatedOid": "1434ef7"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-21T08:15:26Z",
+          "updatedAt": "2025-03-21T08:15:26Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "Typo",
+              "createdAt": "2025-03-21T08:15:26Z",
+              "updatedAt": "2025-03-21T08:15:26Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 112,
+      "id": "PR_kwDOGV9y2s6PkbB9",
+      "title": "Fix description of CHOICE structure",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/112",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I removed the bit about `OCTET STRING` because only two of the choices are that the other is a `SEQUENCE`.",
+      "createdAt": "2025-03-21T06:46:41Z",
+      "updatedAt": "2025-03-21T06:46:41Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "f26c27aa90c09398167f85d3caed06fe613cd83a",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-choice-description",
+      "headRefOid": "b3bb480621315abfb6b77a913363d7e2e4ee0351",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 113,
+      "id": "PR_kwDOGV9y2s6Pkkd2",
+      "title": "Plural",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/113",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We got lots of examples ;)",
+      "createdAt": "2025-03-21T07:10:38Z",
+      "updatedAt": "2025-03-21T07:12:09Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "f26c27aa90c09398167f85d3caed06fe613cd83a",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-plural",
+      "headRefOid": "59bdfc61823d24773a13abf904c84acc131f7f7f",
+      "closedAt": "2025-03-21T07:12:09Z",
+      "mergedAt": "2025-03-21T07:12:09Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "e1bcd9fa77c3e140d10bec5d6455a6d073a6e437"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 114,
+      "id": "PR_kwDOGV9y2s6PlRRH",
+      "title": "Add ASN.1 Notes",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/114",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Adds some ASN.1 Notes.",
+      "createdAt": "2025-03-21T08:54:18Z",
+      "updatedAt": "2025-03-21T10:06:31Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "e1bcd9fa77c3e140d10bec5d6455a6d073a6e437",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-asn1-notes",
+      "headRefOid": "365cbc5424c63a4cbec22558fc7d31245b4157c7",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6hPiWi",
+          "commit": {
+            "abbreviatedOid": "365cbc5"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-21T09:05:05Z",
+          "updatedAt": "2025-03-21T09:05:05Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6hQPmw",
+          "commit": {
+            "abbreviatedOid": "365cbc5"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-21T10:06:31Z",
+          "updatedAt": "2025-03-21T10:06:31Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 115,
+      "id": "PR_kwDOGV9y2s6PljDj",
+      "title": "More explanation for examples",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/115",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Need to explain that the textual and pretty-print are the same.",
+      "createdAt": "2025-03-21T09:27:38Z",
+      "updatedAt": "2025-03-21T10:07:01Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "e1bcd9fa77c3e140d10bec5d6455a6d073a6e437",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-example-text",
+      "headRefOid": "cb2a246e6e8cc39f33e541ec2c5a6df9fa90e13a",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6hQAeE",
+          "commit": {
+            "abbreviatedOid": "cb2a246"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-21T09:47:30Z",
+          "updatedAt": "2025-03-21T09:47:30Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6hQP7f",
+          "commit": {
+            "abbreviatedOid": "cb2a246"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-21T10:07:01Z",
+          "updatedAt": "2025-03-21T10:07:01Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 116,
+      "id": "PR_kwDOGV9y2s6Plqmh",
+      "title": "Add text on expandedKey check",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/116",
+      "state": "OPEN",
+      "author": "bwesterb",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This addresses #108\r\n\r\nAs FIPS 203 already stipulates this, we can drop the normative language.\r\n\r\nI do not have strong feelings on the normative text around the further checks, but this one seems like least friction.",
+      "createdAt": "2025-03-21T09:42:21Z",
+      "updatedAt": "2025-03-21T10:17:59Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "e1bcd9fa77c3e140d10bec5d6455a6d073a6e437",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "bas/108",
+      "headRefOid": "39a40b74aeae0ec0f80fd083eb04a1cf032d5254",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I could add more text about what these additional checks could be, but I think that's needless noise.\r\n\r\nFIPS 203 does not ask to check whether the coefficients of \"\\hat{s}\" in the decapsulation key are reduced mod q. An implementation must reduce modulo q. This is in contrast to the \"modulus check\" required on the encapsulation key, where encapsulation must fail when \"\\hat{t}\" is out of range during encapsulation.  \\hat{t} is also part of the private key, but as far as I see the encapsulation key check is not required, and thus for decapsulation the user should just reduce and not error. In the situation of unreduced coefficients, no successful decapsulation is possible of an honestly generated ciphertext as the sender does reduce the public key coefficients before hashing it.",
+          "createdAt": "2025-03-21T09:45:45Z",
+          "updatedAt": "2025-03-21T09:45:45Z"
+        },
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Another consistency check not mandated is the consistency check between s1, s2 and t in the expanded private key.",
+          "createdAt": "2025-03-21T09:50:21Z",
+          "updatedAt": "2025-03-21T09:50:21Z"
+        },
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I do not believe this can move forward so long as the intent is to prohibit additional checks on key validity.\r\n\r\nIt's not a SHOULD, and definitely not a MUST. Merely a RECOMMENDED. We can remove that too. I do think we should say something about the checks.",
+          "createdAt": "2025-03-21T10:17:58Z",
+          "updatedAt": "2025-03-21T10:17:58Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6hQTFF",
+          "commit": {
+            "abbreviatedOid": "39a40b7"
+          },
+          "author": "vdukhovni",
+          "authorAssociation": "NONE",
+          "state": "CHANGES_REQUESTED",
+          "body": "I do not believe this can move forward so long as the intent is to prohibit additional checks on key validity.",
+          "createdAt": "2025-03-21T10:12:18Z",
+          "updatedAt": "2025-03-21T10:12:18Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
