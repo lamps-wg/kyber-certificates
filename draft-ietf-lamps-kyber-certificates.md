@@ -368,7 +368,7 @@ that was derived from the seed.
 
 * The `both` format contains both the seed and expanded private key, allowing
 for interoperability; some may want to use and retain the seed and
-others may only support expanded prviate keys.
+others may only support expanded private keys.
 
 When encoding an ML-KEM private key in a `OneAsymmetricKey` object, any
 of these three formats may be used, though the `seed` format is RECOMMENDED
