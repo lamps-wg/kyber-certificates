@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-23T01:23:38.068996+00:00",
+  "timestamp": "2025-03-25T01:19:38.544846+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -7273,7 +7273,7 @@
       "labels": [],
       "body": "From Dennis; see #107.\r\n\r\n@dennisjackson @vdukhovni PTAL.",
       "createdAt": "2025-03-20T05:15:59Z",
-      "updatedAt": "2025-03-21T09:48:28Z",
+      "updatedAt": "2025-03-24T12:16:45Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "5ffb820485436cc671fab093876924afd71ea258",
@@ -7392,6 +7392,19 @@
           "createdAt": "2025-03-21T09:06:04Z",
           "updatedAt": "2025-03-21T09:06:04Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6hihVz",
+          "commit": {
+            "abbreviatedOid": "11673e3"
+          },
+          "author": "tomato42",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-03-24T12:16:45Z",
+          "updatedAt": "2025-03-24T12:16:45Z",
+          "comments": []
         }
       ]
     },
@@ -7482,7 +7495,7 @@
       "labels": [],
       "body": "I removed the bit about `OCTET STRING` because only two of the choices are that the other is a `SEQUENCE`.",
       "createdAt": "2025-03-21T06:46:41Z",
-      "updatedAt": "2025-03-21T06:46:41Z",
+      "updatedAt": "2025-03-23T06:41:12Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "f26c27aa90c09398167f85d3caed06fe613cd83a",
@@ -7494,7 +7507,28 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6hb_lY",
+          "commit": {
+            "abbreviatedOid": "b3bb480"
+          },
+          "author": "vdukhovni",
+          "authorAssociation": "NONE",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2025-03-23T06:40:44Z",
+          "updatedAt": "2025-03-23T06:41:12Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\none of the following DER-encoded `CHOICE` structures. The `seed`\r\nformat is a fixed 64 byte OCTET STRING (66 bytes total with the `0x8040`\r\ntag and length) for all security levels, while the `expandedKey`\r\n```",
+              "createdAt": "2025-03-23T06:40:44Z",
+              "updatedAt": "2025-03-23T06:41:12Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 113,
@@ -7642,7 +7676,7 @@
       "labels": [],
       "body": "This addresses #108\r\n\r\nAs FIPS 203 already stipulates this, we can drop the normative language.\r\n\r\nI do not have strong feelings on the normative text around the further checks, but this one seems like least friction.",
       "createdAt": "2025-03-21T09:42:21Z",
-      "updatedAt": "2025-03-21T10:17:59Z",
+      "updatedAt": "2025-03-23T06:49:09Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "e1bcd9fa77c3e140d10bec5d6455a6d073a6e437",
@@ -7674,6 +7708,13 @@
           "body": "> I do not believe this can move forward so long as the intent is to prohibit additional checks on key validity.\r\n\r\nIt's not a SHOULD, and definitely not a MUST. Merely a RECOMMENDED. We can remove that too. I do think we should say something about the checks.",
           "createdAt": "2025-03-21T10:17:58Z",
           "updatedAt": "2025-03-21T10:17:58Z"
+        },
+        {
+          "author": "vdukhovni",
+          "authorAssociation": "NONE",
+          "body": "> > I do not believe this can move forward so long as the intent is to prohibit additional checks on key validity.\r\n> \r\n> It's not a SHOULD, and definitely not a MUST. Merely a RECOMMENDED. We can remove that too. I do think we should say something about the checks.\r\n\r\nIt is fine to suggest and in some cases recommend the most obvious minimal checks (digest, PCT, modulus, ...). It is NOT fine to attempt to limit the checks to just the ones suggested/listed. Any implementation is free to reject any key for any reason, but if the key is a well formed output of the FIPS 203 KeyGen algorithm, that reason should  be compelling enough to warrant breaking interoperability.\r\n\r\n[ FWIW, I suspect that some implementations may choose to not accept either or both of the `both` and `expandedKey` formats, even when the keys are valid and consistent. Their loss, ..., OpenSSL will default to output `both`. This is based on my speculative interpretation of David's question at the mike about whether all the CHOICE options must be supported. ]",
+          "createdAt": "2025-03-23T06:31:49Z",
+          "updatedAt": "2025-03-23T06:31:49Z"
         }
       ],
       "reviews": [
@@ -7689,6 +7730,46 @@
           "createdAt": "2025-03-21T10:12:18Z",
           "updatedAt": "2025-03-21T10:12:18Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6hb_X5",
+          "commit": {
+            "abbreviatedOid": "39a40b7"
+          },
+          "author": "vdukhovni",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-23T06:34:02Z",
+          "updatedAt": "2025-03-23T06:34:03Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "```suggestion\r\nby this standard.\r\n\r\n```",
+              "createdAt": "2025-03-23T06:34:02Z",
+              "updatedAt": "2025-03-23T06:34:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6hb_33",
+          "commit": {
+            "abbreviatedOid": "39a40b7"
+          },
+          "author": "vdukhovni",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-23T06:49:09Z",
+          "updatedAt": "2025-03-23T06:49:09Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "Where are two other checks stipulated? In particular what is the \"type\" check?",
+              "createdAt": "2025-03-23T06:49:09Z",
+              "updatedAt": "2025-03-23T06:49:09Z"
+            }
+          ]
         }
       ]
     }
