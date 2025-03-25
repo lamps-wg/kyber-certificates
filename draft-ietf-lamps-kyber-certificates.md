@@ -366,9 +366,9 @@ the first 32 octets as *d* and the remaining 32 octets as *z*.
 * The `expandedKey` format contains the expanded private key
 that was derived from the seed.
 
-* The `both` format contains both the seed and expanded key, allowing
+* The `both` format contains both the seed and expanded private key, allowing
 for interoperability; some may want to use and retain the seed and
-others may only support expanded keys.
+others may only support expanded private keys.
 
 When encoding an ML-KEM private key in a `OneAsymmetricKey` object, any
 of these three formats may be used, though the `seed` format is RECOMMENDED
@@ -404,7 +404,7 @@ Below are possible ways to extend the APIs defined in {{FIPS203}} to support ser
 
 To support serialization of seed values as private keys, let Algorithm 19b denote the same procedure as Algorithm 19 in {{FIPS203}} except it returns (ek, dk, d, z) on line 7. Additionally, Algorithm 16 should be promoted to be a "main algorithm" for external use in expanding seed values.
 
-Note also that unlike other private key compression methods in other algorithms, expanding a private key from a seed is a one-way function, meaning that once a full key is expanded from seed and the seed discarded, the seed cannot be re-created even if the full expanded private key is available. For this reason it is RECOMMENDED that implementations retain and export the seed, even when also exporting the expanded key.
+Note also that unlike other private key compression methods in other algorithms, expanding a private key from a seed is a one-way function, meaning that once a full key is expanded from seed and the seed discarded, the seed cannot be re-created even if the full expanded private key is available. For this reason it is RECOMMENDED that implementations retain and export the seed, even when also exporting the expanded private key.
 
 # Private Key Consistency Tesing
 
@@ -517,7 +517,7 @@ tag with an implicit encoding of `OCTET STRING`), the expanded format,
 and both formats together.
 
 NOTE: All examples use the same seed value, showing how the same seed	
-produces different expanded keys for each security level.
+produces different expanded private keys for each security level.
 
 ### ML-KEM-512 Private Key Examples
 
