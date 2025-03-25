@@ -339,9 +339,9 @@ Table of Contents
    *  The expandedKey format contains the expanded private key that was
       derived from the seed.
 
-   *  The both format contains both the seed and expanded key, allowing
-      for interoperability; some may want to use and retain the seed and
-      others may only support expanded keys.
+   *  The both format contains both the seed and expanded private key,
+      allowing for interoperability; some may want to use and retain the
+      seed and others may only support expanded private keys.
 
    When encoding an ML-KEM private key in a OneAsymmetricKey object, any
    of these three formats may be used, though the seed format is
@@ -397,7 +397,7 @@ Table of Contents
    seed discarded, the seed cannot be re-created even if the full
    expanded private key is available.  For this reason it is RECOMMENDED
    that implementations retain and export the seed, even when also
-   exporting the expanded key.
+   exporting the expanded private key.
 
 8.  Private Key Consistency Tesing
 
@@ -732,7 +732,7 @@ C.1.  Example Private Keys
    and both formats together.
 
    NOTE: All examples use the same seed value, showing how the same seed
-   produces different expanded keys for each security level.
+   produces different expanded private keys for each security level.
 
 C.1.1.  ML-KEM-512 Private Key Examples
 

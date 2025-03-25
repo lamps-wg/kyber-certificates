@@ -1534,9 +1534,9 @@ the first 32 octets as <em>d</em> and the remaining 32 octets as <em>z</em>.<a h
 that was derived from the seed.<a href="#section-6-9.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-6-9.3">
-          <p id="section-6-9.3.1">The <code>both</code> format contains both the seed and expanded key, allowing
+          <p id="section-6-9.3.1">The <code>both</code> format contains both the seed and expanded private key, allowing
 for interoperability; some may want to use and retain the seed and
-others may only support expanded keys.<a href="#section-6-9.3.1" class="pilcrow">¶</a></p>
+others may only support expanded private keys.<a href="#section-6-9.3.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="section-6-10">When encoding an ML-KEM private key in a <code>OneAsymmetricKey</code> object, any
@@ -1571,7 +1571,7 @@ encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="c
 Similarly, the algorithm that expands seed values is not listed as one of the "main algorithms" and features "internal" in the name even though it is clear that it is allowed to be exposed externally for the purposes of expanding a key from a seed.
 Below are possible ways to extend the APIs defined in <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> to support serialization of seed values as private keys.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <p id="section-7-2">To support serialization of seed values as private keys, let Algorithm 19b denote the same procedure as Algorithm 19 in <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> except it returns (ek, dk, d, z) on line 7. Additionally, Algorithm 16 should be promoted to be a "main algorithm" for external use in expanding seed values.<a href="#section-7-2" class="pilcrow">¶</a></p>
-<p id="section-7-3">Note also that unlike other private key compression methods in other algorithms, expanding a private key from a seed is a one-way function, meaning that once a full key is expanded from seed and the seed discarded, the seed cannot be re-created even if the full expanded private key is available. For this reason it is <span class="bcp14">RECOMMENDED</span> that implementations retain and export the seed, even when also exporting the expanded key.<a href="#section-7-3" class="pilcrow">¶</a></p>
+<p id="section-7-3">Note also that unlike other private key compression methods in other algorithms, expanding a private key from a seed is a one-way function, meaning that once a full key is expanded from seed and the seed discarded, the seed cannot be re-created even if the full expanded private key is available. For this reason it is <span class="bcp14">RECOMMENDED</span> that implementations retain and export the seed, even when also exporting the expanded private key.<a href="#section-7-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="private-key-consistency-tesing">
@@ -1943,7 +1943,7 @@ we show the seed-only format (using a context-specific <code>[0]</code> primitiv
 tag with an implicit encoding of <code>OCTET STRING</code>), the expanded format,
 and both formats together.<a href="#appendix-C.1-1" class="pilcrow">¶</a></p>
 <p id="appendix-C.1-2">NOTE: All examples use the same seed value, showing how the same seed <br>
-produces different expanded keys for each security level.<a href="#appendix-C.1-2" class="pilcrow">¶</a></p>
+produces different expanded private keys for each security level.<a href="#appendix-C.1-2" class="pilcrow">¶</a></p>
 <div id="ml-kem-512-private-key-examples">
 <section id="appendix-C.1.1">
           <h4 id="name-ml-kem-512-private-key-exam">
