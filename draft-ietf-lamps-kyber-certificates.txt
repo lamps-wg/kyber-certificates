@@ -226,6 +226,10 @@ Table of Contents
 
      ML-KEM-1024-PublicKey ::= OCTET STRING (SIZE (1568))
 
+      |  NOTE: The above syntax is from [RFC5912] and is compatible with
+      |  the 2021 ASN.1 syntax [X680].  See [RFC5280] for the 1988 ASN.1
+      |  syntax.
+
    When an ML-KEM public key appears outside of a SubjectPublicKeyInfo
    type in an environment that uses ASN.1 encoding, it can be encoded as
    an OCTET STRING by using the ML-KEM-512-PublicKey, ML-KEM-
@@ -328,6 +332,10 @@ Table of Contents
          expandedKey OCTET STRING (SIZE (3168))
          }
        }
+
+      |  NOTE: The above syntax is from [RFC5912] and is compatible with
+      |  the 2021 ASN.1 syntax [X680].  See [RFC5280] for the 1988 ASN.1
+      |  syntax.
 
    The CHOICE allows three representations of the private key:
 
