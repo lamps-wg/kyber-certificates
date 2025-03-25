@@ -520,7 +520,7 @@ certificates.
 ## Example Private Keys {#example-private}
 
 The following examples show ML-KEM private keys in different formats,
-all derived from the same seed `000102…1e1f`. For each security level,
+all derived from the same seed `000102...1e1f`. For each security level,
 we show the seed-only format (using a context-specific `[0]` primitive
 tag with an implicit encoding of `OCTET STRING`), the expanded format,
 and both formats together.
