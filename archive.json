@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-27T01:18:35.759301+00:00",
+  "timestamp": "2025-03-30T01:25:26.378181+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -7885,24 +7885,26 @@
       "id": "PR_kwDOGV9y2s6QOQyS",
       "title": "Refer to ML-KEM.KeyGen as well",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/118",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danvangeest",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Refer to ML-KEM.KeyGen as an option when generated expandedkey only, so that cms-kyber can reference this section for keygen and decapsulation.",
       "createdAt": "2025-03-26T14:36:45Z",
-      "updatedAt": "2025-03-26T14:37:48Z",
+      "updatedAt": "2025-03-28T12:49:53Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "cdf18e59bdf8c1eaaef1f783d93e5e27b8c0df4e",
       "headRepository": "danvangeest/kyber-certificates",
       "headRefName": "dvg/keygen_reference",
       "headRefOid": "bd978474628a1c9a616b62120022003c60198ab1",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-03-28T12:49:53Z",
+      "mergedAt": "2025-03-28T12:49:53Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "0049058dafdd2d103e924f70d47363548b3026df"
+      },
       "comments": [
         {
           "author": "danvangeest",
@@ -7912,7 +7914,21 @@
           "updatedAt": "2025-03-26T14:37:47Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6icep6",
+          "commit": {
+            "abbreviatedOid": "bd97847"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-28T12:32:27Z",
+          "updatedAt": "2025-03-28T12:32:27Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
