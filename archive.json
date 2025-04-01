@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-30T01:25:26.378181+00:00",
+  "timestamp": "2025-04-01T01:36:48.088609+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -7892,7 +7892,7 @@
       "labels": [],
       "body": "Refer to ML-KEM.KeyGen as an option when generated expandedkey only, so that cms-kyber can reference this section for keygen and decapsulation.",
       "createdAt": "2025-03-26T14:36:45Z",
-      "updatedAt": "2025-03-28T12:49:53Z",
+      "updatedAt": "2025-03-31T11:52:12Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "cdf18e59bdf8c1eaaef1f783d93e5e27b8c0df4e",
@@ -7927,6 +7927,92 @@
           "createdAt": "2025-03-28T12:32:27Z",
           "updatedAt": "2025-03-28T12:32:27Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6il3R1",
+          "commit": {
+            "abbreviatedOid": "bd97847"
+          },
+          "author": "vdukhovni",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-30T08:30:12Z",
+          "updatedAt": "2025-03-30T08:30:12Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "I don't understand this new sentence.  What is it trying to say and why???\r\nWhether or not the seed is ultimately exported, the decapsulation key is computed from it via the same algorithm.\r\nI read this paragraph to be about key **import** from PKCS#8, which is why it mentions generating the key from an explicit seed.\r\nHow to generate new keys (as opposed to how to encode or decode key material) is largely outside the scope of this document.",
+              "createdAt": "2025-03-30T08:30:12Z",
+              "updatedAt": "2025-03-30T08:30:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6il3X_",
+          "commit": {
+            "abbreviatedOid": "bd97847"
+          },
+          "author": "vdukhovni",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-30T08:32:07Z",
+          "updatedAt": "2025-03-30T08:32:07Z",
+          "comments": [
+            {
+              "originalPosition": 17,
+              "body": "This again makes little sense. Whether the seed is exported or not is irrelevant.",
+              "createdAt": "2025-03-30T08:32:07Z",
+              "updatedAt": "2025-03-30T08:32:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6ipsbL",
+          "commit": {
+            "abbreviatedOid": "bd97847"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-31T10:20:55Z",
+          "updatedAt": "2025-03-31T10:25:01Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "The \"why\" is to help the cms-kyber draft. cms-kyber is mostly agnostic about private key format, however it does map the KeyGen(), Encapsulate() and Decapsulate() from RFC 9629 to ML-KEM so I think it has to say a bit about ML-KEM private key encoding and going from seed to expanded key to do the decapsulation.  cms-kyber refers to this section (https://github.com/lamps-wg/cms-kyber/pull/26/files), so it would be nice to have some reference to ML-KEM.KeyGen() and not just ML-KEM.KeyGen_internal().\r\n\r\nThe \"what\" is just that ML-KEM.KeyGen() is a valid way to generate keys as well.\r\n\r\nThe following paragraph is actually about keygen and not import, so perhaps it would be more appropriate to say something about ML-KEM.KeyGen() there instead?",
+              "createdAt": "2025-03-31T10:20:55Z",
+              "updatedAt": "2025-03-31T10:25:01Z"
+            },
+            {
+              "originalPosition": 17,
+              "body": "If the seed is not exported, then ML-KEM.KeyGen() is a valid way of getting the expanded key for the `expandedKey` format.  But I would be okay if this change was removed.",
+              "createdAt": "2025-03-31T10:24:53Z",
+              "updatedAt": "2025-03-31T10:25:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6iqd6r",
+          "commit": {
+            "abbreviatedOid": "bd97847"
+          },
+          "author": "vdukhovni",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-31T11:52:12Z",
+          "updatedAt": "2025-03-31T11:52:12Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "Much of what makes this confusing, is that whether the seed is ultimately \"exported\" or not (post key generation) is completely irrelevant to questions of how to compute an expanded key.\r\n\r\nSo I still have no idea what this sentence is really trying to say.\r\n\r\nIf you're imagining a key generation step that stops at using a CSPRNG to generate a seed, in contrast to one that proceeds to also generate the expanded key, then this is what needs to be explained. In the latter case both the key and the seed might be exported. And even if the export format is seed only, an expanded key may be created in memory as part of key generation, ...  The export or not of the key is a rather odd distinction to draw here.\r\n\r\nIf the point is that *if* one wants to be able to export the seed, one needs to use an interface that retains it, and if the API is directly that of FIPS 203, then one needs to use the internal keygen since the external FIPS 203 keygen does not retain the seed.\r\n\r\nBut, for example, the API users see in OpenSSL is nothing like FIPS 203, they can call various equivalents of`EVP_PKEY_Q_keygen(NULL, NULL, \"ML-KEM-768\")`, which generates an `EVP_PKEY` and by default stores both the expanded key and seed in memory. If the `EVP_PKEY` is later serialised, both will be output.\r\n\r\nEven inside the provider, directly calling the ML-KEM API, the retention of the seed is implicit, and keygen always computes an expanded key. I don't think that at this level the specifications should be this closely matched to a specific API. The main question is whether the seed is retained, or not retained during key generation. How that happens or does not happen in a particular API is well outside the scope of the specification of the serialisation format.",
+              "createdAt": "2025-03-31T11:52:12Z",
+              "updatedAt": "2025-03-31T11:54:28Z"
+            }
+          ]
         }
       ]
     }
