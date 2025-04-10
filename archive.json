@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-01T01:36:48.088609+00:00",
+  "timestamp": "2025-04-10T01:19:56.143405+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -7728,7 +7728,7 @@
       "labels": [],
       "body": "This addresses #108\r\n\r\nAs FIPS 203 already stipulates this, we can drop the normative language.\r\n\r\nI do not have strong feelings on the normative text around the further checks, but this one seems like least friction.",
       "createdAt": "2025-03-21T09:42:21Z",
-      "updatedAt": "2025-03-23T06:49:09Z",
+      "updatedAt": "2025-04-09T20:26:52Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "e1bcd9fa77c3e140d10bec5d6455a6d073a6e437",
@@ -7820,6 +7820,26 @@
               "body": "Where are two other checks stipulated? In particular what is the \"type\" check?",
               "createdAt": "2025-03-23T06:49:09Z",
               "updatedAt": "2025-03-23T06:49:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6kMe8j",
+          "commit": {
+            "abbreviatedOid": "39a40b7"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-09T20:26:51Z",
+          "updatedAt": "2025-04-09T20:26:52Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "@bwesterb I think the two extra checks are ASN.1 checks/constraints for type and length.",
+              "createdAt": "2025-04-09T20:26:52Z",
+              "updatedAt": "2025-04-09T20:26:52Z"
             }
           ]
         }
