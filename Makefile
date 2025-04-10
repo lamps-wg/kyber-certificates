@@ -30,6 +30,10 @@ DEPS_FILES := \
 	./example/ML-KEM-768-both.priv.txt \
 	./example/ML-KEM-768.pub \
 	./example/ML-KEM-768.pub.txt \
+        ./example/bad-ML-KEM-512-1.priv \
+        ./example/bad-ML-KEM-512-2.priv \
+        ./example/bad-ML-KEM-512-3.priv \
+        ./example/bad-ML-KEM-512-4.priv \
 
 LIBDIR := lib
 include $(LIBDIR)/main.mk
