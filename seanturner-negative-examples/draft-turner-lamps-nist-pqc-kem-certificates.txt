@@ -5,11 +5,11 @@
 None                                                           S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 6 September 2025                                     J. Massimo
+Expires: 12 October 2025                                      J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                            5 March 2025
+                                                           10 April 2025
 
 
 Algorithm Identifiers for NIST's PQC Algorithms for Use in the Internet
@@ -69,7 +69,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 September 2025.
+   This Internet-Draft will expire on 12 October 2025.
 
 Copyright Notice
 

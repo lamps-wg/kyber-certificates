@@ -16,18 +16,18 @@ describes the conventions for using the ML-KEM in X.509 Public Key
 Infrastructure. The conventions for the subject public keys and
 private keys are also described. 
     " name="description">
-<meta content="xml2rfc 3.28.0" name="generator">
+<meta content="xml2rfc 3.28.1" name="generator">
 <meta content="ML-KEM Kyber KEM Certificate X.509 PKIX" name="keyword">
 <meta content="draft-ietf-lamps-kyber-certificates-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.28.0
+  xml2rfc 3.28.1
     Python 3.12.9
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.5
+    Jinja2 3.1.6
     lxml 5.3.0
-    platformdirs 4.3.6
+    platformdirs 4.3.7
     pycountry 24.6.1
     PyYAML 6.0.2
     requests 2.32.3
@@ -1051,11 +1051,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">ML-KEM in Certificates</td>
-<td class="right">March 2025</td>
+<td class="right">April 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Turner, et al.</td>
-<td class="center">Expires 11 September 2025</td>
+<td class="center">Expires 12 October 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-lamps-kyber-certificates-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-03-10" class="published">10 March 2025</time>
+<time datetime="2025-04-10" class="published">10 April 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-09-11">11 September 2025</time></dd>
+<dd class="expires"><time datetime="2025-10-12">12 October 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1139,7 +1139,7 @@ private keys are also described.<a href="#section-abstract-1" class="pilcrow">¶
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 11 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 12 October 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1186,67 +1186,78 @@ private keys are also described.<a href="#section-abstract-1" class="pilcrow">¶
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-subject-public-key-fields" class="internal xref">Subject Public Key Fields</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-private-key-format" class="internal xref">Private Key Format</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-key-usage-bits" class="internal xref">Key Usage Bits</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-implementation-consideratio" class="internal xref">Implementation Considerations</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-private-key-format" class="internal xref">Private Key Format</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-private-key-consistency-tes" class="internal xref">Private Key Consistency Tesing</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-implementation-consideratio" class="internal xref">Implementation Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-private-key-consistency-tes" class="internal xref">Private Key Consistency Tesing</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-references" class="internal xref">References</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
-                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="auto internal xref">10.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2">
-                <p id="section-toc.1-1.10.2.2.1"><a href="#section-10.2" class="auto internal xref">10.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.1">
+                <p id="section-toc.1-1.11.2.1.1"><a href="#section-11.1" class="auto internal xref">11.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.2">
+                <p id="section-toc.1-1.11.2.2.1"><a href="#section-11.2" class="auto internal xref">11.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-asn1-module" class="internal xref">ASN.1 Module</a></p>
-</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-parameter-set-security-and-" class="internal xref">Parameter Set Security and Sizes</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-asn1-module" class="internal xref">ASN.1 Module</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#appendix-C" class="auto internal xref">Appendix C</a>.  <a href="#name-examples" class="internal xref">Examples</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.1">
-                <p id="section-toc.1-1.13.2.1.1"><a href="#appendix-C.1" class="auto internal xref">C.1</a>.  <a href="#name-example-private-key" class="internal xref">Example Private Key</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.1.2.1">
-                    <p id="section-toc.1-1.13.2.1.2.1.1"><a href="#appendix-C.1.1" class="auto internal xref">C.1.1</a>.  <a href="#name-ml-kem-512-private-key-exam" class="internal xref">ML-KEM-512 Private Key Examples</a></p>
+            <p id="section-toc.1-1.13.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-parameter-set-security-and-" class="internal xref">Parameter Set Security and Sizes</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.1.2.2">
-                    <p id="section-toc.1-1.13.2.1.2.2.1"><a href="#appendix-C.1.2" class="auto internal xref">C.1.2</a>.  <a href="#name-ml-kem-768-private-key-exam" class="internal xref">ML-KEM-768 Private Key Examples</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
+            <p id="section-toc.1-1.14.1"><a href="#appendix-C" class="auto internal xref">Appendix C</a>.  <a href="#name-examples" class="internal xref">Examples</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.1">
+                <p id="section-toc.1-1.14.2.1.1"><a href="#appendix-C.1" class="auto internal xref">C.1</a>.  <a href="#name-example-private-keys" class="internal xref">Example Private Keys</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.1.2.1">
+                    <p id="section-toc.1-1.14.2.1.2.1.1"><a href="#appendix-C.1.1" class="auto internal xref">C.1.1</a>.  <a href="#name-ml-kem-512-private-key-exam" class="internal xref">ML-KEM-512 Private Key Examples</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.1.2.3">
-                    <p id="section-toc.1-1.13.2.1.2.3.1"><a href="#appendix-C.1.3" class="auto internal xref">C.1.3</a>.  <a href="#name-ml-kem-1024-private-key-exa" class="internal xref">ML-KEM-1024 Private Key Examples</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.1.2.2">
+                    <p id="section-toc.1-1.14.2.1.2.2.1"><a href="#appendix-C.1.2" class="auto internal xref">C.1.2</a>.  <a href="#name-ml-kem-768-private-key-exam" class="internal xref">ML-KEM-768 Private Key Examples</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.1.2.3">
+                    <p id="section-toc.1-1.14.2.1.2.3.1"><a href="#appendix-C.1.3" class="auto internal xref">C.1.3</a>.  <a href="#name-ml-kem-1024-private-key-exa" class="internal xref">ML-KEM-1024 Private Key Examples</a></p>
 </li>
                 </ul>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.2">
-                <p id="section-toc.1-1.13.2.2.1"><a href="#appendix-C.2" class="auto internal xref">C.2</a>.  <a href="#name-example-public-key" class="internal xref">Example Public Key</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.2">
+                <p id="section-toc.1-1.14.2.2.1"><a href="#appendix-C.2" class="auto internal xref">C.2</a>.  <a href="#name-example-public-keys" class="internal xref">Example Public Keys</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.3">
-                <p id="section-toc.1-1.13.2.3.1"><a href="#appendix-C.3" class="auto internal xref">C.3</a>.  <a href="#name-example-certificates" class="internal xref">Example Certificates</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.3">
+                <p id="section-toc.1-1.14.2.3.1"><a href="#appendix-C.3" class="auto internal xref">C.3</a>.  <a href="#name-example-certificates" class="internal xref">Example Certificates</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.4">
+                <p id="section-toc.1-1.14.2.4.1"><a href="#appendix-C.4" class="auto internal xref">C.4</a>.  <a href="#name-examples-of-bad-private-key" class="internal xref">Examples of Bad Private Keys</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.4.2.1">
+                    <p id="section-toc.1-1.14.2.4.2.1.1"><a href="#appendix-C.4.1" class="auto internal xref">C.4.1</a>.  <a href="#name-ml-kem-inconsistent-seed-an" class="internal xref">ML-KEM Inconsistent Seed and Expanded Private Keys</a></p>
+</li>
+                </ul>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
-            <p id="section-toc.1-1.14.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
-</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15">
-            <p id="section-toc.1-1.15.1"><a href="#appendix-E" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.15.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.16">
+            <p id="section-toc.1-1.16.1"><a href="#appendix-E" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1293,12 +1304,12 @@ described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</s
 appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="algorithm-identifiers">
+<div id="oids">
 <section id="section-3">
       <h2 id="name-algorithm-identifiers">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-algorithm-identifiers" class="section-name selfRef">Algorithm Identifiers</a>
       </h2>
-<p id="section-3-1">The AlgorithmIdentifier type is defined in <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> as follows:<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">The <code>AlgorithmIdentifier</code> type is defined in <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> as follows:<a href="#section-3-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-3-2">
 <pre>
   AlgorithmIdentifier{ALGORITHM-TYPE, ALGORITHM-TYPE:AlgorithmSet} ::=
@@ -1313,26 +1324,22 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <p id="section-3-3.1">NOTE: The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the
   2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>. See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988 ASN.1 syntax.<a href="#section-3-3.1" class="pilcrow">¶</a></p>
 </aside>
-<p id="section-3-4">The fields in AlgorithmIdentifier have the following meanings:<a href="#section-3-4" class="pilcrow">¶</a></p>
+<p id="section-3-4">The fields in <code>AlgorithmIdentifier</code> have the following meanings:<a href="#section-3-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3-5.1">
-          <p id="section-3-5.1.1">algorithm identifies the cryptographic algorithm with an object
+          <p id="section-3-5.1.1"><code>algorithm</code> identifies the cryptographic algorithm with an object
 identifier.<a href="#section-3-5.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-5.2">
-          <p id="section-3-5.2.1">parameters, which are optional, are the associated parameters for
-the algorithm identifier in the algorithm field.<a href="#section-3-5.2.1" class="pilcrow">¶</a></p>
+          <p id="section-3-5.2.1"><code>parameters</code>, which are optional, are the associated parameters for
+the algorithm identifier in the <code>algorithm</code> field.<a href="#section-3-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-3-6">The AlgorithmIdentifier for an ML-KEM public key <span class="bcp14">MUST</span> use one of the
-id-alg-ml-kem object identifiers listed below, based on the security
-level. The parameters field of the AlgorithmIdentifier for the ML-KEM
+<p id="section-3-6">The <code>AlgorithmIdentifier</code> for an ML-KEM public key <span class="bcp14">MUST</span> use one of the
+<code>id-alg-ml-kem</code> object identifiers listed below, based on the security
+level. The <code>parameters</code> field of the <code>AlgorithmIdentifier</code> for the ML-KEM
 public key <span class="bcp14">MUST</span> be absent.<a href="#section-3-6" class="pilcrow">¶</a></p>
-<p id="section-3-7">When any of the ML-KEM AlgorithmIdentifiers appear in the
-SubjectPublicKeyInfo field of an X.509 certificate, the key usage
-certificate extension <span class="bcp14">MUST</span> only contain keyEncipherment
-<span><a href="https://rfc-editor.org/rfc/rfc5280#section-4.2.1.3" class="relref">Section 4.2.1.3</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.<a href="#section-3-7" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3-8">
+<div class="alignLeft art-text artwork" id="section-3-7">
 <pre>
   nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-ccitt(2)
     country(16) us(840) organization(1) gov(101) csor(3)
@@ -1346,54 +1353,17 @@ certificate extension <span class="bcp14">MUST</span> only contain keyEncipherme
 
   id-alg-ml-kem-1024 OBJECT IDENTIFIER ::= { kems 3 }
 
-  pk-ml-kem-512 PUBLIC-KEY ::= {
-    IDENTIFIER id-alg-ml-kem-512
-    -- KEY no ASN.1 wrapping --
-    PARAMS ARE absent
-    CERT-KEY-USAGE { keyEncipherment }
-    --- PRIVATE-KEY no ASN.1 wrapping --
-    }
-
-  pk-ml-kem-768 PUBLIC-KEY ::= {
-    IDENTIFIER id-alg-ml-kem-768
-    -- KEY no ASN.1 wrapping --
-    PARAMS ARE absent
-    CERT-KEY-USAGE { keyEncipherment }
-    --- PRIVATE-KEY no ASN.1 wrapping --
-    }
-
-  pk-ml-kem-1024 PUBLIC-KEY ::= {
-    IDENTIFIER id-alg-ml-kem-1024
-    -- KEY no ASN.1 wrapping --
-    PARAMS ARE absent
-    CERT-KEY-USAGE { keyEncipherment }
-    --- PRIVATE-KEY no ASN.1 wrapping --
-    }
-
-  ML-KEM-PublicKey ::= OCTET STRING (SIZE (800 | 1184 | 1568))
-
-  ML-KEM-PrivateKey ::= OCTET STRING (SIZE (64))
-</pre><a href="#section-3-8" class="pilcrow">¶</a>
+</pre><a href="#section-3-7" class="pilcrow">¶</a>
 </div>
-<p id="section-3-9">No additional encoding of the ML-KEM public key value is applied in
-the SubjectPublicKeyInfo field of an X.509 certificate <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.
-However, whenever it appears outside of a
-certificate, it <span class="bcp14">MAY</span> be encoded as an OCTET STRING by using the
-ML-KEM-PublicKey type.<a href="#section-3-9" class="pilcrow">¶</a></p>
-<p id="section-3-10">No additional encoding of the ML-KEM private key value is applied in
-the PrivateKeyInfo field of the OneAsymmetricKey type of an Asymmetric
-Key Package <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span>. However, whenever it appears outside of a
-Asymmetric Key Package, it <span class="bcp14">MAY</span> be encoded as an OCTET STRING by using
-the ML-KEM-PrivateKey type.<a href="#section-3-10" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="subject-public-key-fields">
+<div id="pub-key">
 <section id="section-4">
       <h2 id="name-subject-public-key-fields">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-subject-public-key-fields" class="section-name selfRef">Subject Public Key Fields</a>
       </h2>
-<p id="section-4-1">In the X.509 certificate, the subjectPublicKeyInfo field has the
-SubjectPublicKeyInfo type, which has the following ASN.1 syntax:<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">In the X.509 certificate, the <code>subjectPublicKeyInfo</code> field has the
+<code>SubjectPublicKeyInfo</code> type, which has the following ASN.1 syntax:<a href="#section-4-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4-2">
 <pre>
   SubjectPublicKeyInfo {PUBLIC-KEY: IOSet} ::= SEQUENCE {
@@ -1406,42 +1376,106 @@ SubjectPublicKeyInfo type, which has the following ASN.1 syntax:<a href="#sectio
         <p id="section-4-3.1">NOTE: The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the
   2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>. See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988 ASN.1 syntax.<a href="#section-4-3.1" class="pilcrow">¶</a></p>
 </aside>
-<p id="section-4-4">The fields in SubjectPublicKeyInfo have the following meaning:<a href="#section-4-4" class="pilcrow">¶</a></p>
+<p id="section-4-4">The fields in <code>SubjectPublicKeyInfo</code> have the following meaning:<a href="#section-4-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4-5.1">
-          <p id="section-4-5.1.1">algorithm is the algorithm identifier and parameters for the
+          <p id="section-4-5.1.1"><code>algorithm</code> is the algorithm identifier and parameters for the
 public key (see above).<a href="#section-4-5.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-4-5.2">
-          <p id="section-4-5.2.1">subjectPublicKey contains the byte stream of the public key.<a href="#section-4-5.2.1" class="pilcrow">¶</a></p>
+          <p id="section-4-5.2.1"><code>subjectPublicKey</code> contains the byte stream of the public key.<a href="#section-4-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-4-6"><a href="#example-public" class="auto internal xref">Appendix C.2</a> contains examples for ML-KEM public keys
-encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-4-6" class="pilcrow">¶</a></p>
+<p id="section-4-6">The <code>PUBLIC-KEY</code> ASN.1 type for ML-KEM are defined here:<a href="#section-4-6" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4-7">
+<pre>
+  pk-ml-kem-512 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-ml-kem-512
+    -- KEY no ASN.1 wrapping; 800 octets --
+    PARAMS ARE absent
+    CERT-KEY-USAGE { keyEncipherment }
+    PRIVATE-KEY ML-KEM-512-PrivateKey -- defined in Section 6
+    }
+
+  pk-ml-kem-768 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-ml-kem-768
+    -- KEY no ASN.1 wrapping; 1184 octets --
+    PARAMS ARE absent
+    CERT-KEY-USAGE { keyEncipherment }
+    PRIVATE-KEY ML-KEM-768-PrivateKey -- defined in Section 6
+    }
+
+  pk-ml-kem-1024 PUBLIC-KEY ::= {
+    IDENTIFIER id-alg-ml-kem-1024
+    -- KEY no ASN.1 wrapping; 1568 octets --
+    PARAMS ARE absent
+    CERT-KEY-USAGE { keyEncipherment }
+    PRIVATE-KEY ML-KEM-1024-PrivateKey -- defined in Section 6
+  }
+
+  ML-KEM-512-PublicKey ::= OCTET STRING (SIZE (800))
+
+  ML-KEM-768-PublicKey ::= OCTET STRING (SIZE (1184))
+
+  ML-KEM-1024-PublicKey ::= OCTET STRING (SIZE (1568))
+</pre><a href="#section-4-7" class="pilcrow">¶</a>
+</div>
+<aside id="section-4-8">
+        <p id="section-4-8.1">NOTE: The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the
+  2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>. See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988 ASN.1 syntax.<a href="#section-4-8.1" class="pilcrow">¶</a></p>
+</aside>
+<p id="section-4-9">When an ML-KEM public key appears outside of a <code>SubjectPublicKeyInfo</code>
+type in an environment that uses ASN.1 encoding, it can be encoded
+as an OCTET STRING by using the <code>ML-KEM-512-PublicKey</code>,
+<code>ML-KEM-768-PublicKey</code>, <code>ML-KEM-1024-PublicKey</code> types corresponding to
+the correct key size.<a href="#section-4-9" class="pilcrow">¶</a></p>
+<p id="section-4-10"><span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> describes the Asymmetric Key Package's <code>OneAsymmetricKey</code>
+type for encoding asymmetric keypairs. When an ML-KEM private key or
+keypair is encoded as a <code>OneAsymmetricKey</code>, it follows the description
+in <a href="#priv-key" class="auto internal xref">Section 6</a>.<a href="#section-4-10" class="pilcrow">¶</a></p>
+<p id="section-4-11">When the ML-KEM private key appears outside of an Asymmetric Key Package
+in an environment that uses ASN.1 encoding, it can be encoded using one
+of the the <code>ML-KEM-PrivateKey CHOICE</code> formats defined in <a href="#priv-key" class="auto internal xref">Section 6</a>. The
+<code>seed</code> format is <span class="bcp14">RECOMMENDED</span> as it efficiently stores both the private and
+public key.<a href="#section-4-11" class="pilcrow">¶</a></p>
+<p id="section-4-12"><a href="#example-public" class="auto internal xref">Appendix C.2</a> contains examples for ML-KEM public keys
+encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-4-12" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="private-key-format">
+<div id="key-usage-bits">
 <section id="section-5">
-      <h2 id="name-private-key-format">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-private-key-format" class="section-name selfRef">Private Key Format</a>
+      <h2 id="name-key-usage-bits">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-key-usage-bits" class="section-name selfRef">Key Usage Bits</a>
       </h2>
-<p id="section-5-1">In short, an ML-KEM private key is encoded by storing its 64-octet seed in
-the privateKey field as follows.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<p id="section-5-2"><span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> specifies two formats for an ML-KEM private key: a 64-octet
+<p id="section-5-1">The intended application for the key is indicated in the keyUsage certificate
+extension; see <span><a href="https://rfc-editor.org/rfc/rfc5280#section-4.2.1.3" class="relref">Section 4.2.1.3</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>. If the <code>keyUsage</code> extension is
+present in a certificate that indicates <code>id-alg-ml-kem-*</code> in the <code>SubjectPublicKeyInfo</code>,
+then <code>keyEncipherment</code> <span class="bcp14">MUST</span> be the only key usage set.<a href="#section-5-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="priv-key">
+<section id="section-6">
+      <h2 id="name-private-key-format">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-private-key-format" class="section-name selfRef">Private Key Format</a>
+      </h2>
+<p id="section-6-1"><span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> specifies two formats for an ML-KEM private key: a 64-octet
 seed and an (expanded) private key, which is referred to as the
 decapsulation key. The expanded private key (and public key)
 is computed from the seed using <code>ML-KEM.KeyGen_internal(d,z)</code> (algorithm 16)
-using the first 32 octets as <em>d</em> and the remaining 32 octets as <em>z</em>.<a href="#section-5-2" class="pilcrow">¶</a></p>
-<p id="section-5-3">A keypair is generated by sampling 64 octets uniformly at random
-for the seed (private key)  from a cryptographically secure
+using the first 32 octets as <em>d</em> and the remaining 32 octets as <em>z</em>.
+If the expanded private key is generated without exporting the seed,
+<code>ML-KEM.KeyGen()</code> (algorithm 19), which combines seed generation with
+<code>ML-KEM.KeyGen_internal(d,z)</code>, is used.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-2">A keypair is generated by sampling 64 octets uniformly at random
+for the seed (private key) from a cryptographically secure
 pseudorandom number generator (CSPRNGs). The public key can then
-be computed using <code>ML-KEM.KeyGen_internal(d,z)</code> as described earlier.<a href="#section-5-3" class="pilcrow">¶</a></p>
-<p id="section-5-4">"Asymmetric Key Packages" <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> describes how to encode a private
+be computed using <code>ML-KEM.KeyGen_internal(d,z)</code> as described earlier.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-3">"Asymmetric Key Packages" <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> describes how to encode a private
 key in a structure that both identifies which algorithm the private key
 is for and allows for the public key and additional attributes about the
 key to be included as well. For illustration, the ASN.1 structure
-OneAsymmetricKey is replicated below.<a href="#section-5-4" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-5-5">
+<code>OneAsymmetricKey</code> is replicated below.<a href="#section-6-3" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-6-4">
 <pre>
   OneAsymmetricKey ::= SEQUENCE {
     version                  Version,
@@ -1461,68 +1495,151 @@ OneAsymmetricKey is replicated below.<a href="#section-5-4" class="pilcrow">¶</
                                  OPTIONAL,
     ...
   }
-</pre><a href="#section-5-5" class="pilcrow">¶</a>
+</pre><a href="#section-6-4" class="pilcrow">¶</a>
 </div>
-<aside id="section-5-6">
-        <p id="section-5-6.1">NOTE: The above syntax is from <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> and is compatible with the
-  2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.<a href="#section-5-6.1" class="pilcrow">¶</a></p>
+<aside id="section-6-5">
+        <p id="section-6-5.1">NOTE: The above syntax is from <span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> and is compatible with the
+  2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>.<a href="#section-6-5.1" class="pilcrow">¶</a></p>
 </aside>
-<p id="section-5-7">When used in a OneAsymmetricKey type, the privateKey OCTET STRING contains
-the raw octet string encoding of the 64-octet seed. The publicKey field
-<span class="bcp14">SHOULD</span> be omitted because the public key can be computed as noted earlier
-in this section.<a href="#section-5-7" class="pilcrow">¶</a></p>
-<p id="section-5-8"><a href="#example-private" class="auto internal xref">Appendix C.1</a> contains examples for ML-KEM private keys
-encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-5-8" class="pilcrow">¶</a></p>
+<p id="section-6-6">For ML-KEM private keys, the privateKey field in <code>OneAsymmetricKey</code> contains
+one of the following DER-encoded <code>CHOICE</code> structures. The <code>seed</code>
+format is a fixed 64 byte <code>OCTET STRING</code> (66 bytes total with the <code>0x8040</code>
+tag and length) for all security levels, while the <code>expandedKey</code>
+and <code>both</code> formats vary in size by security level:<a href="#section-6-6" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-6-7">
+<pre>
+  ML-KEM-512-PrivateKey ::= CHOICE {
+    seed [0] OCTET STRING (SIZE (64)),
+    expandedKey OCTET STRING (SIZE (1632)),
+    both SEQUENCE {
+      seed OCTET STRING (SIZE (64)),
+      expandedKey OCTET STRING (SIZE (1632))
+      }
+    }
+
+  ML-KEM-768-PrivateKey ::= CHOICE {
+    seed [0] OCTET STRING (SIZE (64)),
+    expandedKey OCTET STRING (SIZE (2400)),
+    both SEQUENCE {
+      seed OCTET STRING (SIZE (64)),
+      expandedKey OCTET STRING (SIZE (2400))
+      }
+    }
+
+  ML-KEM-1024-PrivateKey ::= CHOICE {
+    seed [0] OCTET STRING (SIZE (64)),
+    expandedKey OCTET STRING (SIZE (3168)),
+    both SEQUENCE {
+      seed OCTET STRING (SIZE (64)),
+      expandedKey OCTET STRING (SIZE (3168))
+      }
+    }
+</pre><a href="#section-6-7" class="pilcrow">¶</a>
+</div>
+<aside id="section-6-8">
+        <p id="section-6-8.1">NOTE: The above syntax is from <span>[<a href="#RFC5912" class="cite xref">RFC5912</a>]</span> and is compatible with the
+  2021 ASN.1 syntax <span>[<a href="#X680" class="cite xref">X680</a>]</span>. See <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> for the 1988 ASN.1 syntax.<a href="#section-6-8.1" class="pilcrow">¶</a></p>
+</aside>
+<p id="section-6-9">The <code>CHOICE</code> allows three representations of the private key:<a href="#section-6-9" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6-10.1">
+          <p id="section-6-10.1.1">The <code>seed</code> format (tag [0]) contains just the 64-byte seed value
+from which both the expanded private key and public key can be
+derived using <code>ML-KEM.KeyGen_internal(d,z)</code> (algorithm 16) using
+the first 32 octets as <em>d</em> and the remaining 32 octets as <em>z</em>.<a href="#section-6-10.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-10.2">
+          <p id="section-6-10.2.1">The <code>expandedKey</code> format contains the expanded private key
+that was derived from the seed. If the seed is not exported, both the
+expanded private key and public key can be derived using
+<code>ML-KEM.KeyGen()</code> (algorithm 16).<a href="#section-6-10.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-10.3">
+          <p id="section-6-10.3.1">The <code>both</code> format contains both the seed and expanded private key, allowing
+for interoperability; some may want to use and retain the seed and
+others may only support expanded private keys.<a href="#section-6-10.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-6-11">When encoding an ML-KEM private key in a <code>OneAsymmetricKey</code> object, any
+of these three formats may be used, though the <code>seed</code> format is <span class="bcp14">RECOMMENDED</span>
+for storage efficiency.<a href="#section-6-11" class="pilcrow">¶</a></p>
+<p id="section-6-12">The <code>privateKeyAlgorithm</code> field uses the <code>AlgorithmIdentifier</code> structure
+with the appropriate OID as defined in <a href="#oids" class="auto internal xref">Section 3</a>. If present, the <code>publicKey</code>
+field will hold the encoded public key as defined in <a href="#pub-key" class="auto internal xref">Section 4</a>.<a href="#section-6-12" class="pilcrow">¶</a></p>
+<p id="section-6-13">NOTE: While the private key can be stored in multiple formats, the seed-only
+format is <span class="bcp14">RECOMMENDED</span> as it is the most compact representation. Both the
+expanded private key and the public key can be deterministically derived
+from the seed using <code>ML-KEM.KeyGen_internal(d,z)</code> (algorithm 16) using the
+first 32 octets as <em>d</em> and the remaining 32 octets as <em>z</em>.  Alternatively,
+the public key can be extracted from the extended private key. While the <code>publicKey</code> field and
+<code>expandedKey</code> format are technically redundant when using the seed-only format,
+they <span class="bcp14">MAY</span> be included to enable keypair consistency checks during import operations.<a href="#section-6-13" class="pilcrow">¶</a></p>
+<p id="section-6-14">When parsing the private key, the ASN.1 tag explicitly indicates which
+variant of <code>CHOICE</code> is present. Implementations should use tag <code>UNIVERSAL IMPLICIT [0]</code>
+(raw value <code>0x80</code>) for <code>seed</code>, <code>OCTET STRING</code> (<code>0x04</code>) for <code>expandedKey</code>, and
+<code>SEQUENCE</code> (<code>0x30</code>) for <code>both</code> to parse the private key, rather than any
+other heuristic like length of the enclosing <code>OCTET STRING</code>.<a href="#section-6-14" class="pilcrow">¶</a></p>
+<p id="section-6-15"><a href="#example-private" class="auto internal xref">Appendix C.1</a> contains examples for ML-KEM private keys
+encoded using the textual encoding defined in <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>.<a href="#section-6-15" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="implementation-considerations">
-<section id="section-6">
+<section id="section-7">
       <h2 id="name-implementation-consideratio">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-implementation-consideratio" class="section-name selfRef">Implementation Considerations</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-implementation-consideratio" class="section-name selfRef">Implementation Considerations</a>
       </h2>
-<p id="section-6-1">Though section 7.1 of <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> mentions the potential to save seed values for future expansion, Algorithm 19 does not make the seed values available to a caller for serialization.
+<p id="section-7-1">Though section 7.1 of <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> mentions the potential to save seed values for future expansion, Algorithm 19 does not make the seed values available to a caller for serialization.
 Similarly, the algorithm that expands seed values is not listed as one of the "main algorithms" and features "internal" in the name even though it is clear that it is allowed to be exposed externally for the purposes of expanding a key from a seed.
-Below are possible ways to extend the APIs defined in <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> to support serialization of seed values as private keys.<a href="#section-6-1" class="pilcrow">¶</a></p>
-<p id="section-6-2">To support serialization of seed values as private keys, let Algorithm 19b denote the same procedure as Algorithm 19 in <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> except it returns (ek, dk, d, z) on line 7. Additionally, Algorithm 16 should be promoted to be a "main algorithm" for external use in expanding seed values.<a href="#section-6-2" class="pilcrow">¶</a></p>
-<p id="section-6-3">Note also that unlike other private key compression methods in other algorithms, expanding a private key from a seed is a one-way function, meaning that once a full key is expanded from seed and the seed discarded, the seed cannot be re-created even if the full expanded private key is available. For this reason it is <span class="bcp14">RECOMMENDED</span> that implementations retain and export the seed, even when also exporting the expanded key.<a href="#section-6-3" class="pilcrow">¶</a></p>
+Below are possible ways to extend the APIs defined in <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> to support serialization of seed values as private keys.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-2">To support serialization of seed values as private keys, let Algorithm 19b denote the same procedure as Algorithm 19 in <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> except it returns (ek, dk, d, z) on line 7. Additionally, Algorithm 16 should be promoted to be a "main algorithm" for external use in expanding seed values.<a href="#section-7-2" class="pilcrow">¶</a></p>
+<p id="section-7-3">Note also that unlike other private key compression methods in other algorithms, expanding a private key from a seed is a one-way function, meaning that once a full key is expanded from seed and the seed discarded, the seed cannot be re-created even if the full expanded private key is available. For this reason it is <span class="bcp14">RECOMMENDED</span> that implementations retain and export the seed, even when also exporting the expanded private key.<a href="#section-7-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="private-key-consistency-tesing">
-<section id="section-7">
+<section id="section-8">
       <h2 id="name-private-key-consistency-tes">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-private-key-consistency-tes" class="section-name selfRef">Private Key Consistency Tesing</a>
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-private-key-consistency-tes" class="section-name selfRef">Private Key Consistency Tesing</a>
       </h2>
-<p id="section-7-1">When receiving a private key that contains both the seed and the
+<p id="section-8-1">When receiving a private key that contains both the seed and the
 expandedKey, the recipient <span class="bcp14">SHOULD</span> perform a seed consistency check to
-ensure that the sender properly generated the private key.<a href="#section-7-1" class="pilcrow">¶</a></p>
-<p id="section-7-2">If the check is done and the seed and the expandedKey are not consistent,
-the recipient <span class="bcp14">MUST</span> reject the private key as malformed.<a href="#section-7-2" class="pilcrow">¶</a></p>
+ensure that the sender properly generated the private key.  Recipients
+that do not perform this seed consistency check avoid keygen
+and compare operations, but are unable to ensure that the <code>seed</code> and
+<code>expandedKey</code> match.<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-8-2">If the check is done and the <code>seed</code> and the <code>expandedKey</code> are not consistent,
+the recipient <span class="bcp14">MUST</span> reject the private key as malformed.<a href="#section-8-2" class="pilcrow">¶</a></p>
+<p id="section-8-3">The seed consistency check consists of regenerating the expanded form from
+the seed via <code>ML-KEM.KeyGen_internal(d,z)</code> (algorithm 16) using the first
+32 octets as <em>d</em> and the remaining 32 octets as <em>z</em> and ensuring it is
+bytewise equal to the value presented in the private key.<a href="#section-8-3" class="pilcrow">¶</a></p>
+<p id="section-8-4"><a href="#example-bad" class="auto internal xref">Appendix C.4</a> includes some examples of inconsistent seeds and
+expanded private keys.<a href="#section-8-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
-<section id="section-8">
+<section id="section-9">
       <h2 id="name-security-considerations">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-8-1">The Security Considerations section of <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> applies to this
-specification as well.<a href="#section-8-1" class="pilcrow">¶</a></p>
-<p id="section-8-2">Protection of the private-key information, i.e., the seed, is vital to
+<p id="section-9-1">The Security Considerations section of <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span> applies to this
+specification as well.<a href="#section-9-1" class="pilcrow">¶</a></p>
+<p id="section-9-2">Protection of the private-key information, i.e., the seed, is vital to
 public-key cryptography.  Disclosure of the private-key material to another
-entity can lead to masquerades.<a href="#section-8-2" class="pilcrow">¶</a></p>
-<p id="section-8-3">For ML-KEM specific security considerations refer to
-<span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span>.<a href="#section-8-3" class="pilcrow">¶</a></p>
-<p id="section-8-4">The generation of private keys relies on random numbers. The use of
+entity can lead to masquerades.<a href="#section-9-2" class="pilcrow">¶</a></p>
+<p id="section-9-3">For ML-KEM specific security considerations refer to
+<span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span>.<a href="#section-9-3" class="pilcrow">¶</a></p>
+<p id="section-9-4">The generation of private keys relies on random numbers. The use of
 inadequate pseudo-random number generators (PRNGs) to generate these
 values can result in little or no security.  An attacker may find it
 much easier to reproduce the PRNG environment that produced the keys,
 searching the resulting small set of possibilities, rather than brute
 force searching the whole key space.  The generation of quality
 random numbers is difficult, and <span>[<a href="#RFC4086" class="cite xref">RFC4086</a>]</span> offers important guidance
-in this area.<a href="#section-8-4" class="pilcrow">¶</a></p>
-<p id="section-8-5">ML-KEM key generation as standardized in <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> has specific
+in this area.<a href="#section-9-4" class="pilcrow">¶</a></p>
+<p id="section-9-5">ML-KEM key generation as standardized in <span>[<a href="#FIPS203" class="cite xref">FIPS203</a>]</span> has specific
 requirements around randomness generation, described in section 3.3,
-'Randomness generation'.<a href="#section-8-5" class="pilcrow">¶</a></p>
-<p id="section-8-6">Many protocols only rely on the IND-CCA security of a KEM. Some
+'Randomness generation'.<a href="#section-9-5" class="pilcrow">¶</a></p>
+<p id="section-9-6">Many protocols only rely on the IND-CCA security of a KEM. Some
 (implicitly) require further binding properties, formalized
 in <span>[<a href="#CDM23" class="cite xref">CDM23</a>]</span>.
 The private key format influences these binding properties.
@@ -1531,30 +1648,30 @@ LEAK-BIND-K-CT-secure when using the expanded private key format,
 but not MAL-BIND-K-CT nor MAL-BIND-K-PK.
 Using the 64-byte seed format provides a step up in binding security,
 additionally providing MAL-BIND-K-CT security, but still not MAL-BIND-K-PK.
-For more guidance, see <span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span>.<a href="#section-8-6" class="pilcrow">¶</a></p>
+For more guidance, see <span>[<a href="#I-D.sfluhrer-cfrg-ml-kem-security-considerations" class="cite xref">I-D.sfluhrer-cfrg-ml-kem-security-considerations</a>]</span>.<a href="#section-9-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-9">
+<section id="section-10">
       <h2 id="name-iana-considerations">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-9-1">For the ASN.1 Module in <a href="#asn1" class="auto internal xref">Appendix A</a>, IANA is requested to assign an
+<p id="section-10-1">For the ASN.1 Module in <a href="#asn1" class="auto internal xref">Appendix A</a>, IANA is requested to assign an
 object identifier (OID) for the module identifier (TBD) with a
 Description of "id-mod-x509-ml-kem-2025".  The OID for the module
 should be allocated in the "SMI Security for PKIX Module Identifier"
-registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilcrow">¶</a></p>
+registry (1.3.6.1.5.5.7.0).<a href="#section-10-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-combined-references">
-<section id="section-10">
+<section id="section-11">
       <h2 id="name-references">
-<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-11" class="section-number selfRef">11. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-10.1">
+<section id="section-11.1">
         <h3 id="name-normative-references">
-<a href="#section-10.1" class="section-number selfRef">10.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-11.1" class="section-number selfRef">11.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="FIPS203">[FIPS203]</dt>
@@ -1597,9 +1714,9 @@ registry (1.3.6.1.5.5.7.0).<a href="#section-9-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-10.2">
+<section id="section-11.2">
         <h3 id="name-informative-references">
-<a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-11.2" class="section-number selfRef">11.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="CDM23">[CDM23]</dt>
@@ -1836,23 +1953,27 @@ Levels 2 and 4 use collision search for SHA-256 and SHA-384 as reference.<a href
       <h2 id="name-examples">
 <a href="#appendix-C" class="section-number selfRef">Appendix C. </a><a href="#name-examples" class="section-name selfRef">Examples</a>
       </h2>
-<p id="appendix-C-1">This appendix contains examples of ML-KEM public keys, private keys and
-certificates.<a href="#appendix-C-1" class="pilcrow">¶</a></p>
+<p id="appendix-C-1">This appendix contains examples of ML-KEM public keys, private keys,
+certificates, and inconsistent seed and expanded private keys.<a href="#appendix-C-1" class="pilcrow">¶</a></p>
 <div id="example-private">
 <section id="appendix-C.1">
-        <h3 id="name-example-private-key">
-<a href="#appendix-C.1" class="section-number selfRef">C.1. </a><a href="#name-example-private-key" class="section-name selfRef">Example Private Key</a>
+        <h3 id="name-example-private-keys">
+<a href="#appendix-C.1" class="section-number selfRef">C.1. </a><a href="#name-example-private-keys" class="section-name selfRef">Example Private Keys</a>
         </h3>
 <p id="appendix-C.1-1">The following examples show ML-KEM private keys in different formats,
-all derived from the same seed <code>000102…1e1f</code>. For each security level,
+all derived from the same seed <code>000102...1e1f</code>. For each security level,
 we show the seed-only format (using a context-specific <code>[0]</code> primitive
-tag with an implicit encoding of OCTET STRING), the expanded format,
+tag with an implicit encoding of <code>OCTET STRING</code>), the expanded format,
 and both formats together.<a href="#appendix-C.1-1" class="pilcrow">¶</a></p>
+<p id="appendix-C.1-2">NOTE: All examples use the same seed value, showing how the same seed
+produces different expanded private keys for each security level.<a href="#appendix-C.1-2" class="pilcrow">¶</a></p>
 <div id="ml-kem-512-private-key-examples">
 <section id="appendix-C.1.1">
           <h4 id="name-ml-kem-512-private-key-exam">
 <a href="#appendix-C.1.1" class="section-number selfRef">C.1.1. </a><a href="#name-ml-kem-512-private-key-exam" class="section-name selfRef">ML-KEM-512 Private Key Examples</a>
           </h4>
+<p id="appendix-C.1.1-1">Each of the examples includes the textual encoding <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span> followed by
+the so-called "pretty print"; the private keys are the same.<a href="#appendix-C.1.1-1" class="pilcrow">¶</a></p>
 <div id="seed-format">
 <section id="appendix-C.1.1.1">
             <h5 id="name-seed-format">
@@ -2121,6 +2242,8 @@ dade150efa0e0e6f365aea202122232425262728292a2b2c2d2e2f3031323334
           <h4 id="name-ml-kem-768-private-key-exam">
 <a href="#appendix-C.1.2" class="section-number selfRef">C.1.2. </a><a href="#name-ml-kem-768-private-key-exam" class="section-name selfRef">ML-KEM-768 Private Key Examples</a>
           </h4>
+<p id="appendix-C.1.2-1">Each of the examples includes the textual encoding <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span> followed by
+the so-called "pretty print"; the private keys are the same.<a href="#appendix-C.1.2-1" class="pilcrow">¶</a></p>
 <div id="seed-format-1">
 <section id="appendix-C.1.2.1">
             <h5 id="name-seed-format-2">
@@ -2469,6 +2592,8 @@ cb32da8bc342fa4dea0578a24e16d8f8f9383a95b77050f4d9fd2f5733eec1d6
           <h4 id="name-ml-kem-1024-private-key-exa">
 <a href="#appendix-C.1.3" class="section-number selfRef">C.1.3. </a><a href="#name-ml-kem-1024-private-key-exa" class="section-name selfRef">ML-KEM-1024 Private Key Examples</a>
           </h4>
+<p id="appendix-C.1.3-1">Each of the examples includes the textual encoding <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span> followed by
+the so-called "pretty print"; the private keys are the same.<a href="#appendix-C.1.3-1" class="pilcrow">¶</a></p>
 <div id="seed-format-2">
 <section id="appendix-C.1.3.1">
             <h5 id="name-seed-format-3">
@@ -2896,11 +3021,12 @@ a13e48235406d17ffddc8344b6c66984a868aa92fa02227a086950eb0c8701ed
 </div>
 <div id="example-public">
 <section id="appendix-C.2">
-        <h3 id="name-example-public-key">
-<a href="#appendix-C.2" class="section-number selfRef">C.2. </a><a href="#name-example-public-key" class="section-name selfRef">Example Public Key</a>
+        <h3 id="name-example-public-keys">
+<a href="#appendix-C.2" class="section-number selfRef">C.2. </a><a href="#name-example-public-keys" class="section-name selfRef">Example Public Keys</a>
         </h3>
 <p id="appendix-C.2-1">The following is the ML-KEM-512 public key corresponding to the private
-key in the previous section.<a href="#appendix-C.2-1" class="pilcrow">¶</a></p>
+key in the previous section. The textual encoding <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span> is
+followed by the so-called "pretty print"; the public keys are the same.<a href="#appendix-C.2-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-C.2-2">
 <pre>
 -----BEGIN PUBLIC KEY-----
@@ -2962,7 +3088,8 @@ c3bc59a065a1b6d63b26c` }
 </pre><a href="#appendix-C.2-3" class="pilcrow">¶</a>
 </div>
 <p id="appendix-C.2-4">The following is the ML-KEM-768 public key corresponding to the private
-key in the previous section.<a href="#appendix-C.2-4" class="pilcrow">¶</a></p>
+key in the previous section. The textual encoding <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span> is
+followed by the so-called "pretty print"; the public keys are the same.<a href="#appendix-C.2-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-C.2-5">
 <pre>
 -----BEGIN PUBLIC KEY-----
@@ -3043,7 +3170,8 @@ b32da8bc342fa4dea0578` }
 </pre><a href="#appendix-C.2-6" class="pilcrow">¶</a>
 </div>
 <p id="appendix-C.2-7">The following is the ML-KEM-1024 public key corresponding to the private
-key in the previous section.<a href="#appendix-C.2-7" class="pilcrow">¶</a></p>
+key in the previous section. The textual encoding <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span> is
+followed by the so-called "pretty print"; the public keys are the same.<a href="#appendix-C.2-7" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-C.2-8">
 <pre>
 -----BEGIN PUBLIC KEY-----
@@ -3156,7 +3284,8 @@ f81c88472a57b46a828826a0cdfb446f8189182d2bf5eac4ec1cc5deaf599c8a
 </aside>
 <p id="appendix-C.3-2">The following is the ML-KEM-512 certificate that corresponding to the
 public key in the previous section signed with the ML-DSA-44 private key
-from <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>.<a href="#appendix-C.3-2" class="pilcrow">¶</a></p>
+from <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>. The textual encoding <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>
+is followed by the so-called "pretty print"; the certificates are the same.<a href="#appendix-C.3-2" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-C.3-3">
 <pre>
 -----BEGIN CERTIFICATE-----
@@ -3433,7 +3562,8 @@ b4e7d7e90b5b6b8c3c6cfd7e8f6152542586b788284afb3b4c0c1cad1d5daeff
 </aside>
 <p id="appendix-C.3-6">The following is the ML-KEM-768 certificate that corresponding to the
 public key in the previous section signed with the ML-DSA-65 private key
-from <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>.<a href="#appendix-C.3-6" class="pilcrow">¶</a></p>
+from <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>. The textual encoding <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>
+is followed by the so-called "pretty print"; the certificates are the same.<a href="#appendix-C.3-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-C.3-7">
 <pre>
 -----BEGIN CERTIFICATE-----
@@ -3777,7 +3907,8 @@ f4520cf80f4d2236c2da299dd1325ffad2dfead2c0e8f8051edcd317dcae2fc1
 </aside>
 <p id="appendix-C.3-10">The following is the ML-KEM-1024 certificate that corresponding to the
 public key in the previous section signed with the ML-DSA-87 private key
-from <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>.<a href="#appendix-C.3-10" class="pilcrow">¶</a></p>
+from <span>[<a href="#I-D.ietf-lamps-dilithium-certificates" class="cite xref">I-D.ietf-lamps-dilithium-certificates</a>]</span>. The textual encoding <span>[<a href="#RFC7468" class="cite xref">RFC7468</a>]</span>
+is followed by the so-called "pretty print"; the certificates are the same.<a href="#appendix-C.3-10" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-C.3-11">
 <pre>
 -----BEGIN CERTIFICATE-----
@@ -4202,6 +4333,71 @@ d2e655cb805af1d54fce7838890d214a2a7e7112383adccdbdc2e648c9db7d1d
 000000000000000000000000000000000000000000004080f171d292e31` }
 }
 </pre><a href="#appendix-C.3-12" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<div id="example-bad">
+<section id="appendix-C.4">
+        <h3 id="name-examples-of-bad-private-key">
+<a href="#appendix-C.4" class="section-number selfRef">C.4. </a><a href="#name-examples-of-bad-private-key" class="section-name selfRef">Examples of Bad Private Keys</a>
+        </h3>
+<aside id="appendix-C.4-1">
+          <p id="appendix-C.4-1.1">WARNING: These private keys are purposely bad do not use them in
+   production systmes.<a href="#appendix-C.4-1.1" class="pilcrow">¶</a></p>
+</aside>
+<p id="appendix-C.4-2">The following examples demonstrate inconsistent seed and
+expanded private keys.<a href="#appendix-C.4-2" class="pilcrow">¶</a></p>
+<div id="ml-kem-inconsistent-seed-and-expanded-private-keys">
+<section id="appendix-C.4.1">
+          <h4 id="name-ml-kem-inconsistent-seed-an">
+<a href="#appendix-C.4.1" class="section-number selfRef">C.4.1. </a><a href="#name-ml-kem-inconsistent-seed-an" class="section-name selfRef">ML-KEM Inconsistent Seed and Expanded Private Keys</a>
+          </h4>
+<p id="appendix-C.4.1-1">Four <code>ML-KEM-512-PrivateKey</code> examples of inconsistent seed and
+expanded private keys follow:<a href="#appendix-C.4.1-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="appendix-C.4.1-2">
+<li id="appendix-C.4.1-2.1">
+              <p id="appendix-C.4.1-2.1.1">The first <code>ML-KEM-512-PrivateKey</code> example includes the
+<code>both CHOICE</code> , i.e., both <code>seed</code> and <code>expandedKey</code> are
+included. The <code>seed</code> and <code>expanded</code> values can be checked
+for inconsistencies.<a href="#appendix-C.4.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li id="appendix-C.4.1-2.2">
+              <p id="appendix-C.4.1-2.2.1">The second <code>ML-KEM-512-PrivateKey</code> example includes only
+<code>expandedKey</code>. The expanded private key has a mutated <code>s_0</code>
+and public key hash is valid, but a pairwise consistency
+check would find that the public key fails to match private.<a href="#appendix-C.4.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li id="appendix-C.4.1-2.3">
+              <p id="appendix-C.4.1-2.3.1">The third <code>ML-KEM-512-PrivateKey</code> example includes only
+<code>expandedKey</code>. The expanded private key has a mutated H(ek); both
+public key digest check and pairise consistency check should fail.<a href="#appendix-C.4.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li id="appendix-C.4.1-2.4">
+              <p id="appendix-C.4.1-2.4.1">The fourth <code>ML-KEM-512-PrivateKey</code> example includes the
+<code>both CHOICE</code> , i.e., both <code>seed</code> and <code>expandedKey</code> are
+included. There is mismatch of the seed and expanded private
+key in only the z implicit rejection secret; here the private
+and public vectors match and the pairwise consistency check passes,
+but z is different.<a href="#appendix-C.4.1-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          </ol>
+<p id="appendix-C.4.1-3">The following is the first example:<a href="#appendix-C.4.1-3" class="pilcrow">¶</a></p>
+<p id="appendix-C.4.1-4">~~~
+ {::include ./examples/bad-ML-KEM-512-1.priv}
+ ~~~<a href="#appendix-C.4.1-4" class="pilcrow">¶</a></p>
+<p id="appendix-C.4.1-5">The following is the second example:<a href="#appendix-C.4.1-5" class="pilcrow">¶</a></p>
+<p id="appendix-C.4.1-6">~~~
+ {::include ./examples/bad-ML-KEM-512-2.priv}
+ ~~~<a href="#appendix-C.4.1-6" class="pilcrow">¶</a></p>
+<p id="appendix-C.4.1-7">The following is the third example:<a href="#appendix-C.4.1-7" class="pilcrow">¶</a></p>
+<p id="appendix-C.4.1-8">~~~
+ {::include ./examples/bad-ML-KEM-512-3.priv}
+ ~~~<a href="#appendix-C.4.1-8" class="pilcrow">¶</a></p>
+<p id="appendix-C.4.1-9">The following is the fourth example:<a href="#appendix-C.4.1-9" class="pilcrow">¶</a></p>
+<p id="appendix-C.4.1-10">~~~
+ {::include ./examples/bad-ML-KEM-512-4.priv}
+ ~~~<a href="#appendix-C.4.1-10" class="pilcrow">¶</a></p>
+</section>
 </div>
 </section>
 </div>
