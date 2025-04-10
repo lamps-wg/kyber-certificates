@@ -429,13 +429,16 @@ that do not perform this seed consistency check avoid keygen
 and compare operations, but are unable to ensure that the `seed` and
 `expandedKey` match.
 
-If the check is done and the seed and the `expandedKey` are not consistent,
+If the check is done and the `seed` and the `expandedKey` are not consistent,
 the recipient MUST reject the private key as malformed.
 
 The seed consistency check consists of regenerating the expanded form from
 the seed via `ML-KEM.KeyGen_internal(d,z)` (algorithm 16) using the first
 32 octets as *d* and the remaining 32 octets as *z* and ensuring it is
 bytewise equal to the value presented in the private key.
+
+{{example-bad}} includes some examples of inconsistent seeds and
+expanded private keys.
 
 # Security Considerations
 
@@ -518,8 +521,8 @@ Levels 2 and 4 use collision search for SHA-256 and SHA-384 as reference.
 
 # Examples {#examples}
 
-This appendix contains examples of ML-KEM public keys, private keys and
-certificates.
+This appendix contains examples of ML-KEM public keys, private keys,
+certificates, and inconsistent seed and expanded private keys.
 
 
 ## Example Private Keys {#example-private}
@@ -723,6 +726,66 @@ is followed by the so-called "pretty print"; the certificates are the same.
 ~~~
 {::include ./example/ML-KEM-1024.crt.txt}
 ~~~
+
+## Examples of Bad Private Keys {#example-bad}
+
+<aside markdown="block">
+   WARNING: These private keys are purposely bad do not use them in
+   production systmes.
+</aside>
+
+The following examples demonstrate inconsistent seed and
+expanded private keys.
+
+### ML-KEM Inconsistent Seed and Expanded Private Keys
+
+Four `ML-KEM-512-PrivateKey` examples of inconsistent seed and
+expanded private keys follow:
+
+1. The first `ML-KEM-512-PrivateKey` example includes the
+   `both CHOICE` , i.e., both `seed` and `expandedKey` are
+   included. The `seed` and `expanded` values can be checked
+   for inconsistencies.
+
+2. The second `ML-KEM-512-PrivateKey` example includes only
+   `expandedKey`. The expanded private key has a mutated `s_0`
+   and public key hash is valid, but a pairwise consistency
+   check would find that the public key fails to match private.
+
+3. The third `ML-KEM-512-PrivateKey` example includes only
+   `expandedKey`. The expanded private key has a mutated H(ek); both
+   public key digest check and pairise consistency check should fail.
+
+4. The fourth `ML-KEM-512-PrivateKey` example includes the
+   `both CHOICE` , i.e., both `seed` and `expandedKey` are
+   included. There is mismatch of the seed and expanded private
+   key in only the z implicit rejection secret; here the private
+   and public vectors match and the pairwise consistency check passes,
+   but z is different.
+
+The following is the first example:
+
+ ~~~
+ {::include ./examples/bad-ML-KEM-512-1.priv}
+ ~~~
+
+ The following is the second example:
+
+ ~~~
+ {::include ./examples/bad-ML-KEM-512-2.priv}
+ ~~~
+
+ The following is the third example:
+
+ ~~~
+ {::include ./examples/bad-ML-KEM-512-3.priv}
+ ~~~
+
+The following is the fourth example:
+
+ ~~~
+ {::include ./examples/bad-ML-KEM-512-4.priv}
+ ~~~
 
 # Acknowledgments
 {:numbered="false"}
