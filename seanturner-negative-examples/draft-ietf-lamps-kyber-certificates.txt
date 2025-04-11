@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 12 October 2025                                      J. Massimo
+Expires: 13 October 2025                                      J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                           10 April 2025
+                                                           11 April 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 October 2025.
+   This Internet-Draft will expire on 13 October 2025.
 
 Copyright Notice
 
@@ -2975,7 +2975,7 @@ C.3.  Example Certificates
 C.4.  Examples of Bad Private Keys
 
       |  WARNING: These private keys are purposely bad do not use them
-      |  in production systmes.
+      |  in production systems.
 
    The following examples demonstrate inconsistent seed and expanded
    private keys.
