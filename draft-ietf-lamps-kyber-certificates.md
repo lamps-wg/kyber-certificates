@@ -749,7 +749,7 @@ expanded private keys follow:
 
 2. The second `ML-KEM-512-PrivateKey` example includes only
    `expandedKey`. The expanded private key has a mutated `s_0`
-   and public key hash is valid, but a pairwise consistency
+   and a valid public key hash, but a pairwise consistency
    check would find that the public key fails to match private.
 
 3. The third `ML-KEM-512-PrivateKey` example includes only
