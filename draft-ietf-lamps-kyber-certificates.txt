@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 29 September 2025                                    J. Massimo
+Expires: 13 October 2025                                      J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                           28 March 2025
+                                                           11 April 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 September 2025.
+   This Internet-Draft will expire on 13 October 2025.
 
 Copyright Notice
 
@@ -99,6 +99,8 @@ Table of Contents
        C.1.3.  ML-KEM-1024 Private Key Examples
      C.2.  Example Public Keys
      C.3.  Example Certificates
+     C.4.  Examples of Bad Private Keys
+       C.4.1.  ML-KEM Inconsistent Seed and Expanded Private Keys
    Acknowledgments
    Authors' Addresses
 
@@ -429,6 +431,9 @@ Table of Contents
    ensuring it is bytewise equal to the value presented in the private
    key.
 
+   Appendix C.4 includes some examples of inconsistent seeds and
+   expanded private keys.
+
 9.  Security Considerations
 
    The Security Considerations section of [RFC5280] applies to this
@@ -732,8 +737,8 @@ Appendix B.  Parameter Set Security and Sizes
 
 Appendix C.  Examples
 
-   This appendix contains examples of ML-KEM public keys, private keys
-   and certificates.
+   This appendix contains examples of ML-KEM public keys, private keys,
+   certificates, and inconsistent seed and expanded private keys.
 
 C.1.  Example Private Keys
 
@@ -2966,6 +2971,56 @@ C.3.  Example Certificates
    7f8575e7aa8c6c9070c1c245b737f939bc8edf272777f90d820229e000000000
    000000000000000000000000000000000000000000004080f171d292e31` }
    }
+
+C.4.  Examples of Bad Private Keys
+
+      |  WARNING: These private keys are purposely bad do not use them
+      |  in production systems.
+
+   The following examples demonstrate inconsistent seed and expanded
+   private keys.
+
+C.4.1.  ML-KEM Inconsistent Seed and Expanded Private Keys
+
+   Four ML-KEM-512-PrivateKey examples of inconsistent seed and expanded
+   private keys follow:
+
+   1.  The first ML-KEM-512-PrivateKey example includes the both CHOICE
+       , i.e., both seed and expandedKey are included.  The seed and
+       expanded values can be checked for inconsistencies.
+
+   2.  The second ML-KEM-512-PrivateKey example includes only
+       expandedKey.  The expanded private key has a mutated s_0 and a
+       valid public key hash, but a pairwise consistency check would
+       find that the public key fails to match private.
+
+   3.  The third ML-KEM-512-PrivateKey example includes only
+       expandedKey.  The expanded private key has a mutated H(ek); both
+       a public key digest check and a pairwise consistency check should
+       fail.
+
+   4.  The fourth ML-KEM-512-PrivateKey example includes the both CHOICE
+       , i.e., both seed and expandedKey are included.  There is
+       mismatch of the seed and expanded private key in only the z
+       implicit rejection secret; here the private and public vectors
+       match and the pairwise consistency check passes, but z is
+       different.
+
+   The following is the first example:
+
+   ~~~ {::include ./examples/bad-ML-KEM-512-1.priv} ~~~
+
+   The following is the second example:
+
+   ~~~ {::include ./examples/bad-ML-KEM-512-2.priv} ~~~
+
+   The following is the third example:
+
+   ~~~ {::include ./examples/bad-ML-KEM-512-3.priv} ~~~
+
+   The following is the fourth example:
+
+   ~~~ {::include ./examples/bad-ML-KEM-512-4.priv} ~~~
 
 Acknowledgments
 
