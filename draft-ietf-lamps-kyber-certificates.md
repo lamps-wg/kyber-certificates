@@ -759,7 +759,7 @@ expanded private keys follow:
 4. The fourth `ML-KEM-512-PrivateKey` example includes the
    `both CHOICE` , i.e., both `seed` and `expandedKey` are
    included. There is mismatch of the seed and expanded private
-   key in only the z implicit rejection secret; here the private
+   key in only the `z` implicit rejection secret; here the private
    and public vectors match and the pairwise consistency check passes,
    but z is different.
 
