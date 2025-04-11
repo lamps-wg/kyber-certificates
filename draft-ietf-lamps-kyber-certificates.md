@@ -754,7 +754,7 @@ expanded private keys follow:
 
 3. The third `ML-KEM-512-PrivateKey` example includes only
    `expandedKey`. The expanded private key has a mutated H(ek); both
-   public key digest check and pairise consistency check should fail.
+   public key digest check and pairwise consistency check should fail.
 
 4. The fourth `ML-KEM-512-PrivateKey` example includes the
    `both CHOICE` , i.e., both `seed` and `expandedKey` are
