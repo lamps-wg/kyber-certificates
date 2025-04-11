@@ -2996,7 +2996,7 @@ C.4.1.  ML-KEM Inconsistent Seed and Expanded Private Keys
 
    3.  The third ML-KEM-512-PrivateKey example includes only
        expandedKey.  The expanded private key has a mutated H(ek); both
-       public key digest check and pairwise consistency check should
+       a public key digest check and a pairwise consistency check should
        fail.
 
    4.  The fourth ML-KEM-512-PrivateKey example includes the both CHOICE
