@@ -731,7 +731,7 @@ is followed by the so-called "pretty print"; the certificates are the same.
 
 <aside markdown="block">
    WARNING: These private keys are purposely bad do not use them in
-   production systmes.
+   production systems.
 </aside>
 
 The following examples demonstrate inconsistent seed and
