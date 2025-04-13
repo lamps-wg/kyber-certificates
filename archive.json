@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-10T01:19:56.143405+00:00",
+  "timestamp": "2025-04-13T02:47:46.376962+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -699,15 +699,15 @@
       "id": "I_kwDOGV9y2s6utdw4",
       "title": "Resolve ambiguity in Implementation Guidance",
       "url": "https://github.com/lamps-wg/kyber-certificates/issues/107",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "dennisjackson",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Whatever the resolution of [104](https://github.com/lamps-wg/dilithium-certificates/issues/104) and [105](https://github.com/lamps-wg/dilithium-certificates/issues/105), the same resolution should be applied here.",
       "createdAt": "2025-03-19T09:54:04Z",
-      "updatedAt": "2025-03-21T05:57:13Z",
-      "closedAt": null,
+      "updatedAt": "2025-04-11T14:55:27Z",
+      "closedAt": "2025-04-11T14:55:27Z",
       "comments": [
         {
           "author": "vdukhovni",
@@ -7728,13 +7728,13 @@
       "labels": [],
       "body": "This addresses #108\r\n\r\nAs FIPS 203 already stipulates this, we can drop the normative language.\r\n\r\nI do not have strong feelings on the normative text around the further checks, but this one seems like least friction.",
       "createdAt": "2025-03-21T09:42:21Z",
-      "updatedAt": "2025-04-09T20:26:52Z",
+      "updatedAt": "2025-04-12T04:26:03Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "e1bcd9fa77c3e140d10bec5d6455a6d073a6e437",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "bas/108",
-      "headRefOid": "39a40b74aeae0ec0f80fd083eb04a1cf032d5254",
+      "headRefOid": "16b4c55a11b7e9a48f34499cb85db7f985a3754c",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -7840,6 +7840,78 @@
               "body": "@bwesterb I think the two extra checks are ASN.1 checks/constraints for type and length.",
               "createdAt": "2025-04-09T20:26:52Z",
               "updatedAt": "2025-04-09T20:26:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6kdI76",
+          "commit": {
+            "abbreviatedOid": "39a40b7"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-11T04:15:31Z",
+          "updatedAt": "2025-04-11T04:15:31Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "@vdukhovni wrote\r\n\r\n> Where are two other checks stipulated? \r\n\r\nLet me copy FIPS 203 section 7.3 for you:\r\n\r\n<img width=\"802\" alt=\"Screenshot 2025-04-11 at 12 13 17\" src=\"https://github.com/user-attachments/assets/26c13471-c9c5-4248-9cb8-477525fb4a60\" />\r\n\r\nThe \"decapsulation key type check\" is already ensured by this I-D.\r\n",
+              "createdAt": "2025-04-11T04:15:31Z",
+              "updatedAt": "2025-04-11T04:15:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6koFus",
+          "commit": {
+            "abbreviatedOid": "16b4c55"
+          },
+          "author": "csosto-pk",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-04-12T02:43:05Z",
+          "updatedAt": "2025-04-12T02:43:05Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6koF1_",
+          "commit": {
+            "abbreviatedOid": "16b4c55"
+          },
+          "author": "csosto-pk",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-04-12T02:45:41Z",
+          "updatedAt": "2025-04-12T02:45:41Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6kdeZm",
+          "commit": {
+            "abbreviatedOid": "16b4c55"
+          },
+          "author": "vdukhovni",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "LGTM, with a preference for a wording change for clarity.",
+          "createdAt": "2025-04-11T05:37:36Z",
+          "updatedAt": "2025-04-12T04:26:03Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "The miscommunication happened as a result of using the phrase `this section`, which I took to mean something in *this* document. Had you said `That section ...`, the text would have been less ambiguous. However, since I'm fundamentally opposed to attempts to preclude additional checks, I am not sure that correcting it makes sense if the thrust of this PR is to attempt to do so.\r\n\r\nOpenSSL does and will perform additional checks on $`dk`$. And, FWIW, Section 7.3 is about what to do during decapsulation it is a specification of key import.",
+              "createdAt": "2025-04-11T05:37:37Z",
+              "updatedAt": "2025-04-12T04:26:03Z"
+            },
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\na \"hash check\" MUST be performed. That section stipulates two other\r\n```",
+              "createdAt": "2025-04-12T04:25:27Z",
+              "updatedAt": "2025-04-12T04:26:03Z"
             }
           ]
         }
@@ -8033,6 +8105,181 @@
               "updatedAt": "2025-03-31T11:54:28Z"
             }
           ]
+        }
+      ]
+    },
+    {
+      "number": 119,
+      "id": "PR_kwDOGV9y2s6SGbVk",
+      "title": "Add Negative Examples",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/119",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Includes negative examples from #107. Also, Closes #107.",
+      "createdAt": "2025-04-10T13:20:41Z",
+      "updatedAt": "2025-04-11T14:55:26Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "0049058dafdd2d103e924f70d47363548b3026df",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-negative-examples",
+      "headRefOid": "bd04a49a7f112aeef47c46993f0d9d079b266844",
+      "closedAt": "2025-04-11T14:55:26Z",
+      "mergedAt": "2025-04-11T14:55:26Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "85644057d63eeeda3d8ca23da590eacf4ac1e07b"
+      },
+      "comments": [
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@vdukhovni PTAL",
+          "createdAt": "2025-04-11T14:07:05Z",
+          "updatedAt": "2025-04-11T14:07:05Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6kdJ9b",
+          "commit": {
+            "abbreviatedOid": "1afdba2"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-11T04:20:15Z",
+          "updatedAt": "2025-04-11T04:20:16Z",
+          "comments": [
+            {
+              "originalPosition": 38,
+              "body": "Typo. People shouldn't use any example private keys anyway.",
+              "createdAt": "2025-04-11T04:20:15Z",
+              "updatedAt": "2025-04-11T04:20:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6kdKIV",
+          "commit": {
+            "abbreviatedOid": "1afdba2"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-11T04:21:03Z",
+          "updatedAt": "2025-04-11T04:21:03Z",
+          "comments": [
+            {
+              "originalPosition": 61,
+              "body": "Typo",
+              "createdAt": "2025-04-11T04:21:03Z",
+              "updatedAt": "2025-04-11T04:21:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6kdKOP",
+          "commit": {
+            "abbreviatedOid": "1afdba2"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-04-11T04:21:29Z",
+          "updatedAt": "2025-04-11T04:21:29Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6kiWYU",
+          "commit": {
+            "abbreviatedOid": "1afdba2"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-11T14:01:14Z",
+          "updatedAt": "2025-04-11T14:01:14Z",
+          "comments": [
+            {
+              "originalPosition": 38,
+              "body": "```suggestion\r\n   production systems.\r\n```",
+              "createdAt": "2025-04-11T14:01:14Z",
+              "updatedAt": "2025-04-11T14:01:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6kiWwa",
+          "commit": {
+            "abbreviatedOid": "a31c68a"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-11T14:01:47Z",
+          "updatedAt": "2025-04-11T14:01:48Z",
+          "comments": [
+            {
+              "originalPosition": 61,
+              "body": "```suggestion\r\n   public key digest check and pairwise consistency check should fail.\r\n```",
+              "createdAt": "2025-04-11T14:01:47Z",
+              "updatedAt": "2025-04-11T14:01:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6kifrg",
+          "commit": {
+            "abbreviatedOid": "d7a499d"
+          },
+          "author": "vdukhovni",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "LGTM, also checked that the base64 key blobs are as advertised.\r\nJust editorial nits if you think these are better phrasing.",
+          "createdAt": "2025-04-11T14:14:38Z",
+          "updatedAt": "2025-04-11T14:34:25Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "```suggestion\r\n   and a valid public key hash, but a pairwise consistency\r\n```",
+              "createdAt": "2025-04-11T14:14:39Z",
+              "updatedAt": "2025-04-11T14:34:25Z"
+            },
+            {
+              "originalPosition": 61,
+              "body": "```suggestion\r\n   a public key digest check and a pairwise consistency check should fail.\r\n```",
+              "createdAt": "2025-04-11T14:16:19Z",
+              "updatedAt": "2025-04-11T14:34:25Z"
+            },
+            {
+              "originalPosition": 66,
+              "body": "```suggestion\r\n   key in only the `z` implicit rejection secret; here the private\r\n```",
+              "createdAt": "2025-04-11T14:17:19Z",
+              "updatedAt": "2025-04-11T14:34:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6ki6HS",
+          "commit": {
+            "abbreviatedOid": "32082a6"
+          },
+          "author": "vdukhovni",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-04-11T14:53:28Z",
+          "updatedAt": "2025-04-11T14:53:28Z",
+          "comments": []
         }
       ]
     }
