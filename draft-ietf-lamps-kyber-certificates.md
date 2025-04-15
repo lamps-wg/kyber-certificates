@@ -411,7 +411,7 @@ the recipient MUST reject the private key as malformed.
 
 When receiving a private key that contains an `expandedKey`,
 {{FIPS203}} stipulates in section 7.3 that before use,
-a "hash check" MUST be performed. This section stipulates two other
+a "hash check" MUST be performed. That section stipulates two other
 checks on the type and length of the `expandedKey` which are ensured
 by this standard.
 
