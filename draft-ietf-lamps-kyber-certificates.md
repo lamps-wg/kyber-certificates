@@ -771,27 +771,27 @@ expanded private keys follow:
 
 The following is the first example:
 
- ~~~
- {::include ./example/bad-ML-KEM-512-1.priv}
- ~~~
+~~~
+{::include ./example/bad-ML-KEM-512-1.priv}
+~~~
 
- The following is the second example:
+The following is the second example:
 
- ~~~
- {::include ./example/bad-ML-KEM-512-2.priv}
- ~~~
+~~~
+{::include ./example/bad-ML-KEM-512-2.priv}
+~~~
 
- The following is the third example:
+The following is the third example:
 
- ~~~
- {::include ./example/bad-ML-KEM-512-3.priv}
- ~~~
+~~~
+{::include ./example/bad-ML-KEM-512-3.priv}
+~~~
 
 The following is the fourth example:
 
- ~~~
- {::include ./example/bad-ML-KEM-512-4.priv}
- ~~~
+~~~
+{::include ./example/bad-ML-KEM-512-4.priv}
+~~~
 
 # Acknowledgments
 {:numbered="false"}
