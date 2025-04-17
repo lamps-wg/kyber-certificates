@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-13T02:47:46.376962+00:00",
+  "timestamp": "2025-04-17T01:21:05.411709+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -744,7 +744,7 @@
       "id": "I_kwDOGV9y2s6uuJ6l",
       "title": "Spell out parsing of expandedKey",
       "url": "https://github.com/lamps-wg/kyber-certificates/issues/108",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "dennisjackson",
       "authorAssociation": "NONE",
       "assignees": [
@@ -753,9 +753,17 @@
       "labels": [],
       "body": "The draft doesn't actually specify how to parse expandedKey. I guess the length and hash checks in 7.3 of FIPS 203 are the right ones. Presumably, these SHOULD be done at import time in order to avoid having to repeat the check during each decap? ",
       "createdAt": "2025-03-19T10:52:04Z",
-      "updatedAt": "2025-03-20T06:13:23Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-04-15T14:42:31Z",
+      "closedAt": "2025-04-15T14:42:29Z",
+      "comments": [
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closed via #116.",
+          "createdAt": "2025-04-15T14:42:29Z",
+          "updatedAt": "2025-04-15T14:42:29Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -7721,24 +7729,26 @@
       "id": "PR_kwDOGV9y2s6Plqmh",
       "title": "Add text on expandedKey check",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/116",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bwesterb",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This addresses #108\r\n\r\nAs FIPS 203 already stipulates this, we can drop the normative language.\r\n\r\nI do not have strong feelings on the normative text around the further checks, but this one seems like least friction.",
       "createdAt": "2025-03-21T09:42:21Z",
-      "updatedAt": "2025-04-12T04:26:03Z",
+      "updatedAt": "2025-04-15T14:41:14Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
-      "baseRefOid": "e1bcd9fa77c3e140d10bec5d6455a6d073a6e437",
+      "baseRefOid": "85644057d63eeeda3d8ca23da590eacf4ac1e07b",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "bas/108",
-      "headRefOid": "16b4c55a11b7e9a48f34499cb85db7f985a3754c",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "606f9bcf7d0a9e2b3753f86e2242c0565097b003",
+      "closedAt": "2025-04-15T14:41:13Z",
+      "mergedAt": "2025-04-15T14:41:13Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "ab951109e420d4e6c26057fcc7024197da74f30d"
+      },
       "comments": [
         {
           "author": "bwesterb",
@@ -7914,6 +7924,19 @@
               "updatedAt": "2025-04-12T04:26:03Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6lBtcI",
+          "commit": {
+            "abbreviatedOid": "606f9bc"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-04-15T14:40:51Z",
+          "updatedAt": "2025-04-15T14:40:51Z",
+          "comments": []
         }
       ]
     },
@@ -8282,6 +8305,104 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 120,
+      "id": "PR_kwDOGV9y2s6Srzch",
+      "title": "Remove old version",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/120",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-04-15T14:46:32Z",
+      "updatedAt": "2025-04-15T19:28:59Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "ab951109e420d4e6c26057fcc7024197da74f30d",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-remove-old-version",
+      "headRefOid": "151d9839b077e40044d6c03582a397b60b230dcc",
+      "closedAt": "2025-04-15T19:28:59Z",
+      "mergedAt": "2025-04-15T19:28:59Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "2d9527aee2c810a51548d2b20ae618c8c1580a39"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6lE64P",
+          "commit": {
+            "abbreviatedOid": "151d983"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-04-15T19:24:39Z",
+          "updatedAt": "2025-04-15T19:24:39Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 121,
+      "id": "PR_kwDOGV9y2s6S131_",
+      "title": "Fix links",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/121",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-04-16T13:30:35Z",
+      "updatedAt": "2025-04-16T13:31:09Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "2d9527aee2c810a51548d2b20ae618c8c1580a39",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-fix-example-imports",
+      "headRefOid": "6dd85a04e4fbf231c6b17c0804fd19d34e50ee4a",
+      "closedAt": "2025-04-16T13:31:09Z",
+      "mergedAt": "2025-04-16T13:31:09Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "02d7ef424e9368e40961be57b571054f1e44c17d"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 122,
+      "id": "PR_kwDOGV9y2s6S2xmP",
+      "title": "Fix spaces",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/122",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-04-16T15:02:01Z",
+      "updatedAt": "2025-04-16T15:15:25Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "02d7ef424e9368e40961be57b571054f1e44c17d",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-fix-spacing",
+      "headRefOid": "617838b0b9ad5ae965581cefec01ac8c30e9394c",
+      "closedAt": "2025-04-16T15:15:25Z",
+      "mergedAt": "2025-04-16T15:15:25Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "61e917c93e692ece34cf437eb9b2d238fb66ce2b"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
