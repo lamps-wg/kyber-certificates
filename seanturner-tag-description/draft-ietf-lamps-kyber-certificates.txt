@@ -3178,9 +3178,9 @@ C.4.1.  ML-KEM Inconsistent Seed and Expanded Private Keys
 Acknowledgments
 
    The authors wish to thank the following people for their
-   contributions to this document: Deirdre Connolly, Viktor Dukhovni,
-   Alicja Kario, Russ Housley, Mike Ounsworth, Daniel Van Geest, Thom
-   Wiggers, and Carl Wallace.
+   contributions to this document: Corey Bonnell, Deirdre Connolly,
+   Viktor Dukhovni, Alicja Kario, Russ Housley, Mike Ounsworth, Daniel
+   Van Geest, Thom Wiggers, and Carl Wallace.
 
    In addition, we would like to thank those who contributed to the
    private key format discussion: Tony Arcieri, Bob Beck, Dmitry
