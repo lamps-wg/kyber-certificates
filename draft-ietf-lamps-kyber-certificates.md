@@ -402,7 +402,7 @@ the public key can be extracted from the extended private key. While the `public
 they MAY be included to enable keypair consistency checks during import operations.
 
  When parsing the private key, the ASN.1 tag explicitly indicates which
-variant of `CHOICE` is present. Implementations should use tag `UNIVERSAL IMPLICIT [0]`
+variant of `CHOICE` is present. Implementations should use the context-specific tag `IMPLICIT [0]`
 (raw value `0x80`) for `seed`, `OCTET STRING` (`0x04`) for `expandedKey`, and
 `SEQUENCE` (`0x30`) for `both` to parse the private key, rather than any
 other heuristic like length of the enclosing `OCTET STRING`.
@@ -797,7 +797,7 @@ The following is the fourth example:
 {:numbered="false"}
 
 The authors wish to thank the following people for their contributions
-to this document: Deirdre Connolly, Viktor Dukhovni, Alicja Kario, Russ
+to this document: Corey Bonnell, Deirdre Connolly, Viktor Dukhovni, Alicja Kario, Russ
 Housley, Mike Ounsworth, Daniel Van Geest, Thom Wiggers, and Carl Wallace.
 
 In addition, we would like to thank those who contributed to the private
