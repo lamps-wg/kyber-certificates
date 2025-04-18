@@ -797,7 +797,7 @@ The following is the fourth example:
 {:numbered="false"}
 
 The authors wish to thank the following people for their contributions
-to this document: Deirdre Connolly, Viktor Dukhovni, Alicja Kario, Russ
+to this document: Corey Bonnell, Deirdre Connolly, Viktor Dukhovni, Alicja Kario, Russ
 Housley, Mike Ounsworth, Daniel Van Geest, Thom Wiggers, and Carl Wallace.
 
 In addition, we would like to thank those who contributed to the private
