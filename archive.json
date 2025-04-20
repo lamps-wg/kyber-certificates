@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-17T01:21:05.411709+00:00",
+  "timestamp": "2025-04-20T01:26:35.927531+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -8403,6 +8403,59 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 123,
+      "id": "PR_kwDOGV9y2s6THsw2",
+      "title": "Fix Tag description",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/123",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Tag for `seed` is not UNIVERSAL.",
+      "createdAt": "2025-04-18T13:04:17Z",
+      "updatedAt": "2025-04-18T21:30:32Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "61e917c93e692ece34cf437eb9b2d238fb66ce2b",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-tag-description",
+      "headRefOid": "81de60106ecff8e8e19e1551071b2dd0a716f119",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6lnx1y",
+          "commit": {
+            "abbreviatedOid": "81de601"
+          },
+          "author": "csosto-pk",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-04-18T14:07:39Z",
+          "updatedAt": "2025-04-18T14:07:39Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6lqz9T",
+          "commit": {
+            "abbreviatedOid": "81de601"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-04-18T21:30:32Z",
+          "updatedAt": "2025-04-18T21:30:32Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
