@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 18 October 2025                                      J. Massimo
+Expires: 23 October 2025                                      J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                           16 April 2025
+                                                           21 April 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 October 2025.
+   This Internet-Draft will expire on 23 October 2025.
 
 Copyright Notice
 
@@ -378,11 +378,11 @@ Table of Contents
    consistency checks during import operations.
 
    When parsing the private key, the ASN.1 tag explicitly indicates
-   which variant of CHOICE is present.  Implementations should use tag
-   UNIVERSAL IMPLICIT [0] (raw value 0x80) for seed, OCTET STRING (0x04)
-   for expandedKey, and SEQUENCE (0x30) for both to parse the private
-   key, rather than any other heuristic like length of the enclosing
-   OCTET STRING.
+   which variant of CHOICE is present.  Implementations should use the
+   context-specific tag IMPLICIT [0] (raw value 0x80) for seed, OCTET
+   STRING (0x04) for expandedKey, and SEQUENCE (0x30) for both to parse
+   the private key, rather than any other heuristic like length of the
+   enclosing OCTET STRING.
 
    Appendix C.1 contains examples for ML-KEM private keys encoded using
    the textual encoding defined in [RFC7468].
@@ -3178,9 +3178,9 @@ C.4.1.  ML-KEM Inconsistent Seed and Expanded Private Keys
 Acknowledgments
 
    The authors wish to thank the following people for their
-   contributions to this document: Deirdre Connolly, Viktor Dukhovni,
-   Alicja Kario, Russ Housley, Mike Ounsworth, Daniel Van Geest, Thom
-   Wiggers, and Carl Wallace.
+   contributions to this document: Corey Bonnell, Deirdre Connolly,
+   Viktor Dukhovni, Alicja Kario, Russ Housley, Mike Ounsworth, Daniel
+   Van Geest, Thom Wiggers, and Carl Wallace.
 
    In addition, we would like to thank those who contributed to the
    private key format discussion: Tony Arcieri, Bob Beck, Dmitry
