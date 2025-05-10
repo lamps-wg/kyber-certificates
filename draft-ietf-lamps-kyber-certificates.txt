@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 23 October 2025                                      J. Massimo
+Expires: 11 November 2025                                     J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                           21 April 2025
+                                                             10 May 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 October 2025.
+   This Internet-Draft will expire on 11 November 2025.
 
 Copyright Notice
 
@@ -159,9 +159,9 @@ Table of Contents
       the algorithm identifier in the algorithm field.
 
    The AlgorithmIdentifier for an ML-KEM public key MUST use one of the
-   id-alg-ml-kem object identifiers listed below, based on the security
-   level.  The parameters field of the AlgorithmIdentifier for the ML-
-   KEM public key MUST be absent.
+   id-alg-ml-kem object identifiers (OID) listed below, based on the
+   security level.  The parameters field of the AlgorithmIdentifier for
+   the ML-KEM public key MUST be absent.
 
      nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-ccitt(2)
        country(16) us(840) organization(1) gov(101) csor(3)
@@ -297,7 +297,7 @@ Table of Contents
        [[2: publicKey       [1] BIT STRING (CONTAINING
                                   PUBLIC-KEY.&Params({PublicKeySet}
                                     {@privateKeyAlgorithm.algorithm})
-                                    OPTIONAL,
+                                    OPTIONAL ]],
        ...
      }
 
@@ -544,25 +544,24 @@ Table of Contents
               Wiggers, T., Celi, S., Schwabe, P., Stebila, D., and N.
               Sullivan, "KEM-based Authentication for TLS 1.3", Work in
               Progress, Internet-Draft, draft-celi-wiggers-tls-authkem-
-              04, 17 October 2024,
-              <https://datatracker.ietf.org/doc/html/draft-celi-wiggers-
-              tls-authkem-04>.
+              05, 22 April 2025, <https://datatracker.ietf.org/doc/html/
+              draft-celi-wiggers-tls-authkem-05>.
 
    [I-D.ietf-lamps-cms-kyber]
               Prat, J., Ounsworth, M., and D. Van Geest, "Use of ML-KEM
               in the Cryptographic Message Syntax (CMS)", Work in
-              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-08, 9
-              January 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-lamps-cms-kyber-08>.
+              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-09,
+              22 April 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-lamps-cms-kyber-09>.
 
    [I-D.ietf-lamps-dilithium-certificates]
               Massimo, J., Kampanakis, P., Turner, S., and B.
-              Westerbaan, "Internet X.509 Public Key Infrastructure:
-              Algorithm Identifiers for ML-DSA", Work in Progress,
-              Internet-Draft, draft-ietf-lamps-dilithium-certificates-
-              07, 2 February 2025,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-lamps-
-              dilithium-certificates-07>.
+              Westerbaan, "Internet X.509 Public Key Infrastructure -
+              Algorithm Identifiers for the Module-Lattice-Based Digital
+              Signature Algorithm (ML-DSA)", Work in Progress, Internet-
+              Draft, draft-ietf-lamps-dilithium-certificates-09, 7 May
+              2025, <https://datatracker.ietf.org/doc/html/draft-ietf-
+              lamps-dilithium-certificates-09>.
 
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations]
               Fluhrer, S., Dang, Q., Mattsson, J. P., Milner, K., and D.
