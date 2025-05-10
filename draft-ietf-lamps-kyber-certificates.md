@@ -171,7 +171,7 @@ The fields in `AlgorithmIdentifier` have the following meanings:
   the algorithm identifier in the `algorithm` field.
 
 The `AlgorithmIdentifier` for an ML-KEM public key MUST use one of the
-`id-alg-ml-kem` object identifiers listed below, based on the security
+`id-alg-ml-kem` object identifiers (OID) listed below, based on the security
 level. The `parameters` field of the `AlgorithmIdentifier` for the ML-KEM
 public key MUST be absent.
 
@@ -318,7 +318,7 @@ key to be included as well. For illustration, the ASN.1 structure
     [[2: publicKey       [1] BIT STRING (CONTAINING
                                PUBLIC-KEY.&Params({PublicKeySet}
                                  {@privateKeyAlgorithm.algorithm})
-                                 OPTIONAL,
+                                 OPTIONAL ]],
     ...
   }
 ~~~
