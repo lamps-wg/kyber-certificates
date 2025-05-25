@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-27T01:26:50.945193+00:00",
+  "timestamp": "2025-05-25T01:40:13.244804+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -764,6 +764,22 @@
           "updatedAt": "2025-04-15T14:42:29Z"
         }
       ]
+    },
+    {
+      "number": 124,
+      "id": "I_kwDOGV9y2s637NAd",
+      "title": "Some editorial changes to version 10",
+      "url": "https://github.com/lamps-wg/kyber-certificates/issues/124",
+      "state": "OPEN",
+      "author": "PiotrPopis",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "1. Section 4\n> the the\n\n2. Section 6\n> The privateKeyAlgorithm field uses the AlgorithmIdentifier structure\n> with the appropriate OID as defined in Section 3.  If present, the\n> publicKey field will hold the encoded public key as defined in\n>  Section 4.\n\nThe privateKeyAlgorithm field uses the AlgorithmIdentifier structure\n   with the appropriate OID as defined in Section 3.  \n\n   The publicKey field contains the byte stream of the public key. If \n   present, the publicKey field will hold the encoded public key as defined \n   in Section 4.\n\n3. Section 8\n> 8.  Private Key Consistency Tesing \n8.  Private Key Consistency Testing",
+      "createdAt": "2025-05-23T09:17:01Z",
+      "updatedAt": "2025-05-23T09:17:01Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -8455,6 +8471,46 @@
           "body": "",
           "createdAt": "2025-04-18T21:30:32Z",
           "updatedAt": "2025-04-18T21:30:32Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 125,
+      "id": "PR_kwDOGV9y2s6XYyie",
+      "title": "Piotr's Nits",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/125",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #124.",
+      "createdAt": "2025-05-23T13:23:15Z",
+      "updatedAt": "2025-05-23T21:19:10Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "b013568cc0bc9ab3f7b7146d56168986f2e89cd9",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-piotr-nits",
+      "headRefOid": "0dd681ccc925775c4a7a5d8dce0a2104f2027d6b",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6qz_dN",
+          "commit": {
+            "abbreviatedOid": "0dd681c"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-23T21:19:10Z",
+          "updatedAt": "2025-05-23T21:19:10Z",
           "comments": []
         }
       ]
