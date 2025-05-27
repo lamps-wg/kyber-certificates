@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 11 November 2025                                     J. Massimo
+Expires: 28 November 2025                                     J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                             10 May 2025
+                                                             27 May 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 November 2025.
+   This Internet-Draft will expire on 28 November 2025.
 
 Copyright Notice
 
@@ -84,7 +84,7 @@ Table of Contents
    5.  Key Usage Bits
    6.  Private Key Format
    7.  Implementation Considerations
-   8.  Private Key Consistency Tesing
+   8.  Private Key Consistency Testing
    9.  Security Considerations
    10. IANA Considerations
    11. References
@@ -245,7 +245,7 @@ Table of Contents
 
    When the ML-KEM private key appears outside of an Asymmetric Key
    Package in an environment that uses ASN.1 encoding, it can be encoded
-   using one of the the ML-KEM-PrivateKey CHOICE formats defined in
+   using one of the ML-KEM-PrivateKey CHOICE formats defined in
    Section 6.  The seed format is RECOMMENDED as it efficiently stores
    both the private and public key.
 
@@ -362,9 +362,11 @@ Table of Contents
    RECOMMENDED for storage efficiency.
 
    The privateKeyAlgorithm field uses the AlgorithmIdentifier structure
-   with the appropriate OID as defined in Section 3.  If present, the
-   publicKey field will hold the encoded public key as defined in
-   Section 4.
+   with the appropriate OID as defined in Section 3.
+
+   The publicKey field contains the byte stream of the public key.  If
+   present, the publicKey field will hold the encoded public key as
+   defined in Section 4.
 
    NOTE: While the private key can be stored in multiple formats, the
    seed-only format is RECOMMENDED as it is the most compact
@@ -413,7 +415,7 @@ Table of Contents
    that implementations retain and export the seed, even when also
    exporting the expanded private key.
 
-8.  Private Key Consistency Tesing
+8.  Private Key Consistency Testing
 
    When receiving a private key that contains both the seed and the
    expandedKey, the recipient SHOULD perform a seed consistency check to
@@ -559,17 +561,17 @@ Table of Contents
               Westerbaan, "Internet X.509 Public Key Infrastructure -
               Algorithm Identifiers for the Module-Lattice-Based Digital
               Signature Algorithm (ML-DSA)", Work in Progress, Internet-
-              Draft, draft-ietf-lamps-dilithium-certificates-09, 7 May
+              Draft, draft-ietf-lamps-dilithium-certificates-11, 22 May
               2025, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              lamps-dilithium-certificates-09>.
+              lamps-dilithium-certificates-11>.
 
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations]
               Fluhrer, S., Dang, Q., Mattsson, J. P., Milner, K., and D.
               Shiu, "ML-KEM Security Considerations", Work in Progress,
               Internet-Draft, draft-sfluhrer-cfrg-ml-kem-security-
-              considerations-02, 19 November 2024,
+              considerations-03, 15 May 2025,
               <https://datatracker.ietf.org/doc/html/draft-sfluhrer-
-              cfrg-ml-kem-security-considerations-02>.
+              cfrg-ml-kem-security-considerations-03>.
 
    [KEMMY24]  Schmieg, S., "Unbindable Kemmy Schmidt: ML-KEM is neither
               MAL-BIND-K-CT nor MAL-BIND-K-PK", 2024,
