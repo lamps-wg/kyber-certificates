@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-25T01:40:13.244804+00:00",
+  "timestamp": "2025-05-29T01:25:35.497371+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -770,16 +770,24 @@
       "id": "I_kwDOGV9y2s637NAd",
       "title": "Some editorial changes to version 10",
       "url": "https://github.com/lamps-wg/kyber-certificates/issues/124",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "PiotrPopis",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "1. Section 4\n> the the\n\n2. Section 6\n> The privateKeyAlgorithm field uses the AlgorithmIdentifier structure\n> with the appropriate OID as defined in Section 3.  If present, the\n> publicKey field will hold the encoded public key as defined in\n>  Section 4.\n\nThe privateKeyAlgorithm field uses the AlgorithmIdentifier structure\n   with the appropriate OID as defined in Section 3.  \n\n   The publicKey field contains the byte stream of the public key. If \n   present, the publicKey field will hold the encoded public key as defined \n   in Section 4.\n\n3. Section 8\n> 8.  Private Key Consistency Tesing \n8.  Private Key Consistency Testing",
       "createdAt": "2025-05-23T09:17:01Z",
-      "updatedAt": "2025-05-23T09:17:01Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-05-27T16:37:56Z",
+      "closedAt": "2025-05-27T16:37:31Z",
+      "comments": [
+        {
+          "author": "csosto-pk",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Merged",
+          "createdAt": "2025-05-27T16:37:55Z",
+          "updatedAt": "2025-05-27T16:37:55Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -8480,25 +8488,35 @@
       "id": "PR_kwDOGV9y2s6XYyie",
       "title": "Piotr's Nits",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/125",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Closes #124.",
       "createdAt": "2025-05-23T13:23:15Z",
-      "updatedAt": "2025-05-23T21:19:10Z",
+      "updatedAt": "2025-05-27T16:37:30Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "b013568cc0bc9ab3f7b7146d56168986f2e89cd9",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "seanturner-piotr-nits",
       "headRefOid": "0dd681ccc925775c4a7a5d8dce0a2104f2027d6b",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "closedAt": "2025-05-27T16:37:30Z",
+      "mergedAt": "2025-05-27T16:37:30Z",
+      "mergedBy": "csosto-pk",
+      "mergeCommit": {
+        "oid": "e0d4f3bd8e99ba679c4207132cc38ed0e0943c1e"
+      },
+      "comments": [
+        {
+          "author": "csosto-pk",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Merge ready",
+          "createdAt": "2025-05-27T16:37:25Z",
+          "updatedAt": "2025-05-27T16:37:25Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOGV9y2s6qz_dN",
@@ -8511,6 +8529,19 @@
           "body": "",
           "createdAt": "2025-05-23T21:19:10Z",
           "updatedAt": "2025-05-23T21:19:10Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6rLDYa",
+          "commit": {
+            "abbreviatedOid": "0dd681c"
+          },
+          "author": "csosto-pk",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-27T16:36:55Z",
+          "updatedAt": "2025-05-27T16:36:55Z",
           "comments": []
         }
       ]
