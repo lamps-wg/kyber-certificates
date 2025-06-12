@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-29T01:25:35.497371+00:00",
+  "timestamp": "2025-06-12T01:26:15.188542+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -8543,6 +8543,65 @@
           "createdAt": "2025-05-27T16:36:55Z",
           "updatedAt": "2025-05-27T16:36:55Z",
           "comments": []
+        }
+      ]
+    },
+    {
+      "number": 126,
+      "id": "PR_kwDOGV9y2s6Z3DKF",
+      "title": "Suggestions GenART review",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/126",
+      "state": "OPEN",
+      "author": "bwesterb",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "https://mailarchive.ietf.org/arch/msg/spasm/2WVVM-biKPSJBbccFPAKk6REzD8/",
+      "createdAt": "2025-06-10T13:18:28Z",
+      "updatedAt": "2025-06-10T20:47:57Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "e0d4f3bd8e99ba679c4207132cc38ed0e0943c1e",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "bas/knodel",
+      "headRefOid": "9debc0e1ddbebad9bdba90802a467ece619c9695",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6tvhL2",
+          "commit": {
+            "abbreviatedOid": "9debc0e"
+          },
+          "author": "csosto-pk",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2025-06-10T20:09:56Z",
+          "updatedAt": "2025-06-10T20:47:57Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "\"in certificates\"",
+              "createdAt": "2025-06-10T20:09:56Z",
+              "updatedAt": "2025-06-10T20:47:57Z"
+            },
+            {
+              "originalPosition": 27,
+              "body": "I think the reviewer suggested \r\n\r\n> Suggest pulling in simply the headings or abstract of what is  included in draft-sfluhrer-cfrg-ml-kem-security-considerations, making this paragraph just one sentence longer, \r\n\r\nMaybe say something like \r\n\r\n>> For more detailed ML-KEM specific security considerations regarding randmoness, misbinding properies, decapsulation failures, key reuse, and key checks, refer to {{?I-D.sfluhrer-cfrg-ml-kem-security-considerations}}.",
+              "createdAt": "2025-06-10T20:44:52Z",
+              "updatedAt": "2025-06-10T20:48:19Z"
+            },
+            {
+              "originalPosition": 27,
+              "body": "The other two suggestions in the review? \r\n> * Section 8: Private Key Consistency TESTING\r\n> * Each subsection of Appendix C has repeated text that could be placed in the stacked head of that section. Furthermore one might use that intro text space before each subsection to point out anything that the reader might want to know or not be able to spot when holding them side-by-side. So, rather tell then show. Or, both show and tell, please. For readability and utility to the reader.",
+              "createdAt": "2025-06-10T20:47:05Z",
+              "updatedAt": "2025-06-10T20:47:57Z"
+            }
+          ]
         }
       ]
     }
