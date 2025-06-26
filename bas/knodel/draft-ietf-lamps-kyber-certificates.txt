@@ -474,6 +474,8 @@ Table of Contents
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations].
 
    For more detailed ML-KEM specific security considerations refer to
+   regarding randmoness, misbinding properies, decapsulation failures,
+   key reuse, and key checks, refer to
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations].
 
 10.  IANA Considerations
