@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 12 December 2025                                     J. Massimo
+Expires: 28 December 2025                                     J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                            10 June 2025
+                                                            26 June 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 December 2025.
+   This Internet-Draft will expire on 28 December 2025.
 
 Copyright Notice
 
@@ -256,9 +256,9 @@ Table of Contents
 
    The intended application for the key is indicated in the keyUsage
    certificate extension; see Section 4.2.1.3 of [RFC5280].  If the
-   keyUsage extension is present, then keyEncipherement MUST be the only
-   key usage set for certificates that indicate id-alg-ml-kem-* in
-   SubjectPublicKeyInfo.
+   keyUsage extension is present in certificates, then keyEncipherement
+   MUST be the only key usage set for certificates that indicate id-alg-
+   ml-kem-* in SubjectPublicKeyInfo.
 
 6.  Private Key Format
 
@@ -552,9 +552,9 @@ Table of Contents
    [I-D.ietf-lamps-cms-kyber]
               Prat, J., Ounsworth, M., and D. Van Geest, "Use of ML-KEM
               in the Cryptographic Message Syntax (CMS)", Work in
-              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-09,
-              22 April 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-lamps-cms-kyber-09>.
+              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-10,
+              17 June 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-lamps-cms-kyber-10>.
 
    [I-D.ietf-lamps-dilithium-certificates]
               Massimo, J., Kampanakis, P., Turner, S., and B.
