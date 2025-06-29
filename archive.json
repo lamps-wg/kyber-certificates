@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-12T01:26:15.188542+00:00",
+  "timestamp": "2025-06-29T01:45:13.667811+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -8558,13 +8558,13 @@
       "labels": [],
       "body": "https://mailarchive.ietf.org/arch/msg/spasm/2WVVM-biKPSJBbccFPAKk6REzD8/",
       "createdAt": "2025-06-10T13:18:28Z",
-      "updatedAt": "2025-06-10T20:47:57Z",
+      "updatedAt": "2025-06-26T18:19:49Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "e0d4f3bd8e99ba679c4207132cc38ed0e0943c1e",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "bas/knodel",
-      "headRefOid": "9debc0e1ddbebad9bdba90802a467ece619c9695",
+      "headRefOid": "89b147df0e3687b222bd22049171116b6be0e657",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -8600,6 +8600,66 @@
               "body": "The other two suggestions in the review? \r\n> * Section 8: Private Key Consistency TESTING\r\n> * Each subsection of Appendix C has repeated text that could be placed in the stacked head of that section. Furthermore one might use that intro text space before each subsection to point out anything that the reader might want to know or not be able to spot when holding them side-by-side. So, rather tell then show. Or, both show and tell, please. For readability and utility to the reader.",
               "createdAt": "2025-06-10T20:47:05Z",
               "updatedAt": "2025-06-10T20:47:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6wnLA_",
+          "commit": {
+            "abbreviatedOid": "9debc0e"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-26T18:13:07Z",
+          "updatedAt": "2025-06-26T18:13:07Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\npresent in certificates, then `keyEncipherement` MUST be the only key usage set for\r\n```",
+              "createdAt": "2025-06-26T18:13:07Z",
+              "updatedAt": "2025-06-26T18:13:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6wnRKw",
+          "commit": {
+            "abbreviatedOid": "518d8e0"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-26T18:18:17Z",
+          "updatedAt": "2025-06-26T18:18:17Z",
+          "comments": [
+            {
+              "originalPosition": 27,
+              "body": "Note I am going to bet that Med is going to ask for us to re-org this like -dilithium-certificates.  I'll get on a PR to do that.\r\n\r\nNote that on the last one, I can also believe somebody might say - we can't expect readers to remember two pages later. I'd rather not deal with these two to make this draft look a lot like the ML-DSA draft.  Trying to avoid those with OCD asking about why are they different.",
+              "createdAt": "2025-06-26T18:18:17Z",
+              "updatedAt": "2025-06-26T18:18:17Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s6wnSG-",
+          "commit": {
+            "abbreviatedOid": "518d8e0"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-26T18:19:18Z",
+          "updatedAt": "2025-06-26T18:19:18Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "```suggestion\r\nregarding randmoness, misbinding properies, decapsulation failures, key reuse, and key checks, refer to {{?I-D.sfluhrer-cfrg-ml-kem-security-considerations}}.\r\n```",
+              "createdAt": "2025-06-26T18:19:18Z",
+              "updatedAt": "2025-06-26T18:19:18Z"
             }
           ]
         }
