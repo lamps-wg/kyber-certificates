@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-06T01:43:44.646460+00:00",
+  "timestamp": "2025-07-10T01:38:29.470771+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -8714,6 +8714,46 @@
           "body": "",
           "createdAt": "2025-07-04T12:54:06Z",
           "updatedAt": "2025-07-04T12:54:06Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 128,
+      "id": "PR_kwDOGV9y2s6d7SQE",
+      "title": "\u00c9ric Vyncke's suggestion",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/128",
+      "state": "OPEN",
+      "author": "bwesterb",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-08T11:29:01Z",
+      "updatedAt": "2025-07-08T12:18:09Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "e0d4f3bd8e99ba679c4207132cc38ed0e0943c1e",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "bas/vyncke",
+      "headRefOid": "0eb963c7ea9af317d4b24b2b4c230dd72e227fd5",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6yqIaF",
+          "commit": {
+            "abbreviatedOid": "0eb963c"
+          },
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-07-08T12:18:09Z",
+          "updatedAt": "2025-07-08T12:18:09Z",
           "comments": []
         }
       ]
