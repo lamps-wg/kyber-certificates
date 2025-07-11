@@ -1287,7 +1287,7 @@ specified.<a href="#section-1-1" class="pilcrow">¶</a></p>
 generate and encapsulate a shared secret used to derive a symmetric key used
 to encrypt a payload; see <span>[<a href="#I-D.ietf-lamps-cms-kyber" class="cite xref">I-D.ietf-lamps-cms-kyber</a>]</span>. To be used in TLS,
 ML-KEM certificates could only be used as end-entity identity certificates
-and would require significant updates to the protocol; see
+and would require significant updates to the protocol; see, for example,
 <span>[<a href="#I-D.celi-wiggers-tls-authkem" class="cite xref">I-D.celi-wiggers-tls-authkem</a>]</span>.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1427,7 +1427,7 @@ public key (see above).<a href="#section-4-5.1.1" class="pilcrow">¶</a></p>
 <p id="section-4-9">When an ML-KEM public key appears outside of a <code>SubjectPublicKeyInfo</code>
 type in an environment that uses ASN.1 encoding, it can be encoded
 as an OCTET STRING by using the <code>ML-KEM-512-PublicKey</code>,
-<code>ML-KEM-768-PublicKey</code>, <code>ML-KEM-1024-PublicKey</code> types corresponding to
+<code>ML-KEM-768-PublicKey</code>, and <code>ML-KEM-1024-PublicKey</code> types corresponding to
 the correct key size.<a href="#section-4-9" class="pilcrow">¶</a></p>
 <p id="section-4-10"><span>[<a href="#RFC5958" class="cite xref">RFC5958</a>]</span> describes the Asymmetric Key Package's <code>OneAsymmetricKey</code>
 type for encoding asymmetric keypairs. When an ML-KEM private key or
@@ -1503,7 +1503,7 @@ key to be included as well. For illustration, the ASN.1 structure
 </aside>
 <p id="section-6-6">For ML-KEM private keys, the privateKey field in <code>OneAsymmetricKey</code> contains
 one of the following DER-encoded <code>CHOICE</code> structures. The <code>seed</code>
-format is a fixed 64 byte <code>OCTET STRING</code> (66 bytes total with the <code>0x8040</code>
+format is a fixed 64-byte <code>OCTET STRING</code> (66 bytes total with the <code>0x8040</code>
 tag and length) for all security levels, while the <code>expandedKey</code>
 and <code>both</code> formats vary in size by security level:<a href="#section-6-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-6-7">
@@ -1939,7 +1939,7 @@ Levels 2 and 4 use collision search for SHA-256 and SHA-384 as reference.<a href
             <td class="text-left" rowspan="1" colspan="1">ML-KEM-768</td>
             <td class="text-left" rowspan="1" colspan="1">1184</td>
             <td class="text-left" rowspan="1" colspan="1">2400</td>
-            <td class="text-left" rowspan="1" colspan="1">1952</td>
+            <td class="text-left" rowspan="1" colspan="1">1088</td>
             <td class="text-left" rowspan="1" colspan="1">32</td>
           </tr>
           <tr>
@@ -1947,7 +1947,7 @@ Levels 2 and 4 use collision search for SHA-256 and SHA-384 as reference.<a href
             <td class="text-left" rowspan="1" colspan="1">ML-KEM-1024</td>
             <td class="text-left" rowspan="1" colspan="1">1568</td>
             <td class="text-left" rowspan="1" colspan="1">3168</td>
-            <td class="text-left" rowspan="1" colspan="1">2592</td>
+            <td class="text-left" rowspan="1" colspan="1">1568</td>
             <td class="text-left" rowspan="1" colspan="1">32</td>
           </tr>
         </tbody>
