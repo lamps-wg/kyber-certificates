@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 28 November 2025                                     J. Massimo
+Expires: 12 January 2026                                      J. Massimo
                                                                      AWS
                                                            B. Westerbaan
                                                               Cloudflare
-                                                             27 May 2025
+                                                            11 July 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -20,9 +20,9 @@ Abstract
 
    The Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) is a
    quantum-resistant key-encapsulation mechanism (KEM).  This document
-   describes the conventions for using the ML-KEM in X.509 Public Key
+   specifies the conventions for using the ML-KEM in X.509 Public Key
    Infrastructure.  The conventions for the subject public keys and
-   private keys are also described.
+   private keys are also specified.
 
 About This Document
 
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 November 2025.
+   This Internet-Draft will expire on 12 January 2026.
 
 Copyright Notice
 
@@ -552,18 +552,18 @@ Table of Contents
    [I-D.ietf-lamps-cms-kyber]
               Prat, J., Ounsworth, M., and D. Van Geest, "Use of ML-KEM
               in the Cryptographic Message Syntax (CMS)", Work in
-              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-09,
-              22 April 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-lamps-cms-kyber-09>.
+              Progress, Internet-Draft, draft-ietf-lamps-cms-kyber-11, 1
+              July 2025, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-lamps-cms-kyber-11>.
 
    [I-D.ietf-lamps-dilithium-certificates]
               Massimo, J., Kampanakis, P., Turner, S., and B.
               Westerbaan, "Internet X.509 Public Key Infrastructure -
               Algorithm Identifiers for the Module-Lattice-Based Digital
               Signature Algorithm (ML-DSA)", Work in Progress, Internet-
-              Draft, draft-ietf-lamps-dilithium-certificates-11, 22 May
+              Draft, draft-ietf-lamps-dilithium-certificates-12, 26 June
               2025, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              lamps-dilithium-certificates-11>.
+              lamps-dilithium-certificates-12>.
 
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations]
               Fluhrer, S., Dang, Q., Mattsson, J. P., Milner, K., and D.
