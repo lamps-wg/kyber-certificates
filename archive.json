@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-10T01:38:29.470771+00:00",
+  "timestamp": "2025-07-13T01:48:03.421206+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -8558,7 +8558,7 @@
       "labels": [],
       "body": "https://mailarchive.ietf.org/arch/msg/spasm/2WVVM-biKPSJBbccFPAKk6REzD8/",
       "createdAt": "2025-06-10T13:18:28Z",
-      "updatedAt": "2025-06-26T18:19:49Z",
+      "updatedAt": "2025-07-11T11:42:17Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "e0d4f3bd8e99ba679c4207132cc38ed0e0943c1e",
@@ -8569,7 +8569,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Can we merge this one?",
+          "createdAt": "2025-07-11T11:42:17Z",
+          "updatedAt": "2025-07-11T11:42:17Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOGV9y2s6tvhL2",
@@ -8670,24 +8678,26 @@
       "id": "PR_kwDOGV9y2s6c5tEZ",
       "title": "Partly addresses Boucadair's comments",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/127",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bwesterb",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-07-01T12:52:42Z",
-      "updatedAt": "2025-07-04T12:54:06Z",
+      "updatedAt": "2025-07-11T11:40:54Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "e0d4f3bd8e99ba679c4207132cc38ed0e0943c1e",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "boucadair",
       "headRefOid": "4d9b1b142f5aa99abc8b50d6670e12f8c547e982",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-07-11T11:40:54Z",
+      "mergedAt": "2025-07-11T11:40:54Z",
+      "mergedBy": "bwesterb",
+      "mergeCommit": {
+        "oid": "87cf5f4032bbcfc629a21df672c6ed3033ca9ae6"
+      },
       "comments": [],
       "reviews": [
         {
@@ -8723,24 +8733,26 @@
       "id": "PR_kwDOGV9y2s6d7SQE",
       "title": "\u00c9ric Vyncke's suggestion",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/128",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bwesterb",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-07-08T11:29:01Z",
-      "updatedAt": "2025-07-08T12:18:09Z",
+      "updatedAt": "2025-07-11T11:40:42Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "e0d4f3bd8e99ba679c4207132cc38ed0e0943c1e",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "bas/vyncke",
       "headRefOid": "0eb963c7ea9af317d4b24b2b4c230dd72e227fd5",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-07-11T11:40:42Z",
+      "mergedAt": "2025-07-11T11:40:42Z",
+      "mergedBy": "bwesterb",
+      "mergeCommit": {
+        "oid": "f1b2e2eabfaab4c99924617529bb3e999ba85f0f"
+      },
       "comments": [],
       "reviews": [
         {
