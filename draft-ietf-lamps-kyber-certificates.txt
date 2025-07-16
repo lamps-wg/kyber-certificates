@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 15 January 2026                                      J. Massimo
+Expires: 17 January 2026                                      J. Massimo
                                                                      AWS
                                                         B. E. Westerbaan
                                                               Cloudflare
-                                                            14 July 2025
+                                                            16 July 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 January 2026.
+   This Internet-Draft will expire on 17 January 2026.
 
 Copyright Notice
 
@@ -185,10 +185,6 @@ Table of Contents
          subjectPublicKey BIT STRING
      }
 
-      |  NOTE: The above syntax is from [RFC5912] and is compatible with
-      |  the 2021 ASN.1 syntax [X680].  See [RFC5280] for the 1988 ASN.1
-      |  syntax.
-
    The fields in SubjectPublicKeyInfo have the following meaning:
 
    *  algorithm is the algorithm identifier and parameters for the
@@ -196,7 +192,8 @@ Table of Contents
 
    *  subjectPublicKey contains the byte stream of the public key.
 
-   The PUBLIC-KEY ASN.1 type for ML-KEM are defined here:
+   For each ML-KEM parameter set, see Table 1, we define a PUBLIC-KEY
+   ASN.1 type as follows.
 
      pk-ml-kem-512 PUBLIC-KEY ::= {
        IDENTIFIER id-alg-ml-kem-512
@@ -228,10 +225,6 @@ Table of Contents
 
      ML-KEM-1024-PublicKey ::= OCTET STRING (SIZE (1568))
 
-      |  NOTE: The above syntax is from [RFC5912] and is compatible with
-      |  the 2021 ASN.1 syntax [X680].  See [RFC5280] for the 1988 ASN.1
-      |  syntax.
-
    When an ML-KEM public key appears outside of a SubjectPublicKeyInfo
    type in an environment that uses ASN.1 encoding, it can be encoded as
    an OCTET STRING by using the ML-KEM-512-PublicKey, ML-KEM-
@@ -258,7 +251,7 @@ Table of Contents
    certificate extension; see Section 4.2.1.3 of [RFC5280].  If the
    keyUsage extension is present in certificates, then keyEncipherement
    MUST be the only key usage set for certificates that indicate id-alg-
-   ml-kem-* in SubjectPublicKeyInfo.
+   ml-kem-* in SubjectPublicKeyInfo, (with * either 512, 768, or 1024.)
 
 6.  Private Key Format
 
@@ -301,9 +294,6 @@ Table of Contents
        ...
      }
 
-      |  NOTE: The above syntax is from [RFC5958] and is compatible with
-      |  the 2021 ASN.1 syntax [X680].
-
    For ML-KEM private keys, the privateKey field in OneAsymmetricKey
    contains one of the following DER-encoded CHOICE structures.  The
    seed format is a fixed 64-byte OCTET STRING (66 bytes total with the
@@ -337,10 +327,6 @@ Table of Contents
          }
        }
 
-      |  NOTE: The above syntax is from [RFC5912] and is compatible with
-      |  the 2021 ASN.1 syntax [X680].  See [RFC5280] for the 1988 ASN.1
-      |  syntax.
-
    The CHOICE allows three representations of the private key:
 
    *  The seed format (tag [0]) contains just the 64-byte seed value
@@ -357,10 +343,6 @@ Table of Contents
       allowing for interoperability; some may want to use and retain the
       seed and others may only support expanded private keys.
 
-   When encoding an ML-KEM private key in a OneAsymmetricKey object, any
-   of these three formats may be used, though the seed format is
-   RECOMMENDED for storage efficiency.
-
    The privateKeyAlgorithm field uses the AlgorithmIdentifier structure
    with the appropriate OID as defined in Section 3.
 
@@ -374,7 +356,7 @@ Table of Contents
    be deterministically derived from the seed using ML-
    KEM.KeyGen_internal(d,z) (algorithm 16) using the first 32 octets as
    _d_ and the remaining 32 octets as _z_.  Alternatively, the public
-   key can be extracted from the extended private key.  While the
+   key can be extracted from the expanded private key.  While the
    publicKey field and expandedKey format are technically redundant when
    using the seed-only format, they MAY be included to enable keypair
    consistency checks during import operations.
@@ -459,9 +441,8 @@ Table of Contents
    random numbers is difficult, and [RFC4086] offers important guidance
    in this area.
 
-   ML-KEM key generation as standardized in [FIPS203] has specific
-   requirements around randomness generation, described in section 3.3,
-   'Randomness generation'.
+   ML-KEM key generation has specific requirements around randomness
+   generation as described in section 3.3 of [FIPS203].
 
    Many protocols only rely on the IND-CCA security of a KEM.  Some
    (implicitly) require further binding properties, formalized in
@@ -470,12 +451,11 @@ Table of Contents
    secure when using the expanded private key format, but not MAL-BIND-
    K-CT nor MAL-BIND-K-PK.  Using the 64-byte seed format provides a
    step up in binding security, additionally providing MAL-BIND-K-CT
-   security, but still not MAL-BIND-K-PK.  For more guidance, see
-   [I-D.sfluhrer-cfrg-ml-kem-security-considerations].
+   security, but still not MAL-BIND-K-PK.
 
-   For more detailed ML-KEM specific security considerations refer to
-   regarding randmoness, misbinding properies, decapsulation failures,
-   key reuse, and key checks, refer to
+   For more detailed ML-KEM specific security considerations regarding
+   this, randomness, misbinding properties, decapsulation failures, key
+   reuse, and key checks, refer to
    [I-D.sfluhrer-cfrg-ml-kem-security-considerations].
 
 10.  IANA Considerations
