@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-15T01:44:24.941119+00:00",
+  "timestamp": "2025-07-17T01:41:57.787780+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -8777,26 +8777,42 @@
       "id": "PR_kwDOGV9y2s6e0XmE",
       "title": "Address final (hoping I didn't miss any) comments",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/129",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bwesterb",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-07-14T14:52:06Z",
-      "updatedAt": "2025-07-14T14:52:06Z",
+      "updatedAt": "2025-07-16T14:09:50Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "dd2d2c5b45d6f491dceaad1a1d062e8b6b972980",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "bas/final-stretch",
       "headRefOid": "8fc6b75ec7d45350c7a4b8a7182ae293d7ad58c3",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-07-16T14:09:50Z",
+      "mergedAt": "2025-07-16T14:09:50Z",
+      "mergedBy": "bwesterb",
+      "mergeCommit": {
+        "oid": "29f3215b5d0211bf7d2209d2896c755c5d998b29"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s6z6E-9",
+          "commit": {
+            "abbreviatedOid": "8fc6b75"
+          },
+          "author": "csosto-pk",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-07-15T02:58:37Z",
+          "updatedAt": "2025-07-15T02:58:37Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
