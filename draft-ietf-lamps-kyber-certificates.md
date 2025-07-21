@@ -73,6 +73,13 @@ normative:
     seriesinfo:
       ITU-T Recommendation: X.690
       ISO/IEC: 8825-1:2021
+ CSOR:
+     target: https://csrc.nist.gov/projects/computer-security-objects-register/algorithm-registration
+     title: Computer Security Objects Register
+     author:
+       name: National Institute of Standards and Technology
+       ins: NIST
+     date: 2024-08-20
 
 informative:
   CDM23:
@@ -171,7 +178,7 @@ The fields in `AlgorithmIdentifier` have the following meanings:
   the algorithm identifier in the `algorithm` field.
 
 The `AlgorithmIdentifier` for an ML-KEM public key MUST use one of the
-`id-alg-ml-kem` object identifiers (OID) listed below, based on the security
+`id-alg-ml-kem` object identifiers (OID) from NIST {{CSOR}} listed below, based on the security
 level. The `parameters` field of the `AlgorithmIdentifier` for the ML-KEM
 public key MUST be absent.
 
@@ -443,10 +450,8 @@ values can result in little or no security.  An attacker may find it
 much easier to reproduce the PRNG environment that produced the keys,
 searching the resulting small set of possibilities, rather than brute
 force searching the whole key space.  The generation of quality
-random numbers is difficult, and {{?RFC4086}} offers important guidance
-in this area.
-
-ML-KEM key generation has specific requirements around randomness generation
+random numbers is difficult. ML-KEM key generation has specific
+requirements around randomness generation
 as described in section 3.3 of {{FIPS203}}.
 
 Many protocols only rely on the IND-CCA security of a KEM. Some
