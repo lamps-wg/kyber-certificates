@@ -73,7 +73,7 @@ normative:
     seriesinfo:
       ITU-T Recommendation: X.690
       ISO/IEC: 8825-1:2021
- CSOR:
+  CSOR:
      target: https://csrc.nist.gov/projects/computer-security-objects-register/algorithm-registration
      title: Computer Security Objects Register
      author:
