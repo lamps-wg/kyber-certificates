@@ -5,11 +5,11 @@
 LAMPS                                                          S. Turner
 Internet-Draft                                                     sn3rd
 Intended status: Standards Track                           P. Kampanakis
-Expires: 17 January 2026                                      J. Massimo
+Expires: 23 January 2026                                      J. Massimo
                                                                      AWS
                                                         B. E. Westerbaan
                                                               Cloudflare
-                                                            16 July 2025
+                                                            22 July 2025
 
 
 Internet X.509 Public Key Infrastructure - Algorithm Identifiers for the
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 January 2026.
+   This Internet-Draft will expire on 23 January 2026.
 
 Copyright Notice
 
@@ -159,9 +159,9 @@ Table of Contents
       the algorithm identifier in the algorithm field.
 
    The AlgorithmIdentifier for an ML-KEM public key MUST use one of the
-   id-alg-ml-kem object identifiers (OID) listed below, based on the
-   security level.  The parameters field of the AlgorithmIdentifier for
-   the ML-KEM public key MUST be absent.
+   id-alg-ml-kem object identifiers (OID) from NIST [CSOR] listed below,
+   based on the security level.  The parameters field of the
+   AlgorithmIdentifier for the ML-KEM public key MUST be absent.
 
      nistAlgorithms OBJECT IDENTIFIER ::= { joint-iso-ccitt(2)
        country(16) us(840) organization(1) gov(101) csor(3)
@@ -438,11 +438,9 @@ Table of Contents
    much easier to reproduce the PRNG environment that produced the keys,
    searching the resulting small set of possibilities, rather than brute
    force searching the whole key space.  The generation of quality
-   random numbers is difficult, and [RFC4086] offers important guidance
-   in this area.
-
-   ML-KEM key generation has specific requirements around randomness
-   generation as described in section 3.3 of [FIPS203].
+   random numbers is difficult.  ML-KEM key generation has specific
+   requirements around randomness generation as described in section 3.3
+   of [FIPS203].
 
    Many protocols only rely on the IND-CCA security of a KEM.  Some
    (implicitly) require further binding properties, formalized in
@@ -469,6 +467,10 @@ Table of Contents
 11.  References
 
 11.1.  Normative References
+
+   [CSOR]     NIST, "Computer Security Objects Register", 20 August
+              2024, <https://csrc.nist.gov/projects/computer-security-
+              objects-register/algorithm-registration>.
 
    [FIPS203]  "Module-lattice-based key-encapsulation mechanism
               standard", National Institute of Standards and Technology
@@ -563,11 +565,6 @@ Table of Contents
               "Post-Quantum Cryptography Project", 20 December 2016,
               <https://csrc.nist.gov/projects/post-quantum-
               cryptography>.
-
-   [RFC4086]  Eastlake 3rd, D., Schiller, J., and S. Crocker,
-              "Randomness Requirements for Security", BCP 106, RFC 4086,
-              DOI 10.17487/RFC4086, June 2005,
-              <https://www.rfc-editor.org/rfc/rfc4086>.
 
    [RFC7468]  Josefsson, S. and S. Leonard, "Textual Encodings of PKIX,
               PKCS, and CMS Structures", RFC 7468, DOI 10.17487/RFC7468,
