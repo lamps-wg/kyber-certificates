@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-17T01:41:57.787780+00:00",
+  "timestamp": "2025-07-22T01:42:11.636242+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -8810,6 +8810,79 @@
           "body": "",
           "createdAt": "2025-07-15T02:58:37Z",
           "updatedAt": "2025-07-15T02:58:37Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 130,
+      "id": "PR_kwDOGV9y2s6f0hrC",
+      "title": "Med's comments",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/130",
+      "state": "OPEN",
+      "author": "seanturner",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Med had these comments on -dilithium-certificates that equally apply here:\r\n\r\n- referring to NIST registry\r\n- removing reference to RFC 4086",
+      "createdAt": "2025-07-21T10:10:46Z",
+      "updatedAt": "2025-07-21T14:04:02Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "29f3215b5d0211bf7d2209d2896c755c5d998b29",
+      "headRepository": "lamps-wg/kyber-certificates",
+      "headRefName": "seanturner-additional-tweaks",
+      "headRefOid": "1df206d9ea534912547bc180ce2cc08d5c0d2a11",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s61Czrv",
+          "commit": {
+            "abbreviatedOid": "2e2517c"
+          },
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-21T10:14:46Z",
+          "updatedAt": "2025-07-21T10:14:46Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "```suggestion\r\n  CSOR:\r\n     target: https://csrc.nist.gov/projects/computer-security-objects-register/algorithm-registration\r\n     title: Computer Security Objects Register\r\n     author:\r\n       name: National Institute of Standards and Technology\r\n       ins: NIST\r\n     date: 2024-08-20\r\n```",
+              "createdAt": "2025-07-21T10:14:46Z",
+              "updatedAt": "2025-07-21T10:14:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGV9y2s61EOWA",
+          "commit": {
+            "abbreviatedOid": "1df206d"
+          },
+          "author": "bwesterb",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-07-21T12:04:20Z",
+          "updatedAt": "2025-07-21T12:04:20Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s61GDgc",
+          "commit": {
+            "abbreviatedOid": "1df206d"
+          },
+          "author": "csosto-pk",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-07-21T14:04:02Z",
+          "updatedAt": "2025-07-21T14:04:02Z",
           "comments": []
         }
       ]
