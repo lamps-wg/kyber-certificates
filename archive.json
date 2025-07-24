@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-22T01:42:11.636242+00:00",
+  "timestamp": "2025-07-24T01:42:22.389952+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -8819,24 +8819,26 @@
       "id": "PR_kwDOGV9y2s6f0hrC",
       "title": "Med's comments",
       "url": "https://github.com/lamps-wg/kyber-certificates/pull/130",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Med had these comments on -dilithium-certificates that equally apply here:\r\n\r\n- referring to NIST registry\r\n- removing reference to RFC 4086",
       "createdAt": "2025-07-21T10:10:46Z",
-      "updatedAt": "2025-07-21T14:04:02Z",
+      "updatedAt": "2025-07-22T18:35:33Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "29f3215b5d0211bf7d2209d2896c755c5d998b29",
       "headRepository": "lamps-wg/kyber-certificates",
       "headRefName": "seanturner-additional-tweaks",
       "headRefOid": "1df206d9ea534912547bc180ce2cc08d5c0d2a11",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-07-22T18:35:33Z",
+      "mergedAt": "2025-07-22T18:35:33Z",
+      "mergedBy": "seanturner",
+      "mergeCommit": {
+        "oid": "624bcaa4bd9ea9e72de5b51d81ce2d90cbd7e54a"
+      },
       "comments": [],
       "reviews": [
         {
