@@ -531,7 +531,7 @@ all derived from the same 64-byte seed:
 
 For each security level, we show the seed-only format (using a 
 context-specific `[0]` primitive tag with an implicit encoding of
- `OCTET STRING`), the expanded format, and both formats together.
+`OCTET STRING`), the expanded format, and both formats together.
 
 NOTE: All examples use the same seed value, showing how the same seed
 produces different expanded private keys for each security level.
