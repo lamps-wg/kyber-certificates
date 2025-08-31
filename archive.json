@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-24T01:42:22.389952+00:00",
+  "timestamp": "2025-08-31T01:25:46.686727+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -8885,6 +8885,59 @@
           "body": "",
           "createdAt": "2025-07-21T14:04:02Z",
           "updatedAt": "2025-07-21T14:04:02Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 131,
+      "id": "PR_kwDOGV9y2s6mDW0v",
+      "title": "Improve clarity on seed used for test vector generation",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/131",
+      "state": "OPEN",
+      "author": "jakemas",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Seed was incorrectly described as \"000102...1f\" which would be 32 bytes, not the 64 required for ML-KEM. This is corrected, and the clarity of generating the seed in general is improved from \"000102...3f\".",
+      "createdAt": "2025-08-29T20:20:37Z",
+      "updatedAt": "2025-08-29T21:20:26Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "624bcaa4bd9ea9e72de5b51d81ce2d90cbd7e54a",
+      "headRepository": "jakemas/kyber-certificates",
+      "headRefName": "mlkem-seed",
+      "headRefOid": "1052903748b5f5b235bd969b6b774f54b77065d4",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s689sTK",
+          "commit": {
+            "abbreviatedOid": "1052903"
+          },
+          "author": "csosto-pk",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "I think this one is fine. But let's not merge it until AUTH44. ",
+          "createdAt": "2025-08-29T21:19:02Z",
+          "updatedAt": "2025-08-29T21:20:18Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGV9y2s689tvH",
+          "commit": {
+            "abbreviatedOid": "1052903"
+          },
+          "author": "csosto-pk",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-08-29T21:20:26Z",
+          "updatedAt": "2025-08-29T21:20:26Z",
           "comments": []
         }
       ]
