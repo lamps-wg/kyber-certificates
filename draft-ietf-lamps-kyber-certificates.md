@@ -670,7 +670,7 @@ followed by the so-called "pretty print"; the public keys are the same.
   {{?I-D.ietf-lamps-dilithium-certificates}} with a reference to the published RFC.
 </aside>
 
-The following is the ML-KEM-512 certificate that corresponding to the
+The following is the ML-KEM-512 certificate corresponding to the
 public key in the previous section signed with the ML-DSA-44 private key
 from {{I-D.ietf-lamps-dilithium-certificates}}. The textual encoding {{RFC7468}}
 is followed by the so-called "pretty print"; the certificates are the same.
@@ -688,7 +688,7 @@ is followed by the so-called "pretty print"; the certificates are the same.
   {{I-D.ietf-lamps-dilithium-certificates}} with a reference to the published RFC.
 </aside>
 
-The following is the ML-KEM-768 certificate that corresponding to the
+The following is the ML-KEM-768 certificate corresponding to the
 public key in the previous section signed with the ML-DSA-65 private key
 from {{I-D.ietf-lamps-dilithium-certificates}}. The textual encoding {{RFC7468}}
 is followed by the so-called "pretty print"; the certificates are the same.
@@ -706,7 +706,7 @@ is followed by the so-called "pretty print"; the certificates are the same.
   {{I-D.ietf-lamps-dilithium-certificates}} with a reference to the published RFC.
 </aside>
 
-The following is the ML-KEM-1024 certificate that corresponding to the
+The following is the ML-KEM-1024 certificate corresponding to the
 public key in the previous section signed with the ML-DSA-87 private key
 from {{I-D.ietf-lamps-dilithium-certificates}}. The textual encoding {{RFC7468}}
 is followed by the so-called "pretty print"; the certificates are the same.
