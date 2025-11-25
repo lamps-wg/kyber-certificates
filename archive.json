@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-08-31T01:25:46.686727+00:00",
+  "timestamp": "2025-11-25T01:25:11.044434+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -8938,6 +8938,46 @@
           "body": "",
           "createdAt": "2025-08-29T21:20:26Z",
           "updatedAt": "2025-08-29T21:20:26Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 132,
+      "id": "PR_kwDOGV9y2s61N6ex",
+      "title": "Minor grammatical fixes",
+      "url": "https://github.com/lamps-wg/kyber-certificates/pull/132",
+      "state": "OPEN",
+      "author": "peterdettman",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Remove unnecessary \"that\" (x3).",
+      "createdAt": "2025-11-24T14:48:35Z",
+      "updatedAt": "2025-11-24T15:29:25Z",
+      "baseRepository": "lamps-wg/kyber-certificates",
+      "baseRefName": "main",
+      "baseRefOid": "624bcaa4bd9ea9e72de5b51d81ce2d90cbd7e54a",
+      "headRepository": "peterdettman/kyber-certificates",
+      "headRefName": "patch-1",
+      "headRefOid": "6c0b2f700f305670d5d74e8e9a8f27c1223906a3",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGV9y2s7QrQhY",
+          "commit": {
+            "abbreviatedOid": "6c0b2f7"
+          },
+          "author": "csosto-pk",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-11-24T15:29:25Z",
+          "updatedAt": "2025-11-24T15:29:25Z",
           "comments": []
         }
       ]
