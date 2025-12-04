@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-30T01:43:18.967688+00:00",
+  "timestamp": "2025-12-04T01:27:43.365348+00:00",
   "repo": "lamps-wg/kyber-certificates",
   "labels": [
     {
@@ -8954,7 +8954,7 @@
       "labels": [],
       "body": "Remove unnecessary \"that\" (x3).",
       "createdAt": "2025-11-24T14:48:35Z",
-      "updatedAt": "2025-11-27T17:31:34Z",
+      "updatedAt": "2025-12-03T15:00:45Z",
       "baseRepository": "lamps-wg/kyber-certificates",
       "baseRefName": "main",
       "baseRefOid": "624bcaa4bd9ea9e72de5b51d81ce2d90cbd7e54a",
@@ -8965,7 +8965,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "seanturner",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We're in the RFC editor queue, process now - but the authors will make sure they get this one fixed!  We'll hold off on merging this.",
+          "createdAt": "2025-12-03T15:00:45Z",
+          "updatedAt": "2025-12-03T15:00:45Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOGV9y2s7QrQhY",
